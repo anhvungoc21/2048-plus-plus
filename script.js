@@ -1,7 +1,46 @@
 import Grid from "./Grid.js";
 import Tile from "./Tile.js";
 
+// TODO:
+/*
+- Fix scaling for board -- No hard-coded values for cellSize
+- Implement color buttons
+- Implement score updating
+*/
+
+// Elements
 const gameBoard = document.getElementById("game-board");
+const scoreBoard = document.getElementById("score-board");
+const btnAdd = document.querySelector(".add");
+
+function fadeIn(el, time) {
+  el.style.opacity = 0;
+
+  var last = +new Date();
+  var tick = function () {
+    el.style.opacity = +el.style.opacity + (new Date() - last) / time;
+    last = +new Date();
+
+    if (+el.style.opacity < 1) {
+      (window.requestAnimationFrame && requestAnimationFrame(tick)) ||
+        setTimeout(tick, 16);
+    }
+  };
+
+  tick();
+}
+
+btnAdd.addEventListener("click", function () {
+  const html = document.createElement("span");
+  html.classList.add("plus-one");
+  html.innerHTML = "+1";
+  scoreBoard.append(html);
+  fadeIn(html, "1000");
+  setTimeout(function () {
+    html.remove();
+  }, 2000);
+});
+
 const grid = new Grid(gameBoard);
 
 grid.randomEmptyCell().tile = new Tile(gameBoard);

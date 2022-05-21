@@ -1,13 +1,17 @@
-import { GRID_SIZE, CELL_SIZE, CELL_GAP } from "./config.js";
+import { GRID_SIZE } from "./config.js";
 import Cell from "./Cell.js";
 
 export default class Grid {
   #cells;
   constructor(gridElement) {
     // CSS variables
+    let cellSize;
     gridElement.style.setProperty("--grid-size", GRID_SIZE);
-    gridElement.style.setProperty("--cell-size", `${CELL_SIZE}vmin`);
-    gridElement.style.setProperty("--cell-gap", `${CELL_GAP}vmin`);
+    if (GRID_SIZE == 4) cellSize = 20;
+    if (GRID_SIZE == 5) cellSize = 16;
+    if (GRID_SIZE == 6) cellSize = 13;
+    gridElement.style.setProperty("--cell-size", `${cellSize}vmin`);
+    gridElement.style.setProperty("--cell-gap", `${cellSize / 10}vmin`);
 
     // Create cell elements based on Grid size
     this.#cells = createCellElements(gridElement).map((cellElement, index) => {
