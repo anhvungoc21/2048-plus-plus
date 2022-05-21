@@ -1,0 +1,61 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box; /* Takes into account padding, etc. -> Easier to do everything*/
+  font-family: Arial;
+}
+
+/* Set general attributes like font-size, etc. here*/
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #333;
+  height: 100vh;
+  margin: 0; /*Since height = 100vh, having no margin ensures that there's no scrolling*/
+  font-size: 7.5vmin;
+}
+
+#game-board {
+  display: grid;
+  position: relative; /*Tiles' positions will be absolute RELATIVE to the game board*/
+  grid-template-columns: repeat(var(--grid-size), var(--cell-size));
+  grid-template-rows: repeat(var(--grid-size), var(--cell-size));
+  background-color: #ccc;
+  gap: var(--cell-gap);
+  border-radius: 1vmin;
+  padding: var(--cell-gap);
+}
+
+.cell {
+  background-color: #aaa;
+  border-radius: 1vmin;
+}
+
+.tile {
+  --background-lightness: 72%;
+  --text-lightness: 18%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: var(--cell-size);
+  height: var(--cell-size);
+  border-radius: 1vmin;
+  /* Calculate position based on x and y index */
+  top: calc(var(--y) * (var(--cell-size) + var(--cell-gap)) + var(--cell-gap));
+  left: calc(var(--x) * (var(--cell-size) + var(--cell-gap)) + var(--cell-gap));
+
+  font-weight: bold;
+  background-color: hsla(53, 68%, var(--background-lightness), 1);
+  color: hsla(53, 34%, var(--text-lightness), 1);
+  animation: show 200ms ease-in-out;
+  transition: 100ms ease-in-out;
+}
+
+@keyframes show {
+  0% {
+    opacity: 0.5;
+    transform: scale(0);
+  }
+}
