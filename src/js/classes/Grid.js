@@ -1,4 +1,4 @@
-import { GRID_SIZE } from "./config.js";
+import { GRID_SIZE } from "../config.js";
 import Cell from "./Cell.js";
 
 export default class Grid {

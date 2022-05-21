@@ -1,5 +1,5 @@
-import Grid from "./Grid.js";
-import Tile from "./Tile.js";
+import Grid from "./classes/Grid.js";
+import Tile from "./classes/Tile.js";
 
 // TODO:
 /*
