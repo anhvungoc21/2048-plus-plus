@@ -11,7 +11,6 @@ import Tile from "./classes/Tile.js";
 // Elements
 const gameBoard = document.getElementById("game-board");
 const scoreBoard = document.getElementById("score-board");
-const btnAdd = document.querySelector(".add");
 
 function fadeIn(el, time) {
   el.style.opacity = 0;
@@ -29,17 +28,6 @@ function fadeIn(el, time) {
 
   tick();
 }
-
-btnAdd.addEventListener("click", function () {
-  const html = document.createElement("span");
-  html.classList.add("plus-one");
-  html.innerHTML = "+1";
-  scoreBoard.append(html);
-  fadeIn(html, "1000");
-  setTimeout(function () {
-    html.remove();
-  }, 2000);
-});
 
 const grid = new Grid(gameBoard);
 
@@ -91,7 +79,9 @@ async function handleInput(e) {
   }
 
   // Need to await CSS animation to finish before merging tiles
-  grid.cells.forEach((cell) => cell.mergeTiles());
+  grid.cells.forEach((cell) => {
+    cell.mergeTiles();
+  });
 
   const newTile = new Tile(gameBoard);
   grid.randomEmptyCell().tile = newTile;
@@ -181,6 +171,8 @@ function slideTiles(cells) {
           if (lastValidCell.tile != null) {
             // Cell has tile
             lastValidCell.mergeTile = cell.tile;
+            updateScore(lastValidCell.tile);
+            updateScore(cell.tile);
           } else {
             // Empty Cell
             lastValidCell.tile = cell.tile;
@@ -191,6 +183,21 @@ function slideTiles(cells) {
       return promises;
     })
   );
+}
+
+function updateScore(tile) {
+  const scoreAdd = tile.value;
+  scoreBoard.dataset.score = parseInt(scoreBoard.dataset.score) + scoreAdd;
+  scoreBoard.textContent = scoreBoard.dataset.score;
+
+  const html = document.createElement("span");
+  html.classList.add("plus-one");
+  html.innerHTML = `+${scoreAdd}`;
+  scoreBoard.append(html);
+  fadeIn(html, "200");
+  setTimeout(function () {
+    html.remove();
+  }, 1000);
 }
 
 setupInput();
