@@ -1,5 +1,5 @@
 # 2048-plus-plus (Under Development)
-An exciting and customizable version of the game 2048!
+An hyped-up and customizable version of the game 2048!
 
 _Demo:_ https://2048-plus-plus.netlify.app/
 
