@@ -11,7 +11,7 @@ This project of mine is under development, but feel free to check out the demo!
 ## Features to be implemented
 - **Hype/Combo bar**: When the player quickly merges multiple tiles in a short amount of time, the value of the tiles spawned will be increased. I hope this creates a bigger incentive for players to speedrun the game!
 - **Customizable color themes**: Players should be able to choose a color theme of their liking, instead of simply using the default color of the original 2048
-
+- **Better score display & animation**
 ---
 
 Feel free to contact me if you have any questions or suggestions about any features of the game. Have fun!
