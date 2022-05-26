@@ -6,7 +6,7 @@ _Demo:_ https://2048-plus-plus.netlify.app/
 ## Introduction
 Hi there! Thanks for checking out my take on 2048. 
 
-This is a project under development, but feel free to check out the demo, which should always have a functional 2048 game (and some WIP visuals...)!
+This project of mine is under development, but feel free to check out the demo!
 
 ## Features to be implemented
 - **Hype/Combo bar**: When the player quickly merges multiple tiles in a short amount of time, the value of the tiles spawned will be increased. I hope this creates a bigger incentive for players to speedrun the game!
