@@ -4,17 +4,23 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>2048++</title>
     <link href="./src/css/styles.css" rel="stylesheet" />
     <script type="module" defer src="./src/js/script.js"></script>
   </head>
   <body>
     <div id="nav-bar">
-      <div id="color-choice">Color choice:</div>
+      <div id="settings">
+        <button id="btn--settings-dropdown">
+          <img src="./src/svg/hamburgerMenu.svg" />
+        </button>
+        <div id="settings-dropdown" class="dropdown-content">
+          <button class="dropdown-item" id="set--boardsize">Board Size</button>
+          <button class="dropdown-item" id="set--color">Colors</button>
+        </div>
+      </div>
       <div id="title">2048++</div>
-      <!-- <div id="container"> -->
-        <div id="score-board" data-score="0">0</div>
-      <!-- </div> -->
+      <div id="score-board" data-score="0">Score: 0</div>
     </div>
     <div id="game-board"></div>
   </body>

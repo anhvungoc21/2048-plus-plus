@@ -1,17 +1,15 @@
-import { GRID_SIZE } from "../config.js";
+import { GRID_SIZE, PERCENT_VH_MAIN } from "../config.js";
 import Cell from "./Cell.js";
 
 export default class Grid {
   #cells;
   constructor(gridElement) {
     // CSS variables
-    let cellSize;
     gridElement.style.setProperty("--grid-size", GRID_SIZE);
-    if (GRID_SIZE == 4) cellSize = 20;
-    if (GRID_SIZE == 5) cellSize = 16;
-    if (GRID_SIZE == 6) cellSize = 13;
-    gridElement.style.setProperty("--cell-size", `${cellSize}vmin`);
-    gridElement.style.setProperty("--cell-gap", `${cellSize / 10}vmin`);
+    const cellSize = PERCENT_VH_MAIN / GRID_SIZE;
+
+    gridElement.style.setProperty("--cell-size", `${cellSize}vh`);
+    gridElement.style.setProperty("--cell-gap", `${cellSize / 10}vh`);
 
     // Create cell elements based on Grid size
     this.#cells = createCellElements(gridElement).map((cellElement, index) => {

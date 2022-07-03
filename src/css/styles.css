@@ -1,30 +1,40 @@
 *,
 *::before,
 *::after {
-  box-sizing: border-box; /* Takes into account padding, etc. -> Easier to do everything*/
+  box-sizing: border-box; /* Takes into account padding, etc. -> Easier to do everything */
   font-family: Arial;
 }
 
-/* Set general attributes like font-size, etc. here*/
+/* Set general attributes like font-size, etc. here */
 body {
   display: flex;
   flex-direction: column;
-  /* justify-content: center;
-  align-items: center; */
+  justify-content: center;
+  align-items: center;
   background-color: #333;
-  /* height: 100vh; */
-  margin: 0; /*Since height = 100vh, having no margin ensures that there's no scrolling*/
+  height: 100vh;
+  margin: 0; /* Since height = 100vh, having no margin ensures that there's no scrolling*/
   font-size: 7.5vmin;
+  height: 100vh;
+  width: 100vw;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  overflow-y: scroll;
 }
 
-#color-choice {
-  color: white;
+body::-webkit-scrollbar {
+  display: none;
 }
 
+/* NAV BAR */
 #nav-bar {
   display: grid;
   grid-template-columns: 30vw 40vw 30vw;
   font-size: medium;
+  justify-items: center;
+  align-items: center;
+  padding-top: 3vh;
+  padding-bottom: 3vh;
 }
 
 #title {
@@ -34,16 +44,15 @@ body {
   font-weight: 600;
   font-size: 5vmin;
   color: white;
-  padding-top: 0.1em;
-  padding-bottom: 0.1em;
-  margin-bottom: 0.4em;
   pointer-events: none;
   user-select: none;
 }
 
+/* GAME BOARD */
+
 #game-board {
   display: grid;
-  position: relative; /*Tiles' positions will be absolute RELATIVE to the game board*/
+  position: relative; /* Tiles' positions will be absolute RELATIVE to the game board */
   place-self: center;
   grid-template-columns: repeat(var(--grid-size), var(--cell-size));
   grid-template-rows: repeat(var(--grid-size), var(--cell-size));
@@ -88,32 +97,72 @@ body {
   }
 }
 
-.container {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+/* SETTINGS */
+
+#settings {
+  color: white;
+  position: relative;
+  display: inline-block;
 }
 
+#btn--settings-dropdown {
+  background-color: gray;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+#btn--settings-dropdown:hover,
+#btn--settings-dropdown:focus {
+  background-color: gray;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: gray;
+  min-width: 160px;
+  z-index: 1;
+}
+
+.dropdown-item  {
+  color: white;
+  background: inherit;
+  width: 100%; 
+  height: 100%;
+  padding: 2vmin;
+  display: block;
+}
+
+.dropdown-item:hover {
+  background-color: #ddd;
+}
+
+.show {
+  display: block;
+}
+
+/* SCORE DISPLAY */
 #score-board {
   position: relative;
   display: flex;
-  width: 50px;
-  height: 50px;
-  /* display: inline-block; */
-  font-size: 3vw;
-  background-color: #eee;
-  /* vertical-align: middle; */
+  color: white;
+  background-color: inherit;
+  font-size: 2vw;
+  vertical-align: middle;
   place-content: center;
   align-items: center;
 }
 
 .plus-one {
-  color: #3f3f3f;
+  color: white;
   position: absolute;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  animation: fade-in-up 3s 1 ease;
+  left: 100%;
+  font-size: 1.5vw;
+  transform: translate(-25%, -70%);
+  animation: fade-in-up 2s 1 ease;
 }
 
 @keyframes fade-in-up {
