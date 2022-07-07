@@ -1,21 +1,16 @@
 import Grid from "./classes/Grid.js";
 import Tile from "./classes/Tile.js";
 
-import { setupInput } from "./helpers/handleInput.js"
-import { handleSettings } from "./helpers/handleSettings.js"
+import setupInput from "./helpers/handleInput.js"
+import handleNavbar from "./helpers/handleNavbar.js"
 
 // TODO:
 /*
-- Fix scaling for board -- No hard-coded values for cellSize
 - Implement color buttons
 - Implement score updating
 */
 
-/**
- * Sets up event listener for keydown events.
- * This event listener is used once. It is added back after handling each input in `handleInput`
- * @TODO: Allow for mobile swipe events with HTML5.
- */
+
 
 /**
  * Main function to set up and start game
@@ -37,4 +32,4 @@ function setupGame() {
 
 // Start Game:
 setupGame();
-handleSettings();
+handleNavbar();

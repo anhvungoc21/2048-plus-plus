@@ -7,13 +7,15 @@ import {
 import { moveUp, moveDown, moveLeft, moveRight } from "./moveTiles.js";
 import Tile from "../classes/Tile.js";
 
-function setupInput(grid, gameBoard) {
-  window.addEventListener("keydown", async (e) => await handleInput(e, grid, gameBoard), {
-    once: true,
-  });
-}
-
+/**
+ * Handle key pressing inputs from user
+ * @param {*} e Keydown event 
+ * @param {*} grid Game grid 
+ * @param {*} gameBoard Game gameBoard
+ * @returns null
+ */
 async function handleInput(e, grid, gameBoard) {
+  // Handle keydown inputs
   switch (e.key) {
     case "ArrowUp":
     case "w":
@@ -85,4 +87,16 @@ function checkHandleLoss(grid, gameBoard, lastTile) {
   }
 }
 
-export { setupInput, handleInput };
+/**
+ * /**
+ * Sets up event listener for keydown events.
+ * This event listener is used once. It is added back after handling each input in `handleInput`
+ * @TODO: Allow for mobile swipe events with HTML5.
+ * @param {*} grid Grid used for checking move validity. Grid is created from gameBoard
+ * @param {*} gameBoard Gameboard is used for putting new tiles in
+ */
+export default function setupInput(grid, gameBoard) {
+  window.addEventListener("keydown", async (e) => await handleInput(e, grid, gameBoard), {
+    once: true,
+  });
+}

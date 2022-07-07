@@ -7,18 +7,48 @@
     <title>2048++</title>
     <link href="./src/css/styles.css" rel="stylesheet" />
     <script type="module" defer src="./src/js/script.js"></script>
+    <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
   </head>
   <body>
-    <div id="nav-bar">
-      <div id="settings">
-        <button id="btn--settings-dropdown">
-          <img src="./src/svg/hamburgerMenu.svg" />
-        </button>
-        <div id="settings-dropdown" class="dropdown-content">
-          <button class="dropdown-item" id="set--boardsize">Board Size</button>
-          <button class="dropdown-item" id="set--color">Colors</button>
+    <div class="l-navbar" id="navbar">
+      <nav class="nav">
+        <div class="nav__brand">
+            <ion-icon name="menu-outline" class="nav__toggle nav__icon" id="nav-toggle"></ion-icon>
+            <a href="#" class="nav__title">Settings</a>
         </div>
-      </div>
+        <div class="nav__list">
+            <a href="#" class="nav__link">
+              <ion-icon name="contrast-outline" class="nav__icon"></ion-icon>
+              <span class="nav__name">Dark Mode</span>
+            </a>
+            <div id="set--board-size" class="nav__link collapse">
+              <ion-icon name="grid-outline" class="nav__icon"></ion-icon>
+              <span class="nav__name">Board Size</span>
+              <ion-icon name="chevron-down-outline" class="collapse__link nav__icon"></ion-icon>
+              <ul id="collapse--board-size" class="collapse__menu">
+                  <a href="#" class="collapse__sublink" data-board-size="4">4x4</a>
+                  <a href="#" class="collapse__sublink" data-board-size="5">5x5</a>
+                  <a href="#" class="collapse__sublink" data-board-size="6">6x6</a>
+              </ul>
+            </div>
+            <div id="set--color-pallete" class="nav__link collapse">
+              <ion-icon name="color-palette-outline" class="nav__icon"></ion-icon>
+              <span class="nav__name">Colors</span>
+              <ion-icon name="chevron-down-outline" class="collapse__link nav__icon"></ion-icon>
+              <ul id="collapse--color-pallette "class="collapse__menu">
+                  <a href="#" class="collapse__sublink" data-color="original">Original</a>
+                  <a href="#" class="collapse__sublink" data-color="blue">Blue</a>
+                  <a href="#" class="collapse__sublink" data-color="green">Green</a>
+              </ul>
+            </div>
+            <a href="#" class="nav__link">
+              <ion-icon name="log-out-outline" class="nav__icon"></ion-icon>
+              <span class="nav__name">Log Out</span>
+            </a>
+        </div>
+      </nav>
+    </div>
+    <div id="top-bar">
       <div id="title">2048++</div>
       <div id="score-board" data-score="0">Score: 0</div>
     </div>

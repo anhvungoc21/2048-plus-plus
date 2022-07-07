@@ -1,10 +1,15 @@
 const scoreBoard = document.getElementById("score-board");
 
+/**
+ * Fade element in until it reaches 1 opacity
+ * @param {*} el Element to fade in
+ * @param {*} time Time frames to increase element opacity
+ */
 function fadeIn(el, time) {
   el.style.opacity = 0;
 
-  var last = +new Date();
-  var tick = function () {
+  let last = +new Date();
+  const tick = function () {
     el.style.opacity = +el.style.opacity + (new Date() - last) / time;
     last = +new Date();
 
@@ -17,6 +22,10 @@ function fadeIn(el, time) {
   tick();
 }
 
+/**
+ * Updates score everytime a tile is merged
+ * @param {*} tile Tile that is recently added. FIXME: This is faulty. Need to add scores of merged tile.
+ */
 function updateScore(tile) {
   const scoreAdd = tile.value;
   scoreBoard.dataset.score = parseInt(scoreBoard.dataset.score) + scoreAdd;
@@ -28,7 +37,7 @@ function updateScore(tile) {
     oldScoreHtml.remove();
   }
 
-  // Add mew "plus-score" element
+  // Add new "plus-score" element
   const addScoreHtml = document.createElement("span");
   addScoreHtml.classList.add("plus-one");
   addScoreHtml.innerHTML = `+${scoreAdd}`;
