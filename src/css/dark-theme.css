@@ -160,6 +160,7 @@ ul {
   padding: 0;
   list-style: none;
 }
+
 /*===== l NAV =====*/
 .l-navbar {
   /* Fixed relative to the viewport. Top, right, bottom, left is used to position it*/
@@ -224,6 +225,7 @@ ul {
 }
 .nav__name {
   font-size: var(--small-font-size);
+  user-select: none;
 }
 
 /*Expander menu*/
@@ -233,27 +235,44 @@ ul {
 
 /*===== COLLAPSE =====*/
 .collapse {
-  grid-template-columns: 20px max-content 1fr;
+  grid-template-columns: max-content max-content 1fr;
 }
-.collapse__link {
+.collapse__icon {
   justify-self: flex-end;
   transition: 0.5s;
 }
 .collapse__menu {
   display: none;
-  padding: 0.75rem 2.25rem;
+  flex-direction: column;
+  grid-column-start: span 3;
+  padding-top: 0.5rem;
 }
 .collapse__sublink {
-  color: var(--white-color);
+  display: flex;
+  flex-direction: row;
+  width: max;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--black-color);
   font-size: var(--small-font-size);
+  height: 2.25rem;
+  border-radius: 0.3rem;
+  padding-left: 1rem;
+  transition: 0.3s;
 }
+
+.check__icon.hidden {
+  display: none;
+}
+
 .collapse__sublink:hover {
-  color: var(--white-color);
+  color: var(--black-color);
+  background-color: var(--cell-color)
 }
 
 /*Show collapse*/
 .showCollapse {
-  display: block;
+  display: flex;
 }
 
 /*Rotate icon*/
