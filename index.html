@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>2048++</title>
-    <link href="./src/css/styles.css" rel="stylesheet" />
+    <link href="./src/css/light-theme.css" rel="stylesheet" />
     <script type="module" defer src="./src/js/script.js"></script>
     <script
       type="module"
@@ -28,10 +28,14 @@
           <span class="nav__title">Settings</span>
         </div>
         <div class="nav__list">
-          <a id="set--dark-mode" href="#" class="nav__link">
+          <div id="set--dark-mode" href="#" class="nav__link">
             <ion-icon name="contrast-outline" class="nav__icon"></ion-icon>
             <span class="nav__name">Dark Mode</span>
-          </a>
+            <div class="switch--dark-mode">
+              <input type="checkbox" id="switch-dark" />
+              <label for="switch-dark"></label>
+            </div>
+          </div>
           <div id="set--board-size" class="nav__link collapse">
             <ion-icon name="grid-outline" class="nav__icon"></ion-icon>
             <span class="nav__name">Board Size</span>
@@ -45,14 +49,14 @@
               <a href="#" class="collapse__sublink" data-board-size="6">6x6</a>
             </ul>
           </div>
-          <div id="set--color-pallete" class="nav__link collapse">
+          <div id="set--colors" class="nav__link collapse">
             <ion-icon name="color-palette-outline" class="nav__icon"></ion-icon>
             <span class="nav__name">Colors</span>
             <ion-icon
               name="chevron-down-outline"
               class="collapse__link nav__icon"
             ></ion-icon>
-            <ul id="collapse--color-pallette " class="collapse__menu">
+            <ul id="collapse--colors " class="collapse__menu">
               <a href="#" class="collapse__sublink" data-color="original"
                 >Original</a
               >
