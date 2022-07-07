@@ -1,5 +1,6 @@
 import { updateScore } from "./updateScore.js";
 
+// FIXME: updateScore correctly
 function slideTiles(cells) {
   // Since we want moveUp/etc. to return a promise, slideTiles must also return promises
   return Promise.all(

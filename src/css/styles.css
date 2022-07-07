@@ -1,20 +1,39 @@
+// Google Poppins Font
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+
 *,
 *::before,
 *::after {
-  box-sizing: border-box; /* Takes into account padding, etc. -> Easier to do everything */
-  font-family: Arial;
+  box-sizing: border-box; /*Takes into account padding, etc. -> Easier to do everything */
 }
 
-/* Set general attributes like font-size, etc. here */
+:root {
+  --nav-width: 2%;
+  --primary-color: rgb(187, 173, 160);
+  --secondary-color: rgb(119, 110, 101);
+  --background-color: rgb(250, 248, 239);
+  --black-color: rgb(47, 44, 44);
+  --cell-color: rgba(238, 228, 218, 0.35);
+
+  /* Fonts */
+  --body-font: "Poppins", sans-serif;
+  --normal-font-size: 3.5rem;
+  --medium-font-size: 2rem;
+  --small-font-size: 1rem;
+
+  --z-fixed: 100;
+}
+
 body {
+  font-family: "Poppins", sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #333;
+  background-color: var(--background-color);
+  color: var(--primary-color);
   height: 100vh;
   margin: 0; /* Since height = 100vh, having no margin ensures that there's no scrolling*/
-  font-size: 7.5vmin;
   height: 100vh;
   width: 100vw;
   -ms-overflow-style: none;
@@ -26,11 +45,11 @@ body::-webkit-scrollbar {
   display: none;
 }
 
-/* NAV BAR */
-#nav-bar {
+/* TOP */
+#top-bar {
   display: grid;
   grid-template-columns: 30vw 40vw 30vw;
-  font-size: medium;
+  font-size: var(--small-font-size);
   justify-items: center;
   align-items: center;
   padding-top: 3vh;
@@ -42,8 +61,8 @@ body::-webkit-scrollbar {
   grid-column-end: 3;
   place-self: center;
   font-weight: 600;
-  font-size: 5vmin;
-  color: white;
+  font-size: var(--normal-font-size);
+  color: var(--secondary-color);
   pointer-events: none;
   user-select: none;
 }
@@ -56,22 +75,23 @@ body::-webkit-scrollbar {
   place-self: center;
   grid-template-columns: repeat(var(--grid-size), var(--cell-size));
   grid-template-rows: repeat(var(--grid-size), var(--cell-size));
-  background-color: #ccc;
+  background-color: var(--primary-color);
   gap: var(--cell-gap);
   border-radius: 1vmin;
   padding: var(--cell-gap);
-  font-size: 7.5vmin;
+  font-size: var(--normal-font-size);
   max-width: min-content;
 }
 
 .cell {
-  background-color: #aaa;
+  background-color: var(--cell-color);
   border-radius: 1vmin;
 }
 
 .tile {
   --background-lightness: 72%;
   --text-lightness: 18%;
+  font-weight: bold;
   position: absolute;
   display: flex;
   justify-content: center;
@@ -79,13 +99,15 @@ body::-webkit-scrollbar {
   width: var(--cell-size);
   height: var(--cell-size);
   border-radius: 1vmin;
-  /* Calculate position based on x and y index */
+
+  /* Calculate position based on x and y index of each tile*/
   top: calc(var(--y) * (var(--cell-size) + var(--cell-gap)) + var(--cell-gap));
   left: calc(var(--x) * (var(--cell-size) + var(--cell-gap)) + var(--cell-gap));
 
-  font-weight: bold;
+  /* TODO: Adjust colors */
   background-color: hsla(53, 68%, var(--background-lightness), 1);
   color: hsla(53, 34%, var(--text-lightness), 1);
+
   animation: show 200ms ease-in-out;
   transition: 100ms ease-in-out;
 }
@@ -97,70 +119,25 @@ body::-webkit-scrollbar {
   }
 }
 
-/* SETTINGS */
-
-#settings {
-  color: white;
-  position: relative;
-  display: inline-block;
-}
-
-#btn--settings-dropdown {
-  background-color: gray;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-}
-
-#btn--settings-dropdown:hover,
-#btn--settings-dropdown:focus {
-  background-color: gray;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: gray;
-  min-width: 160px;
-  z-index: 1;
-}
-
-.dropdown-item  {
-  color: white;
-  background: inherit;
-  width: 100%; 
-  height: 100%;
-  padding: 2vmin;
-  display: block;
-}
-
-.dropdown-item:hover {
-  background-color: #ddd;
-}
-
-.show {
-  display: block;
-}
-
 /* SCORE DISPLAY */
 #score-board {
   position: relative;
   display: flex;
-  color: white;
-  background-color: inherit;
-  font-size: 2vw;
   vertical-align: middle;
   place-content: center;
   align-items: center;
+  border-radius: 1vmin;
+  color: var(--black-color);
+  background-color: var(--primary-color);
+  font-size: var(--medium-font-size);
+  padding: 0.5rem;
 }
 
 .plus-one {
-  color: white;
+  color: var(--black-color);
   position: absolute;
   left: 100%;
-  font-size: 1.5vw;
+  font-size: var(--small-font-size);
   transform: translate(-25%, -70%);
   animation: fade-in-up 2s 1 ease;
 }
@@ -175,4 +152,124 @@ body::-webkit-scrollbar {
     top: -100%;
     opacity: 0;
   }
+}
+
+/* NAVIGATION BAR */
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/*===== l NAV =====*/
+.l-navbar {
+  /* Fixed relative to the viewport. Top, right, bottom, left is used to position it*/
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: var(--nav-width);
+  height: 100vh;
+  background-color: var(--primary-color);
+  color: var(--black-color);
+  padding: 1.5rem 2rem 1rem 2rem;
+  transition: 0.5s;
+  /* z-index: var(--z-fixed); */
+}
+
+/*===== NAV =====*/
+.nav {
+  height: 95%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  overflow: hidden;
+}
+.nav__brand {
+  display: grid;
+  grid-template-columns: max-content max-content;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 2rem;
+}
+.nav__toggle {
+  font-size: 1.25rem;
+  padding: 0.5rem;
+  padding-right: 0.75rem;
+  cursor: pointer;
+}
+.nav__title {
+  color: var(--black-color);
+  font-weight: 600;
+}
+.nav__link {
+  display: grid;
+  grid-template-columns: max-content max-content;
+  align-items: center;
+  column-gap: 0.75rem;
+  padding: 0.75rem;
+  padding-left: 0.5rem;
+  color: var(--black-color);
+  border-radius: 1vmin;
+  margin-bottom: 1rem;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.nav__link:hover {
+  background-color: var(--secondary-color);
+}
+.nav__icon {
+  font-size: 1.25rem;
+}
+.nav__name {
+  font-size: var(--small-font-size);
+}
+
+/*Expander menu*/
+.expander {
+  width: calc(var(--nav-width) + 9.25rem);
+}
+
+/*Add padding body*/
+.body-pd {
+  padding: 2rem 0 0 16rem;
+}
+
+/*Active links menu*/
+.active {
+  background-color: var(--secondary-color);
+}
+
+/*===== COLLAPSE =====*/
+.collapse {
+  grid-template-columns: 20px max-content 1fr;
+}
+.collapse__link {
+  justify-self: flex-end;
+  transition: 0.5s;
+}
+.collapse__menu {
+  display: none;
+  padding: 0.75rem 2.25rem;
+}
+.collapse__sublink {
+  color: var(--white-color);
+  font-size: var(--small-font-size);
+}
+.collapse__sublink:hover {
+  color: var(--white-color);
+}
+
+/*Show collapse*/
+.showCollapse {
+  display: block;
+}
+
+/*Rotate icon*/
+.rotate {
+  transform: rotate(180deg);
 }
