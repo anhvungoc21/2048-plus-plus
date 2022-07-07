@@ -89,8 +89,8 @@ body::-webkit-scrollbar {
 }
 
 .tile {
-  --text-color: #776e65;
   --color: #eee4da;
+  --text-color: #776e65;
   font-weight: bold;
   position: absolute;
   display: flex;

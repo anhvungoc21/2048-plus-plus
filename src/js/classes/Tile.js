@@ -6,7 +6,7 @@ export default class Tile {
   #value;
 
   // Equal chances of spawning 2 or 4
-  constructor(tileContainer, value = Math.random() > 0.5 ? 2 : 4) {
+  constructor(tileContainer, value = Math.random() >= 0.25 ? 2 : 4) {
     this.#tileElement = document.createElement("div");
     this.#tileElement.classList.add("tile");
     tileContainer.append(this.#tileElement);
