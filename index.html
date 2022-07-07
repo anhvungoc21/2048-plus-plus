@@ -41,12 +41,30 @@
             <span class="nav__name">Board Size</span>
             <ion-icon
               name="chevron-down-outline"
-              class="collapse__link nav__icon"
+              class="collapse__icon nav__icon"
             ></ion-icon>
             <ul id="collapse--board-size" class="collapse__menu">
-              <a href="#" class="collapse__sublink" data-board-size="4">4x4</a>
-              <a href="#" class="collapse__sublink" data-board-size="5">5x5</a>
-              <a href="#" class="collapse__sublink" data-board-size="6">6x6</a>
+              <div class="collapse__sublink" data-board-size="4">
+                <span>4 x 4</span>
+                <ion-icon
+                  name="checkmark-outline"
+                  class="nav__icon check__icon hidden"
+                ></ion-icon>
+              </div>
+              <div class="collapse__sublink" data-board-size="5">
+                <span>5 x 5</span>
+                <ion-icon
+                  name="checkmark-outline"
+                  class="nav__icon check__icon hidden"
+                ></ion-icon>
+              </div>
+              <div class="collapse__sublink" data-board-size="6">
+                <span>6 x 6</span>
+                <ion-icon
+                  name="checkmark-outline"
+                  class="nav__icon check__icon hidden"
+                ></ion-icon>
+              </div>
             </ul>
           </div>
           <div id="set--colors" class="nav__link collapse">
@@ -54,14 +72,30 @@
             <span class="nav__name">Colors</span>
             <ion-icon
               name="chevron-down-outline"
-              class="collapse__link nav__icon"
+              class="collapse__icon nav__icon"
             ></ion-icon>
-            <ul id="collapse--colors " class="collapse__menu">
-              <a href="#" class="collapse__sublink" data-color="original"
-                >Original</a
-              >
-              <a href="#" class="collapse__sublink" data-color="blue">Blue</a>
-              <a href="#" class="collapse__sublink" data-color="green">Green</a>
+            <ul id="collapse--colors" class="collapse__menu">
+              <div class="collapse__sublink" data-color="original">
+                <span>Original</span>
+                <ion-icon
+                  name="checkmark-outline"
+                  class="nav__icon check__icon hidden"
+                ></ion-icon>
+              </div>
+              <div class="collapse__sublink" data-color="blue">
+                <span>Blue</span>
+                <ion-icon
+                  name="checkmark-outline"
+                  class="nav__icon check__icon hidden"
+                ></ion-icon>
+              </div>
+              <div class="collapse__sublink" data-color="green">
+                <span>Green</span>
+                <ion-icon
+                  name="checkmark-outline"
+                  class="nav__icon check__icon hidden"
+                ></ion-icon>
+              </div>
             </ul>
           </div>
           <a id="set--log-out" href="#" class="nav__link">
@@ -78,3 +112,9 @@
     <div id="game-board"></div>
   </body>
 </html>
+
+<!-- <input class="dropdown-sub" type="checkbox" id="dropdown-sub" name="dropdown-sub"/>
+		  	<label class="for-dropdown-sub" for="dropdown-sub">Dropdown Sub <i class="uil uil-plus"></i></label>
+	  		<div class="section-dropdown-sub"> 
+	  			<a href="#">Dropdown Link <i class="uil uil-arrow-right"></i></a>
+	  			<a href="#">Dropdown Link <i class="uil uil-arrow-right"></i></a> -->

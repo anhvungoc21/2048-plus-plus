@@ -7,6 +7,8 @@ const setterDarkMode = document.getElementById("set--dark-mode");
 const setterBoardSize = document.getElementById("set--board-size");
 const setterColors = document.getElementById("set--colors");
 
+import handleCollapseMenu from "./handleSettings.js";
+
 const showMenu = () => {
   if (
     navBar &&
@@ -39,18 +41,21 @@ const showMenu = () => {
 // }
 
 /*===== COLLAPSE MENU  =====*/
-const linkCollapses = document.getElementsByClassName("collapse__link");
-for (let i = 0; i < linkCollapses.length; i++) {
-  linkCollapses[i].addEventListener("click", function () {
-    // Show collapseed menu
-    const collapseMenu = this.nextElementSibling;
-    collapseMenu.classList.toggle("showCollapse");
+const handleOpenCollapseMenu = () => {
+  for (let i = 0; i < navLinks.length; i++) {
+    navLinks[i].addEventListener("click", function () {
+      // Find closest because user might click on icon
+      const collapseMenu =
+        this.querySelector(".collapse__menu") ||
+        this.closest(".collapse__menu");
+      collapseMenu && collapseMenu.classList.toggle("showCollapse");
 
-    // Rotate collapse icon
-    const rotate = collapseMenu.previousElementSibling;
-    rotate.classList.toggle("rotate");
-  });
-}
+      // Rotate icon
+      const iconRotate = this.querySelector(".collapse__icon");
+      iconRotate && iconRotate.classList.toggle("rotate");
+    });
+  }
+};
 
 const toggleDarkMode = () => {
   const css = document.querySelector("[rel='stylesheet']");
@@ -67,8 +72,7 @@ const toggleDarkMode = () => {
  */
 export default function handleNavbar() {
   showMenu();
-  // navLinks.forEach((l) => {
-  //   l.addEventListener("click", handleNavLinksActive);
-  // });
+  handleOpenCollapseMenu();
+  handleCollapseMenu();
   togglerDarkMode.addEventListener("click", toggleDarkMode);
 }

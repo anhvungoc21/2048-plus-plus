@@ -1,24 +1,26 @@
-import { GRID_SIZE, PERCENT_VH_MAIN } from "../config.js";
 import Cell from "./Cell.js";
 
 export default class Grid {
   #cells;
-  constructor(gridElement) {
+  constructor(gridElement, gridSize, percentVHMain) {
     // CSS variables
-    gridElement.style.setProperty("--grid-size", GRID_SIZE);
-    const cellSize = PERCENT_VH_MAIN / GRID_SIZE;
+
+    gridElement.style.setProperty("--grid-size", gridSize);
+    const cellSize = percentVHMain / gridSize;
 
     gridElement.style.setProperty("--cell-size", `${cellSize}vh`);
     gridElement.style.setProperty("--cell-gap", `${cellSize / 10}vh`);
 
     // Create cell elements based on Grid size
-    this.#cells = createCellElements(gridElement).map((cellElement, index) => {
-      return new Cell(
-        cellElement,
-        index % GRID_SIZE,
-        Math.floor(index / GRID_SIZE)
-      );
-    });
+    this.#cells = createCellElements(gridElement, gridSize).map(
+      (cellElement, index) => {
+        return new Cell(
+          cellElement,
+          index % gridSize,
+          Math.floor(index / gridSize)
+        );
+      }
+    );
   }
 
   get cells() {
@@ -55,9 +57,9 @@ export default class Grid {
   }
 }
 
-function createCellElements(gridElement) {
+function createCellElements(gridElement, gridSize) {
   const cells = [];
-  for (let i = 0; i < GRID_SIZE * GRID_SIZE; i++) {
+  for (let i = 0; i < gridSize * gridSize; i++) {
     const cell = document.createElement("div");
     cell.classList.add("cell");
     cells.push(cell);
