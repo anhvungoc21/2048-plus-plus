@@ -13,7 +13,39 @@ export const colorDictDefault = {
   super: "#3c3a33",
 };
 
+export const colorDictBlue = {
+  2: "#E8EBEF",
+  4: "#D2D7E0",
+  8: "#BBC2D0",
+  16: "#A4AEC1",
+  32: "#8E9AB1",
+  64: "#7786A1",
+  128: "#607292",
+  256: "#4E5B72",
+  512: "#44536F",
+  1024: "#3A4C6C",
+  2048: "#1C3563",
+  super: "#3c3a33",
+}
+
+export const colorDictGreen = {
+  2: "#E9EDED",
+  4: "#D3DBDA",
+  8: "#BECAC8",
+  16: "#A8B8B6",
+  32: "#92A6A4",
+  64: "#7C9491",
+  128: "#66827F",
+  256: "#51716D",
+  512: "#49615E",
+  1024: "#405C59",
+  2048: "#375753",
+  super: "#3c3a33",
+}
+
+
 export const textColorDictDefault = {
   small: "#776e65",
   large: "#f9f6f2",
 };
+
