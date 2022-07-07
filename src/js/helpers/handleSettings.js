@@ -2,7 +2,13 @@ const menuBoardSize = document.getElementById("collapse--board-size");
 const menuColors = document.getElementById("collapse--colors");
 
 import setupGame from "../script.js";
-import { setGridSize, setColor } from "../config.js";
+import { setGridSize, setColorTheme, getColorTheme } from "../config.js";
+import {
+  colorDictDefault,
+  colorDictBlue,
+  colorDictGreen,
+  textColorDictDefault,
+} from "../colorConfig.js";
 
 function handleToggleBoardSize(e) {
   const choice = e.target.closest(".collapse__sublink");
@@ -18,7 +24,7 @@ function handleToggleBoardSize(e) {
   }
 }
 
-function handleToggleColors(e) {
+function handleToggleColorTheme(e) {
   const choice = e.target.closest(".collapse__sublink");
   if (choice) {
     // Display tick icon
@@ -26,8 +32,28 @@ function handleToggleColors(e) {
     handleTickIcon(choice, parent);
 
     // Update config and change color
-    const color = choice.dataset.color;
-    setColor(color);
+    const color = choice.dataset.colorTheme;
+    setColorTheme(color);
+
+    // Update Tiles' colors
+    const tiles = document.querySelectorAll(".tile");
+    let colorDict;
+    const colorTheme = getColorTheme();
+    if (colorTheme == "original") {
+      colorDict = colorDictDefault;
+    } else if (colorTheme == "blue") {
+      colorDict = colorDictBlue;
+    } else if (colorTheme == "green") {
+      colorDict = colorDictGreen;
+    }
+
+    tiles.forEach((tile) => {
+      const tileValue = parseInt(tile.textContent);
+      const tileColor = colorDict[tileValue];
+      tile.style.setProperty("--color", tileColor);
+    });
+
+    // const textColorDict = textColorDictDefault;
   }
 }
 
@@ -42,5 +68,5 @@ function handleTickIcon(element, parent) {
 
 export default function handleSettings() {
   menuBoardSize.addEventListener("click", (e) => handleToggleBoardSize(e));
-  menuColors.addEventListener("click", (e) => handleToggleColors(e));
+  menuColors.addEventListener("click", (e) => handleToggleColorTheme(e));
 }

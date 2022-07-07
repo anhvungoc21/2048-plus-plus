@@ -1,4 +1,10 @@
-import { colorDictDefault, textColorDictDefault } from "../colorConfig.js";
+import {
+  colorDictDefault,
+  textColorDictDefault,
+  colorDictBlue,
+  colorDictGreen,
+} from "../colorConfig.js";
+import { getColorTheme } from "../config.js";
 export default class Tile {
   #tileElement;
   #x;
@@ -18,8 +24,17 @@ export default class Tile {
     this.#value = v;
     this.#tileElement.textContent = v;
 
-    // TODO: Use different color dicts based on color scheme
-    const colorDict = colorDictDefault;
+    // Find appropriate color dictionary
+    let colorDict;
+    const colorTheme = getColorTheme();
+    if (colorTheme == "original") {
+      colorDict = colorDictDefault;
+    } else if (colorTheme == "blue") {
+      colorDict = colorDictBlue;
+    } else if (colorTheme == "green") {
+      colorDict = colorDictGreen;
+    }
+
     const textColorDict = textColorDictDefault;
 
     let tileColor;
