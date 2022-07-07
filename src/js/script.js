@@ -1,19 +1,18 @@
 import Grid from "./classes/Grid.js";
 import Tile from "./classes/Tile.js";
 
-import setupInput from "./helpers/handleInput.js"
-import handleNavbar from "./helpers/handleNavbar.js"
+import setupInput from "./helpers/handleInput.js";
+import handleNavbar from "./helpers/handleNavbar.js";
 
 // TODO:
 /*
-- Implement Dark mode toggler
+- Make dark mode pretty and other colorings
+- Make Top bar and Score board look better
 - Implement color buttons
 - Implement Scoreboard choosing
-- Fix coloring
 - Implement score updating
+- Find a way to speed up input-allowing speed
 */
-
-
 
 /**
  * Main function to set up and start game
@@ -30,7 +29,7 @@ function setupGame() {
   grid.randomEmptyCell().tile = new Tile(gameBoard);
 
   // Set up input listener
-  setupInput(grid, gameBoard)
+  setupInput(grid, gameBoard);
 }
 
 // Start Game:
