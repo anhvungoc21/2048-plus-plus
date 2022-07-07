@@ -6,7 +6,10 @@ import handleNavbar from "./helpers/handleNavbar.js"
 
 // TODO:
 /*
+- Implement Dark mode toggler
 - Implement color buttons
+- Implement Scoreboard choosing
+- Fix coloring
 - Implement score updating
 */
 
