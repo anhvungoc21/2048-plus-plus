@@ -40,7 +40,7 @@ function handleTickIcon(element, parent) {
   }
 }
 
-export default function handleCollapseMenu() {
+export default function handleSettings() {
   menuBoardSize.addEventListener("click", (e) => handleToggleBoardSize(e));
   menuColors.addEventListener("click", (e) => handleToggleColors(e));
 }
