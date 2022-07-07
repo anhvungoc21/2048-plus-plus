@@ -8,7 +8,7 @@
 }
 
 :root {
-  --nav-width: 2%;
+  --nav-width: 2.25rem;
   --primary-color: rgb(187, 173, 160);
   --secondary-color: rgb(119, 110, 101);
   --background-color: rgb(250, 248, 239);
@@ -20,11 +20,10 @@
   --normal-font-size: 3.5rem;
   --medium-font-size: 2rem;
   --small-font-size: 1rem;
-
-  --z-fixed: 100;
 }
 
 body {
+  box-sizing: border-box;
   font-family: "Poppins", sans-serif;
   display: flex;
   flex-direction: column;
@@ -33,12 +32,11 @@ body {
   background-color: var(--background-color);
   color: var(--primary-color);
   height: 100vh;
-  margin: 0; /* Since height = 100vh, having no margin ensures that there's no scrolling*/
-  height: 100vh;
   width: 100vw;
+  margin: 0; /* Since height = 100vh, having no margin ensures that there's no scrolling*/
   -ms-overflow-style: none;
   scrollbar-width: none;
-  overflow-y: scroll;
+  padding-bottom: 2vh;
 }
 
 body::-webkit-scrollbar {
@@ -52,8 +50,8 @@ body::-webkit-scrollbar {
   font-size: var(--small-font-size);
   justify-items: center;
   align-items: center;
-  padding-top: 3vh;
-  padding-bottom: 3vh;
+  padding-top: 2vh;
+  padding-bottom: 1vh;
 }
 
 #title {
@@ -81,6 +79,7 @@ body::-webkit-scrollbar {
   padding: var(--cell-gap);
   font-size: var(--normal-font-size);
   max-width: min-content;
+  margin-bottom: 1vh;
 }
 
 .cell {
@@ -175,18 +174,17 @@ a {
   height: 100vh;
   background-color: var(--primary-color);
   color: var(--black-color);
-  padding: 1.5rem 2rem 1rem 2rem;
+  padding: 1.5rem 2rem 0rem 2rem;
   transition: 0.5s;
-  /* z-index: var(--z-fixed); */
 }
 
 /*===== NAV =====*/
 .nav {
-  height: 95%;
+  height: 100%;
+  width: var(--nav-width)
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: flex-start;
   overflow: hidden;
 }
 .nav__brand {
@@ -205,14 +203,17 @@ a {
 .nav__title {
   color: var(--black-color);
   font-weight: 600;
+  user-select: none;
 }
 .nav__link {
   display: grid;
   grid-template-columns: max-content max-content;
   align-items: center;
   column-gap: 0.75rem;
-  padding: 0.75rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
   padding-left: 0.5rem;
+  padding-right: 0.75rem;
   color: var(--black-color);
   border-radius: 1vmin;
   margin-bottom: 1rem;
@@ -232,11 +233,6 @@ a {
 /*Expander menu*/
 .expander {
   width: calc(var(--nav-width) + 9.25rem);
-}
-
-/*Add padding body*/
-.body-pd {
-  padding: 2rem 0 0 16rem;
 }
 
 /*Active links menu*/

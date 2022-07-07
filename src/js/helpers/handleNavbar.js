@@ -1,28 +1,24 @@
 const showMenu = (toggleId, navbarId, bodyId) => {
-  const toggle = document.getElementById(toggleId),
-    navbar = document.getElementById(navbarId),
-    bodypadding = document.getElementById(bodyId);
+  const toggle = document.getElementById(toggleId);
+  const navbar = document.getElementById(navbarId);
 
   if (toggle && navbar) {
     toggle.addEventListener("click", () => {
       navbar.classList.toggle("expander");
-      bodypadding.classList.toggle("body-pd");
     });
   }
 };
 
 /*===== LINK ACTIVE  =====*/
 const navLinks = document.querySelectorAll(".nav__link");
-function handleNavLinksActive() {
+const handleNavLinksActive = () => {
   navLinks.forEach((l) => l.classList.remove("active"));
   this.classList.add("active");
-}
+};
 
 /*===== COLLAPSE MENU  =====*/
 const linkCollapses = document.getElementsByClassName("collapse__link");
-let i;
-
-for (i = 0; i < linkCollapses.length; i++) {
+for (let i = 0; i < linkCollapses.length; i++) {
   linkCollapses[i].addEventListener("click", function () {
     // Show collapseed menu
     const collapseMenu = this.nextElementSibling;
@@ -34,10 +30,12 @@ for (i = 0; i < linkCollapses.length; i++) {
   });
 }
 
+// const togglerDarkmode =  
+
 /**
  * Main function for handling navbar events
  */
 export default function handleNavbar() {
-  showMenu("nav-toggle", "navbar", "body-pd");
+  showMenu("nav-toggle", "navbar");
   navLinks.forEach((l) => l.addEventListener("click", handleNavLinksActive));
 }
