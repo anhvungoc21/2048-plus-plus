@@ -8,7 +8,8 @@ import handleNavbar from "./helpers/handleNavbar.js";
 // TODO:
 /*
 - Make dark mode pretty and other colorings
-- Implement color and boardsize choosing
+- Implement restart button
+- Implement color choosing
 - Make Top bar and Score board look better
 - Implement localstorage for best score
 - Find a way to speed up input-allowing speed
