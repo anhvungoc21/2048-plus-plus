@@ -7,7 +7,7 @@ const setterDarkMode = document.getElementById("set--dark-mode");
 const setterBoardSize = document.getElementById("set--board-size");
 const setterColors = document.getElementById("set--colors");
 
-import handleCollapseMenu from "./handleSettings.js";
+import handleSettings from "./handleSettings.js";
 
 const showMenu = () => {
   if (
@@ -72,7 +72,7 @@ const toggleDarkMode = () => {
  */
 export default function handleNavbar() {
   showMenu();
+  handleSettings();
   handleOpenCollapseMenu();
-  handleCollapseMenu();
   togglerDarkMode.addEventListener("click", toggleDarkMode);
 }

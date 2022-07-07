@@ -1,3 +1,4 @@
+import { colorDictDefault, textColorDictDefault } from "../colorConfig.js";
 export default class Tile {
   #tileElement;
   #x;
@@ -16,17 +17,28 @@ export default class Tile {
   set value(v) {
     this.#value = v;
     this.#tileElement.textContent = v;
-    // Power increases by 1 per tile combination
-    const power = Math.log2(v);
-    const backgroundLightness = 100 - power * 10;
-    this.#tileElement.style.setProperty(
-      "--background-lightness",
-      `${backgroundLightness}%`
-    );
-    this.#tileElement.style.setProperty(
-      "--text-lightness",
-      `${backgroundLightness <= 50 ? 90 : 10}%`
-    );
+
+    // TODO: Use different color dicts based on color scheme
+    const colorDict = colorDictDefault;
+    const textColorDict = textColorDictDefault;
+
+    let tileColor;
+    // Set tile color
+    if (v in colorDict) {
+      tileColor = colorDict[v];
+    } else {
+      tileColor = colorDict["super"];
+    }
+    this.#tileElement.style.setProperty("--color", tileColor);
+
+    // Set text color
+    let textColor;
+    if (v <= 8) {
+      textColor = textColorDict["small"];
+    } else {
+      textColor = textColorDict["large"];
+    }
+    this.#tileElement.style.setProperty("--text-color", textColor);
   }
 
   get value() {
