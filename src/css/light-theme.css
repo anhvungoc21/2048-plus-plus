@@ -81,7 +81,8 @@ body::-webkit-scrollbar {
 }
 
 .restart__icon {
-  font-size: 1.5rem;
+  font-size: 1.75rem;
+  color: var(--white-color);
 }
 
 /* SCORE DISPLAYS */
@@ -96,7 +97,6 @@ body::-webkit-scrollbar {
 }
 
 .score-container, .best-container {
-  /* display: block; */
   position: relative;
   text-align: center;
   background: var(--primary-color);
@@ -342,7 +342,7 @@ ul {
 
 .collapse__sublink:hover {
   color: var(--black-color);
-  background-color: var(--cell-color)
+  background-color: var(--primary-color)
 }
 
 /*Show collapse*/
