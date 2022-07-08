@@ -2,7 +2,6 @@ const navBar = document.getElementById("navbar");
 const navToggle = document.getElementById("nav-toggle");
 const navList = navBar.querySelector(".nav__list");
 const navLinks = navList.querySelectorAll(".nav__link");
-const togglerDarkMode = document.getElementById("switch-dark");
 const setterDarkMode = document.getElementById("set--dark-mode");
 const setterBoardSize = document.getElementById("set--board-size");
 const setterColors = document.getElementById("set--colors");
@@ -57,15 +56,6 @@ const handleOpenCollapseMenu = () => {
   }
 };
 
-const toggleDarkMode = () => {
-  const css = document.querySelector("[rel='stylesheet']");
-  if (css.href.includes("light-theme")) {
-    css.href = "./src/css/dark-theme.css";
-  } else {
-    css.href = "./src/css/light-theme.css";
-  }
-  console.log(css.href);
-};
 
 /**
  * Main function for handling navbar events
@@ -74,5 +64,4 @@ export default function handleNavbar() {
   showMenu();
   handleSettings();
   handleOpenCollapseMenu();
-  togglerDarkMode.addEventListener("click", toggleDarkMode);
 }

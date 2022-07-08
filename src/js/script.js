@@ -7,8 +7,6 @@ import handleNavbar from "./helpers/handleNavbar.js";
 
 // TODO:
 /*
-- Implement restart button
-- Implement color themes and choosing
 - Make Top bar and Score board look better
 - Implement localstorage for best score
 - Find a way to speed up input-allowing speed
@@ -44,6 +42,12 @@ export default function setupGame() {
   // Set up input listener
   setupInput(grid, gameBoard);
 }
+
+// Restart game handler
+const btnRestart = document.getElementById("restart");
+btnRestart.addEventListener("click", () => {
+  setupGame();
+});
 
 // Start Game:
 setupGame();

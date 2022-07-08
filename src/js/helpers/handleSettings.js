@@ -1,5 +1,6 @@
 const menuBoardSize = document.getElementById("collapse--board-size");
 const menuColors = document.getElementById("collapse--colors");
+const togglerDarkMode = document.getElementById("switch-dark");
 
 import setupGame from "../script.js";
 import { setGridSize, setColorTheme, getColorTheme } from "../config.js";
@@ -7,9 +8,11 @@ import {
   colorDictDefault,
   colorDictBlue,
   colorDictGreen,
-  textColorDictDefault,
 } from "../colorConfig.js";
 
+
+
+/* BOARD SIZES */
 function handleToggleBoardSize(e) {
   const choice = e.target.closest(".collapse__sublink");
   if (choice) {
@@ -23,6 +26,46 @@ function handleToggleBoardSize(e) {
     setupGame();
   }
 }
+
+/* COLOR SCHEMES */
+const updateColorByDarkLight = () => {
+  const css = document.querySelector("[rel='stylesheet']");
+  const docRoot = document.querySelector(":root");
+  const colorTheme = getColorTheme();
+
+  let colorDict;
+  if (colorTheme == "original") {
+    colorDict = colorDictDefault;
+  } else if (colorTheme == "blue") {
+    colorDict = colorDictBlue;
+  } else if (colorTheme == "green") {
+    colorDict = colorDictGreen;
+  }
+
+  if (css.href.includes("light-theme")) {
+    docRoot.style.setProperty("--primary-color", colorDict["light"]["primary"]);
+    docRoot.style.setProperty(
+      "--secondary-color",
+      colorDict["light"]["secondary"]
+    );
+    docRoot.style.setProperty(
+      "--background-color",
+      colorDict["light"]["background"]
+    );
+    docRoot.style.setProperty("--cell-color", colorDict["light"]["cell"]);
+  } else {
+    docRoot.style.setProperty("--primary-color", colorDict["dark"]["primary"]);
+    docRoot.style.setProperty(
+      "--secondary-color",
+      colorDict["dark"]["secondary"]
+    );
+    docRoot.style.setProperty(
+      "--background-color",
+      colorDict["dark"]["background"]
+    );
+    docRoot.style.setProperty("--cell-color", colorDict["dark"]["cell"]);
+  }
+};
 
 function handleToggleColorTheme(e) {
   const choice = e.target.closest(".collapse__sublink");
@@ -53,7 +96,8 @@ function handleToggleColorTheme(e) {
       tile.style.setProperty("--color", tileColor);
     });
 
-    // const textColorDict = textColorDictDefault;
+    // Update general colors
+    updateColorByDarkLight();
   }
 }
 
@@ -66,7 +110,20 @@ function handleTickIcon(element, parent) {
   }
 }
 
+const toggleDarkMode = () => {
+  const css = document.querySelector("[rel='stylesheet']");
+
+  if (css.href.includes("light-theme")) {
+    css.href = "./src/css/dark-theme.css";
+  } else {
+    css.href = "./src/css/light-theme.css";
+  }
+
+  updateColorByDarkLight();
+};
+
 export default function handleSettings() {
   menuBoardSize.addEventListener("click", (e) => handleToggleBoardSize(e));
   menuColors.addEventListener("click", (e) => handleToggleColorTheme(e));
+  togglerDarkMode.addEventListener("click", toggleDarkMode);
 }
