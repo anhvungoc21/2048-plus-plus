@@ -7,8 +7,8 @@ import handleNavbar from "./helpers/handleNavbar.js";
 
 // TODO:
 /*
-- Make Top bar and Score board look better
 - Implement localstorage for best score
+- Make Top bar and Score board look better
 - Find a way to speed up input-allowing speed
 - Implement user log-in/out
 */
@@ -38,6 +38,11 @@ export default function setupGame() {
   // Generate 2 random tiles
   grid.randomEmptyCell().tile = new Tile(gameBoard);
   grid.randomEmptyCell().tile = new Tile(gameBoard);
+
+  // Reset score
+  const scoreContainer = document.querySelector('.score-container')
+  scoreContainer.textContent = "0"
+  scoreContainer.dataset.score = "0"
 
   // Set up input listener
   setupInput(grid, gameBoard);

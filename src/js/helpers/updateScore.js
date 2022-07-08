@@ -1,5 +1,5 @@
-const scoreBoard = document.getElementById("score-board");
-
+const scoreContainer = document.querySelector(".score-container")
+const bestScoreContainer = document.querySelector(".best-container")
 /**
  * Fade element in until it reaches 1 opacity
  * @param {*} el Element to fade in
@@ -28,20 +28,20 @@ function fadeIn(el, time) {
  */
 function updateScore(tile) {
   const scoreAdd = tile.value;
-  scoreBoard.dataset.score = parseInt(scoreBoard.dataset.score) + scoreAdd;
-  scoreBoard.textContent = `Score: ${scoreBoard.dataset.score} ` 
+  scoreContainer.dataset.score = parseInt(scoreContainer.dataset.score) + scoreAdd;
+  scoreContainer.textContent = `${scoreContainer.dataset.score}` 
 
   // Remove old "plus-score" transitioning element
-  const oldScoreHtml = document.querySelector(".plus-one");
-  if (oldScoreHtml) {
-    oldScoreHtml.remove();
-  }
+  // const oldScoreHtml = document.querySelector(".plus-one");
+  // if (oldScoreHtml) {
+  //   oldScoreHtml.remove();
+  // }
 
-  // Add new "plus-score" element
-  const addScoreHtml = document.createElement("span");
-  addScoreHtml.classList.add("plus-one");
+  // Add new "score-addition" element
+  const addScoreHtml = document.createElement("div");
+  addScoreHtml.classList.add("score-addition")
   addScoreHtml.innerHTML = `+${scoreAdd}`;
-  scoreBoard.append(addScoreHtml);
+  scoreContainer.append(addScoreHtml);
   fadeIn(addScoreHtml, "200");
   setTimeout(function () {
     addScoreHtml.remove();
