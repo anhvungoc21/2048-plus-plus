@@ -21,6 +21,7 @@
   --normal-font-size: 3.5rem;
   --medium-font-size: 2rem;
   --small-font-size: 1rem;
+  --score-font-size: 0.75rem;
 }
 
 body {
@@ -73,7 +74,7 @@ body::-webkit-scrollbar {
   vertical-align: middle;
   place-content: center;
   align-items: center;
-  border-radius: 1vmin;
+  border-radius: 0.25rem;
   width: 3.5rem;
   height: 3.5rem;
   font-size: var(--medium-font-size);
@@ -83,34 +84,90 @@ body::-webkit-scrollbar {
   font-size: 1.5rem;
 }
 
-/* SCORE DISPLAY */
-#score-board {
-  grid-column-start: 3;
-  grid-column-end: 4;
-  position: relative;
+/* SCORE DISPLAYS */
+
+.scores-container {
+  float: right;
   display: flex;
-  vertical-align: middle;
-  place-content: center;
-  align-items: center;
-  border-radius: 1vmin;
-  padding: 0.5rem;
-  color: var(--black-color);
-  background-color: var(--primary-color);
+}
+
+.scores-container * + * {
+  margin-left: 0.5rem;
+}
+
+.score-container, .best-container {
+  /* display: block; */
+  position: relative;
+  text-align: center;
+  background: var(--primary-color);
+  color: var(--white-color);
   font-size: var(--medium-font-size);
+  font-weight: bold;
+  height: 1.75rem;
+  padding: 1rem 2rem;
+  line-height: 3rem;
+  border-radius: 0.25rem;
 }
 
-.plus-one {
-  color: var(--black-color);
+.score-container:after, .best-container:after {
   position: absolute;
-  left: 100%;
-  font-size: var(--small-font-size);
-  transform: translate(-25%, -70%);
-  animation: fade-in-up 2s 1 ease;
+  width: 100%;
+  top: 15%;
+  left: 0;
+  color: var(--white-color);
+  line-height: 1rem;
+  font-size: var(--score-font-size);
+  text-transform: uppercase;
+  text-align: center;
 }
 
-@keyframes fade-in-up {
-  0%,
-  10% {
+.score-container:after {
+  content: "Score";
+}
+
+.best-container:after {
+  content: "Best";
+}
+
+.score-addition {
+  position: absolute;
+  left: 60%;
+  font-size: var(--small-font-size);
+  font-weight: bold;
+  line-height: var(--small-font-size);
+  color: var(--white-color);
+  -webkit-animation: move-up 600ms ease-in;
+  -moz-animation: move-up 600ms ease-in;
+  animation: move-up 600ms ease-in;
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes move-up {
+  0% {
+    top: 50%;
+    opacity: 1;
+  }
+  100% {
+    top: -100%;
+    opacity: 0;
+  }
+}
+
+@-moz-keyframes move-up {
+  0% {
+    top: 50%;
+    opacity: 1;
+  }
+  100% {
+    top: -100%;
+    opacity: 0;
+  }
+}
+
+@keyframes move-up {
+  0% {
     top: 50%;
     opacity: 1;
   }
