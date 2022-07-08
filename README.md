@@ -14,6 +14,10 @@ Hi there! Thanks for checking out my take on 2048. I love 2048 (even addicted to
 ## Features to be implemented
 - **Hype/Combo bar**: When the player quickly merges multiple tiles in a short amount of time, the value of the tiles spawned will be increased. I hope this creates a bigger incentive for players to speedrun the game!
 - **Better score display & animation**
+
+## Acknowledgements
+WebDevSimplified's 2048 tutorial was incredibly helpful for me to understand handling tile-sliding and merging!
+
 ---
 
 Feel free to contact me if you have any questions or suggestions about any features of the game. Have fun!
