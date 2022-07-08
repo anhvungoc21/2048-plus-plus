@@ -31,14 +31,6 @@ const showMenu = () => {
   }
 };
 
-// /*===== LINK ACTIVE  =====*/
-// function handleNavLinksActive() {
-//   navLinks.forEach((l) => {
-//     l.classList.remove("active");
-//   });
-//   this.classList.add("active");
-// }
-
 /*===== COLLAPSE MENU  =====*/
 const handleOpenCollapseMenu = () => {
   for (let i = 0; i < navLinks.length; i++) {
@@ -55,7 +47,6 @@ const handleOpenCollapseMenu = () => {
     });
   }
 };
-
 
 /**
  * Main function for handling navbar events
