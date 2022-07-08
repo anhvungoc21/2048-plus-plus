@@ -4,7 +4,7 @@ An customizable (and possible hyped-up) version of the game 2048!
 _Website:_ https://2048-plus-plus.netlify.app/
 
 ## Introduction
-Hi there! Thanks for checking out my take on 2048. 
+Hi there! Thanks for checking out my take on 2048. I love 2048 (even addicted to it at some point), so I decided, why not add some more features to make players' experience better?
 
 ## Features
 - **Dark/Light appearance**: Pick one that suits your eyes!
