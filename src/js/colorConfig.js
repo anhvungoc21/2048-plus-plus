@@ -1,3 +1,6 @@
+// TODO:
+// Different colors for dark and light for each colorDict (tested but failed)
+
 export const colorDictDefault = {
   2: "#eee4da",
   4: "#eee1c9",
@@ -11,6 +14,18 @@ export const colorDictDefault = {
   1024: "#edc53f",
   2048: "#edc22e",
   super: "#3c3a33",
+  light: {
+    primary: "rgb(187, 173, 160)",
+    secondary: "rgb(119, 110, 101)",
+    background: "rgb(250, 248, 239)",
+    cell: "rgba(238, 228, 218, 0.35)",
+  },
+  dark: {
+    primary: "rgb(169, 169, 169)",
+    secondary: "rgb(102, 102, 102)",
+    background: "rgb(47, 44, 44)",
+    cell: "rgba(238, 228, 218, 0.5)",
+  },
 };
 
 export const colorDictBlue = {
@@ -26,7 +41,19 @@ export const colorDictBlue = {
   1024: "#3A4C6C",
   2048: "#1C3563",
   super: "#3c3a33",
-}
+  light: {
+    primary: "rgb(187, 173, 160)",
+    secondary: "rgb(119, 110, 101)",
+    background: "rgb(250, 248, 239)",
+    cell: "rgba(238, 228, 218, 0.35)",
+  },
+  dark: {
+    primary: "rgb(169, 169, 169)",
+    secondary: "rgb(102, 102, 102)",
+    background: "rgb(47, 44, 44)",
+    cell: "rgba(238, 228, 218, 0.5)",
+  },
+};
 
 export const colorDictGreen = {
   2: "#E9EDED",
@@ -41,11 +68,21 @@ export const colorDictGreen = {
   1024: "#405C59",
   2048: "#375753",
   super: "#3c3a33",
-}
-
+  light: {
+    primary: "rgb(187, 173, 160)",
+    secondary: "rgb(119, 110, 101)",
+    background: "rgb(250, 248, 239)",
+    cell: "rgba(238, 228, 218, 0.35)",
+  },
+  dark: {
+    primary: "rgb(169, 169, 169)",
+    secondary: "rgb(102, 102, 102)",
+    background: "rgb(47, 44, 44)",
+    cell: "rgba(238, 228, 218, 0.5)",
+  },
+};
 
 export const textColorDictDefault = {
   small: "#776e65",
   large: "#f9f6f2",
 };
-
