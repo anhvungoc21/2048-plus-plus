@@ -105,16 +105,22 @@
         </div>
       </nav>
     </div>
+    <div class="modal-overlay"></div>
+    <div class="modal hidden">
+      <span> Game Over! </span>
+      <button id="btn--try-again" class="btn">
+        <span>Try again</span>
+        <ion-icon name="refresh-outline" id="icon--try-again"></ion-icon>
+      </button>
+    </div>
     <div id="top-bar">
       <div id="title">2048++</div>
       <div class="scores-container">
-        <div class="score-container" data-score="0">
-          0
-        </div>
+        <div class="score-container" data-score="0">0</div>
         <div class="best-container" data-best-score="0">0</div>
       </div>
-      <button id="restart" class="btn">
-        <ion-icon name="refresh-outline" class="restart__icon"></ion-icon>
+      <button id="btn--restart" class="btn">
+        <ion-icon name="refresh-outline" id="icon--restart"></ion-icon>
       </button>
     </div>
     <div id="game-board"></div>

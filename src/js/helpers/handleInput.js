@@ -5,6 +5,7 @@ import {
   canMoveRight,
 } from "./checkMovable.js";
 import { moveUp, moveDown, moveLeft, moveRight } from "./moveTiles.js";
+import setupGame from "../script.js";
 import Tile from "../classes/Tile.js";
 
 /**
@@ -80,7 +81,27 @@ function checkHandleLoss(grid, gameBoard, lastTile) {
   ) {
     // Wait for last tile to appear before alerting loss
     lastTile.waitForTransition(true).then(() => {
-      alert("You Lost!");
+      // Display loss modal, Make gameBoard opaque, add listener to restart button.
+      const lostModal = document.querySelector(".modal");
+      const gameBoard = document.querySelector("#game-board");
+      const tryAgainBtn = lostModal.querySelector("#btn--try-again");
+      lostModal.style.opacity = 1;
+      gameBoard.style.opacity = 0.5;
+
+      // Quickly hide lostModal and display new gameBoard
+      tryAgainBtn.addEventListener("click", () => {
+        [lostModal, gameBoard].forEach((ele) => {
+          ele.classList.add("no-transition");
+        });
+        lostModal.style.opacity = 0;
+        gameBoard.style.opacity = 1;
+        // Trigger a reflow, flushing the CSS changes above.
+        [lostModal, gameBoard].forEach((ele) => ele.offsetHeight);
+        [lostModal, gameBoard].forEach((ele) => {
+          ele.classList.remove("no-transition");
+        });
+        setupGame();
+      });
     });
   } else {
     setupInput(grid, gameBoard);
