@@ -59,7 +59,7 @@ export default function setupGame() {
 }
 
 // Restart game handler
-const btnRestart = document.getElementById("restart");
+const btnRestart = document.getElementById("btn--restart");
 btnRestart.addEventListener("click", () => {
   setupGame();
 });
