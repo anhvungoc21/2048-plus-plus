@@ -8,9 +8,9 @@ import handleNavbar from "./helpers/handleNavbar.js";
 // TODO:
 /*
 - Implement Modal for Loss
-- Implement localstorage for best score
 - Find a way to speed up input-allowing speed
 - Implement user log-in/out
+- Fix incorrect score problem
 */
 
 /**
@@ -41,8 +41,18 @@ export default function setupGame() {
 
   // Reset score
   const scoreContainer = document.querySelector(".score-container");
-  scoreContainer.textContent = "0";
-  scoreContainer.dataset.score = "0";
+  if (scoreContainer) {
+    scoreContainer.dataset.score = "0";
+    scoreContainer.textContent = "0";
+  }
+
+  // Fetch best score from localStorage
+  const bestScoreContainer = document.querySelector(".best-container");
+  const bestScoreLocal = window.localStorage.getItem("bestScore2048++");
+  if (bestScoreLocal) {
+    bestScoreContainer.dataset.bestScore = bestScoreLocal;
+    bestScoreContainer.textContent = bestScoreLocal;
+  }
 
   // Set up input listener
   setupInput(grid, gameBoard);
