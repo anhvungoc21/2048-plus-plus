@@ -12,6 +12,19 @@ function updateScore(tile) {
     parseInt(scoreContainer.dataset.score) + scoreAdd;
   scoreContainer.textContent = `${scoreContainer.dataset.score}`;
 
+  // Check to update best score
+  if (
+    parseInt(scoreContainer.dataset.score) >
+    parseInt(bestScoreContainer.dataset.bestScore)
+  ) {
+    const bestScore = scoreContainer.dataset.score;
+    bestScoreContainer.dataset.bestScore = bestScore;
+    bestScoreContainer.textContent = bestScore;
+
+    // Store in localStorage
+    window.localStorage.setItem("bestScore2048++", bestScore);
+  }
+
   // Add new "score-addition" element
   const addScoreHtml = document.createElement("div");
   addScoreHtml.classList.add("score-addition");

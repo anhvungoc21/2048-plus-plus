@@ -9,8 +9,8 @@ import Tile from "../classes/Tile.js";
 
 /**
  * Handle key pressing inputs from user
- * @param {*} e Keydown event 
- * @param {*} grid Game grid 
+ * @param {*} e Keydown event
+ * @param {*} grid Game grid
  * @param {*} gameBoard Game gameBoard
  * @returns null
  */
@@ -96,7 +96,11 @@ function checkHandleLoss(grid, gameBoard, lastTile) {
  * @param {*} gameBoard Gameboard is used for putting new tiles in
  */
 export default function setupInput(grid, gameBoard) {
-  window.addEventListener("keydown", async (e) => await handleInput(e, grid, gameBoard), {
-    once: true,
-  });
+  window.addEventListener(
+    "keydown",
+    async (e) => await handleInput(e, grid, gameBoard),
+    {
+      once: true,
+    }
+  );
 }

@@ -1,4 +1,4 @@
-import { updateScore } from "./updateScore.js";
+import { updateScore } from "./handleScore.js";
 
 // FIXME: updateScore correctly
 function slideTiles(cells) {
