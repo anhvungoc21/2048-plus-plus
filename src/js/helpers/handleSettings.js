@@ -174,7 +174,7 @@ export const preventTransition = (restartGame) => {
 
   // Same reason, but for restarting the game
   if (restartGame) {
-    const lostModal = document.querySelector(".modal");
+    const lostModal = document.querySelector("#modal--loss");
     const gameBoard = document.querySelector("#game-board");
     lostModal.style.opacity = 0;
     gameBoard.style.opacity = 1;

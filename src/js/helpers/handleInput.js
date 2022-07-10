@@ -83,7 +83,7 @@ function checkHandleLoss(grid, gameBoard, lastTile) {
     // Wait for last tile to appear before alerting loss
     lastTile.waitForTransition(true).then(() => {
       // Display loss modal, Make gameBoard opaque, add listener to restart button.
-      const lostModal = document.querySelector(".modal");
+      const lostModal = document.querySelector("#modal--loss");
       const gameBoard = document.querySelector("#game-board");
       const tryAgainBtn = lostModal.querySelector("#btn--try-again");
       lostModal.style.opacity = 1;

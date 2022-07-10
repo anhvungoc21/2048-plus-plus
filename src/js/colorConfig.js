@@ -18,7 +18,7 @@ export const colorDictDefault = {
     primary: "rgb(187, 173, 160)",
     secondary: "rgb(119, 110, 101)",
     background: "rgb(250, 248, 239)",
-    cell: "rgba(238, 228, 218, 0.35)",
+    cell: "rgba(238, 228, 218, 0.4)",
   },
   dark: {
     primary: "rgb(169, 169, 169)",
@@ -45,7 +45,7 @@ export const colorDictBlue = {
     primary: "rgb(187, 173, 160)",
     secondary: "rgb(119, 110, 101)",
     background: "rgb(250, 248, 239)",
-    cell: "rgba(238, 228, 218, 0.35)",
+    cell: "rgba(238, 228, 218, 0.4)",
   },
   dark: {
     primary: "rgb(169, 169, 169)",
@@ -72,7 +72,7 @@ export const colorDictGreen = {
     primary: "rgb(187, 173, 160)",
     secondary: "rgb(119, 110, 101)",
     background: "rgb(250, 248, 239)",
-    cell: "rgba(238, 228, 218, 0.35)",
+    cell: "rgba(238, 228, 218, 0.4)",
   },
   dark: {
     primary: "rgb(169, 169, 169)",
