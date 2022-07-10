@@ -11,8 +11,7 @@ function handleToggleBoardSize(e) {
   const choice = e.target.closest(".collapse__sublink");
   if (choice) {
     // Display tick icon
-    const parent = choice.closest(".collapse__menu");
-    handleTickIcon(choice, parent);
+    handleTickIcon(choice);
 
     // Update in localStorage
     const gridSize = parseInt(choice.dataset.boardSize);
@@ -71,8 +70,7 @@ function handleToggleColorTheme(e) {
 
   if (choice) {
     // Display tick icon
-    const parent = choice.closest(".collapse__menu");
-    handleTickIcon(choice, parent);
+    handleTickIcon(choice);
 
     // Update config and change color
     const color = choice.dataset.colorTheme;
@@ -105,7 +103,10 @@ function handleToggleColorTheme(e) {
   }
 }
 
-function handleTickIcon(element, parent) {
+function handleTickIcon(element) {
+  // Parent of chosen element. This is used for selecting other ticks
+  const parent = element.closest(".collapse__menu");
+
   const thisTickIcon = element.querySelector(".check__icon");
   const otherTickIcons = parent.querySelectorAll(".check__icon");
   if (thisTickIcon && otherTickIcons) {
@@ -140,16 +141,28 @@ export const applyLSSettings = async () => {
 
   // Handle grid size
   setGridSize(parseInt(gridSize));
+  const gridOptionElement = document.querySelector(
+    `[data-board-size="${gridSize}"]`
+  );
+  handleTickIcon(gridOptionElement);
 
   // Handle color theme
   setColorTheme(colorTheme);
+  const colorOptionElement = document.querySelector(
+    `[data-color-theme="${colorTheme}"]`
+  );
+  handleTickIcon(colorOptionElement);
 
   // Handle dark mode
   const css = document.querySelector("[rel='stylesheet']");
+  const togglerDarkMode = document.getElementById("switch-dark");
+
   if (darkMode == "light-theme") {
     css.href = "./src/css/light-theme.css";
+    togglerDarkMode.checked = false;
   } else {
     css.href = "./src/css/dark-theme.css";
+    togglerDarkMode.checked = true;
   }
 
   updateColorByDarkLight();
