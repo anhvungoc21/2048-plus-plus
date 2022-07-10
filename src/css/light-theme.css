@@ -14,7 +14,7 @@
   --background-color: rgb(250, 248, 239);
   --black-color: rgb(47, 44, 44);
   --white-color: rgb(250, 248, 239);
-  --cell-color: rgba(238, 228, 218, 0.35);
+  --cell-color: "rgba(238, 228, 218, 0.4)";
 
   /* Fonts */
   --body-font: "Poppins", sans-serif;
@@ -54,6 +54,7 @@ body::-webkit-scrollbar {
   align-items: center;
   padding-top: 2vh;
   padding-bottom: 1vh;
+  gap: 0.25rem; 
 }
 
 #title {
@@ -108,6 +109,7 @@ body::-webkit-scrollbar {
   padding: 1rem 2rem;
   line-height: 3rem;
   border-radius: 0.25rem;
+  user-select: none;
 }
 
 .score-container:after, .best-container:after {
@@ -226,6 +228,8 @@ body::-webkit-scrollbar {
 
   animation: show 200ms ease-in-out;
   transition: 100ms ease-in-out;
+
+  user-select: none;
 }
 
 @keyframes show {
@@ -446,8 +450,8 @@ label:active:after {
   outline: none;
 }
 
-/* MODAL & OVERLAY */
-.modal {
+/* LOSS MODAL */
+#modal--loss {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -458,9 +462,10 @@ label:active:after {
   gap: 1rem;
   font-size: var(--normal-font-size);
   color: var(--secondary-color);
-  z-index: 1;
+  z-index: 4;
   opacity: 0;
   transition: opacity 1s ease-in;
+  user-select: none;
 }
 
 #btn--try-again {
@@ -480,6 +485,59 @@ label:active:after {
 
 #icon--try-again {
   --ionicon-stroke-width: 3em;
+}
+
+/* INFO MODAL & OVERLAY */
+#modal--info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: white;
+  position: absolute;
+  text-align: left;
+  font-weight: bold;
+  width: 50%;
+  background-color: var(--white-color);
+  color: var(--black-color);
+  font-size: var(--small-font-size);
+  padding: 3em;
+  border-radius: 0.5em;
+  opacity: 0;
+  user-select: none;
+  overflow: hidden;
+  z-index: 3;
+  transition: opacity 0.5s ease-in;
+}
+
+.modal-overlay {
+  transition: opacity 0.5s ease-out;
+  background: var(--black-color);
+  position: fixed;
+  opacity: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  top: 0;
+  z-index: 2;
+  user-select: none;
+  pointer-events: none;
+}
+
+.btn--close-modal {
+  align-items: center;
+  display: flex;
+  height: 3em;
+  justify-content: center;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 3em;
+}
+
+#icon--info-modal {
+  font-size: 1.75rem;
+  --ionicon-stroke-width: 1.5em;
+  color: var(--black-color);
 }
 
 .no-transition *:not(.tile) {

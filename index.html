@@ -98,20 +98,61 @@
               </div>
             </ul>
           </div>
-          <a id="set--log-out" href="#" class="nav__link">
+
+          <div id="info" class="nav__link">
+            <ion-icon
+              name="information-circle-outline"
+              class="nav__icon"
+            ></ion-icon>
+            <span class="nav__name">About 2048++</span>
+          </div>
+          <!-- <div id="set--log-out" href="#" class="nav__link">
             <ion-icon name="log-out-outline" class="nav__icon"></ion-icon>
             <span class="nav__name">Log Out</span>
-          </a>
+          </div> -->
         </div>
       </nav>
     </div>
     <div class="modal-overlay"></div>
-    <div class="modal hidden no-transition">
+    <div id="modal--loss" class="modal">
       <span> Game Over! </span>
       <button id="btn--try-again" class="btn">
         <span>Try again</span>
         <ion-icon name="refresh-outline" id="icon--try-again"></ion-icon>
       </button>
+    </div>
+    <div id="modal--info" class="modal">
+      <div class="btn--close-modal">
+        <ion-icon name="close-outline" id="icon--info-modal"></ion-icon>
+      </div>
+      <span>
+        Hi! Thanks for checking out 2048++!
+        <br />
+        <br />
+        My name is Ngoc-Anh, a rising sophomore at Grinnell College, Iowa.
+        <br />
+        <br />
+        2048++ was originally started because I felt like the 4-by-4 grid was
+        too limiting, and I wanted an easier way to get unthinkably high scores.
+        Hence, the idea of bigger boards.
+        <br />
+        <br />
+        From there, I figured, why not add some more customizability while I
+        was at it? That being said, I was a total beginner at coding in general, let alone building
+        pretty-looking web apps with multiple customizable functionalities.
+        <br />
+        <br />
+        So, throughout this process of building 2048++, I taught myself many,
+        many things about JavaScript, HTML & CSS, and problem-solving in
+        general. So, I'm very happy that you're here to see what I have put
+        hours and hours into building, improving, and perfecting!
+        <br />
+        <br />
+        Have fun!
+        <br />
+        <br />
+        My GitHub: <a href="https://github.com/anhvungoc21">anhvungoc21</a>
+      </span>
     </div>
     <div id="top-bar">
       <div id="title">2048++</div>
