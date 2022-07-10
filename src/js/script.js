@@ -9,9 +9,8 @@ import {
   applyLSSettings,
   preventTransition,
 } from "./helpers/handleSettings.js";
-// TODO:
 /*
-- Tick when applying LSSettings
+// TODO:
 - Find a way to speed up input-allowing speed
 - Implement user log-in/out
 - Fix incorrect score problem
