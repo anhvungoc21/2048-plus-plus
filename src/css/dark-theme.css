@@ -481,7 +481,7 @@ label:active:after {
   --ionicon-stroke-width: 3em;
 }
 
-.no-transition {
+.no-transition *:not(.tile) {
   -webkit-transition: none !important;
   -moz-transition: none !important;
   -o-transition: none !important;

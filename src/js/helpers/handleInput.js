@@ -6,6 +6,7 @@ import {
 } from "./checkMovable.js";
 import { moveUp, moveDown, moveLeft, moveRight } from "./moveTiles.js";
 import setupGame from "../script.js";
+import { preventTransition } from "./handleSettings.js";
 import Tile from "../classes/Tile.js";
 
 /**
@@ -88,20 +89,17 @@ function checkHandleLoss(grid, gameBoard, lastTile) {
       lostModal.style.opacity = 1;
       gameBoard.style.opacity = 0.5;
 
-      // Quickly hide lostModal and display new gameBoard
-      tryAgainBtn.addEventListener("click", () => {
-        [lostModal, gameBoard].forEach((ele) => {
-          ele.classList.add("no-transition");
-        });
-        lostModal.style.opacity = 0;
-        gameBoard.style.opacity = 1;
-        // Trigger a reflow, flushing the CSS changes above.
-        [lostModal, gameBoard].forEach((ele) => ele.offsetHeight);
-        [lostModal, gameBoard].forEach((ele) => {
-          ele.classList.remove("no-transition");
-        });
-        setupGame();
-      });
+      // Set up animation stuff for restart button
+      setTimeout(() => {
+        tryAgainBtn.addEventListener(
+          "click",
+          () => {
+            preventTransition(true);
+            setupGame();
+          },
+          { once: true }
+        );
+      }, 500);
     });
   } else {
     setupInput(grid, gameBoard);
