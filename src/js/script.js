@@ -4,10 +4,14 @@ import Tile from "./classes/Tile.js";
 import { getGridSize, getPercentVHMain } from "./config.js";
 import setupInput from "./helpers/handleInput.js";
 import handleNavbar from "./helpers/handleNavbar.js";
-
+import {
+  handleSettings,
+  applyLSSettings,
+  preventTransition,
+} from "./helpers/handleSettings.js";
 // TODO:
 /*
-- Implement Modal for Loss
+- Tick when applying LSSettings
 - Find a way to speed up input-allowing speed
 - Implement user log-in/out
 - Fix incorrect score problem
@@ -17,6 +21,22 @@ import handleNavbar from "./helpers/handleNavbar.js";
  * Main function to set up and start game
  */
 export default function setupGame() {
+  // Prevent initial elements transition in Dark Mode.
+  preventTransition();
+
+  // Set settings on localStorage if not already present. Else, update settings according to local settings.
+  if (!window.localStorage.getItem("settings2048++")) {
+    const defaultSettings = {
+      darkMode: "light-theme",
+      gridSize: "4",
+      colorTheme: "original",
+    };
+
+    localStorage.setItem("settings2048++", JSON.stringify(defaultSettings));
+  } else {
+    applyLSSettings();
+  }
+
   // Destroy all exisitng cells and tiles
   const existingCells = document.querySelectorAll(".cell");
   const existingTiles = document.querySelectorAll(".tile");
@@ -67,3 +87,4 @@ btnRestart.addEventListener("click", () => {
 // Start Game:
 setupGame();
 handleNavbar();
+handleSettings();

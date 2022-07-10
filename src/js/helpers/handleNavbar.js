@@ -6,8 +6,6 @@ const setterDarkMode = document.getElementById("set--dark-mode");
 const setterBoardSize = document.getElementById("set--board-size");
 const setterColors = document.getElementById("set--colors");
 
-import handleSettings from "./handleSettings.js";
-
 const showMenu = () => {
   if (
     navBar &&
@@ -53,6 +51,5 @@ const handleOpenCollapseMenu = () => {
  */
 export default function handleNavbar() {
   showMenu();
-  handleSettings();
   handleOpenCollapseMenu();
 }
