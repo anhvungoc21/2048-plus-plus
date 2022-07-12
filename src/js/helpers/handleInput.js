@@ -56,7 +56,7 @@ async function handleInput(e, grid, gameBoard) {
       return;
   }
 
-  // Wait for tile-sliding animations to finish before acutally merging tiles
+  // Wait for tile-sliding animations to finish, aka move/slideTiles, then merge tiles
   grid.cells.forEach((cell) => {
     cell.mergeTiles();
   });

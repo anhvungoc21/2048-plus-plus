@@ -219,7 +219,8 @@ body::-webkit-scrollbar {
   height: var(--cell-size);
   border-radius: 1vmin;
 
-  /* Calculate position based on x and y index of each tile*/
+  /* Calculate position based on x and y index of each tile
+  => Basically add 1 cellsize and 1 cellgap for each x/y index. Then add a final cell gap for the edge */
   top: calc(var(--y) * (var(--cell-size) + var(--cell-gap)) + var(--cell-gap));
   left: calc(var(--x) * (var(--cell-size) + var(--cell-gap)) + var(--cell-gap));
 

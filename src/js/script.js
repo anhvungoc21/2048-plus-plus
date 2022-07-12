@@ -49,17 +49,6 @@ export default function setupGame() {
   if (existingTiles) {
     existingTiles.forEach((tile) => tile.remove());
   }
-  // Elements:
-  const gameBoard = document.getElementById("game-board");
-
-  // Create game board grid
-  const gridSize = getGridSize();
-  const percentVHMain = getPercentVHMain();
-  const grid = new Grid(gameBoard, gridSize, percentVHMain);
-
-  // Generate 2 random tiles
-  grid.randomEmptyCell().tile = new Tile(gameBoard);
-  grid.randomEmptyCell().tile = new Tile(gameBoard);
 
   // Reset score
   const scoreContainer = document.querySelector(".score-container");
@@ -76,6 +65,18 @@ export default function setupGame() {
     bestScoreContainer.textContent = bestScoreLocal;
   }
 
+  // Elements:
+  const gameBoard = document.getElementById("game-board");
+
+  // Create game board grid
+  const gridSize = getGridSize();
+  const percentVHMain = getPercentVHMain();
+  const grid = new Grid(gameBoard, gridSize, percentVHMain);
+
+  // Generate 2 random tiles
+  grid.randomEmptyCell().tile = new Tile(gameBoard);
+  grid.randomEmptyCell().tile = new Tile(gameBoard);
+
   // Set up input listener
   setupInput(grid, gameBoard);
 }
@@ -90,7 +91,7 @@ btnRestart.addEventListener("click", () => {
   setupGame();
 });
 
-// Start Game:
+// Start Game & Handle all inputs
 setupGame();
 handleNavbar();
 handleSettings();
