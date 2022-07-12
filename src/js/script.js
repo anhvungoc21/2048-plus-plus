@@ -9,15 +9,6 @@ import {
   applyLSSettings,
   preventTransition,
 } from "./helpers/handleSettings.js";
-/*
-// TODO:
-- Fix incorrect score problem
-- Implement user log-in/out directly inside page with MongoDB. If logged in, get settings/highest score from Mongo. Else, load from localstorage. 
-- Find a way to speed up input-allowing speed (maybe finish animation quickly when another input is received?)
-- Implement energy bar, When it’s full, all blocks that spawn are doubled. Basically have a config for the chance of blocks spawn chance/value. 
-  Progress bar CSS.
-
-*/
 
 /**
  * Main function to set up and start game
