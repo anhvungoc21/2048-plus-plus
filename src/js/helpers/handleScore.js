@@ -5,9 +5,8 @@ const bestScoreContainer = document.querySelector(".best-container");
  * Updates score everytime a tile is merged
  * @param {*} tile Tile that is recently added.
  */
-function updateScore(tile) {
-  // FIXME: This is faulty. Need to add scores of merged tile.
-  const scoreAdd = tile.value;
+function updateScore(scoreAdd) {
+  if (scoreAdd == 0) return;
   scoreContainer.dataset.score =
     parseInt(scoreContainer.dataset.score) + scoreAdd;
   scoreContainer.textContent = `${scoreContainer.dataset.score}`;
