@@ -88,12 +88,14 @@ function checkHandleLoss(grid, gameBoard, lastTile) {
       const tryAgainBtn = lostModal.querySelector("#btn--try-again");
       lostModal.style.opacity = 1;
       gameBoard.style.opacity = 0.5;
+      lostModal.style["pointer-events"] = "initial";
 
       // Set up animation stuff for restart button
       setTimeout(() => {
         tryAgainBtn.addEventListener(
           "click",
           () => {
+            lostModal.style["pointer-events"] = "none";
             preventTransition(true);
             setupGame();
           },

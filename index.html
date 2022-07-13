@@ -28,7 +28,11 @@
           <span class="nav__title">Settings</span>
         </div>
         <div class="nav__list">
-          <div id="set--dark-mode" href="#" class="nav__link">
+          <div id="user" class="nav__link">
+            <ion-icon name="person-circle-outline" class="nav__icon"></ion-icon>
+            <span class="nav__name">My Account</span>
+          </div>
+          <div id="set--dark-mode" class="nav__link">
             <ion-icon name="contrast-outline" class="nav__icon"></ion-icon>
             <span class="nav__name">Dark Mode</span>
             <div class="switch--dark-mode">
@@ -106,14 +110,42 @@
             ></ion-icon>
             <span class="nav__name">About 2048++</span>
           </div>
-          <!-- <div id="set--log-out" href="#" class="nav__link">
+          <div id="log-out" class="nav__link">
             <ion-icon name="log-out-outline" class="nav__icon"></ion-icon>
             <span class="nav__name">Log Out</span>
-          </div> -->
+          </div>
         </div>
       </nav>
     </div>
     <div class="modal-overlay"></div>
+    <div id="modal--user" class="modal">
+      <!-- Mimic Discord User Modal -->
+    </div>
+    <div id="modal--login" class="modal">
+      <span id="login-title"> Log in </span>
+      <div id="email-field" class="login-field">
+        <span>Email</span>
+        <div id="email-input-wrapper" class="input-wrapper">
+          <ion-icon name="mail-outline" class="login__icon"></ion-icon>
+          <input id="email-input" placeholder="Enter your email..." ></input>
+          <ion-icon id="dummy-icon" name="eye-off-outline" class="login__icon"></ion-icon>
+        </div>
+      </div>
+      <div id="password-field" class="login-field">
+        <span>Password</span>
+        <div id="password-input-wrapper" class="input-wrapper">
+          <ion-icon name="lock-closed-outline" class="login__icon"></ion-icon> 
+          <input id="password-input" placeholder="Enter your password..." ></input>
+          <ion-icon name="eye-outline" class="login__icon eye__icon"></ion-icon>
+          <ion-icon name="eye-off-outline" class="login__icon eye__icon hidden"></ion-icon>
+        </div>
+      </div>
+      <div id="btn--login">Login</div>
+      <div id="footer--login">
+        <div id="sign-up" class="field--footer-login">Sign up</div>
+        <div id="forgot-password" class="field--footer-login">Forgot Password?</div>
+      </div>
+    </div>
     <div id="modal--loss" class="modal">
       <span> Game Over! </span>
       <button id="btn--try-again" class="btn">
@@ -122,7 +154,7 @@
       </button>
     </div>
     <div id="modal--info" class="modal">
-      <div class="btn--close-modal">
+      <div class="btn--close-modal btn--close-info-modal">
         <ion-icon name="close-outline" id="icon--info-modal"></ion-icon>
       </div>
       <span>
