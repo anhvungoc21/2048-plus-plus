@@ -1,11 +1,9 @@
-// Google Poppins Font
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
-
 *,
 *::before,
 *::after {
   box-sizing: border-box; /*Takes into account padding, etc. -> Easier to do everything */
 }
+
 
 :root {
   --nav-width: 2.25rem;
@@ -17,7 +15,6 @@
   --cell-color: "rgba(238, 228, 218, 0.4)";
 
   /* Fonts */
-  --body-font: "Poppins", sans-serif;
   --normal-font-size: 3.5rem;
   --medium-font-size: 2rem;
   --small-font-size: 1rem;
