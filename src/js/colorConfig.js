@@ -1,6 +1,3 @@
-// TODO:
-// Different colors for dark and light for each colorDict (tested but failed)
-
 export const colorDictDefault = {
   2: "#eee4da",
   4: "#eee1c9",

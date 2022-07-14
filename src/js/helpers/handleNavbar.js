@@ -97,9 +97,10 @@ const showAccountModal = () => {
 const showLoginModal = () => {
   const loginModal = document.getElementById("modal--login");
   const modalOverlay = document.querySelector(".modal-overlay");
+  const lossModal = document.getElementById("modal--loss");
   loginModal.style.opacity = 1;
   modalOverlay.style.opacity = 0.4;
-  loginModal.style["z-index"] = 3;
+  lossModal.style["z-index"] = 2; // Login Modal can hide Loss Modal
   loginModal.style["pointer-events"] = "initial";
   modalOverlay.style["pointer-events"] = "initial";
   modalOverlay.addEventListener("click", () => {
@@ -107,6 +108,10 @@ const showLoginModal = () => {
     modalOverlay.style.opacity = 0;
     loginModal.style["pointer-events"] = "none";
     modalOverlay.style["pointer-events"] = "none";
+    setTimeout(() => {
+      // Transition time of login modal is 0.5s
+      lossModal.style["z-index"] = 4;
+    }, 500);
   });
 
   // Handle Login
@@ -114,12 +119,12 @@ const showLoginModal = () => {
   btnLogin.addEventListener("click", () => {
     const email = loginModal.querySelector("#email-input").value;
     const password = loginModal.querySelector("#password-input").value;
-    const loginSuccess = tryLogIn(email, password);
-    if (loginSuccess) {
-      logIn();
-    } else {
-      // Report login failure
-    }
+    // const loginSuccess = tryLogIn(email, password);
+    // if (loginSuccess) {
+    //   logIn();
+    // } else {
+    //   // Report login failure
+    // }
   });
 };
 
