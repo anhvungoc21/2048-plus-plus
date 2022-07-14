@@ -1,9 +1,3 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box; /*Takes into account padding, etc. -> Easier to do everything */
-}
-
 :root {
   --nav-width: 2.25rem;
   --primary-color: rgb(169, 169, 169);
@@ -215,7 +209,8 @@ body::-webkit-scrollbar {
   height: var(--cell-size);
   border-radius: 1vmin;
 
-  /* Calculate position based on x and y index of each tile*/
+  /* Calculate position based on x and y index of each tile
+  => Basically add 1 cellsize and 1 cellgap for each x/y index. Then add a final cell gap for the edge */
   top: calc(var(--y) * (var(--cell-size) + var(--cell-gap)) + var(--cell-gap));
   left: calc(var(--x) * (var(--cell-size) + var(--cell-gap)) + var(--cell-gap));
 
@@ -446,13 +441,16 @@ label:active:after {
   outline: none;
 }
 
-/* LOSS MODAL */
-#modal--loss {
+.modal {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: transparent;
   position: absolute;
+}
+
+/* LOSS MODAL */
+#modal--loss {
+  background: transparent;
   text-align: center;
   font-weight: bold;
   gap: 1rem;
@@ -462,6 +460,7 @@ label:active:after {
   opacity: 0;
   transition: opacity 1s ease-in;
   user-select: none;
+  pointer-events: none;
 }
 
 #btn--try-again {
@@ -485,21 +484,17 @@ label:active:after {
 
 /* INFO MODAL & OVERLAY */
 #modal--info {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: white;
-  position: absolute;
   text-align: left;
   font-weight: bold;
   width: 50%;
-  background-color: var(--white-color);
+  background-color: white;
   color: var(--black-color);
   font-size: var(--small-font-size);
   padding: 3em;
   border-radius: 0.5em;
   opacity: 0;
   user-select: none;
+  pointer-events: none;
   overflow: hidden;
   z-index: 3;
   transition: opacity 0.5s ease-in;
@@ -524,6 +519,7 @@ label:active:after {
   display: flex;
   height: 3em;
   justify-content: center;
+  cursor: pointer;
   position: absolute;
   right: 0;
   top: 0;
@@ -541,4 +537,116 @@ label:active:after {
   -moz-transition: none !important;
   -o-transition: none !important;
   transition: none !important;
+}
+
+/* LOGIN FORM */
+#modal--login {
+  background-color: white;
+  color: var(--black-color);
+  font-size: var(--small-font-size);
+  border-radius: 1rem;
+  padding: 3em;
+  opacity: 0;
+  user-select: none;
+  pointer-events: none;
+  transition: opacity 0.5s ease-in;
+  gap: 1.5rem;
+  z-index: 5;
+}
+
+.login-field {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--black-color);
+  color: var(--white-color);
+  align-items: right;
+  width: 100%;
+  border-radius: 1rem;
+  padding: 1rem;
+  gap: 0.5rem;
+}
+
+.input-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+  gap: 0.5em;
+}
+
+input {
+  outline: none;
+  border: none;
+  background-color: var(--black-color);
+  color: var(--white-color);
+}
+
+#email-field {
+  width: 100%;
+}
+
+#email-input-wrapper {
+
+}
+
+#email-input {
+  flex-grow: 2;
+}
+
+#email-input::placeholder {
+  font-style: italic;
+}
+
+
+#password-field {
+  width: 100%;
+}
+
+#password-input-wrapper {
+
+}
+
+#password-input {
+  flex-grow: 2;
+}
+
+#password-input::placeholder {
+  font-style: italic;
+}
+
+#btn--login {
+  text-align: center;
+  width: 100%;
+  padding: 1em 0 1em 0;
+  background-color: var(--primary-color);
+  border-radius: 2rem;
+  cursor: pointer;
+}
+
+#footer--login {
+  font-size: var(--tiny-font-size);
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.field--footer-login {
+  cursor: pointer;
+}
+
+.login__icon {
+  --ionicon-stroke-width: 2em;
+}
+
+.login__icon.hidden {
+  display: none;
+}
+
+.eye__icon {
+  transition: 0.5s;
+}
+
+#dummy-icon {
+  visibility: hidden;
 }

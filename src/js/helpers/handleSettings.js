@@ -19,6 +19,12 @@ function handleToggleBoardSize(e) {
     settings.gridSize = gridSize;
     window.localStorage.setItem("settings2048++", JSON.stringify(settings));
 
+    // In case board size is changed when game is lost
+    const lossModal = document.getElementById("modal--loss");
+    const gameBoard = document.getElementById("game-board");
+    lossModal.style.opacity = 0;
+    gameBoard.style.opacity = 1;
+
     // Update config and reconstruct board
     setGridSize(gridSize);
     setupGame();
