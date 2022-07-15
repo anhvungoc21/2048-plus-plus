@@ -254,7 +254,7 @@ ul {
 /*===== NAV =====*/
 .nav {
   height: 100%;
-  width: var(--nav-width)
+  width: var(--nav-width);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
