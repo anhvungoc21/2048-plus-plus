@@ -18854,7 +18854,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 var ddbClient;
-var awsConfig = {};
 
 var connectToDDB = /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
@@ -18913,22 +18912,21 @@ var getAccount = /*#__PURE__*/function () {
           case 5:
             res = _context2.sent;
             item = (0,_aws_sdk_util_dynamodb__WEBPACK_IMPORTED_MODULE_0__.unmarshall)(res.Item);
-            console.log(item);
-            _context2.next = 14;
+            _context2.next = 13;
             break;
 
-          case 10:
-            _context2.prev = 10;
+          case 9:
+            _context2.prev = 9;
             _context2.t0 = _context2["catch"](1);
             console.log(_context2.t0);
             throw _context2.t0;
 
-          case 14:
+          case 13:
           case "end":
             return _context2.stop();
         }
       }
-    }, _callee2, null, [[1, 10]]);
+    }, _callee2, null, [[1, 9]]);
   }));
 
   return function getAccount(_x) {
