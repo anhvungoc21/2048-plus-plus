@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 // import { createAccount, getAccount } from "../db/db.js";
+=======
+import { createAccount, getAccount } from "../db/db.js";
+
+>>>>>>> 3edb6de58669b141d09f20f0d377a44601a3a309
 import {
   getLoggedIn,
   setLoggedIn,

@@ -5,7 +5,11 @@ import {
   canMoveRight,
 } from "./checkMovable.js";
 import { moveUp, moveDown, moveLeft, moveRight } from "./moveTiles.js";
+<<<<<<< HEAD
 import setupGame from "../script.js";
+=======
+import setupGame from "../../index.js";
+>>>>>>> 3edb6de58669b141d09f20f0d377a44601a3a309
 import { preventTransition } from "./handleSettings.js";
 import Tile from "../classes/Tile.js";
 

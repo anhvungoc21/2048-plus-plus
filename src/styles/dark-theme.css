@@ -1,0 +1,651 @@
+:root {
+  --nav-width: 2.25rem;
+  --primary-color: rgb(169, 169, 169);
+  --secondary-color: rgb(102, 102, 102);
+  --background-color: rgb(47, 44, 44);
+  --black-color: rgb(47, 44, 44);
+  --white-color: rgb(250, 248, 239);
+  --cell-color: rgba(238, 228, 218, 0.5);
+
+  /* Fonts */
+  --normal-font-size: 3.5rem;
+  --medium-font-size: 2rem;
+  --small-font-size: 1rem;
+  --score-font-size: 0.75rem;
+}
+
+body {
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--background-color);
+  color: var(--primary-color);
+  height: 100vh;
+  width: 100vw;
+  margin: 0; /* Since height = 100vh, having no margin ensures that there's no scrolling*/
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  padding-bottom: 2vh;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* TOP BAR */
+#top-bar {
+  display: grid;
+  grid-template-columns: 24vw 52vw 12vw 12vw;
+  font-size: var(--small-font-size);
+  justify-items: center;
+  align-items: center;
+  padding-top: 2vh;
+  padding-bottom: 1vh;
+  gap: 0.25rem;
+}
+
+#title {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  place-self: center;
+  font-weight: 600;
+  font-size: var(--normal-font-size);
+  color: var(--white-color);
+  pointer-events: none;
+  user-select: none;
+}
+
+#btn--restart {
+  grid-column-start: 4;
+  grid-column-end: 5;
+  display: flex;
+  vertical-align: middle;
+  place-content: center;
+  align-items: center;
+  border-radius: 0.25rem;
+  width: 3.5rem;
+  height: 3.5rem;
+  font-size: var(--medium-font-size);
+}
+
+#icon--restart {
+  font-size: 1.75rem;
+  color: var(--white-color);
+  --ionicon-stroke-width: 2em;
+}
+
+/* SCORE DISPLAYS */
+
+.scores-container {
+  float: right;
+  display: flex;
+}
+
+.scores-container * + * {
+  margin-left: 0.5rem;
+}
+
+.score-container,
+.best-container {
+  position: relative;
+  text-align: center;
+  background: var(--primary-color);
+  color: var(--white-color);
+  font-size: var(--medium-font-size);
+  font-weight: bold;
+  height: 1.75rem;
+  padding: 1rem 2rem;
+  line-height: 3rem;
+  border-radius: 0.25rem;
+  user-select: none;
+}
+
+.score-container:after,
+.best-container:after {
+  position: absolute;
+  width: 100%;
+  top: 15%;
+  left: 0;
+  color: var(--white-color);
+  line-height: 1rem;
+  font-size: var(--score-font-size);
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.score-container:after {
+  content: "Score";
+}
+
+.best-container:after {
+  content: "Best";
+}
+
+.score-addition {
+  position: absolute;
+  left: 60%;
+  font-size: var(--small-font-size);
+  font-weight: bold;
+  line-height: var(--small-font-size);
+  color: var(--white-color);
+  -webkit-animation: move-up 600ms ease-in;
+  -moz-animation: move-up 600ms ease-in;
+  animation: move-up 600ms ease-in;
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes move-up {
+  0% {
+    top: 50%;
+    opacity: 1;
+  }
+  100% {
+    top: -100%;
+    opacity: 0;
+  }
+}
+
+@-moz-keyframes move-up {
+  0% {
+    top: 50%;
+    opacity: 1;
+  }
+  100% {
+    top: -100%;
+    opacity: 0;
+  }
+}
+
+@keyframes move-up {
+  0% {
+    top: 50%;
+    opacity: 1;
+  }
+  100% {
+    top: -100%;
+    opacity: 0;
+  }
+}
+
+/* GAME BOARD */
+
+#game-board {
+  display: grid;
+  position: relative; /* Tiles' positions will be absolute RELATIVE to the game board */
+  place-self: center;
+  grid-template-columns: repeat(var(--grid-size), var(--cell-size));
+  grid-template-rows: repeat(var(--grid-size), var(--cell-size));
+  background-color: var(--primary-color);
+  gap: var(--cell-gap);
+  border-radius: 1vmin;
+  padding: var(--cell-gap);
+  font-size: var(--normal-font-size);
+  max-width: min-content;
+  margin-bottom: 1vh;
+  -webkit-transition: opacity 1s ease-in;
+  -moz-transition: opacity 1s ease-in;
+  -o-transition: opacity 1s ease-in;
+  transition: opacity 1s ease-in;
+  opacity: 1;
+}
+
+.cell {
+  background-color: var(--cell-color);
+  border-radius: 1vmin;
+}
+
+.tile {
+  --color: #eee4da;
+  --text-color: #776e65;
+  font-weight: bold;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: var(--cell-size);
+  height: var(--cell-size);
+  border-radius: 1vmin;
+
+  /* Calculate position based on x and y index of each tile
+  => Basically add 1 cellsize and 1 cellgap for each x/y index. Then add a final cell gap for the edge */
+  top: calc(var(--y) * (var(--cell-size) + var(--cell-gap)) + var(--cell-gap));
+  left: calc(var(--x) * (var(--cell-size) + var(--cell-gap)) + var(--cell-gap));
+
+  background-color: var(--color);
+  color: var(--text-color);
+
+  animation: show 200ms ease-in-out;
+  transition: 100ms ease-in-out;
+
+  user-select: none;
+}
+
+@keyframes show {
+  0% {
+    opacity: 0.5;
+    transform: scale(0);
+  }
+}
+
+/* NAVIGATION BAR */
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/*===== l NAV =====*/
+.l-navbar {
+  /* Fixed relative to the viewport. Top, right, bottom, left is used to position it*/
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: var(--nav-width);
+  height: 100vh;
+  background-color: var(--primary-color);
+  color: var(--black-color);
+  padding: 1.5rem 2rem 0rem 2rem;
+  transition: 0.5s;
+}
+
+/*===== NAV =====*/
+.nav {
+  height: 100%;
+  /* width: var(--nav-width) */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow: hidden;
+}
+.nav__brand {
+  display: grid;
+  grid-template-columns: max-content max-content;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 2rem;
+}
+.nav__toggle {
+  font-size: 1.25rem;
+  padding: 0.5rem;
+  padding-right: 0.75rem;
+  cursor: pointer;
+}
+.nav__title {
+  color: var(--black-color);
+  font-weight: 600;
+  user-select: none;
+}
+.nav__link {
+  display: grid;
+  grid-template-columns: max-content max-content;
+  align-items: center;
+  column-gap: 0.75rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  padding-left: 0.5rem;
+  padding-right: 0.75rem;
+  color: var(--black-color);
+  border-radius: 1vmin;
+  margin-bottom: 1rem;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.nav__link:hover {
+  background-color: var(--secondary-color);
+}
+.nav__icon {
+  font-size: 1.25rem;
+  --ionicon-stroke-width: 2em;
+}
+.nav__name {
+  font-size: var(--small-font-size);
+  user-select: none;
+}
+
+/* Expander menu */
+.expander {
+  width: calc(var(--nav-width) + 10rem);
+}
+
+/*===== COLLAPSE =====*/
+.collapse {
+  grid-template-columns: max-content max-content 1fr;
+}
+
+.collapse__icon {
+  justify-self: flex-end;
+  transition: 0.5s;
+  --ionicon-stroke-width: 2em;
+}
+
+.collapse__menu {
+  display: none;
+  flex-direction: column;
+  grid-column-start: span 3;
+  padding-top: 0.5rem;
+}
+.collapse__sublink {
+  display: flex;
+  flex-direction: row;
+  width: max;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--black-color);
+  font-size: var(--small-font-size);
+  height: 2.25rem;
+  border-radius: 0.3rem;
+  padding-left: 1rem;
+  transition: 0.3s;
+}
+
+.check__icon.hidden {
+  display: none;
+}
+
+.collapse__sublink:hover {
+  color: var(--black-color);
+  background-color: var(--primary-color);
+}
+
+/*Show collapse*/
+.showCollapse {
+  display: flex;
+}
+
+/*Rotate icon*/
+.rotate {
+  transform: rotate(180deg);
+}
+
+/* SWITCHES */
+.switch--dark-mode {
+  align-items: center;
+  justify-items: center;
+  place-self: center;
+}
+
+#set--dark-mode {
+  grid-template-columns: max-content max-content 1fr;
+  padding-right: 0;
+}
+
+input[type="checkbox"] {
+  height: 0;
+  width: 0;
+  display: none;
+}
+
+label {
+  cursor: pointer;
+  width: 3rem;
+  height: 1.5rem;
+  background: var(--secondary-color);
+  display: block;
+  border-radius: 1rem;
+  position: relative;
+}
+
+label:after {
+  content: "";
+  position: absolute;
+  top: 0.4rem;
+  left: 0.5rem;
+  width: 0.8rem;
+  height: 0.8rem;
+  background: var(--white-color);
+  border-radius: 1rem;
+  transition: 0.2s;
+}
+
+input:checked + label {
+  background: var(--black-color);
+}
+
+input:checked + label::after {
+  left: 80%;
+  transform: translateX(-100%);
+}
+
+label:active:after {
+  width: 1.5rem;
+}
+
+/* BUTTONS */
+.btn {
+  border: solid transparent;
+  /* box-sizing: border-box; */
+  background-color: var(--primary-color);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  margin: none;
+}
+
+/* Use hover and active with transform to give a "clicking" sense */
+.btn:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-0.1rem);
+}
+
+.btn:active {
+  transform: translateY(0rem);
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+}
+
+/* LOSS MODAL */
+#modal--loss {
+  background: transparent;
+  text-align: center;
+  font-weight: bold;
+  gap: 1rem;
+  font-size: var(--normal-font-size);
+  color: var(--white-color);
+  z-index: 4;
+  opacity: 0;
+  transition: opacity 1s ease-in;
+  user-select: none;
+  pointer-events: none;
+}
+
+#btn--try-again {
+  display: flex;
+  vertical-align: middle;
+  place-content: center;
+  align-items: center;
+  width: max-content;
+  height: max-content;
+  gap: 0.25rem;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  font-weight: bold;
+  font-size: var(--small-font-size);
+  color: var(--white-color);
+}
+
+#icon--try-again {
+  --ionicon-stroke-width: 3em;
+}
+
+/* INFO MODAL & OVERLAY */
+#modal--info {
+  text-align: left;
+  font-weight: bold;
+  width: 50%;
+  background-color: white;
+  color: var(--black-color);
+  font-size: var(--small-font-size);
+  padding: 3em;
+  border-radius: 0.5em;
+  opacity: 0;
+  user-select: none;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 3;
+  transition: opacity 0.5s ease-in;
+}
+
+.modal-overlay {
+  transition: opacity 0.5s ease-out;
+  background: var(--black-color);
+  position: fixed;
+  opacity: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  top: 0;
+  z-index: 2;
+  user-select: none;
+  pointer-events: none;
+}
+
+.btn--close-modal {
+  align-items: center;
+  display: flex;
+  height: 3em;
+  justify-content: center;
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 3em;
+}
+
+#icon--info-modal {
+  font-size: 1.75rem;
+  --ionicon-stroke-width: 1.5em;
+  color: var(--black-color);
+}
+
+.no-transition *:not(.tile) {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -o-transition: none !important;
+  transition: none !important;
+}
+
+/* LOGIN FORM */
+#modal--login {
+  background-color: white;
+  color: var(--black-color);
+  font-size: var(--small-font-size);
+  border-radius: 1rem;
+  padding: 3em;
+  opacity: 0;
+  user-select: none;
+  pointer-events: none;
+  transition: opacity 0.5s ease-in;
+  gap: 1.5rem;
+  z-index: 5;
+}
+
+.login-field {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--black-color);
+  color: var(--white-color);
+  align-items: right;
+  width: 100%;
+  border-radius: 1rem;
+  padding: 1rem;
+  gap: 0.5rem;
+}
+
+.input-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+  gap: 0.5em;
+}
+
+input {
+  outline: none;
+  border: none;
+  background-color: var(--black-color);
+  color: var(--white-color);
+}
+
+#email-field {
+  width: 100%;
+}
+
+#email-input-wrapper {
+}
+
+#email-input {
+  flex-grow: 2;
+}
+
+#email-input::placeholder {
+  font-style: italic;
+}
+
+#password-field {
+  width: 100%;
+}
+
+#password-input-wrapper {
+}
+
+#password-input {
+  flex-grow: 2;
+}
+
+#password-input::placeholder {
+  font-style: italic;
+}
+
+#btn--login {
+  text-align: center;
+  width: 100%;
+  padding: 1em 0 1em 0;
+  background-color: var(--primary-color);
+  border-radius: 2rem;
+  cursor: pointer;
+}
+
+#footer--login {
+  font-size: var(--tiny-font-size);
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.field--footer-login {
+  cursor: pointer;
+}
+
+.login__icon {
+  --ionicon-stroke-width: 2em;
+}
+
+.login__icon.hidden {
+  display: none;
+}
+
+.eye__icon {
+  transition: 0.5s;
+}
+
+#dummy-icon {
+  visibility: hidden;
+}

@@ -119,12 +119,22 @@ const showLoginModal = () => {
   btnLogin.addEventListener("click", () => {
     const email = loginModal.querySelector("#email-input").value;
     const password = loginModal.querySelector("#password-input").value;
+<<<<<<< HEAD
     // const loginSuccess = tryLogIn(email, password);
     // if (loginSuccess) {
     //   logIn();
     // } else {
     //   // Report login failure
     // }
+=======
+    const loginSuccess = tryLogIn(email, password);
+    if (loginSuccess) {
+      logIn();
+    } else {
+      // Report login failure
+      // Shake some kind of modal
+    }
+>>>>>>> 3edb6de58669b141d09f20f0d377a44601a3a309
   });
 };
 
