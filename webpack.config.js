@@ -75,6 +75,6 @@ module.exports = {
       inject: false,
     }),
     new MiniCssExtractPlugin(),
-    new BundleAnalyzerPlugin(),
+    // new BundleAnalyzerPlugin(),
   ],
 };

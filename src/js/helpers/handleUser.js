@@ -1,4 +1,5 @@
-// import { createAccount, getAccount } from "../db/db.js";
+import { createAccount, getAccount } from "../db/db.js";
+
 import {
   getLoggedIn,
   setLoggedIn,
