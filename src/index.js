@@ -1,4 +1,3 @@
-import * as AWS from "aws-sdk";
 
 import Grid from "./js/classes/Grid.js";
 import Tile from "./js/classes/Tile.js";
