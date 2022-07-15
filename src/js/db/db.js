@@ -7,7 +7,6 @@ import {
 import { marshall, unmarshall } from "@aws-sdk/util-dynamodb";
 
 let ddbClient;
-const awsConfig = {};
 
 const connectToDDB = async () => {
   try {
@@ -29,12 +28,10 @@ export const getAccount = async (email) => {
     TableName: "2048PlusPlus",
     Key: marshall({ email: email }),
   };
-
   try {
     connectToDDB();
     const res = await ddbClient.send(new GetItemCommand(params));
     const item = unmarshall(res.Item);
-    console.log(item);
   } catch (err) {
     console.log(err);
     throw err;
