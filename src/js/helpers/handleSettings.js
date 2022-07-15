@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import setupGame from "../script.js";
-=======
 import setupGame from "../../index.js";
->>>>>>> 3edb6de58669b141d09f20f0d377a44601a3a309
 import { setGridSize, setColorTheme, getColorTheme } from "../config.js";
 import {
   colorDictDefault,
@@ -131,17 +127,10 @@ const toggleDarkMode = () => {
 
   // Update CSS source and set settings for localStorage
   if (css.href.includes("light-theme")) {
-<<<<<<< HEAD
-    css.href = "./src/css/dark-theme.css";
-    settings.darkMode = "dark-theme";
-  } else {
-    css.href = "./src/css/light-theme.css";
-=======
     css.href = "./dark-theme.css";
     settings.darkMode = "dark-theme";
   } else {
     css.href = "./light-theme.css";
->>>>>>> 3edb6de58669b141d09f20f0d377a44601a3a309
     settings.darkMode = "light-theme";
   }
 
@@ -175,17 +164,10 @@ export const applyLSSettings = async () => {
   const togglerDarkMode = document.getElementById("switch-dark");
 
   if (darkMode == "light-theme") {
-<<<<<<< HEAD
-    css.href = "./src/css/light-theme.css";
-    togglerDarkMode.checked = false;
-  } else {
-    css.href = "./src/css/dark-theme.css";
-=======
     css.href = "./light-theme.css";
     togglerDarkMode.checked = false;
   } else {
     css.href = "./dark-theme.css";
->>>>>>> 3edb6de58669b141d09f20f0d377a44601a3a309
     togglerDarkMode.checked = true;
   }
 

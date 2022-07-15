@@ -19369,6 +19369,7 @@ var showLoginModal = function showLoginModal() {
     if (loginSuccess) {
       (0,_handleUser_js__WEBPACK_IMPORTED_MODULE_1__.logIn)();
     } else {// Report login failure
+      // Shake some kind of modal
     }
   });
 };
