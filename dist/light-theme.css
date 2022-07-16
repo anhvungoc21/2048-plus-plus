@@ -570,6 +570,7 @@ label:active:after {
   display: flex;
   flex-direction: column;
   background-color: white;
+  color: var(--black-color);
   align-items: right;
   width: 100%;
   border-radius: 1rem;

@@ -18897,7 +18897,8 @@ var setColorTheme = function setColorTheme(val) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "createAccount": () => (/* binding */ createAccount),
-/* harmony export */   "getAccount": () => (/* binding */ getAccount)
+/* harmony export */   "getAccount": () => (/* binding */ getAccount),
+/* harmony export */   "updateAccount": () => (/* binding */ updateAccount)
 /* harmony export */ });
 /* harmony import */ var _aws_sdk_client_dynamodb__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @aws-sdk/client-dynamodb */ "./node_modules/@aws-sdk/client-dynamodb/dist-es/DynamoDBClient.js");
 /* harmony import */ var _aws_sdk_client_dynamodb__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @aws-sdk/client-dynamodb */ "./node_modules/@aws-sdk/client-dynamodb/dist-es/commands/GetItemCommand.js");
@@ -19060,7 +19061,9 @@ var createAccount = /*#__PURE__*/function () {
   return function createAccount(_x2, _x3, _x4) {
     return _ref3.apply(this, arguments);
   };
-}();
+}(); // TODO: For both changing passwords and updating new best score.
+
+var updateAccount = async(userName, email, password);
 
 /***/ }),
 
@@ -20037,7 +20040,7 @@ var logIn = /*#__PURE__*/function () {
         switch (_context.prev = _context.next) {
           case 0:
             _context.next = 2;
-            return (0,_db_db_js__WEBPACK_IMPORTED_MODULE_0__.getAccount)();
+            return (0,_db_db_js__WEBPACK_IMPORTED_MODULE_0__.getAccount)(email);
 
           case 2:
             account = _context.sent;
