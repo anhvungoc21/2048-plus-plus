@@ -19063,7 +19063,23 @@ var createAccount = /*#__PURE__*/function () {
   };
 }(); // TODO: For both changing passwords and updating new best score.
 
-var updateAccount = async(userName, email, password);
+var updateAccount = /*#__PURE__*/function () {
+  var _ref4 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee4(userName, email, password) {
+    return _regeneratorRuntime().wrap(function _callee4$(_context4) {
+      while (1) {
+        switch (_context4.prev = _context4.next) {
+          case 0:
+          case "end":
+            return _context4.stop();
+        }
+      }
+    }, _callee4);
+  }));
+
+  return function updateAccount(_x5, _x6, _x7) {
+    return _ref4.apply(this, arguments);
+  };
+}();
 
 /***/ }),
 
