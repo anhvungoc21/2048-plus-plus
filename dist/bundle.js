@@ -12969,8 +12969,8 @@ var recursionDetectionMiddleware = function (options) {
                     request.headers.hasOwnProperty(TRACE_ID_HEADER_NAME)) {
                     return [2, next(args)];
                 }
-                functionName = process.env[ENV_LAMBDA_FUNCTION_NAME];
-                traceId = process.env[ENV_TRACE_ID];
+                functionName = "MISSING_ENV_VAR"[ENV_LAMBDA_FUNCTION_NAME];
+                traceId = "MISSING_ENV_VAR"[ENV_TRACE_ID];
                 nonEmptyString = function (str) { return typeof str === "string" && str.length > 0; };
                 if (nonEmptyString(functionName) && nonEmptyString(traceId)) {
                     request.headers[TRACE_ID_HEADER_NAME] = traceId;
@@ -18854,6 +18854,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 var ddbClient;
+console.log("AKIATIH5SGOU3U2FTWEP");
 
 var connectToDDB = /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
