@@ -79,4 +79,4 @@ export const createAccount = async (userName, email, password) => {
 };
 
 // TODO: For both changing passwords and updating new best score.
-export const updateAccount = async(userName, email, password);
+export const updateAccount = async (userName, email, password) => {};
