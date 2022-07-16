@@ -16,7 +16,10 @@ import Tile from "../classes/Tile.js";
  * @param {*} gameBoard Game gameBoard
  * @returns null
  */
+
 async function handleInput(e, grid, gameBoard) {
+  // Check if any modal is open:
+
   // Handle keydown inputs
   switch (e.key) {
     case "ArrowUp":
@@ -116,10 +119,24 @@ function checkHandleLoss(grid, gameBoard, lastTile) {
  * @param {*} grid Grid used for checking move validity. Grid is created from gameBoard
  * @param {*} gameBoard Gameboard is used for putting new tiles in
  */
+
 export default function setupInput(grid, gameBoard) {
   window.addEventListener(
     "keydown",
-    async (e) => await handleInput(e, grid, gameBoard),
+    async (e) => {
+      // If there are openned modals, do not handle input
+      // TODO: Maybe check overlay
+      const openModals = document.querySelectorAll(".modal");
+      let isModalsOpened = false;
+      openModals.forEach((el) => {
+        if (el.style.opacity != 0) isModalsOpened = true;
+      });
+      if (isModalsOpened) {
+        setupInput(grid, gameBoard);
+      } else {
+        await handleInput(e, grid, gameBoard);
+      }
+    },
     {
       once: true,
     }

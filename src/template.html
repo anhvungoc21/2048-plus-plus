@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= htmlWebpackPlugin.options.title %></title>
     <style>
-      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap');
     </style>
     <link rel="stylesheet" href="./light-theme.css">
     <script type="module" defer src="./bundle.js"></script> 
     <script type="module" src="https://unpkg.com/ionicons@5.1.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule="" src="https://unpkg.com/ionicons@5.1.2/dist/ionicons/ionicons.js"></script>
   </head>
-  <body>
+  <body>   
     <div class="l-navbar" id="navbar">
       <nav class="nav">
         <div class="nav__brand">
@@ -25,7 +25,7 @@
           <span class="nav__title">Settings</span>
         </div>
         <div class="nav__list">
-          <div id="user" class="nav__link">
+          <div id="user" class="nav__link btn--show-modal">
             <ion-icon name="person-circle-outline" class="nav__icon"></ion-icon>
             <span class="nav__name">My Account</span>
           </div>
@@ -99,7 +99,6 @@
               </div>
             </ul>
           </div>
-
           <div id="info" class="nav__link">
             <ion-icon
               name="information-circle-outline"
@@ -115,10 +114,43 @@
       </nav>
     </div>
     <div class="modal-overlay"></div>
-    <div id="modal--user" class="modal">
-      <!-- Mimic Discord User Modal -->
+    <div id="modal--account" class="modal">
+      <div id="username" class="fields--modal-account">
+        <span>Fakahrina03</span>
+      </div>
+      <div id="best-score" class="fields--modal-account">
+        <span class="entry--modal-account"> Highest Score: </span>
+        <span id="best-score-data"> 2048 </span>
+      </div>
+      <div id="games-played" class="fields--modal-account">
+        <span class="entry--modal-account">Games Played:</span>
+        <div id="games-played-table">
+          <div id="table-categories" class="table-row">
+            <span>Board Size</span>
+            <span>Games</span>
+          </div>
+          <div id="row-4x4" class="table-row">
+            <span>4x4</span>
+            <span id="games-played--4x4">0</span>
+          </div>
+          <div id="row-5x5" class="table-row">
+            <span>5x5</span>
+            <span id="games-played--5x5">0</span>
+          </div>
+          <div id="row-6x6" class="table-row">
+            <span>6x6</span>
+            <span id="games-played--6x6">0</span>
+          </div>
+        </div>
+      </div>
+      <!-- <div id="settings" class="fields--modal-account">
+        <div id="dark-mode"></div>
+        <div id="board-size"></div>
+        <div id="color-theme"></div>
+        https://codepen.io/secondfret/pen/AvGZRn
+      </div> -->
     </div>
-    <div id="modal--login" class="modal">
+    <div id="modal--login" class="modal modal--login-signup">
       <span>(UNDER DEVELOPMENT)</span>
       <span id="login-title"> Log in </span>
       <div id="email-field" class="login-field">
@@ -138,10 +170,50 @@
           <ion-icon name="eye-off-outline" class="login__icon eye__icon hidden"></ion-icon>
         </div>
       </div>
-      <div id="btn--login">Login</div>
-      <div id="footer--login">
-        <div id="sign-up" class="field--footer-login">Sign up</div>
-        <div id="forgot-password" class="field--footer-login">Forgot Password?</div>
+      <div id="btn--login" class="btn btn--login-signup">Login</div>
+      <div id="sign-up" class="field--footer">Don't have an account? Sign up</div>
+    </div>
+    <div id="modal--signup" class="modal modal--login-signup">
+      <span>(UNDER DEVELOPMENT)</span>
+      <span id="login-title"> Sign up </span>
+      <div id="username-field" class="login-field">
+        <span>Username</span>
+        <div id="username-input-wrapper" class="input-wrapper">
+          <ion-icon name="person-outline" class="login__icon"></ion-icon>          
+          <input id="username-input" placeholder="Enter your username..." ></input>
+          <ion-icon id="dummy-icon" name="eye-off-outline" class="login__icon"></ion-icon>
+        </div>
+      </div>
+      <div id="email-field" class="login-field">
+        <span>Email</span>
+        <div id="email-input-wrapper" class="input-wrapper">
+          <ion-icon name="mail-outline" class="login__icon"></ion-icon>
+          <input id="email-input" placeholder="Enter your email..." ></input>
+          <ion-icon id="dummy-icon" name="eye-off-outline" class="login__icon"></ion-icon>
+        </div>
+      </div>
+      <div id="password-field" class="login-field">
+        <span>Password</span>
+        <div id="password-input-wrapper" class="input-wrapper">
+          <ion-icon name="lock-closed-outline" class="login__icon"></ion-icon> 
+          <input id="password-input" placeholder="Enter your password..." ></input>
+          <ion-icon name="eye-outline" class="login__icon eye__icon"></ion-icon>
+          <ion-icon name="eye-off-outline" class="login__icon eye__icon hidden"></ion-icon>
+        </div>
+      </div>
+      <div id="re-password-field" class="login-field">
+        <span>Confirm Password</span>
+        <div id="password-reinput-wrapper" class="input-wrapper">
+          <ion-icon name="checkmark-done-outline" class="login__icon"></ion-icon> 
+          <input id="password-reinput" placeholder="Re-enter your password..." ></input>
+          <ion-icon name="eye-outline" class="login__icon eye__icon"></ion-icon>
+          <ion-icon name="eye-off-outline" class="login__icon eye__icon hidden"></ion-icon>
+        </div>
+      </div>
+      <div id="btn--signup" class="btn btn--login-signup">Sign up</div>
+      <div id="btn--return-login" class="field--footer">
+        <ion-icon name="return-down-back-outline"></ion-icon>
+        <span>Return to Log in</span>
       </div>
     </div>
     <div id="modal--loss" class="modal">
