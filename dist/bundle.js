@@ -18854,7 +18854,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 var ddbClient;
-console.log("AKIATIH5SGOU3U2FTWEP");
+var credentials = {
+  accessKeyId: "AKIATIH5SGOU3U2FTWEP",
+  secretAccessKey: "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"
+};
 
 var connectToDDB = /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
@@ -18864,10 +18867,7 @@ var connectToDDB = /*#__PURE__*/function () {
           case 0:
             _context.prev = 0;
             ddbClient = new _aws_sdk_client_dynamodb__WEBPACK_IMPORTED_MODULE_1__.DynamoDBClient({
-              credentials: {
-                accessKeyId: "AKIATIH5SGOU3U2FTWEP",
-                secretAccessKey: "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"
-              },
+              credentials: credentials,
               region: "us-east-1"
             });
             _context.next = 8;
