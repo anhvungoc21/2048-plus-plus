@@ -7,6 +7,7 @@ import {
 import { marshall, unmarshall } from "@aws-sdk/util-dynamodb";
 
 let ddbClient;
+console.log(process.env.AWS_ACCESS_KEY_ID);
 
 const connectToDDB = async () => {
   try {

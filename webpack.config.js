@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const BundleAnalyzerPlugin =
   require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const Dotenv = require("dotenv-webpack");
 
 module.exports = {
   mode: "development",
@@ -75,6 +76,7 @@ module.exports = {
       inject: false,
     }),
     new MiniCssExtractPlugin(),
+    new Dotenv(),
     // new BundleAnalyzerPlugin(),
   ],
 };
