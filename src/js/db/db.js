@@ -7,15 +7,15 @@ import {
 import { marshall, unmarshall } from "@aws-sdk/util-dynamodb";
 
 let ddbClient;
-console.log(process.env.AWS_ACCESS_KEY_ID);
+const credentials = {
+  accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+};
 
 const connectToDDB = async () => {
   try {
     ddbClient = new DynamoDBClient({
-      credentials: {
-        accessKeyId: "AKIATIH5SGOU3U2FTWEP",
-        secretAccessKey: "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",
-      },
+      credentials: credentials,
       region: "us-east-1",
     });
   } catch (err) {
