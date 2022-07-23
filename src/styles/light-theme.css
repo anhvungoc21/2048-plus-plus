@@ -363,13 +363,13 @@ ul {
 }
 
 /* SWITCHES */
-.switch--dark-mode {
+.switch {
   align-items: center;
   justify-items: center;
-  place-self: center;
+  place-self: end;
 }
 
-#set--dark-mode {
+.switch-wrapper {
   grid-template-columns: max-content max-content 1fr;
   padding-right: 0;
 }

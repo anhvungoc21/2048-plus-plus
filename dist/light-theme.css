@@ -366,7 +366,7 @@ ul {
 }
 
 /* SWITCHES */
-.switch--dark-mode {
+.switch {
   align-items: center;
   justify-items: center;
   place-self: center;
@@ -375,6 +375,14 @@ ul {
 #set--dark-mode {
   grid-template-columns: max-content max-content 1fr;
   padding-right: 0;
+}
+
+#set--sounds {
+  grid-template-columns: max-content max-content 1fr;
+  padding-right: 0;
+}
+
+.switch-wrapper {
 }
 
 input[type="checkbox"] {

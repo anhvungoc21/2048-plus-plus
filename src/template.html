@@ -29,12 +29,20 @@
             <ion-icon name="person-circle-outline" class="nav__icon"></ion-icon>
             <span class="nav__name">My Account</span>
           </div>
-          <div id="set--dark-mode" class="nav__link">
+          <div id="set--dark-mode" class="nav__link switch-wrapper">
             <ion-icon name="contrast-outline" class="nav__icon"></ion-icon>
             <span class="nav__name">Dark Mode</span>
-            <div class="switch--dark-mode">
+            <div class="switch--dark-mode switch">
               <input type="checkbox" id="switch-dark" />
               <label for="switch-dark"></label>
+            </div>
+          </div>
+          <div id="set--sounds" class="nav__link switch-wrapper">
+            <ion-icon name="volume-medium-outline" class="nav__icon"></ion-icon>
+            <span class="nav__name">Sounds</span>
+            <div class="switch--sounds switch">
+              <input type="checkbox" id="switch-sounds" />
+              <label for="switch-sounds"></label>
             </div>
           </div>
           <div id="set--board-size" class="nav__link collapse">

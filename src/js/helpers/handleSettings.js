@@ -1,5 +1,11 @@
 import setupGame from "../../index.js";
-import { setGridSize, setColorTheme, getColorTheme } from "../config.js";
+import {
+  setGridSize,
+  setColorTheme,
+  getColorTheme,
+  setSounds,
+  getSounds,
+} from "../config.js";
 import {
   colorDictDefault,
   colorDictBlue,
@@ -143,7 +149,7 @@ const toggleDarkMode = () => {
 
 export const applyLSSettings = async () => {
   const localSettings = window.localStorage.getItem("settings2048++");
-  const { darkMode, gridSize, colorTheme } = JSON.parse(localSettings);
+  const { darkMode, gridSize, colorTheme, sounds } = JSON.parse(localSettings);
 
   // Handle grid size
   setGridSize(parseInt(gridSize));
@@ -172,6 +178,35 @@ export const applyLSSettings = async () => {
   }
 
   updateColorByDarkLight();
+
+  // Handle sounds
+  const togglerSounds = document.getElementById("switch-sounds");
+
+  if (sounds) {
+    togglerSounds.checked = true;
+    setSounds(true);
+  } else {
+    togglerSounds.checked = false;
+    setSounds(false);
+  }
+};
+
+const toggleSounds = () => {
+  const curSoundsSettings = getSounds();
+  console.log(curSoundsSettings);
+  const settings = JSON.parse(window.localStorage.getItem("settings2048++"));
+
+  // Change settings
+  if (curSoundsSettings) {
+    setSounds(false);
+    settings.sounds = false;
+  } else {
+    setSounds(true);
+    settings.sounds = true;
+  }
+
+  // Update in local storage
+  window.localStorage.setItem("settings2048++", JSON.stringify(settings));
 };
 
 export const preventTransition = (restartGame) => {
@@ -214,8 +249,10 @@ export function handleSettings() {
   const menuBoardSize = document.getElementById("collapse--board-size");
   const menuColors = document.getElementById("collapse--colors");
   const togglerDarkMode = document.getElementById("switch-dark");
+  const togglerSounds = document.getElementById("switch-sounds");
 
   menuBoardSize.addEventListener("click", (e) => handleToggleBoardSize(e));
   menuColors.addEventListener("click", (e) => handleToggleColorTheme(e));
   togglerDarkMode.addEventListener("click", toggleDarkMode);
+  togglerSounds.addEventListener("click", toggleSounds);
 }
