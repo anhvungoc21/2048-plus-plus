@@ -18199,7 +18199,8 @@ function setupGame() {
     var defaultSettings = {
       darkMode: "light-theme",
       gridSize: "4",
-      colorTheme: "original"
+      colorTheme: "original",
+      sounds: "true"
     };
     localStorage.setItem("settings2048++", JSON.stringify(defaultSettings));
   } else {
@@ -18891,7 +18892,7 @@ var setColorTheme = function setColorTheme(val) {
   return COLOR_THEME = val;
 };
 var setSounds = function setSounds(val) {
-  return SOUNDS;
+  return SOUNDS = val;
 };
 
 /***/ }),
@@ -19420,6 +19421,7 @@ var navList = navBar.querySelector(".nav__list");
 var navLinks = navList.querySelectorAll(".nav__link");
 var collapseMenus = document.querySelectorAll(".collapse__menu");
 var setterDarkMode = document.getElementById("set--dark-mode");
+var setterSounds = document.getElementById("set--sounds");
 var setterBoardSize = document.getElementById("set--board-size");
 var setterColors = document.getElementById("set--colors");
 var infoViewer = document.getElementById("info");
@@ -19441,9 +19443,9 @@ var eyeIconsSignup = signupModal.querySelectorAll("#password-input-wrapper > .ey
 var eyeIconsReSignup = signupModal.querySelectorAll("#password-reinput-wrapper > .eye__icon");
 
 var handleShowMenu = function handleShowMenu() {
-  if (navBar && navToggle && setterDarkMode && setterBoardSize && setterColors && userViewer && logOutBtn) {
+  if (navBar && navToggle && setterDarkMode && setterSounds && setterBoardSize && setterColors && userViewer && logOutBtn) {
     // Click on these to expand
-    var validExpanders = [setterDarkMode, setterBoardSize, setterColors];
+    var validExpanders = [setterDarkMode, setterBoardSize, setterColors, setterSounds];
     validExpanders.forEach(function (element) {
       element.addEventListener("click", function () {
         navBar.classList.add("expander");
@@ -19635,20 +19637,7 @@ var showLoginModal = function showLoginModal() {
     }
   }, {
     once: true
-  }); // btnOpenSignup.addEventListener(
-  //   "click",
-  //   () => {
-  //     loginModal.style.opacity = 0;
-  //     loginModal.style["pointer-events"] = "none";
-  //     if (lossModal.style["z-index"] == 2) {
-  //       setTimeout(() => {
-  //         // Transition time of login modal is 0.5s
-  //         lossModal.style["z-index"] = 4;
-  //       }, 500);
-  //     }
-  //   },
-  //   { once: true }
-  // );
+  });
 };
 
 var handleBtnsLogin = function handleBtnsLogin() {
@@ -19938,14 +19927,14 @@ var toggleDarkMode = function toggleDarkMode() {
 
 var applyLSSettings = /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-    var localSettings, _JSON$parse, darkMode, gridSize, colorTheme, gridOptionElement, colorOptionElement, css, togglerDarkMode;
+    var localSettings, _JSON$parse, darkMode, gridSize, colorTheme, sounds, gridOptionElement, colorOptionElement, css, togglerDarkMode, togglerSounds;
 
     return _regeneratorRuntime().wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
             localSettings = window.localStorage.getItem("settings2048++");
-            _JSON$parse = JSON.parse(localSettings), darkMode = _JSON$parse.darkMode, gridSize = _JSON$parse.gridSize, colorTheme = _JSON$parse.colorTheme; // Handle grid size
+            _JSON$parse = JSON.parse(localSettings), darkMode = _JSON$parse.darkMode, gridSize = _JSON$parse.gridSize, colorTheme = _JSON$parse.colorTheme, sounds = _JSON$parse.sounds; // Handle grid size
 
             (0,_config_js__WEBPACK_IMPORTED_MODULE_1__.setGridSize)(parseInt(gridSize));
             gridOptionElement = document.querySelector("[data-board-size=\"".concat(gridSize, "\"]"));
@@ -19966,9 +19955,19 @@ var applyLSSettings = /*#__PURE__*/function () {
               togglerDarkMode.checked = true;
             }
 
-            updateColorByDarkLight();
+            updateColorByDarkLight(); // Handle sounds
 
-          case 12:
+            togglerSounds = document.getElementById("switch-sounds");
+
+            if (sounds) {
+              togglerSounds.checked = true;
+              (0,_config_js__WEBPACK_IMPORTED_MODULE_1__.setSounds)(true);
+            } else {
+              togglerSounds.checked = false;
+              (0,_config_js__WEBPACK_IMPORTED_MODULE_1__.setSounds)(false);
+            }
+
+          case 14:
           case "end":
             return _context.stop();
         }
@@ -19980,6 +19979,24 @@ var applyLSSettings = /*#__PURE__*/function () {
     return _ref.apply(this, arguments);
   };
 }();
+
+var toggleSounds = function toggleSounds() {
+  var curSoundsSettings = (0,_config_js__WEBPACK_IMPORTED_MODULE_1__.getSounds)();
+  console.log(curSoundsSettings);
+  var settings = JSON.parse(window.localStorage.getItem("settings2048++")); // Change settings
+
+  if (curSoundsSettings) {
+    (0,_config_js__WEBPACK_IMPORTED_MODULE_1__.setSounds)(false);
+    settings.sounds = false;
+  } else {
+    (0,_config_js__WEBPACK_IMPORTED_MODULE_1__.setSounds)(true);
+    settings.sounds = true;
+  } // Update in local storage
+
+
+  window.localStorage.setItem("settings2048++", JSON.stringify(settings));
+};
+
 var preventTransition = function preventTransition(restartGame) {
   // Add no-transition classlist to all elements except tiles. This prevents darkMode CSS from running animations.
   document.body.classList.add("no-transition"); // Same reason, but for restarting the game
@@ -20020,6 +20037,7 @@ function handleSettings() {
   var menuBoardSize = document.getElementById("collapse--board-size");
   var menuColors = document.getElementById("collapse--colors");
   var togglerDarkMode = document.getElementById("switch-dark");
+  var togglerSounds = document.getElementById("switch-sounds");
   menuBoardSize.addEventListener("click", function (e) {
     return handleToggleBoardSize(e);
   });
@@ -20027,6 +20045,7 @@ function handleSettings() {
     return handleToggleColorTheme(e);
   });
   togglerDarkMode.addEventListener("click", toggleDarkMode);
+  togglerSounds.addEventListener("click", toggleSounds);
 }
 
 /***/ }),
@@ -20194,8 +20213,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "moveRight": () => (/* binding */ moveRight),
 /* harmony export */   "moveUp": () => (/* binding */ moveUp)
 /* harmony export */ });
-/* harmony import */ var _handleScore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./handleScore.js */ "./src/js/helpers/handleScore.js");
-/* harmony import */ var _assets_tileSoundEffect_wav__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../assets/tileSoundEffect.wav */ "./src/assets/tileSoundEffect.wav");
+/* harmony import */ var _assets_tileSoundEffect_wav__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../assets/tileSoundEffect.wav */ "./src/assets/tileSoundEffect.wav");
+/* harmony import */ var _handleScore_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./handleScore.js */ "./src/js/helpers/handleScore.js");
+/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../config */ "./src/js/config.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
@@ -20215,6 +20235,7 @@ function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyri
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 
 
 
@@ -20275,12 +20296,12 @@ function slideTiles(cells) {
     return promises;
   }); // Play sound effect for tile merging
 
-  if (playSound) {
+  if (playSound && (0,_config__WEBPACK_IMPORTED_MODULE_2__.getSounds)()) {
     var sndEffect = new Audio("./soundEffect.wav");
     sndEffect.play();
   }
 
-  (0,_handleScore_js__WEBPACK_IMPORTED_MODULE_0__.updateScore)(groupsScoreAdds.reduce(function (sum, scoreAdd) {
+  (0,_handleScore_js__WEBPACK_IMPORTED_MODULE_1__.updateScore)(groupsScoreAdds.reduce(function (sum, scoreAdd) {
     return sum + scoreAdd;
   }, 0));
   return Promise.all(promises);

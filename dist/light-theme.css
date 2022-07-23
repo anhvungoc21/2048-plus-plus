@@ -369,20 +369,12 @@ ul {
 .switch {
   align-items: center;
   justify-items: center;
-  place-self: center;
-}
-
-#set--dark-mode {
-  grid-template-columns: max-content max-content 1fr;
-  padding-right: 0;
-}
-
-#set--sounds {
-  grid-template-columns: max-content max-content 1fr;
-  padding-right: 0;
+  place-self: end;
 }
 
 .switch-wrapper {
+  grid-template-columns: max-content max-content 1fr;
+  padding-right: 0;
 }
 
 input[type="checkbox"] {
