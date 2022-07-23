@@ -44,6 +44,13 @@ module.exports = {
           },
         },
       },
+      {
+        test: /\.wav$/,
+        loader: "file-loader",
+        options: {
+          name: "soundEffect.wav",
+        },
+      },
     ],
   },
   optimization: {

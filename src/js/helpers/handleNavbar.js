@@ -15,6 +15,7 @@ const navList = navBar.querySelector(".nav__list");
 const navLinks = navList.querySelectorAll(".nav__link");
 const collapseMenus = document.querySelectorAll(".collapse__menu");
 const setterDarkMode = document.getElementById("set--dark-mode");
+const setterSounds = document.getElementById("set--sounds");
 const setterBoardSize = document.getElementById("set--board-size");
 const setterColors = document.getElementById("set--colors");
 const infoViewer = document.getElementById("info");
@@ -45,13 +46,19 @@ const handleShowMenu = () => {
     navBar &&
     navToggle &&
     setterDarkMode &&
+    setterSounds &&
     setterBoardSize &&
     setterColors &&
     userViewer &&
     logOutBtn
   ) {
     // Click on these to expand
-    const validExpanders = [setterDarkMode, setterBoardSize, setterColors];
+    const validExpanders = [
+      setterDarkMode,
+      setterBoardSize,
+      setterColors,
+      setterSounds,
+    ];
     validExpanders.forEach((element) => {
       element.addEventListener("click", () => {
         navBar.classList.add("expander");
@@ -234,21 +241,6 @@ const showLoginModal = () => {
     },
     { once: true }
   );
-
-  // btnOpenSignup.addEventListener(
-  //   "click",
-  //   () => {
-  //     loginModal.style.opacity = 0;
-  //     loginModal.style["pointer-events"] = "none";
-  //     if (lossModal.style["z-index"] == 2) {
-  //       setTimeout(() => {
-  //         // Transition time of login modal is 0.5s
-  //         lossModal.style["z-index"] = 4;
-  //       }, 500);
-  //     }
-  //   },
-  //   { once: true }
-  // );
 };
 
 const handleBtnsLogin = () => {
