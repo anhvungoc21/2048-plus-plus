@@ -19872,9 +19872,13 @@ function updateCombo(combosCount) {
 
     var grid = (0,_gameState_js__WEBPACK_IMPORTED_MODULE_0__.getGrid)();
     var cells = grid.cells;
-    cells.forEach(function (cell) {
-      if (cell.tile && cell.tile.value == 2) {
-        cell.tile.value = 4;
+    cells.map(function (cell) {
+      if (cell.tile) {
+        if (cell.tile && cell.tile.value == 2) {
+          cell.mergeTiles(); // Ensure tiles are merged before settings tile value
+
+          cell.tile.value = 4;
+        }
       }
     }); // Combo state persists for 10 seconds
 

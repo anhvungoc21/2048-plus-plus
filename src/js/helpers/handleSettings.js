@@ -195,13 +195,13 @@ export const applyLSSettings = async () => {
 
 const toggleSounds = () => {
   const curSoundsSettings = getSounds();
-  console.log(curSoundsSettings);
   const settings = JSON.parse(window.localStorage.getItem("settings2048++"));
   // Change settings
   if (curSoundsSettings) {
     setSounds(false);
     if (music != undefined) {
-      music.remove();
+      music.pause();
+      music.currentTime = 0;
     }
     settings.sounds = false;
   } else {
@@ -209,8 +209,10 @@ const toggleSounds = () => {
     music = new Audio("./chill-background.mp3");
     // Play music on loop
     const playMusic = () => {
-      music.play();
-      music.addEventListener("ended", playMusic);
+      if (getSounds()) {
+        music.play();
+        music.addEventListener("ended", playMusic);
+      }
     };
 
     music.addEventListener("canplaythrough", playMusic);
