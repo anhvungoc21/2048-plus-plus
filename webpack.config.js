@@ -1,7 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const BundleAnalyzerPlugin =
-  require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
+// const BundleAnalyzerPlugin =
+//   require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const Dotenv = require("dotenv-webpack");
 
@@ -49,6 +49,13 @@ module.exports = {
         loader: "file-loader",
         options: {
           name: "soundEffect.wav",
+        },
+      },
+      {
+        test: /\.mp3$/,
+        loader: "file-loader",
+        options: {
+          name: "chill-background.mp3",
         },
       },
     ],
