@@ -19833,6 +19833,7 @@ var scoreContainer = document.querySelector(".score-container");
 var bestScoreContainer = document.querySelector(".best-container");
 var comboContainer = document.querySelector(".combo-container");
 var comboBar = document.querySelector(".combo-bar");
+var comboModal = document.getElementById("modal--combo");
 /**
  * Updates score everytime a tile is merged
  * @param {*} tile Tile that is recently added.
@@ -19871,14 +19872,20 @@ function updateCombo(combosCount) {
   var updatedWidth = widthInc + currentWidth;
 
   if (updatedWidth >= 100) {
-    comboContainer.style.setProperty("--width", "100%"); // Set combo state, animations.
+    comboContainer.style.setProperty("--width", "100%"); // Set combo state, animations, show combo modal.
+    //// Animation on combo bar
 
     (0,_gameState_js__WEBPACK_IMPORTED_MODULE_0__.setCombo)(true);
     comboContainer.style.setProperty("--transition-time", "10s");
     comboContainer.style.setProperty("--width", "0%"); // setInterval's callback doesn't affect this
 
     comboBar.style.background = "var(--black-color)";
-    comboBar.classList.add("blinker"); // Turn all 2-tiles to 4-tiles
+    comboBar.classList.add("blinker"); //// Animation on combo modal
+
+    comboModal.classList.add("zoom-fade");
+    setTimeout(function () {
+      comboModal.classList.remove("zoom-fade");
+    }, 1000); // Turn all 2-tiles to 4-tiles
 
     var grid = (0,_gameState_js__WEBPACK_IMPORTED_MODULE_0__.getGrid)();
     var cells = grid.cells;
