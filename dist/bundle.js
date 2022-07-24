@@ -18260,22 +18260,12 @@ function setupGame() {
     var decreasedWidth = currentWidth - 1;
     comboContainer.style.setProperty("--width", "".concat(decreasedWidth, "%"));
   }, 500);
-  (0,_js_gameState_js__WEBPACK_IMPORTED_MODULE_4__.setComboIntervalID)(intervalID); // Play background music on loop
-
-  var music;
-
-  var playMusic = function playMusic() {
-    music = new Audio("./chill-background.mp3");
-    music.play();
-    music.addEventListener("ended", function () {
-      return playMusic;
-    });
-  }; // Create game board grid
-
+  (0,_js_gameState_js__WEBPACK_IMPORTED_MODULE_4__.setComboIntervalID)(intervalID); // Create game board grid
 
   var gridSize = (0,_js_config_js__WEBPACK_IMPORTED_MODULE_3__.getGridSize)();
   var percentVHMain = (0,_js_config_js__WEBPACK_IMPORTED_MODULE_3__.getPercentVHMain)();
-  var grid = new _js_classes_Grid_js__WEBPACK_IMPORTED_MODULE_1__["default"](gameBoard, gridSize, percentVHMain); // Generate 2 random tiles
+  var grid = new _js_classes_Grid_js__WEBPACK_IMPORTED_MODULE_1__["default"](gameBoard, gridSize, percentVHMain);
+  (0,_js_gameState_js__WEBPACK_IMPORTED_MODULE_4__.setGrid)(grid); // Generate 2 random tiles
 
   grid.randomEmptyCell().tile = new _js_classes_Tile_js__WEBPACK_IMPORTED_MODULE_2__["default"](gameBoard);
   grid.randomEmptyCell().tile = new _js_classes_Tile_js__WEBPACK_IMPORTED_MODULE_2__["default"](gameBoard); // Set up input listener
@@ -18341,8 +18331,7 @@ var _mergeTile = /*#__PURE__*/new WeakMap();
 
 var Cell = /*#__PURE__*/function () {
   // Is this called somewhere?
-  // The tile that cell contains
-  // What for?
+  // The tile that cell contains. This is a Tile instance
   function Cell(cellElement, x, y) {
     _classCallCheck(this, Cell);
 
@@ -18680,6 +18669,7 @@ var Tile = /*#__PURE__*/function () {
     var randomGen = Math.random();
 
     if ((0,_gameState_js__WEBPACK_IMPORTED_MODULE_2__.getCombo)()) {
+      // Setters!
       this.value = randomGen >= 0.25 ? 4 : 8;
     } else {
       this.value = randomGen >= 0.25 ? 2 : 4;
@@ -19142,23 +19132,32 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "INC_PER_COMBO": () => (/* binding */ INC_PER_COMBO),
 /* harmony export */   "getCombo": () => (/* binding */ getCombo),
 /* harmony export */   "getComboIntervalID": () => (/* binding */ getComboIntervalID),
+/* harmony export */   "getGrid": () => (/* binding */ getGrid),
 /* harmony export */   "setCombo": () => (/* binding */ setCombo),
-/* harmony export */   "setComboIntervalID": () => (/* binding */ setComboIntervalID)
+/* harmony export */   "setComboIntervalID": () => (/* binding */ setComboIntervalID),
+/* harmony export */   "setGrid": () => (/* binding */ setGrid)
 /* harmony export */ });
 var INC_PER_COMBO = 2;
 var COMBO = false;
 var COMBO_INTERVAL_ID = null;
+var GRID = null;
 var getCombo = function getCombo() {
   return COMBO;
 };
 var getComboIntervalID = function getComboIntervalID() {
   return COMBO_INTERVAL_ID;
 };
+var getGrid = function getGrid() {
+  return GRID;
+};
 var setCombo = function setCombo(val) {
   return COMBO = val;
 };
 var setComboIntervalID = function setComboIntervalID(val) {
   return COMBO_INTERVAL_ID = val;
+};
+var setGrid = function setGrid(val) {
+  return GRID = val;
 };
 
 /***/ }),
@@ -19854,6 +19853,7 @@ function updateScore(scoreAdd) {
 }
 
 function updateCombo(combosCount) {
+  // Update combo bar
   if ((0,_gameState_js__WEBPACK_IMPORTED_MODULE_0__.getCombo)()) return;
   var currentWidth = parseInt(getComputedStyle(comboContainer).getPropertyValue("--width"));
   if (currentWidth == 100) return;
@@ -19868,7 +19868,15 @@ function updateCombo(combosCount) {
     comboContainer.style.setProperty("--width", "0%"); // setInterval's callback doesn't affect this
 
     comboBar.style.background = "var(--black-color)";
-    comboBar.classList.add("blinker"); // Combo state persists for 10 seconds
+    comboBar.classList.add("blinker"); // Turn all 2-tiles to 4-tiles
+
+    var grid = (0,_gameState_js__WEBPACK_IMPORTED_MODULE_0__.getGrid)();
+    var cells = grid.cells;
+    cells.forEach(function (cell) {
+      if (cell.tile && cell.tile.value == 2) {
+        cell.tile.value = 4;
+      }
+    }); // Combo state persists for 10 seconds
 
     setTimeout(function () {
       (0,_gameState_js__WEBPACK_IMPORTED_MODULE_0__.setCombo)(false);
@@ -19912,6 +19920,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 
+var music = undefined;
 /* BOARD SIZES */
 
 function handleToggleBoardSize(e) {
@@ -20094,9 +20103,22 @@ var toggleSounds = function toggleSounds() {
 
   if (curSoundsSettings) {
     (0,_config_js__WEBPACK_IMPORTED_MODULE_1__.setSounds)(false);
+
+    if (music != undefined) {
+      music.remove();
+    }
+
     settings.sounds = false;
   } else {
     (0,_config_js__WEBPACK_IMPORTED_MODULE_1__.setSounds)(true);
+    music = new Audio("./chill-background.mp3"); // Play music on loop
+
+    var playMusic = function playMusic() {
+      music.play();
+      music.addEventListener("ended", playMusic);
+    };
+
+    music.addEventListener("canplaythrough", playMusic);
     settings.sounds = true;
   } // Update in local storage
 
@@ -20354,11 +20376,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
  * @returns An aggregate promise of all promises to slide tiles for each group (row/column).
  */
 
+var combos = 0;
+
 function slideTiles(cells) {
   // Aggregate all added scores from each group
   var playSound = false;
   var groupsScoreAdds = [];
-  var combos = 0;
   var promises = // flatMap cell groups' arrays into a 1D array of promises
   cells.flatMap(function (group) {
     var promises = [];
@@ -20390,7 +20413,7 @@ function slideTiles(cells) {
           lastValidCell.mergeTile = cell.tile;
           scoreAdds += lastValidCell.tile.value + cell.tile.value;
           combos += 1;
-          playSound = true;
+          playSound = true; // Play sound when there is a merged cell
         } else {
           // Case 2: Empty Cell
           lastValidCell.tile = cell.tile;
@@ -20409,16 +20432,19 @@ function slideTiles(cells) {
   if (playSound && (0,_config__WEBPACK_IMPORTED_MODULE_2__.getSounds)()) {
     var sndEffect = new Audio("./soundEffect.wav");
     sndEffect.play();
-  } // Update combos
+  } // Update score
 
-
-  (0,_handleScore_js__WEBPACK_IMPORTED_MODULE_1__.updateCombo)(combos); // Update score
 
   (0,_handleScore_js__WEBPACK_IMPORTED_MODULE_1__.updateScore)(groupsScoreAdds.reduce(function (sum, scoreAdd) {
     return sum + scoreAdd;
   }, 0));
   return Promise.all(promises);
-} // Versions of slideTiles. Determines the direction of sliding by gettings cells by column/row/reverse column/reverse row.
+}
+
+var updateResetCombos = function updateResetCombos() {
+  (0,_handleScore_js__WEBPACK_IMPORTED_MODULE_1__.updateCombo)(combos);
+  combos = 0;
+}; // Versions of slideTiles. Determines the direction of sliding by gettings cells by column/row/reverse column/reverse row.
 
 
 function moveUp(_x) {
@@ -20435,7 +20461,7 @@ function _moveUp() {
             return slideTiles(grid.cellsByColumn);
 
           case 2:
-            return _context.abrupt("return", _context.sent);
+            updateResetCombos();
 
           case 3:
           case "end":
@@ -20463,7 +20489,7 @@ function _moveDown() {
             }));
 
           case 2:
-            return _context2.abrupt("return", _context2.sent);
+            updateResetCombos();
 
           case 3:
           case "end":
@@ -20489,7 +20515,7 @@ function _moveLeft() {
             return slideTiles(grid.cellsByRow);
 
           case 2:
-            return _context3.abrupt("return", _context3.sent);
+            updateResetCombos();
 
           case 3:
           case "end":
@@ -20517,7 +20543,7 @@ function _moveRight() {
             }));
 
           case 2:
-            return _context4.abrupt("return", _context4.sent);
+            updateResetCombos();
 
           case 3:
           case "end":

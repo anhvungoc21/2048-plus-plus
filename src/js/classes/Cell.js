@@ -2,8 +2,8 @@ export default class Cell {
   #cellElement; // Is this called somewhere?
   #x;
   #y;
-  #tile; // The tile that cell contains
-  #mergeTile; // What for?
+  #tile; // The tile that cell contains. This is a Tile instance
+  #mergeTile;
 
   constructor(cellElement, x, y) {
     this.#cellElement = cellElement;

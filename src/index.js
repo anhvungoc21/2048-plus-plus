@@ -4,7 +4,7 @@ import Grid from "./js/classes/Grid.js";
 import Tile from "./js/classes/Tile.js";
 
 import { getGridSize, getPercentVHMain, getSounds } from "./js/config.js";
-import { setCombo, setComboIntervalID } from "./js/gameState.js";
+import { setCombo, setComboIntervalID, setGrid } from "./js/gameState.js";
 import setupInput from "./js/helpers/handleInput.js";
 import handleNavbar from "./js/helpers/handleNavbar.js";
 import {
@@ -86,6 +86,7 @@ export default function setupGame() {
   const gridSize = getGridSize();
   const percentVHMain = getPercentVHMain();
   const grid = new Grid(gameBoard, gridSize, percentVHMain);
+  setGrid(grid);
 
   // Generate 2 random tiles
   grid.randomEmptyCell().tile = new Tile(gameBoard);
