@@ -7,6 +7,7 @@ import {
 import { moveUp, moveDown, moveLeft, moveRight } from "./moveTiles.js";
 import setupGame from "../../index.js";
 import { preventTransition } from "./handleSettings.js";
+import { getCombo, getComboIntervalID } from "../gameState.js";
 import Tile from "../classes/Tile.js";
 
 /**
@@ -106,6 +107,9 @@ function checkHandleLoss(grid, gameBoard, lastTile) {
         );
       }, 500);
     });
+
+    // Stop combo decreasing interval
+    clearInterval(getComboIntervalID());
   } else {
     setupInput(grid, gameBoard);
   }
