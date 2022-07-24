@@ -1,4 +1,4 @@
-import { setCombo, getCombo, INC_PER_COMBO } from "../gameState.js";
+import { setCombo, getCombo, INC_PER_COMBO, getGrid } from "../gameState.js";
 
 const scoreContainer = document.querySelector(".score-container");
 const bestScoreContainer = document.querySelector(".best-container");
@@ -39,6 +39,7 @@ function updateScore(scoreAdd) {
 }
 
 function updateCombo(combosCount) {
+  // Update combo bar
   if (getCombo()) return;
   const currentWidth = parseInt(
     getComputedStyle(comboContainer).getPropertyValue("--width")
@@ -56,6 +57,18 @@ function updateCombo(combosCount) {
     comboContainer.style.setProperty("--width", "0%"); // setInterval's callback doesn't affect this
     comboBar.style.background = "var(--black-color)";
     comboBar.classList.add("blinker");
+
+    // Turn all 2-tiles to 4-tiles
+    const grid = getGrid();
+    const cells = grid.cells;
+    cells.map((cell) => {
+      if (cell.tile) {
+        if (cell.tile && cell.tile.value == 2) {
+          cell.mergeTiles(); // Ensure tiles are merged before settings tile value
+          cell.tile.value = 4;
+        }
+      }
+    });
 
     // Combo state persists for 10 seconds
     setTimeout(() => {

@@ -20,6 +20,7 @@ export default class Tile {
     tileContainer.append(this.#tileElement);
     const randomGen = Math.random();
     if (getCombo()) {
+      // Setters!
       this.value = randomGen >= 0.25 ? 4 : 8;
     } else {
       this.value = randomGen >= 0.25 ? 2 : 4;
@@ -27,7 +28,6 @@ export default class Tile {
   }
 
   // NOTE: The best way to set a variable based on another is using setters and getters
-
   set value(v) {
     this.#value = v;
     this.#tileElement.textContent = v;
