@@ -1,5 +1,5 @@
 import soundEffect from "../../assets/tileSoundEffect.wav";
-import { updateScore } from "./handleScore.js";
+import { updateScore, updateCombo } from "./handleScore.js";
 import { getSounds } from "../config";
 
 /**
@@ -13,6 +13,7 @@ function slideTiles(cells) {
   // Aggregate all added scores from each group
   let playSound = false;
   const groupsScoreAdds = [];
+  let combos = 0;
   const promises =
     // flatMap cell groups' arrays into a 1D array of promises
     cells.flatMap((group) => {
@@ -43,6 +44,7 @@ function slideTiles(cells) {
             // Case 1: Cell has tile => set mergeTile at that cell to be the incoming tile.
             lastValidCell.mergeTile = cell.tile;
             scoreAdds += lastValidCell.tile.value + cell.tile.value;
+            combos += 1;
             playSound = true;
           } else {
             // Case 2: Empty Cell
@@ -54,6 +56,7 @@ function slideTiles(cells) {
         }
       }
 
+      // Add score
       groupsScoreAdds.push(scoreAdds);
       return promises;
     });
@@ -63,6 +66,11 @@ function slideTiles(cells) {
     const sndEffect = new Audio("./soundEffect.wav");
     sndEffect.play();
   }
+
+  // Update combos
+  updateCombo(combos);
+
+  // Update score
 
   updateScore(groupsScoreAdds.reduce((sum, scoreAdd) => sum + scoreAdd, 0));
   return Promise.all(promises);

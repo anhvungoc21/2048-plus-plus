@@ -2,6 +2,7 @@ import Grid from "./js/classes/Grid.js";
 import Tile from "./js/classes/Tile.js";
 
 import { getGridSize, getPercentVHMain } from "./js/config.js";
+import { setCombo, setComboIntervalID } from "./js/gameState.js";
 import setupInput from "./js/helpers/handleInput.js";
 import handleNavbar from "./js/helpers/handleNavbar.js";
 import {
@@ -59,6 +60,25 @@ export default function setupGame() {
 
   // Elements:
   const gameBoard = document.getElementById("game-board");
+  const comboContainer = document.querySelector(".combo-container");
+  const comboBar = comboContainer.querySelector(".combo-bar");
+
+  // Reset combo state. Begin decreasing every half a second
+  setCombo(false);
+  comboContainer.style.setProperty("--transition-time", "0.25s");
+  comboContainer.style.setProperty("--width", "0%");
+  comboBar.style.background = "var(--white-color)";
+  comboBar.classList.remove("blinker");
+
+  const intervalID = setInterval(() => {
+    const currentWidth = parseInt(
+      getComputedStyle(comboContainer).getPropertyValue("--width")
+    );
+    if (currentWidth == 0) return;
+    const decreasedWidth = currentWidth - 1;
+    comboContainer.style.setProperty("--width", `${decreasedWidth}%`);
+  }, 500);
+  setComboIntervalID(intervalID);
 
   // Create game board grid
   const gridSize = getGridSize();
