@@ -18175,12 +18175,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ setupGame)
 /* harmony export */ });
-/* harmony import */ var _js_classes_Grid_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./js/classes/Grid.js */ "./src/js/classes/Grid.js");
-/* harmony import */ var _js_classes_Tile_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./js/classes/Tile.js */ "./src/js/classes/Tile.js");
-/* harmony import */ var _js_config_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./js/config.js */ "./src/js/config.js");
-/* harmony import */ var _js_helpers_handleInput_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./js/helpers/handleInput.js */ "./src/js/helpers/handleInput.js");
-/* harmony import */ var _js_helpers_handleNavbar_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./js/helpers/handleNavbar.js */ "./src/js/helpers/handleNavbar.js");
-/* harmony import */ var _js_helpers_handleSettings_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./js/helpers/handleSettings.js */ "./src/js/helpers/handleSettings.js");
+/* harmony import */ var _assets_chill_background_mp3__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./assets/chill-background.mp3 */ "./src/assets/chill-background.mp3");
+/* harmony import */ var _js_classes_Grid_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./js/classes/Grid.js */ "./src/js/classes/Grid.js");
+/* harmony import */ var _js_classes_Tile_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./js/classes/Tile.js */ "./src/js/classes/Tile.js");
+/* harmony import */ var _js_config_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./js/config.js */ "./src/js/config.js");
+/* harmony import */ var _js_gameState_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./js/gameState.js */ "./src/js/gameState.js");
+/* harmony import */ var _js_helpers_handleInput_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./js/helpers/handleInput.js */ "./src/js/helpers/handleInput.js");
+/* harmony import */ var _js_helpers_handleNavbar_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./js/helpers/handleNavbar.js */ "./src/js/helpers/handleNavbar.js");
+/* harmony import */ var _js_helpers_handleSettings_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./js/helpers/handleSettings.js */ "./src/js/helpers/handleSettings.js");
+
+
 
 
 
@@ -18193,7 +18197,7 @@ __webpack_require__.r(__webpack_exports__);
 
 function setupGame() {
   // Prevent initial elements transition in Dark Mode.
-  (0,_js_helpers_handleSettings_js__WEBPACK_IMPORTED_MODULE_5__.preventTransition)(); // Set settings on localStorage if not already present. Else, update settings according to local settings.
+  (0,_js_helpers_handleSettings_js__WEBPACK_IMPORTED_MODULE_7__.preventTransition)(); // Set settings on localStorage if not already present. Else, update settings according to local settings.
 
   if (!window.localStorage.getItem("settings2048++")) {
     var defaultSettings = {
@@ -18204,7 +18208,7 @@ function setupGame() {
     };
     localStorage.setItem("settings2048++", JSON.stringify(defaultSettings));
   } else {
-    (0,_js_helpers_handleSettings_js__WEBPACK_IMPORTED_MODULE_5__.applyLSSettings)();
+    (0,_js_helpers_handleSettings_js__WEBPACK_IMPORTED_MODULE_7__.applyLSSettings)();
   } // Destroy all exisitng cells and tiles
 
 
@@ -18241,16 +18245,42 @@ function setupGame() {
   } // Elements:
 
 
-  var gameBoard = document.getElementById("game-board"); // Create game board grid
+  var gameBoard = document.getElementById("game-board");
+  var comboContainer = document.querySelector(".combo-container");
+  var comboBar = comboContainer.querySelector(".combo-bar"); // Reset combo state. Begin decreasing every half a second
 
-  var gridSize = (0,_js_config_js__WEBPACK_IMPORTED_MODULE_2__.getGridSize)();
-  var percentVHMain = (0,_js_config_js__WEBPACK_IMPORTED_MODULE_2__.getPercentVHMain)();
-  var grid = new _js_classes_Grid_js__WEBPACK_IMPORTED_MODULE_0__["default"](gameBoard, gridSize, percentVHMain); // Generate 2 random tiles
+  (0,_js_gameState_js__WEBPACK_IMPORTED_MODULE_4__.setCombo)(false);
+  comboContainer.style.setProperty("--transition-time", "0.25s");
+  comboContainer.style.setProperty("--width", "0%");
+  comboBar.style.background = "var(--white-color)";
+  comboBar.classList.remove("blinker");
+  var intervalID = setInterval(function () {
+    var currentWidth = parseInt(getComputedStyle(comboContainer).getPropertyValue("--width"));
+    if (currentWidth == 0) return;
+    var decreasedWidth = currentWidth - 1;
+    comboContainer.style.setProperty("--width", "".concat(decreasedWidth, "%"));
+  }, 500);
+  (0,_js_gameState_js__WEBPACK_IMPORTED_MODULE_4__.setComboIntervalID)(intervalID); // Play background music on loop
 
-  grid.randomEmptyCell().tile = new _js_classes_Tile_js__WEBPACK_IMPORTED_MODULE_1__["default"](gameBoard);
-  grid.randomEmptyCell().tile = new _js_classes_Tile_js__WEBPACK_IMPORTED_MODULE_1__["default"](gameBoard); // Set up input listener
+  var music;
 
-  (0,_js_helpers_handleInput_js__WEBPACK_IMPORTED_MODULE_3__["default"])(grid, gameBoard);
+  var playMusic = function playMusic() {
+    music = new Audio("./chill-background.mp3");
+    music.play();
+    music.addEventListener("ended", function () {
+      return playMusic;
+    });
+  }; // Create game board grid
+
+
+  var gridSize = (0,_js_config_js__WEBPACK_IMPORTED_MODULE_3__.getGridSize)();
+  var percentVHMain = (0,_js_config_js__WEBPACK_IMPORTED_MODULE_3__.getPercentVHMain)();
+  var grid = new _js_classes_Grid_js__WEBPACK_IMPORTED_MODULE_1__["default"](gameBoard, gridSize, percentVHMain); // Generate 2 random tiles
+
+  grid.randomEmptyCell().tile = new _js_classes_Tile_js__WEBPACK_IMPORTED_MODULE_2__["default"](gameBoard);
+  grid.randomEmptyCell().tile = new _js_classes_Tile_js__WEBPACK_IMPORTED_MODULE_2__["default"](gameBoard); // Set up input listener
+
+  (0,_js_helpers_handleInput_js__WEBPACK_IMPORTED_MODULE_5__["default"])(grid, gameBoard);
 } // Restart game handler
 
 var btnRestart = document.getElementById("btn--restart");
@@ -18263,8 +18293,8 @@ btnRestart.addEventListener("click", function () {
 }); // Start Game & Handle all inputs
 
 setupGame();
-(0,_js_helpers_handleNavbar_js__WEBPACK_IMPORTED_MODULE_4__["default"])();
-(0,_js_helpers_handleSettings_js__WEBPACK_IMPORTED_MODULE_5__.handleSettings)();
+(0,_js_helpers_handleNavbar_js__WEBPACK_IMPORTED_MODULE_6__["default"])();
+(0,_js_helpers_handleSettings_js__WEBPACK_IMPORTED_MODULE_7__.handleSettings)();
 
 /***/ }),
 
@@ -18583,6 +18613,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _colorConfig_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../colorConfig.js */ "./src/js/colorConfig.js");
 /* harmony import */ var _config_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../config.js */ "./src/js/config.js");
+/* harmony import */ var _gameState_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../gameState.js */ "./src/js/gameState.js");
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -18606,6 +18637,7 @@ function _classApplyDescriptorSet(receiver, descriptor, value) { if (descriptor.
 
 
 
+
 var _tileElement = /*#__PURE__*/new WeakMap();
 
 var _x = /*#__PURE__*/new WeakMap();
@@ -18615,10 +18647,9 @@ var _y = /*#__PURE__*/new WeakMap();
 var _value = /*#__PURE__*/new WeakMap();
 
 var Tile = /*#__PURE__*/function () {
-  // Equal chances of spawning 2 or 4
+  // Equal chances of spawning 2 or 4 normally
+  // During combos, spawn 4 or 8
   function Tile(tileContainer) {
-    var value = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : Math.random() >= 0.25 ? 2 : 4;
-
     _classCallCheck(this, Tile);
 
     _classPrivateFieldInitSpec(this, _tileElement, {
@@ -18646,7 +18677,13 @@ var Tile = /*#__PURE__*/function () {
     _classPrivateFieldGet(this, _tileElement).classList.add("tile");
 
     tileContainer.append(_classPrivateFieldGet(this, _tileElement));
-    this.value = value;
+    var randomGen = Math.random();
+
+    if ((0,_gameState_js__WEBPACK_IMPORTED_MODULE_2__.getCombo)()) {
+      this.value = randomGen >= 0.25 ? 4 : 8;
+    } else {
+      this.value = randomGen >= 0.25 ? 2 : 4;
+    }
   } // NOTE: The best way to set a variable based on another is using setters and getters
 
 
@@ -19093,6 +19130,39 @@ var updateAccount = /*#__PURE__*/function () {
 
 /***/ }),
 
+/***/ "./src/js/gameState.js":
+/*!*****************************!*\
+  !*** ./src/js/gameState.js ***!
+  \*****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "INC_PER_COMBO": () => (/* binding */ INC_PER_COMBO),
+/* harmony export */   "getCombo": () => (/* binding */ getCombo),
+/* harmony export */   "getComboIntervalID": () => (/* binding */ getComboIntervalID),
+/* harmony export */   "setCombo": () => (/* binding */ setCombo),
+/* harmony export */   "setComboIntervalID": () => (/* binding */ setComboIntervalID)
+/* harmony export */ });
+var INC_PER_COMBO = 2;
+var COMBO = false;
+var COMBO_INTERVAL_ID = null;
+var getCombo = function getCombo() {
+  return COMBO;
+};
+var getComboIntervalID = function getComboIntervalID() {
+  return COMBO_INTERVAL_ID;
+};
+var setCombo = function setCombo(val) {
+  return COMBO = val;
+};
+var setComboIntervalID = function setComboIntervalID(val) {
+  return COMBO_INTERVAL_ID = val;
+};
+
+/***/ }),
+
 /***/ "./src/js/helpers/checkMovable.js":
 /*!****************************************!*\
   !*** ./src/js/helpers/checkMovable.js ***!
@@ -19178,7 +19248,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _moveTiles_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./moveTiles.js */ "./src/js/helpers/moveTiles.js");
 /* harmony import */ var _index_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../index.js */ "./src/index.js");
 /* harmony import */ var _handleSettings_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./handleSettings.js */ "./src/js/helpers/handleSettings.js");
-/* harmony import */ var _classes_Tile_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../classes/Tile.js */ "./src/js/classes/Tile.js");
+/* harmony import */ var _gameState_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../gameState.js */ "./src/js/gameState.js");
+/* harmony import */ var _classes_Tile_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../classes/Tile.js */ "./src/js/classes/Tile.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return exports; }; var exports = {}, Op = Object.prototype, hasOwn = Op.hasOwnProperty, $Symbol = "function" == typeof Symbol ? Symbol : {}, iteratorSymbol = $Symbol.iterator || "@@iterator", asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator", toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag"; function define(obj, key, value) { return Object.defineProperty(obj, key, { value: value, enumerable: !0, configurable: !0, writable: !0 }), obj[key]; } try { define({}, ""); } catch (err) { define = function define(obj, key, value) { return obj[key] = value; }; } function wrap(innerFn, outerFn, self, tryLocsList) { var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator, generator = Object.create(protoGenerator.prototype), context = new Context(tryLocsList || []); return generator._invoke = function (innerFn, self, context) { var state = "suspendedStart"; return function (method, arg) { if ("executing" === state) throw new Error("Generator is already running"); if ("completed" === state) { if ("throw" === method) throw arg; return doneResult(); } for (context.method = method, context.arg = arg;;) { var delegate = context.delegate; if (delegate) { var delegateResult = maybeInvokeDelegate(delegate, context); if (delegateResult) { if (delegateResult === ContinueSentinel) continue; return delegateResult; } } if ("next" === context.method) context.sent = context._sent = context.arg;else if ("throw" === context.method) { if ("suspendedStart" === state) throw state = "completed", context.arg; context.dispatchException(context.arg); } else "return" === context.method && context.abrupt("return", context.arg); state = "executing"; var record = tryCatch(innerFn, self, context); if ("normal" === record.type) { if (state = context.done ? "completed" : "suspendedYield", record.arg === ContinueSentinel) continue; return { value: record.arg, done: context.done }; } "throw" === record.type && (state = "completed", context.method = "throw", context.arg = record.arg); } }; }(innerFn, self, context), generator; } function tryCatch(fn, obj, arg) { try { return { type: "normal", arg: fn.call(obj, arg) }; } catch (err) { return { type: "throw", arg: err }; } } exports.wrap = wrap; var ContinueSentinel = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var IteratorPrototype = {}; define(IteratorPrototype, iteratorSymbol, function () { return this; }); var getProto = Object.getPrototypeOf, NativeIteratorPrototype = getProto && getProto(getProto(values([]))); NativeIteratorPrototype && NativeIteratorPrototype !== Op && hasOwn.call(NativeIteratorPrototype, iteratorSymbol) && (IteratorPrototype = NativeIteratorPrototype); var Gp = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(IteratorPrototype); function defineIteratorMethods(prototype) { ["next", "throw", "return"].forEach(function (method) { define(prototype, method, function (arg) { return this._invoke(method, arg); }); }); } function AsyncIterator(generator, PromiseImpl) { function invoke(method, arg, resolve, reject) { var record = tryCatch(generator[method], generator, arg); if ("throw" !== record.type) { var result = record.arg, value = result.value; return value && "object" == _typeof(value) && hasOwn.call(value, "__await") ? PromiseImpl.resolve(value.__await).then(function (value) { invoke("next", value, resolve, reject); }, function (err) { invoke("throw", err, resolve, reject); }) : PromiseImpl.resolve(value).then(function (unwrapped) { result.value = unwrapped, resolve(result); }, function (error) { return invoke("throw", error, resolve, reject); }); } reject(record.arg); } var previousPromise; this._invoke = function (method, arg) { function callInvokeWithMethodAndArg() { return new PromiseImpl(function (resolve, reject) { invoke(method, arg, resolve, reject); }); } return previousPromise = previousPromise ? previousPromise.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); }; } function maybeInvokeDelegate(delegate, context) { var method = delegate.iterator[context.method]; if (undefined === method) { if (context.delegate = null, "throw" === context.method) { if (delegate.iterator["return"] && (context.method = "return", context.arg = undefined, maybeInvokeDelegate(delegate, context), "throw" === context.method)) return ContinueSentinel; context.method = "throw", context.arg = new TypeError("The iterator does not provide a 'throw' method"); } return ContinueSentinel; } var record = tryCatch(method, delegate.iterator, context.arg); if ("throw" === record.type) return context.method = "throw", context.arg = record.arg, context.delegate = null, ContinueSentinel; var info = record.arg; return info ? info.done ? (context[delegate.resultName] = info.value, context.next = delegate.nextLoc, "return" !== context.method && (context.method = "next", context.arg = undefined), context.delegate = null, ContinueSentinel) : info : (context.method = "throw", context.arg = new TypeError("iterator result is not an object"), context.delegate = null, ContinueSentinel); } function pushTryEntry(locs) { var entry = { tryLoc: locs[0] }; 1 in locs && (entry.catchLoc = locs[1]), 2 in locs && (entry.finallyLoc = locs[2], entry.afterLoc = locs[3]), this.tryEntries.push(entry); } function resetTryEntry(entry) { var record = entry.completion || {}; record.type = "normal", delete record.arg, entry.completion = record; } function Context(tryLocsList) { this.tryEntries = [{ tryLoc: "root" }], tryLocsList.forEach(pushTryEntry, this), this.reset(!0); } function values(iterable) { if (iterable) { var iteratorMethod = iterable[iteratorSymbol]; if (iteratorMethod) return iteratorMethod.call(iterable); if ("function" == typeof iterable.next) return iterable; if (!isNaN(iterable.length)) { var i = -1, next = function next() { for (; ++i < iterable.length;) { if (hasOwn.call(iterable, i)) return next.value = iterable[i], next.done = !1, next; } return next.value = undefined, next.done = !0, next; }; return next.next = next; } } return { next: doneResult }; } function doneResult() { return { value: undefined, done: !0 }; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, define(Gp, "constructor", GeneratorFunctionPrototype), define(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, toStringTagSymbol, "GeneratorFunction"), exports.isGeneratorFunction = function (genFun) { var ctor = "function" == typeof genFun && genFun.constructor; return !!ctor && (ctor === GeneratorFunction || "GeneratorFunction" === (ctor.displayName || ctor.name)); }, exports.mark = function (genFun) { return Object.setPrototypeOf ? Object.setPrototypeOf(genFun, GeneratorFunctionPrototype) : (genFun.__proto__ = GeneratorFunctionPrototype, define(genFun, toStringTagSymbol, "GeneratorFunction")), genFun.prototype = Object.create(Gp), genFun; }, exports.awrap = function (arg) { return { __await: arg }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, asyncIteratorSymbol, function () { return this; }), exports.AsyncIterator = AsyncIterator, exports.async = function (innerFn, outerFn, self, tryLocsList, PromiseImpl) { void 0 === PromiseImpl && (PromiseImpl = Promise); var iter = new AsyncIterator(wrap(innerFn, outerFn, self, tryLocsList), PromiseImpl); return exports.isGeneratorFunction(outerFn) ? iter : iter.next().then(function (result) { return result.done ? result.value : iter.next(); }); }, defineIteratorMethods(Gp), define(Gp, toStringTagSymbol, "Generator"), define(Gp, iteratorSymbol, function () { return this; }), define(Gp, "toString", function () { return "[object Generator]"; }), exports.keys = function (object) { var keys = []; for (var key in object) { keys.push(key); } return keys.reverse(), function next() { for (; keys.length;) { var key = keys.pop(); if (key in object) return next.value = key, next.done = !1, next; } return next.done = !0, next; }; }, exports.values = values, Context.prototype = { constructor: Context, reset: function reset(skipTempReset) { if (this.prev = 0, this.next = 0, this.sent = this._sent = undefined, this.done = !1, this.delegate = null, this.method = "next", this.arg = undefined, this.tryEntries.forEach(resetTryEntry), !skipTempReset) for (var name in this) { "t" === name.charAt(0) && hasOwn.call(this, name) && !isNaN(+name.slice(1)) && (this[name] = undefined); } }, stop: function stop() { this.done = !0; var rootRecord = this.tryEntries[0].completion; if ("throw" === rootRecord.type) throw rootRecord.arg; return this.rval; }, dispatchException: function dispatchException(exception) { if (this.done) throw exception; var context = this; function handle(loc, caught) { return record.type = "throw", record.arg = exception, context.next = loc, caught && (context.method = "next", context.arg = undefined), !!caught; } for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i], record = entry.completion; if ("root" === entry.tryLoc) return handle("end"); if (entry.tryLoc <= this.prev) { var hasCatch = hasOwn.call(entry, "catchLoc"), hasFinally = hasOwn.call(entry, "finallyLoc"); if (hasCatch && hasFinally) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } else if (hasCatch) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); } else { if (!hasFinally) throw new Error("try statement without catch or finally"); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } } } }, abrupt: function abrupt(type, arg) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc <= this.prev && hasOwn.call(entry, "finallyLoc") && this.prev < entry.finallyLoc) { var finallyEntry = entry; break; } } finallyEntry && ("break" === type || "continue" === type) && finallyEntry.tryLoc <= arg && arg <= finallyEntry.finallyLoc && (finallyEntry = null); var record = finallyEntry ? finallyEntry.completion : {}; return record.type = type, record.arg = arg, finallyEntry ? (this.method = "next", this.next = finallyEntry.finallyLoc, ContinueSentinel) : this.complete(record); }, complete: function complete(record, afterLoc) { if ("throw" === record.type) throw record.arg; return "break" === record.type || "continue" === record.type ? this.next = record.arg : "return" === record.type ? (this.rval = this.arg = record.arg, this.method = "return", this.next = "end") : "normal" === record.type && afterLoc && (this.next = afterLoc), ContinueSentinel; }, finish: function finish(finallyLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.finallyLoc === finallyLoc) return this.complete(entry.completion, entry.afterLoc), resetTryEntry(entry), ContinueSentinel; } }, "catch": function _catch(tryLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc === tryLoc) { var record = entry.completion; if ("throw" === record.type) { var thrown = record.arg; resetTryEntry(entry); } return thrown; } } throw new Error("illegal catch attempt"); }, delegateYield: function delegateYield(iterable, resultName, nextLoc) { return this.delegate = { iterator: values(iterable), resultName: resultName, nextLoc: nextLoc }, "next" === this.method && (this.arg = undefined), ContinueSentinel; } }, exports; }
@@ -19186,6 +19257,7 @@ function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyri
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 
 
 
@@ -19294,7 +19366,7 @@ function _handleInput() {
               cell.mergeTiles();
             }); // After each move, add a new tile to gameBoard
 
-            newTile = new _classes_Tile_js__WEBPACK_IMPORTED_MODULE_4__["default"](gameBoard);
+            newTile = new _classes_Tile_js__WEBPACK_IMPORTED_MODULE_5__["default"](gameBoard);
             grid.randomEmptyCell().tile = newTile; // Handle loss
 
             checkHandleLoss(grid, gameBoard, newTile);
@@ -19330,7 +19402,9 @@ function checkHandleLoss(grid, gameBoard, lastTile) {
           once: true
         });
       }, 500);
-    });
+    }); // Stop combo decreasing interval
+
+    clearInterval((0,_gameState_js__WEBPACK_IMPORTED_MODULE_4__.getComboIntervalID)());
   } else {
     setupInput(grid, gameBoard);
   }
@@ -19741,10 +19815,15 @@ function handleNavbar() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "updateCombo": () => (/* binding */ updateCombo),
 /* harmony export */   "updateScore": () => (/* binding */ updateScore)
 /* harmony export */ });
+/* harmony import */ var _gameState_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../gameState.js */ "./src/js/gameState.js");
+
 var scoreContainer = document.querySelector(".score-container");
 var bestScoreContainer = document.querySelector(".best-container");
+var comboContainer = document.querySelector(".combo-container");
+var comboBar = document.querySelector(".combo-bar");
 /**
  * Updates score everytime a tile is merged
  * @param {*} tile Tile that is recently added.
@@ -19772,6 +19851,34 @@ function updateScore(scoreAdd) {
     addScoreHtml.remove();
   }, 600);
   /* Animation time is 600ms */
+}
+
+function updateCombo(combosCount) {
+  if ((0,_gameState_js__WEBPACK_IMPORTED_MODULE_0__.getCombo)()) return;
+  var currentWidth = parseInt(getComputedStyle(comboContainer).getPropertyValue("--width"));
+  if (currentWidth == 100) return;
+  var widthInc = combosCount * _gameState_js__WEBPACK_IMPORTED_MODULE_0__.INC_PER_COMBO;
+  var updatedWidth = widthInc + currentWidth;
+
+  if (updatedWidth >= 100) {
+    comboContainer.style.setProperty("--width", "100%"); // Set combo state, animations.
+
+    (0,_gameState_js__WEBPACK_IMPORTED_MODULE_0__.setCombo)(true);
+    comboContainer.style.setProperty("--transition-time", "10s");
+    comboContainer.style.setProperty("--width", "0%"); // setInterval's callback doesn't affect this
+
+    comboBar.style.background = "var(--black-color)";
+    comboBar.classList.add("blinker"); // Combo state persists for 10 seconds
+
+    setTimeout(function () {
+      (0,_gameState_js__WEBPACK_IMPORTED_MODULE_0__.setCombo)(false);
+      comboContainer.style.setProperty("--transition-time", "0.25s");
+      comboBar.style.background = "var(--white-color)";
+      comboBar.classList.remove("blinker");
+    }, 10000);
+  } else {
+    comboContainer.style.setProperty("--width", "".concat(updatedWidth, "%"));
+  }
 }
 
 
@@ -20251,6 +20358,7 @@ function slideTiles(cells) {
   // Aggregate all added scores from each group
   var playSound = false;
   var groupsScoreAdds = [];
+  var combos = 0;
   var promises = // flatMap cell groups' arrays into a 1D array of promises
   cells.flatMap(function (group) {
     var promises = [];
@@ -20281,6 +20389,7 @@ function slideTiles(cells) {
           // Case 1: Cell has tile => set mergeTile at that cell to be the incoming tile.
           lastValidCell.mergeTile = cell.tile;
           scoreAdds += lastValidCell.tile.value + cell.tile.value;
+          combos += 1;
           playSound = true;
         } else {
           // Case 2: Empty Cell
@@ -20290,7 +20399,8 @@ function slideTiles(cells) {
 
         cell.tile = null;
       }
-    }
+    } // Add score
+
 
     groupsScoreAdds.push(scoreAdds);
     return promises;
@@ -20299,7 +20409,10 @@ function slideTiles(cells) {
   if (playSound && (0,_config__WEBPACK_IMPORTED_MODULE_2__.getSounds)()) {
     var sndEffect = new Audio("./soundEffect.wav");
     sndEffect.play();
-  }
+  } // Update combos
+
+
+  (0,_handleScore_js__WEBPACK_IMPORTED_MODULE_1__.updateCombo)(combos); // Update score
 
   (0,_handleScore_js__WEBPACK_IMPORTED_MODULE_1__.updateScore)(groupsScoreAdds.reduce(function (sum, scoreAdd) {
     return sum + scoreAdd;
@@ -20509,6 +20622,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "soundEffect.wav");
+
+/***/ }),
+
+/***/ "./src/assets/chill-background.mp3":
+/*!*****************************************!*\
+  !*** ./src/assets/chill-background.mp3 ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "chill-background.mp3");
 
 /***/ }),
 

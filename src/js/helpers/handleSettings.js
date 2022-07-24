@@ -12,6 +12,8 @@ import {
   colorDictGreen,
 } from "../colorConfig.js";
 
+let music = undefined;
+
 /* BOARD SIZES */
 function handleToggleBoardSize(e) {
   const choice = e.target.closest(".collapse__sublink");
@@ -195,13 +197,23 @@ const toggleSounds = () => {
   const curSoundsSettings = getSounds();
   console.log(curSoundsSettings);
   const settings = JSON.parse(window.localStorage.getItem("settings2048++"));
-
   // Change settings
   if (curSoundsSettings) {
     setSounds(false);
+    if (music != undefined) {
+      music.remove();
+    }
     settings.sounds = false;
   } else {
     setSounds(true);
+    music = new Audio("./chill-background.mp3");
+    // Play music on loop
+    const playMusic = () => {
+      music.play();
+      music.addEventListener("ended", playMusic);
+    };
+
+    music.addEventListener("canplaythrough", playMusic);
     settings.sounds = true;
   }
 
