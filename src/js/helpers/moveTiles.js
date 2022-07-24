@@ -9,11 +9,12 @@ import { getSounds } from "../config";
  * @param {*} cells Cells whose tiles to slide/move.
  * @returns An aggregate promise of all promises to slide tiles for each group (row/column).
  */
+let combos = 0;
+
 function slideTiles(cells) {
   // Aggregate all added scores from each group
   let playSound = false;
   const groupsScoreAdds = [];
-  let combos = 0;
   const promises =
     // flatMap cell groups' arrays into a 1D array of promises
     cells.flatMap((group) => {
@@ -45,7 +46,7 @@ function slideTiles(cells) {
             lastValidCell.mergeTile = cell.tile;
             scoreAdds += lastValidCell.tile.value + cell.tile.value;
             combos += 1;
-            playSound = true;
+            playSound = true; // Play sound when there is a merged cell
           } else {
             // Case 2: Empty Cell
             lastValidCell.tile = cell.tile;
@@ -67,30 +68,35 @@ function slideTiles(cells) {
     sndEffect.play();
   }
 
-  // Update combos
-  updateCombo(combos);
-
   // Update score
-
   updateScore(groupsScoreAdds.reduce((sum, scoreAdd) => sum + scoreAdd, 0));
   return Promise.all(promises);
 }
 
+const updateResetCombos = () => {
+  updateCombo(combos);
+  combos = 0;
+};
+
 // Versions of slideTiles. Determines the direction of sliding by gettings cells by column/row/reverse column/reverse row.
 async function moveUp(grid) {
-  return await slideTiles(grid.cellsByColumn);
+  await slideTiles(grid.cellsByColumn);
+  updateResetCombos();
 }
 
 async function moveDown(grid) {
-  return await slideTiles(grid.cellsByColumn.map((col) => [...col].reverse()));
+  await slideTiles(grid.cellsByColumn.map((col) => [...col].reverse()));
+  updateResetCombos();
 }
 
 async function moveLeft(grid) {
-  return await slideTiles(grid.cellsByRow);
+  await slideTiles(grid.cellsByRow);
+  updateResetCombos();
 }
 
 async function moveRight(grid) {
-  return await slideTiles(grid.cellsByRow.map((row) => [...row].reverse()));
+  await slideTiles(grid.cellsByRow.map((row) => [...row].reverse()));
+  updateResetCombos();
 }
 
 export { moveUp, moveDown, moveLeft, moveRight };
