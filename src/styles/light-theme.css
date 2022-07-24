@@ -790,6 +790,7 @@ input::placeholder {
 
 #modal--combo {
   color: var(--white-color);
+  opacity: 0;
 }
 
 .zoom-fade {
