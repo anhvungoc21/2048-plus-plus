@@ -18190,14 +18190,20 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+ // Start Game & Handle all inputs
 
+window.addEventListener("DOMContentLoaded", function () {
+  setupGame();
+  (0,_js_helpers_handleNavbar_js__WEBPACK_IMPORTED_MODULE_6__["default"])();
+  (0,_js_helpers_handleSettings_js__WEBPACK_IMPORTED_MODULE_7__.handleSettings)();
+});
 /**
  * Main function to set up and start game
  */
 
 function setupGame() {
   // Prevent initial elements transition in Dark Mode.
-  (0,_js_helpers_handleSettings_js__WEBPACK_IMPORTED_MODULE_7__.preventTransition)(); // Set settings on localStorage if not already present. Else, update settings according to local settings.
+  (0,_js_helpers_handleSettings_js__WEBPACK_IMPORTED_MODULE_7__.preventTransition)(); // Set settings on localStorage if not already present. Update settings according to local settings.
 
   if (!window.localStorage.getItem("settings2048++")) {
     var defaultSettings = {
@@ -18207,10 +18213,9 @@ function setupGame() {
       sounds: "true"
     };
     localStorage.setItem("settings2048++", JSON.stringify(defaultSettings));
-  } else {
-    (0,_js_helpers_handleSettings_js__WEBPACK_IMPORTED_MODULE_7__.applyLSSettings)();
-  } // Destroy all exisitng cells and tiles
+  }
 
+  (0,_js_helpers_handleSettings_js__WEBPACK_IMPORTED_MODULE_7__.applyLSSettings)(); // Destroy all exisitng cells and tiles
 
   var existingCells = document.querySelectorAll(".cell");
   var existingTiles = document.querySelectorAll(".tile");
@@ -18280,11 +18285,7 @@ btnRestart.addEventListener("click", function () {
   lossModal.style.opacity = 0;
   gameBoard.style.opacity = 1;
   setupGame();
-}); // Start Game & Handle all inputs
-
-setupGame();
-(0,_js_helpers_handleNavbar_js__WEBPACK_IMPORTED_MODULE_6__["default"])();
-(0,_js_helpers_handleSettings_js__WEBPACK_IMPORTED_MODULE_7__.handleSettings)();
+});
 
 /***/ }),
 
@@ -18886,10 +18887,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "getColorTheme": () => (/* binding */ getColorTheme),
 /* harmony export */   "getGridSize": () => (/* binding */ getGridSize),
+/* harmony export */   "getMusic": () => (/* binding */ getMusic),
 /* harmony export */   "getPercentVHMain": () => (/* binding */ getPercentVHMain),
 /* harmony export */   "getSounds": () => (/* binding */ getSounds),
 /* harmony export */   "setColorTheme": () => (/* binding */ setColorTheme),
 /* harmony export */   "setGridSize": () => (/* binding */ setGridSize),
+/* harmony export */   "setMusic": () => (/* binding */ setMusic),
 /* harmony export */   "setPercentVHMain": () => (/* binding */ setPercentVHMain),
 /* harmony export */   "setSounds": () => (/* binding */ setSounds)
 /* harmony export */ });
@@ -18897,6 +18900,7 @@ var GRID_SIZE = 4;
 var PERCENT_VH_MAIN = 80;
 var COLOR_THEME = "original";
 var SOUNDS = true;
+var MUSIC = false;
 var getGridSize = function getGridSize() {
   return GRID_SIZE;
 };
@@ -18909,6 +18913,9 @@ var getColorTheme = function getColorTheme() {
 var getSounds = function getSounds() {
   return SOUNDS;
 };
+var getMusic = function getMusic() {
+  return MUSIC;
+};
 var setGridSize = function setGridSize(val) {
   return GRID_SIZE = val;
 };
@@ -18920,6 +18927,9 @@ var setColorTheme = function setColorTheme(val) {
 };
 var setSounds = function setSounds(val) {
   return SOUNDS = val;
+};
+var setMusic = function setMusic(val) {
+  return MUSIC = val;
 };
 
 /***/ }),
@@ -19494,7 +19504,7 @@ var navList = navBar.querySelector(".nav__list");
 var navLinks = navList.querySelectorAll(".nav__link");
 var collapseMenus = document.querySelectorAll(".collapse__menu");
 var setterDarkMode = document.getElementById("set--dark-mode");
-var setterSounds = document.getElementById("set--sounds");
+var setterAudio = document.getElementById("set--audio");
 var setterBoardSize = document.getElementById("set--board-size");
 var setterColors = document.getElementById("set--colors");
 var infoViewer = document.getElementById("info");
@@ -19516,9 +19526,9 @@ var eyeIconsSignup = signupModal.querySelectorAll("#password-input-wrapper > .ey
 var eyeIconsReSignup = signupModal.querySelectorAll("#password-reinput-wrapper > .eye__icon");
 
 var handleShowMenu = function handleShowMenu() {
-  if (navBar && navToggle && setterDarkMode && setterSounds && setterBoardSize && setterColors && userViewer && logOutBtn) {
+  if (navBar && navToggle && setterDarkMode && setterAudio && setterBoardSize && setterColors && userViewer && logOutBtn) {
     // Click on these to expand
-    var validExpanders = [setterDarkMode, setterBoardSize, setterColors, setterSounds];
+    var validExpanders = [setterDarkMode, setterBoardSize, setterColors, setterAudio];
     validExpanders.forEach(function (element) {
       element.addEventListener("click", function () {
         navBar.classList.add("expander");
@@ -20102,32 +20112,43 @@ var applyLSSettings = /*#__PURE__*/function () {
 
 var toggleSounds = function toggleSounds() {
   var curSoundsSettings = (0,_config_js__WEBPACK_IMPORTED_MODULE_1__.getSounds)();
-  console.log(curSoundsSettings);
   var settings = JSON.parse(window.localStorage.getItem("settings2048++")); // Change settings
 
   if (curSoundsSettings) {
     (0,_config_js__WEBPACK_IMPORTED_MODULE_1__.setSounds)(false);
-
-    if (music != undefined) {
-      music.remove();
-    }
-
     settings.sounds = false;
   } else {
     (0,_config_js__WEBPACK_IMPORTED_MODULE_1__.setSounds)(true);
-    music = new Audio("./chill-background.mp3"); // Play music on loop
-
-    var playMusic = function playMusic() {
-      music.play();
-      music.addEventListener("ended", playMusic);
-    };
-
-    music.addEventListener("canplaythrough", playMusic);
     settings.sounds = true;
   } // Update in local storage
 
 
   window.localStorage.setItem("settings2048++", JSON.stringify(settings));
+};
+
+var toggleMusic = function toggleMusic() {
+  var curMusicSettings = (0,_config_js__WEBPACK_IMPORTED_MODULE_1__.getMusic)();
+
+  if (curMusicSettings) {
+    (0,_config_js__WEBPACK_IMPORTED_MODULE_1__.setMusic)(false);
+
+    if (music != undefined) {
+      music.pause();
+      music.currentTime = 0;
+    }
+  } else {
+    (0,_config_js__WEBPACK_IMPORTED_MODULE_1__.setMusic)(true);
+    music = new Audio("./chill-background.mp3"); // Play music on loop
+
+    var playMusic = function playMusic() {
+      if ((0,_config_js__WEBPACK_IMPORTED_MODULE_1__.getMusic)()) {
+        music.play();
+        music.addEventListener("ended", playMusic);
+      }
+    };
+
+    music.addEventListener("canplaythrough", playMusic);
+  }
 };
 
 var preventTransition = function preventTransition(restartGame) {
@@ -20171,6 +20192,7 @@ function handleSettings() {
   var menuColors = document.getElementById("collapse--colors");
   var togglerDarkMode = document.getElementById("switch-dark");
   var togglerSounds = document.getElementById("switch-sounds");
+  var togglerMusic = document.getElementById("switch-music");
   menuBoardSize.addEventListener("click", function (e) {
     return handleToggleBoardSize(e);
   });
@@ -20179,6 +20201,7 @@ function handleSettings() {
   });
   togglerDarkMode.addEventListener("click", toggleDarkMode);
   togglerSounds.addEventListener("click", toggleSounds);
+  togglerMusic.addEventListener("click", toggleMusic);
 }
 
 /***/ }),

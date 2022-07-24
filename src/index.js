@@ -13,6 +13,13 @@ import {
   preventTransition,
 } from "./js/helpers/handleSettings.js";
 
+// Start Game & Handle all inputs
+window.addEventListener("DOMContentLoaded", () => {
+  setupGame();
+  handleNavbar();
+  handleSettings();
+});
+
 /**
  * Main function to set up and start game
  */
@@ -20,7 +27,7 @@ export default function setupGame() {
   // Prevent initial elements transition in Dark Mode.
   preventTransition();
 
-  // Set settings on localStorage if not already present. Else, update settings according to local settings.
+  // Set settings on localStorage if not already present. Update settings according to local settings.
   if (!window.localStorage.getItem("settings2048++")) {
     const defaultSettings = {
       darkMode: "light-theme",
@@ -30,9 +37,8 @@ export default function setupGame() {
     };
 
     localStorage.setItem("settings2048++", JSON.stringify(defaultSettings));
-  } else {
-    applyLSSettings();
   }
+  applyLSSettings();
 
   // Destroy all exisitng cells and tiles
   const existingCells = document.querySelectorAll(".cell");
@@ -105,8 +111,3 @@ btnRestart.addEventListener("click", () => {
   gameBoard.style.opacity = 1;
   setupGame();
 });
-
-// Start Game & Handle all inputs
-setupGame();
-handleNavbar();
-handleSettings();

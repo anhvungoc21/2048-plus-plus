@@ -331,6 +331,7 @@ ul {
   grid-column-start: span 3;
   padding-top: 0.5rem;
 }
+
 .collapse__sublink {
   display: flex;
   flex-direction: row;
@@ -342,6 +343,7 @@ ul {
   height: 2.25rem;
   border-radius: 0.3rem;
   padding-left: 1rem;
+  padding-right: 0.5rem;
   transition: 0.3s;
 }
 
@@ -367,7 +369,7 @@ ul {
 .switch {
   align-items: center;
   justify-items: center;
-  place-self: end;
+  place-self: center;
 }
 
 .switch-wrapper {

@@ -8,8 +8,8 @@
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap');
     </style>
-    <link rel="stylesheet" href="./light-theme.css">
     <script type="module" defer src="./bundle.js"></script> 
+    <link rel="stylesheet" href="./light-theme.css">
     <script type="module" src="https://unpkg.com/ionicons@5.1.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule="" src="https://unpkg.com/ionicons@5.1.2/dist/ionicons/ionicons.js"></script>
   </head>
@@ -32,18 +32,31 @@
           <div id="set--dark-mode" class="nav__link switch-wrapper">
             <ion-icon name="contrast-outline" class="nav__icon"></ion-icon>
             <span class="nav__name">Dark Mode</span>
-            <div class="switch--dark-mode switch">
+            <div class="switch">
               <input type="checkbox" id="switch-dark" />
               <label for="switch-dark"></label>
             </div>
           </div>
-          <div id="set--sounds" class="nav__link switch-wrapper">
+          <div id="set--audio" class="nav__link collapse">
             <ion-icon name="volume-medium-outline" class="nav__icon"></ion-icon>
-            <span class="nav__name">Sounds</span>
-            <div class="switch--sounds switch">
-              <input type="checkbox" id="switch-sounds" />
-              <label for="switch-sounds"></label>
-            </div>
+            <span class="nav__name">Audio</span>
+            <ion-icon name="chevron-down-outline" class="collapse__icon nav__icon" ></ion-icon>
+            <ul id="collapse--sounds" class="collapse__menu">
+              <div class="collapse__sublink">
+                <span>Sounds</span>
+                <div class="switch">
+                  <input type="checkbox" id="switch-sounds" />
+                  <label for="switch-sounds"></label>
+                </div>
+              </div>
+              <div class="collapse__sublink">
+                <span>Music</span>
+                <div class="switch">
+                  <input type="checkbox" id="switch-music" />
+                  <label for="switch-music"></label>
+                </div>
+              </div>
+            </ul>
           </div>
           <div id="set--board-size" class="nav__link collapse">
             <ion-icon name="grid-outline" class="nav__icon"></ion-icon>

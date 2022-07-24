@@ -15,7 +15,7 @@ const navList = navBar.querySelector(".nav__list");
 const navLinks = navList.querySelectorAll(".nav__link");
 const collapseMenus = document.querySelectorAll(".collapse__menu");
 const setterDarkMode = document.getElementById("set--dark-mode");
-const setterSounds = document.getElementById("set--sounds");
+const setterAudio = document.getElementById("set--audio");
 const setterBoardSize = document.getElementById("set--board-size");
 const setterColors = document.getElementById("set--colors");
 const infoViewer = document.getElementById("info");
@@ -46,7 +46,7 @@ const handleShowMenu = () => {
     navBar &&
     navToggle &&
     setterDarkMode &&
-    setterSounds &&
+    setterAudio &&
     setterBoardSize &&
     setterColors &&
     userViewer &&
@@ -57,7 +57,7 @@ const handleShowMenu = () => {
       setterDarkMode,
       setterBoardSize,
       setterColors,
-      setterSounds,
+      setterAudio,
     ];
     validExpanders.forEach((element) => {
       element.addEventListener("click", () => {
