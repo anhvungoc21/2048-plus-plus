@@ -222,7 +222,7 @@ const toggleMusic = () => {
     }
   } else {
     setMusic(true);
-    music = new Audio("./chill-background.mp3");
+    music = new Audio("./chillBackground.mp3");
     // Play music on loop
     const playMusic = () => {
       if (getMusic()) {

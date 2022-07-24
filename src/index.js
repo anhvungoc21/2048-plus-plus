@@ -1,4 +1,4 @@
-import backgroundMusic from "./assets/chill-background.mp3";
+import backgroundMusic from "./assets/chillBackground.mp3";
 
 import Grid from "./js/classes/Grid.js";
 import Tile from "./js/classes/Tile.js";
