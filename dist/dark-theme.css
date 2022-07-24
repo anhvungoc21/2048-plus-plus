@@ -792,5 +792,27 @@ input::placeholder {
   }
 }
 
+/* Combo Modal */
+
+#modal--combo {
+  color: var(--white-color);
+}
+
+.zoom-fade {
+  animation: zoom-in-fade-out 1s linear;
+}
+
+@keyframes zoom-in-fade-out {
+  50% {
+    opacity: 1;
+    z-index: 100;
+  }
+
+  100% {
+    transform: scale(10);
+    opacity: 0;
+  }
+}
+
 
 /*# sourceMappingURL=dark-theme.css.map*/

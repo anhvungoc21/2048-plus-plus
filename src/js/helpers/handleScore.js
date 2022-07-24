@@ -4,6 +4,7 @@ const scoreContainer = document.querySelector(".score-container");
 const bestScoreContainer = document.querySelector(".best-container");
 const comboContainer = document.querySelector(".combo-container");
 const comboBar = document.querySelector(".combo-bar");
+const comboModal = document.getElementById("modal--combo");
 
 /**
  * Updates score everytime a tile is merged
@@ -51,12 +52,20 @@ function updateCombo(combosCount) {
   if (updatedWidth >= 100) {
     comboContainer.style.setProperty("--width", "100%");
 
-    // Set combo state, animations.
+    // Set combo state, animations, show combo modal.
+
+    //// Animation on combo bar
     setCombo(true);
     comboContainer.style.setProperty("--transition-time", "10s");
     comboContainer.style.setProperty("--width", "0%"); // setInterval's callback doesn't affect this
     comboBar.style.background = "var(--black-color)";
     comboBar.classList.add("blinker");
+
+    //// Animation on combo modal
+    comboModal.classList.add("zoom-fade");
+    setTimeout(() => {
+      comboModal.classList.remove("zoom-fade");
+    }, 1000);
 
     // Turn all 2-tiles to 4-tiles
     const grid = getGrid();
