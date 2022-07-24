@@ -64,7 +64,7 @@ function slideTiles(cells) {
 
   // Play sound effect for tile merging
   if (playSound && getSounds()) {
-    const sndEffect = new Audio("./soundEffect.wav");
+    const sndEffect = new Audio("./tileSoundEffect.wav");
     sndEffect.play();
   }
 

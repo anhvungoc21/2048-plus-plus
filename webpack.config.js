@@ -48,14 +48,14 @@ module.exports = {
         test: /\.wav$/,
         loader: "file-loader",
         options: {
-          name: "soundEffect.wav",
+          name: "[name].wav",
         },
       },
       {
         test: /\.mp3$/,
         loader: "file-loader",
         options: {
-          name: "chill-background.mp3",
+          name: "[name].mp3",
         },
       },
     ],
