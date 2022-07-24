@@ -1,7 +1,9 @@
+import backgroundMusic from "./assets/chill-background.mp3";
+
 import Grid from "./js/classes/Grid.js";
 import Tile from "./js/classes/Tile.js";
 
-import { getGridSize, getPercentVHMain } from "./js/config.js";
+import { getGridSize, getPercentVHMain, getSounds } from "./js/config.js";
 import { setCombo, setComboIntervalID } from "./js/gameState.js";
 import setupInput from "./js/helpers/handleInput.js";
 import handleNavbar from "./js/helpers/handleNavbar.js";
