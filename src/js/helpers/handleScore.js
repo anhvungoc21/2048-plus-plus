@@ -1,4 +1,6 @@
+import comboSoundEffect from "../../assets/comboSoundEffect.wav";
 import { setCombo, getCombo, INC_PER_COMBO, getGrid } from "../gameState.js";
+import { getSounds } from "../config.js";
 
 const scoreContainer = document.querySelector(".score-container");
 const bestScoreContainer = document.querySelector(".best-container");
@@ -52,7 +54,11 @@ function updateCombo(combosCount) {
   if (updatedWidth >= 100) {
     comboContainer.style.setProperty("--width", "100%");
 
-    // Set combo state, animations, show combo modal.
+    // Set combo state, animations, show combo modal, play sound effect
+    const sndEffect = new Audio("./comboSoundEffect.wav");
+    if (getSounds()) {
+      sndEffect.play();
+    }
 
     //// Animation on combo bar
     setCombo(true);

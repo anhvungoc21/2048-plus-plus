@@ -18175,7 +18175,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ setupGame)
 /* harmony export */ });
-/* harmony import */ var _assets_chill_background_mp3__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./assets/chill-background.mp3 */ "./src/assets/chill-background.mp3");
+/* harmony import */ var _assets_chillBackground_mp3__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./assets/chillBackground.mp3 */ "./src/assets/chillBackground.mp3");
 /* harmony import */ var _js_classes_Grid_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./js/classes/Grid.js */ "./src/js/classes/Grid.js");
 /* harmony import */ var _js_classes_Tile_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./js/classes/Tile.js */ "./src/js/classes/Tile.js");
 /* harmony import */ var _js_config_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./js/config.js */ "./src/js/config.js");
@@ -19827,7 +19827,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "updateCombo": () => (/* binding */ updateCombo),
 /* harmony export */   "updateScore": () => (/* binding */ updateScore)
 /* harmony export */ });
-/* harmony import */ var _gameState_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../gameState.js */ "./src/js/gameState.js");
+/* harmony import */ var _assets_comboSoundEffect_wav__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../assets/comboSoundEffect.wav */ "./src/assets/comboSoundEffect.wav");
+/* harmony import */ var _gameState_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../gameState.js */ "./src/js/gameState.js");
+/* harmony import */ var _config_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../config.js */ "./src/js/config.js");
+
+
 
 var scoreContainer = document.querySelector(".score-container");
 var bestScoreContainer = document.querySelector(".best-container");
@@ -19865,17 +19869,23 @@ function updateScore(scoreAdd) {
 
 function updateCombo(combosCount) {
   // Update combo bar
-  if ((0,_gameState_js__WEBPACK_IMPORTED_MODULE_0__.getCombo)()) return;
+  if ((0,_gameState_js__WEBPACK_IMPORTED_MODULE_1__.getCombo)()) return;
   var currentWidth = parseInt(getComputedStyle(comboContainer).getPropertyValue("--width"));
   if (currentWidth == 100) return;
-  var widthInc = combosCount * _gameState_js__WEBPACK_IMPORTED_MODULE_0__.INC_PER_COMBO;
+  var widthInc = combosCount * _gameState_js__WEBPACK_IMPORTED_MODULE_1__.INC_PER_COMBO;
   var updatedWidth = widthInc + currentWidth;
 
   if (updatedWidth >= 100) {
-    comboContainer.style.setProperty("--width", "100%"); // Set combo state, animations, show combo modal.
-    //// Animation on combo bar
+    comboContainer.style.setProperty("--width", "100%"); // Set combo state, animations, show combo modal, play sound effect
 
-    (0,_gameState_js__WEBPACK_IMPORTED_MODULE_0__.setCombo)(true);
+    var sndEffect = new Audio("./comboSoundEffect.wav");
+
+    if ((0,_config_js__WEBPACK_IMPORTED_MODULE_2__.getSounds)()) {
+      sndEffect.play();
+    } //// Animation on combo bar
+
+
+    (0,_gameState_js__WEBPACK_IMPORTED_MODULE_1__.setCombo)(true);
     comboContainer.style.setProperty("--transition-time", "10s");
     comboContainer.style.setProperty("--width", "0%"); // setInterval's callback doesn't affect this
 
@@ -19887,7 +19897,7 @@ function updateCombo(combosCount) {
       comboModal.classList.remove("zoom-fade");
     }, 1000); // Turn all 2-tiles to 4-tiles
 
-    var grid = (0,_gameState_js__WEBPACK_IMPORTED_MODULE_0__.getGrid)();
+    var grid = (0,_gameState_js__WEBPACK_IMPORTED_MODULE_1__.getGrid)();
     var cells = grid.cells;
     cells.map(function (cell) {
       if (cell.tile) {
@@ -19900,7 +19910,7 @@ function updateCombo(combosCount) {
     }); // Combo state persists for 10 seconds
 
     setTimeout(function () {
-      (0,_gameState_js__WEBPACK_IMPORTED_MODULE_0__.setCombo)(false);
+      (0,_gameState_js__WEBPACK_IMPORTED_MODULE_1__.setCombo)(false);
       comboContainer.style.setProperty("--transition-time", "0.25s");
       comboBar.style.background = "var(--white-color)";
       comboBar.classList.remove("blinker");
@@ -20145,7 +20155,7 @@ var toggleMusic = function toggleMusic() {
     }
   } else {
     (0,_config_js__WEBPACK_IMPORTED_MODULE_1__.setMusic)(true);
-    music = new Audio("./chill-background.mp3"); // Play music on loop
+    music = new Audio("./chillBackground.mp3"); // Play music on loop
 
     var playMusic = function playMusic() {
       if ((0,_config_js__WEBPACK_IMPORTED_MODULE_1__.getMusic)()) {
@@ -20464,7 +20474,7 @@ function slideTiles(cells) {
   }); // Play sound effect for tile merging
 
   if (playSound && (0,_config__WEBPACK_IMPORTED_MODULE_2__.getSounds)()) {
-    var sndEffect = new Audio("./soundEffect.wav");
+    var sndEffect = new Audio("./tileSoundEffect.wav");
     sndEffect.play();
   } // Update score
 
@@ -20670,6 +20680,21 @@ var setBestScore = function setBestScore(val) {
 
 /***/ }),
 
+/***/ "./src/assets/comboSoundEffect.wav":
+/*!*****************************************!*\
+  !*** ./src/assets/comboSoundEffect.wav ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "comboSoundEffect.wav");
+
+/***/ }),
+
 /***/ "./src/assets/tileSoundEffect.wav":
 /*!****************************************!*\
   !*** ./src/assets/tileSoundEffect.wav ***!
@@ -20681,14 +20706,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "soundEffect.wav");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "tileSoundEffect.wav");
 
 /***/ }),
 
-/***/ "./src/assets/chill-background.mp3":
-/*!*****************************************!*\
-  !*** ./src/assets/chill-background.mp3 ***!
-  \*****************************************/
+/***/ "./src/assets/chillBackground.mp3":
+/*!****************************************!*\
+  !*** ./src/assets/chillBackground.mp3 ***!
+  \****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -20696,7 +20721,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "chill-background.mp3");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "chillBackground.mp3");
 
 /***/ }),
 
