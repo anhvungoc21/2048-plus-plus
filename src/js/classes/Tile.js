@@ -5,18 +5,25 @@ import {
   colorDictGreen,
 } from "../colorConfig.js";
 import { getColorTheme } from "../config.js";
+import { getCombo } from "../gameState.js";
 export default class Tile {
   #tileElement;
   #x;
   #y;
   #value;
 
-  // Equal chances of spawning 2 or 4
-  constructor(tileContainer, value = Math.random() >= 0.25 ? 2 : 4) {
+  // Equal chances of spawning 2 or 4 normally
+  // During combos, spawn 4 or 8
+  constructor(tileContainer) {
     this.#tileElement = document.createElement("div");
     this.#tileElement.classList.add("tile");
     tileContainer.append(this.#tileElement);
-    this.value = value;
+    const randomGen = Math.random();
+    if (getCombo()) {
+      this.value = randomGen >= 0.25 ? 4 : 8;
+    } else {
+      this.value = randomGen >= 0.25 ? 2 : 4;
+    }
   }
 
   // NOTE: The best way to set a variable based on another is using setters and getters
