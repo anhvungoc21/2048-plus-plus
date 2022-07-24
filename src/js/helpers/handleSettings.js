@@ -5,6 +5,8 @@ import {
   getColorTheme,
   setSounds,
   getSounds,
+  setMusic,
+  getMusic,
 } from "../config.js";
 import {
   colorDictDefault,
@@ -199,28 +201,38 @@ const toggleSounds = () => {
   // Change settings
   if (curSoundsSettings) {
     setSounds(false);
+    settings.sounds = false;
+  } else {
+    setSounds(true);
+    settings.sounds = true;
+  }
+
+  // Update in local storage
+  window.localStorage.setItem("settings2048++", JSON.stringify(settings));
+};
+
+const toggleMusic = () => {
+  const curMusicSettings = getMusic();
+
+  if (curMusicSettings) {
+    setMusic(false);
     if (music != undefined) {
       music.pause();
       music.currentTime = 0;
     }
-    settings.sounds = false;
   } else {
-    setSounds(true);
+    setMusic(true);
     music = new Audio("./chill-background.mp3");
     // Play music on loop
     const playMusic = () => {
-      if (getSounds()) {
+      if (getMusic()) {
         music.play();
         music.addEventListener("ended", playMusic);
       }
     };
 
     music.addEventListener("canplaythrough", playMusic);
-    settings.sounds = true;
   }
-
-  // Update in local storage
-  window.localStorage.setItem("settings2048++", JSON.stringify(settings));
 };
 
 export const preventTransition = (restartGame) => {
@@ -264,9 +276,11 @@ export function handleSettings() {
   const menuColors = document.getElementById("collapse--colors");
   const togglerDarkMode = document.getElementById("switch-dark");
   const togglerSounds = document.getElementById("switch-sounds");
+  const togglerMusic = document.getElementById("switch-music");
 
   menuBoardSize.addEventListener("click", (e) => handleToggleBoardSize(e));
   menuColors.addEventListener("click", (e) => handleToggleColorTheme(e));
   togglerDarkMode.addEventListener("click", toggleDarkMode);
   togglerSounds.addEventListener("click", toggleSounds);
+  togglerMusic.addEventListener("click", toggleMusic);
 }
