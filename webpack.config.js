@@ -87,7 +87,6 @@ module.exports = {
       title: "2048++",
       filename: "index.html",
       template: "src/template.html",
-      favicon: "src/assets/favicon/favicon.ico",
       inject: false,
     }),
     new MiniCssExtractPlugin(),
