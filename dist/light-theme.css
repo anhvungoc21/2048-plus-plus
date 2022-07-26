@@ -490,7 +490,24 @@ label:active:after {
   --ionicon-stroke-width: 3em;
 }
 
-/* INFO MODAL & OVERLAY */
+/* INFO & INSTRUCTIONS MODAL & OVERLAY */
+#modal--instructions {
+  font-weight: 500;
+  width: 50%;
+  background-color: var(--white-color);
+  color: var(--black-color);
+  font-size: var(--small-font-size);
+  padding: 3em;
+  border-radius: 0.5em;
+  opacity: 0;
+  user-select: none;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 3;
+  transition: opacity 0.5s ease-in;
+  text-align: left;
+}
+
 #modal--info {
   text-align: left;
   font-weight: 500;
