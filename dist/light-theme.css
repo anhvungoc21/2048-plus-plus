@@ -452,7 +452,6 @@ label:active:after {
 .modal {
   display: flex;
   flex-direction: column;
-  align-items: center;
   position: absolute;
 }
 
@@ -492,6 +491,7 @@ label:active:after {
 
 /* INFO & INSTRUCTIONS MODAL & OVERLAY */
 #modal--instructions {
+  text-align: left;
   font-weight: 500;
   width: 50%;
   background-color: var(--white-color);
@@ -505,7 +505,6 @@ label:active:after {
   overflow: hidden;
   z-index: 3;
   transition: opacity 0.5s ease-in;
-  text-align: left;
 }
 
 #modal--info {
@@ -557,6 +556,16 @@ label:active:after {
   color: var(--black-color);
 }
 
+#icon--instructions-modal {
+  font-size: 1.75rem;
+  --ionicon-stroke-width: 1.5em;
+  color: var(--black-color);
+}
+
+.bolded {
+  font-weight: 700;
+}
+
 .no-transition *:not(.tile) {
   -webkit-transition: none !important;
   -moz-transition: none !important;
@@ -573,6 +582,7 @@ label:active:after {
 
 /* LOGIN FORM */
 .modal--login-signup {
+  align-items: center;
   background-color: var(--white-color);
   border-radius: 1rem;
   color: var(--black-color);
@@ -673,6 +683,7 @@ input::placeholder {
 
 /* USER ACCOUNT MODAL */
 #modal--account {
+  align-items: center;
   width: 20%;
   background-color: var(--white-color);
   color: var(--black-color);

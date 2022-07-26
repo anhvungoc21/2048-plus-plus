@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 // const BundleAnalyzerPlugin =
 //   require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 const Dotenv = require("dotenv-webpack");
 
 module.exports = {
@@ -88,6 +89,9 @@ module.exports = {
       filename: "index.html",
       template: "src/template.html",
       inject: false,
+    }),
+    new CopyWebpackPlugin({
+      patterns: [{ from: "./src/assets/favicon.ico" }],
     }),
     new MiniCssExtractPlugin(),
     new Dotenv(),
