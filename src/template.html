@@ -7,7 +7,7 @@
     <link rel='shortcut icon' href='#' />
     <title><%= htmlWebpackPlugin.options.title %></title>
     <style>
-      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
     </style>
     <script type="module" defer src="./bundle.js"></script> 
     <link rel="stylesheet" href="./light-theme.css">
@@ -120,6 +120,13 @@
                 ></ion-icon>
               </div>
             </ul>
+          </div>
+          <div id="instructions" class="nav__link">
+            <ion-icon
+              name="help-circle-outline"
+              class="nav__icon"
+            ></ion-icon>
+            <span class="nav__name">How To Play</span>
           </div>
           <div id="info" class="nav__link">
             <ion-icon
@@ -248,8 +255,31 @@
         <ion-icon name="refresh-outline" id="icon--try-again"></ion-icon>
       </button>
     </div>
+    <div id="modal--instructions" class="modal">
+      <div id="btn--close-instructions-modal" class="btn--close-modal">
+        <ion-icon name="close-outline" id="icon--instructions-modal"></ion-icon>
+      </div>
+      <span>
+        Like the original 2048, the goal of the game is simple: <span class="bolded">Reach 2048 (or higher, of course!) before the board fills up!</span>
+        <br/>
+        <br/>
+        Whenever two tiles with the same value collide, they merge into a greater tile whose value is the sum of the merged tiles. 
+        To achieve this, use the <span class="bolded">W-A-S-D (or Up-Left-Down-Right arrow) keys</span> to slide tiles around and combine them.
+        After each move, a new tile, either 2- or 4-tile, is randomly spawned on the board.
+        <br/>
+        <br/>
+        A new mechanic of 2048++ is the <span class="bolded">Combo Bar</span>. Whenever tiles are merged, the combo bar fills up by an small amount. 
+        However, the bar constantly diminishes, so tiles must be merged quickly in succession to fill up the bar. Once filled up, we enter the <span class="bolded">Combo State</span>.
+        For starters, all 2-tiles present on the board are <span class="bolded">transformed into 4-tiles</span>. 
+        What's more important, in the next <span class="bolded">10 seconds, 4- and 8-tiles are spawned</span> instead of the usual 2- and 4-tile.
+        During this period, try to get as many tiles to merge as possible to achieve higher scores faster!
+        <br/>
+        <br/>
+        Good luck & Have fun!
+      </span>
+    </div>
     <div id="modal--info" class="modal">
-      <div class="btn--close-modal btn--close-info-modal">
+      <div id="btn--close-info-modal" class="btn--close-modal">
         <ion-icon name="close-outline" id="icon--info-modal"></ion-icon>
       </div>
       <span>
