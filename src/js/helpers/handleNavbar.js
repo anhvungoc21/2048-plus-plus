@@ -18,12 +18,14 @@ const setterDarkMode = document.getElementById("set--dark-mode");
 const setterAudio = document.getElementById("set--audio");
 const setterBoardSize = document.getElementById("set--board-size");
 const setterColors = document.getElementById("set--colors");
+const instructionsViewer = document.getElementById("instructions");
 const infoViewer = document.getElementById("info");
 const userViewer = document.getElementById("user");
 const logOutBtn = document.getElementById("log-out");
 const signupModal = document.getElementById("modal--signup");
 const loginModal = document.getElementById("modal--login");
 const lossModal = document.getElementById("modal--loss");
+const instructionsModal = document.getElementById("modal--instructions");
 const infoModal = document.getElementById("modal--info");
 const accountModal = document.getElementById("modal--account");
 const modalOverlay = document.querySelector(".modal-overlay");
@@ -104,7 +106,7 @@ const handleOpenCollapseMenu = () => {
 
 // View info 2048++
 const showInfoModal = () => {
-  const btnCloseModal = infoModal.querySelector(".btn--close-info-modal");
+  const btnCloseModal = infoModal.querySelector("#btn--close-info-modal");
   // Show info modal and overlay. Allow pointer events on overlay.
   infoModal.style.opacity = 1;
   modalOverlay.style.opacity = 0.6;
@@ -120,6 +122,36 @@ const showInfoModal = () => {
         modalOverlay.style.opacity = 0;
         modalOverlay.style["pointer-events"] = "none";
         infoModal.style["pointer-events"] = "none";
+        setTimeout(() => {
+          // Transition time of info modal is 0.5s
+          lossModal.style["z-index"] = 4;
+        }, 500);
+      },
+      { once: true }
+    )
+  );
+};
+
+// View how-to-play instructions
+const showInstructionsModal = () => {
+  const btnCloseModal = instructionsModal.querySelector(
+    "#btn--close-instructions-modal"
+  );
+  // Show info modal and overlay. Allow pointer events on overlay.
+  instructionsModal.style.opacity = 1;
+  modalOverlay.style.opacity = 0.6;
+  modalOverlay.style["pointer-events"] = "initial";
+  instructionsModal.style["pointer-events"] = "initial";
+  lossModal.style["z-index"] = 2; // Info Modal can hide lossModal
+  [btnCloseModal, modalOverlay].forEach((ele) =>
+    ele.addEventListener(
+      "click",
+      () => {
+        // Revert changes
+        instructionsModal.style.opacity = 0;
+        modalOverlay.style.opacity = 0;
+        modalOverlay.style["pointer-events"] = "none";
+        instructionsModal.style["pointer-events"] = "none";
         setTimeout(() => {
           // Transition time of info modal is 0.5s
           lossModal.style["z-index"] = 4;
@@ -308,6 +340,7 @@ export default function handleNavbar() {
   handleEyeIcons(eyeIconsLogin);
   handleEyeIcons(eyeIconsSignup);
   handleEyeIcons(eyeIconsReSignup);
+  instructionsViewer.addEventListener("click", showInstructionsModal);
   infoViewer.addEventListener("click", showInfoModal);
   userViewer.addEventListener("click", handleUserViewer);
 }

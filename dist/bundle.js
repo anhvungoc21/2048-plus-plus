@@ -19507,12 +19507,14 @@ var setterDarkMode = document.getElementById("set--dark-mode");
 var setterAudio = document.getElementById("set--audio");
 var setterBoardSize = document.getElementById("set--board-size");
 var setterColors = document.getElementById("set--colors");
+var instructionsViewer = document.getElementById("instructions");
 var infoViewer = document.getElementById("info");
 var userViewer = document.getElementById("user");
 var logOutBtn = document.getElementById("log-out");
 var signupModal = document.getElementById("modal--signup");
 var loginModal = document.getElementById("modal--login");
 var lossModal = document.getElementById("modal--loss");
+var instructionsModal = document.getElementById("modal--instructions");
 var infoModal = document.getElementById("modal--info");
 var accountModal = document.getElementById("modal--account");
 var modalOverlay = document.querySelector(".modal-overlay");
@@ -19571,7 +19573,7 @@ var handleOpenCollapseMenu = function handleOpenCollapseMenu() {
 
 
 var showInfoModal = function showInfoModal() {
-  var btnCloseModal = infoModal.querySelector(".btn--close-info-modal"); // Show info modal and overlay. Allow pointer events on overlay.
+  var btnCloseModal = infoModal.querySelector("#btn--close-info-modal"); // Show info modal and overlay. Allow pointer events on overlay.
 
   infoModal.style.opacity = 1;
   modalOverlay.style.opacity = 0.6;
@@ -19586,6 +19588,33 @@ var showInfoModal = function showInfoModal() {
       modalOverlay.style.opacity = 0;
       modalOverlay.style["pointer-events"] = "none";
       infoModal.style["pointer-events"] = "none";
+      setTimeout(function () {
+        // Transition time of info modal is 0.5s
+        lossModal.style["z-index"] = 4;
+      }, 500);
+    }, {
+      once: true
+    });
+  });
+}; // View how-to-play instructions
+
+
+var showInstructionsModal = function showInstructionsModal() {
+  var btnCloseModal = instructionsModal.querySelector("#btn--close-instructions-modal"); // Show info modal and overlay. Allow pointer events on overlay.
+
+  instructionsModal.style.opacity = 1;
+  modalOverlay.style.opacity = 0.6;
+  modalOverlay.style["pointer-events"] = "initial";
+  instructionsModal.style["pointer-events"] = "initial";
+  lossModal.style["z-index"] = 2; // Info Modal can hide lossModal
+
+  [btnCloseModal, modalOverlay].forEach(function (ele) {
+    return ele.addEventListener("click", function () {
+      // Revert changes
+      instructionsModal.style.opacity = 0;
+      modalOverlay.style.opacity = 0;
+      modalOverlay.style["pointer-events"] = "none";
+      instructionsModal.style["pointer-events"] = "none";
       setTimeout(function () {
         // Transition time of info modal is 0.5s
         lossModal.style["z-index"] = 4;
@@ -19809,6 +19838,7 @@ function handleNavbar() {
   handleEyeIcons(eyeIconsLogin);
   handleEyeIcons(eyeIconsSignup);
   handleEyeIcons(eyeIconsReSignup);
+  instructionsViewer.addEventListener("click", showInstructionsModal);
   infoViewer.addEventListener("click", showInfoModal);
   userViewer.addEventListener("click", handleUserViewer);
 }
