@@ -454,6 +454,7 @@ label:active:after {
 
 /* LOSS MODAL */
 #modal--loss {
+  align-items: center;
   background: transparent;
   text-align: center;
   font-weight: 500;
