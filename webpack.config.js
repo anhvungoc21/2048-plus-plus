@@ -10,8 +10,6 @@ module.exports = {
   mode: "development",
   entry: {
     bundle: path.resolve(__dirname, "src/index.js"),
-    dark: path.resolve(__dirname, "src/styles/dark.js"),
-    light: path.resolve(__dirname, "src/styles/light.js"),
   },
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -61,28 +59,6 @@ module.exports = {
       },
     ],
   },
-  optimization: {
-    splitChunks: {
-      cacheGroups: {
-        darkStyles: {
-          type: "css/mini-extract",
-          name: "dark-theme",
-          chunks: (chunk) => {
-            return chunk.name === "dark";
-          },
-          enforce: true,
-        },
-        lightStyles: {
-          type: "css/mini-extract",
-          name: "light-theme",
-          chunks: (chunk) => {
-            return chunk.name === "light";
-          },
-          enforce: true,
-        },
-      },
-    },
-  },
   plugins: [
     new HtmlWebpackPlugin({
       title: "2048++",
@@ -91,7 +67,10 @@ module.exports = {
       inject: false,
     }),
     new CopyWebpackPlugin({
-      patterns: [{ from: "./src/assets/favicon.ico" }],
+      patterns: [
+        { from: "./src/assets/favicon.ico" },
+        { from: "./src/styles" },
+      ],
     }),
     new MiniCssExtractPlugin(),
     new Dotenv(),
