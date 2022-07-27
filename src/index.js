@@ -3,14 +3,22 @@ import backgroundMusic from "./assets/chillBackground.mp3";
 import Grid from "./js/classes/Grid.js";
 import Tile from "./js/classes/Tile.js";
 
-import { getGridSize, getPercentVHMain, getSounds } from "./js/config.js";
+import {
+  getGridSize,
+  getMusic,
+  getPercentVHMain,
+  getSounds,
+  setMusicPlaying,
+  getMusicPlaying,
+} from "./js/config.js";
 import { setCombo, setComboIntervalID, setGrid } from "./js/gameState.js";
 import setupInput from "./js/helpers/handleInput.js";
 import handleNavbar from "./js/helpers/handleNavbar.js";
 import {
   handleSettings,
-  applyLSSettings,
+  applySettings,
   preventTransition,
+  playMusic,
 } from "./js/helpers/handleSettings.js";
 
 // Start Game & Handle all inputs
@@ -33,12 +41,22 @@ export default function setupGame() {
       darkMode: "light-theme",
       gridSize: "4",
       colorTheme: "original",
-      sounds: "true",
+      sounds: true,
+      music: false,
     };
 
     localStorage.setItem("settings2048++", JSON.stringify(defaultSettings));
   }
-  applyLSSettings();
+  applySettings();
+
+  // Event listener for user interaction to play music if music is True in settings
+  if (getMusic()) {
+    ["mouseover", "scroll", "keydown"].forEach((e) => {
+      window.addEventListener(e, () => !getMusicPlaying() && playMusic(), {
+        once: true,
+      });
+    });
+  }
 
   // Destroy all exisitng cells and tiles
   const existingCells = document.querySelectorAll(".cell");
