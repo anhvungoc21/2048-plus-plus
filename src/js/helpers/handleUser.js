@@ -14,6 +14,7 @@ import {
 
 // TODO:
 // 1. Create alert display, modal shaking -- DONE for successful/failed log-ins/sign-ups -- DONE
+// 2. Accessible mute button
 // 2. Apply settings & scores, update account modal upon successful login
 // 3. Fix display problem probably because of setTimeouts
 // 4. Before user exits browser or log out, send beacon to update dynamodb
