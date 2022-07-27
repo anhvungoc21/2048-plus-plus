@@ -582,7 +582,7 @@ label:active:after {
   right: 0;
   left: 0;
   top: 0;
-  z-index: 2;
+  z-index: 3;
   user-select: none;
   pointer-events: none;
 }
@@ -622,7 +622,7 @@ label:active:after {
   transition: none !important;
 }
 
-.modal-no-transition {
+.modal.no-transition * {
   -webkit-transition: none !important;
   -moz-transition: none !important;
   -o-transition: none !important;
