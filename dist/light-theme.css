@@ -39,7 +39,7 @@ body::-webkit-scrollbar {
 /* TOP BAR */
 #top-bar {
   display: grid;
-  grid-template-columns: 35vw 30vw 18vw 17vw;
+  grid-template-columns: 35vw 30vw 17vw 12vw 6vw;
   font-size: var(--small-font-size);
   justify-items: center;
   align-items: center;
@@ -59,9 +59,7 @@ body::-webkit-scrollbar {
   user-select: none;
 }
 
-#btn--restart {
-  grid-column-start: 4;
-  grid-column-end: 5;
+.btn--top {
   display: flex;
   vertical-align: middle;
   place-content: center;
@@ -72,10 +70,31 @@ body::-webkit-scrollbar {
   font-size: var(--medium-font-size);
 }
 
-#icon--restart {
-  font-size: 1.75rem;
+#btn--restart {
+  grid-column-start: 4;
+  grid-column-end: 5;
+}
+
+#btn--muted {
+  grid-column-start: 5;
+  grid-column-end: 6;
+}
+
+.icon--top {
   color: var(--white-color);
   --ionicon-stroke-width: 2em;
+}
+
+#icon--restart {
+  font-size: 1.75rem;
+}
+
+/* #icon--muted {
+  font-size: 1.5rem;
+} */
+
+.icon--top.hidden {
+  display: none;
 }
 
 /* SCORE DISPLAYS */
@@ -450,6 +469,37 @@ label:active:after {
   display: flex;
   flex-direction: column;
   position: absolute;
+}
+
+.modal-shaker {
+  animation: shake 0.5s linear;
+}
+
+@keyframes shake {
+  0% {
+    transform: translate(0.5%);
+  }
+  15% {
+    transform: translate(-0.5%);
+  }
+  30% {
+    transform: translate(0.5%);
+  }
+  45% {
+    transform: translate(-0.5%);
+  }
+  60% {
+    transform: translate(0.5%);
+  }
+  75% {
+    transform: translate(-0.5%);
+  }
+  90% {
+    transform: translate(0.5%);
+  }
+  100% {
+    transform: translate(0%);
+  }
 }
 
 /* LOSS MODAL */
@@ -840,23 +890,24 @@ input::placeholder {
 
 /* Alerts */
 
-.alert-container {
+#alert-container {
+  display: flex;
+  align-items: center;
   position: fixed;
   top: 10vh;
   left: 50vw;
   transform: translate(-50%);
-  z-index: 2; /* Always show on top */
-  display: flex;
-  align-items: center;
+  z-index: 100;
 }
 
 .alert {
-  pointer-events: none;
-  background-color: hsl(30, 100%, 98%);
+  background-color: var(--white-color);
+  color: var(--black-color);
   padding: 0.75em;
   border-radius: 0.25em;
   opacity: 1;
-  transition: opacity 500ms ease-in-out; /* Fade */
+  transition: opacity 500ms ease-in-out;
+  pointer-events: none;
   user-select: none;
 }
 

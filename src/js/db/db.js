@@ -128,9 +128,6 @@ export const updateAccount = async (userName, email, password) => {};
       "sounds": {
         "BOOL": true/false
       }, 
-      "music": {
-        "BOOL": true/false
-      }
     }
   },
 } 
