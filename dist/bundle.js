@@ -19758,25 +19758,14 @@ var updateAccountInfo = function updateAccountInfo() {
 var showSignupModal = function showSignupModal() {
   // Show modal
   signupModal.style.opacity = 1;
-  modalOverlay.style.opacity = 0.6; // if (lossModal.style.opacity == 1) {
-  //   lossModal.style["z-index"] = 2; // Signup can hide Loss Modal
-  // }
-
+  modalOverlay.style.opacity = 0.6;
   signupModal.style["pointer-events"] = "initial";
   modalOverlay.style["pointer-events"] = "initial";
   modalOverlay.addEventListener("click", function () {
     signupModal.style.opacity = 0;
     modalOverlay.style.opacity = 0;
     signupModal.style["pointer-events"] = "none";
-    modalOverlay.style["pointer-events"] = "none"; // if (lossModal.style["z-index"] == 2) {
-    //   signupModal.addEventListener(
-    //     "transitionend",
-    //     () => {
-    //       lossModal.style["z-index"] = 4;
-    //     },
-    //     { once: true }
-    //   );
-    // }
+    modalOverlay.style["pointer-events"] = "none";
   }, {
     once: true
   });
