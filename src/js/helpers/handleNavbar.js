@@ -5,9 +5,13 @@ import {
   setEmail,
   getPassword,
   setPassword,
+  getBestScore,
+  setBestScore,
+  getGamesPlayed,
 } from "../userConfig.js";
 import { tryLogIn, logIn, logOut, tryCreateAccount } from "./handleUser.js";
 import displayAlert from "./handleAlert";
+import { applySettings } from "./handleSettings.js";
 
 const navBar = document.getElementById("navbar");
 const navToggle = document.getElementById("nav-toggle");
@@ -28,6 +32,15 @@ const lossModal = document.getElementById("modal--loss");
 const instructionsModal = document.getElementById("modal--instructions");
 const infoModal = document.getElementById("modal--info");
 const accountModal = document.getElementById("modal--account");
+const bestScoreAccountContainer =
+  accountModal.querySelector("#best-score-data");
+const gamesPlayed4x4Container =
+  accountModal.querySelector("#games-played--4x4");
+const gamesPlayed5x5Container =
+  accountModal.querySelector("#games-played--5x5");
+const gamesPlayed6x6Container =
+  accountModal.querySelector("#games-played--6x6");
+
 const modalOverlay = document.querySelector(".modal-overlay");
 const btnSignup = signupModal.querySelector("#btn--signup");
 const btnReturnToLogin = signupModal.querySelector("#btn--return-login");
@@ -42,6 +55,8 @@ const eyeIconsSignup = signupModal.querySelectorAll(
 const eyeIconsReSignup = signupModal.querySelectorAll(
   "#password-reinput-wrapper > .eye__icon"
 );
+
+const bestScoreDisplay = document.querySelector(".best-container");
 
 const handleShowMenu = () => {
   if (
@@ -107,12 +122,10 @@ const handleOpenCollapseMenu = () => {
 // View info 2048++
 const showInfoModal = () => {
   const btnCloseModal = infoModal.querySelector("#btn--close-info-modal");
-  // Show info modal and overlay. Allow pointer events on overlay.
   infoModal.style.opacity = 1;
   modalOverlay.style.opacity = 0.6;
   modalOverlay.style["pointer-events"] = "initial";
   infoModal.style["pointer-events"] = "initial";
-  lossModal.style["z-index"] = 2; // Info Modal can hide lossModal
   [btnCloseModal, modalOverlay].forEach((ele) =>
     ele.addEventListener(
       "click",
@@ -122,10 +135,6 @@ const showInfoModal = () => {
         modalOverlay.style.opacity = 0;
         modalOverlay.style["pointer-events"] = "none";
         infoModal.style["pointer-events"] = "none";
-        setTimeout(() => {
-          // Transition time of info modal is 0.5s
-          lossModal.style["z-index"] = 4;
-        }, 500);
       },
       { once: true }
     )
@@ -142,7 +151,7 @@ const showInstructionsModal = () => {
   modalOverlay.style.opacity = 0.6;
   modalOverlay.style["pointer-events"] = "initial";
   instructionsModal.style["pointer-events"] = "initial";
-  lossModal.style["z-index"] = 2; // Info Modal can hide lossModal
+  // lossModal.style["z-index"] = 2; // Info Modal can hide lossModal
   [btnCloseModal, modalOverlay].forEach((ele) =>
     ele.addEventListener(
       "click",
@@ -152,10 +161,6 @@ const showInstructionsModal = () => {
         modalOverlay.style.opacity = 0;
         modalOverlay.style["pointer-events"] = "none";
         instructionsModal.style["pointer-events"] = "none";
-        setTimeout(() => {
-          // Transition time of info modal is 0.5s
-          lossModal.style["z-index"] = 4;
-        }, 500);
       },
       { once: true }
     )
@@ -164,7 +169,6 @@ const showInstructionsModal = () => {
 
 const showAccountModal = () => {
   accountModal.style.opacity = 1;
-  lossModal.style["z-index"] = 2; // Login Modal can hide Loss Modal
   modalOverlay.style["pointer-events"] = "initial";
   accountModal.style["pointer-events"] = "initial";
   modalOverlay.addEventListener(
@@ -174,23 +178,34 @@ const showAccountModal = () => {
       modalOverlay.style.opacity = 0;
       accountModal.style["pointer-events"] = "none";
       modalOverlay.style["pointer-events"] = "none";
-
-      setTimeout(() => {
-        // Transition time of account modal is 0.5s
-        lossModal.style["z-index"] = 4;
-      }, 500);
     },
     { once: true }
   );
 };
 
+export const updateAccountInfo = () => {
+  if (getLoggedIn()) {
+    // Update account modal
+    const gamesPlayed = getGamesPlayed();
+    const bestScore = getBestScore();
+    bestScoreAccountContainer.textContent = bestScore;
+    gamesPlayed4x4Container.textContent = gamesPlayed["4x4"];
+    gamesPlayed5x5Container.textContent = gamesPlayed["5x5"];
+    gamesPlayed6x6Container.textContent = gamesPlayed["6x6"];
+
+    // Update best score display
+    bestScoreDisplay.dataset.bestScore = bestScore;
+    bestScoreDisplay.textContent = bestScore;
+  }
+};
+
 const showSignupModal = () => {
   // Show modal
   signupModal.style.opacity = 1;
-  modalOverlay.style.opacity = 0.4;
-  if (lossModal.style.opacity == 1) {
-    lossModal.style["z-index"] = 2; // Signup can hide Loss Modal
-  }
+  modalOverlay.style.opacity = 0.6;
+  // if (lossModal.style.opacity == 1) {
+  //   lossModal.style["z-index"] = 2; // Signup can hide Loss Modal
+  // }
   signupModal.style["pointer-events"] = "initial";
   modalOverlay.style["pointer-events"] = "initial";
   modalOverlay.addEventListener(
@@ -200,12 +215,15 @@ const showSignupModal = () => {
       modalOverlay.style.opacity = 0;
       signupModal.style["pointer-events"] = "none";
       modalOverlay.style["pointer-events"] = "none";
-      if (lossModal.style["z-index"] == 2) {
-        setTimeout(() => {
-          // Transition time of signup modal is 0.5s
-          lossModal.style["z-index"] = 4;
-        }, 500);
-      }
+      // if (lossModal.style["z-index"] == 2) {
+      //   signupModal.addEventListener(
+      //     "transitionend",
+      //     () => {
+      //       lossModal.style["z-index"] = 4;
+      //     },
+      //     { once: true }
+      //   );
+      // }
     },
     { once: true }
   );
@@ -248,11 +266,12 @@ const handleBtnsSignup = () => {
 
   // Handle return to Login
   btnReturnToLogin.addEventListener("click", () => {
-    signupModal.classList.add("modal-no-transition");
+    signupModal.classList.add("no-transition");
     signupModal.style.opacity = 0;
     signupModal.style["pointer-events"] = "none";
-    signupModal.addEventListener("transitionend", () => {
-      signupModal.classList.remove("modal-no-transition");
+    loginModal.addEventListener("transitionend", () => {
+      signupModal.offsetHeight;
+      signupModal.classList.remove("no-transition");
     });
     showLoginModal();
   });
@@ -263,10 +282,7 @@ const handleBtnsSignup = () => {
 const showLoginModal = () => {
   // Show login modal
   loginModal.style.opacity = 1;
-  modalOverlay.style.opacity = 0.4;
-  if (lossModal.style.opacity == 1) {
-    lossModal.style["z-index"] = 2; // Login Modal can hide Loss Modal
-  }
+  modalOverlay.style.opacity = 0.6;
   loginModal.style["pointer-events"] = "initial";
   modalOverlay.style["pointer-events"] = "initial";
   modalOverlay.addEventListener(
@@ -276,12 +292,6 @@ const showLoginModal = () => {
       modalOverlay.style.opacity = 0;
       loginModal.style["pointer-events"] = "none";
       modalOverlay.style["pointer-events"] = "none";
-      if (lossModal.style["z-index"] == 2) {
-        setTimeout(() => {
-          // Transition time of login modal is 0.5s
-          lossModal.style["z-index"] = 4;
-        }, 500);
-      }
     },
     { once: true }
   );
@@ -293,8 +303,8 @@ const handleBtnsLogin = () => {
     const email = loginModal.querySelector("#email-input").value;
     const password = loginModal.querySelector("#password-input").value;
     (async () => {
-      const loginSuccess = await tryLogIn(email, password);
-      if (loginSuccess) {
+      const [loginSuccess, accountObj] = await tryLogIn(email, password);
+      if (loginSuccess && accountObj != null) {
         displayAlert("Successfully logged in!");
 
         // Hide login modal
@@ -302,12 +312,12 @@ const handleBtnsLogin = () => {
         modalOverlay.style.opacity = 0;
         loginModal.style["pointer-events"] = "none";
         modalOverlay.style["pointer-events"] = "none";
-        if (lossModal.style["z-index"] == 2) {
-          setTimeout(() => {
-            // Transition time of login modal is 0.5s
-            lossModal.style["z-index"] = 4;
-          }, 500);
-        }
+
+        // Update account settings
+        applySettings(accountObj);
+
+        // Update account modal
+        updateAccountInfo();
       } else {
         displayAlert("Login failed! Invalid email-password combination!");
 
@@ -322,18 +332,12 @@ const handleBtnsLogin = () => {
 
   // Handle open signup
   btnOpenSignup.addEventListener("click", () => {
-    loginModal.classList.add("modal-no-transition");
+    loginModal.classList.add("no-transition");
     loginModal.style.opacity = 0;
     loginModal.style["pointer-events"] = "none";
-    loginModal.addEventListener("transitionend", () => {
-      loginModal.classList.remove("modal-no-transition");
+    signupModal.addEventListener("transitionend", () => {
+      loginModal.classList.remove("no-transition");
     });
-    if (lossModal.style["z-index"] == 2) {
-      setTimeout(() => {
-        // Transition time of login modal is 0.5s
-        lossModal.style["z-index"] = 4;
-      }, 500);
-    }
     showSignupModal();
   });
 };

@@ -17,6 +17,7 @@ import {
   getLoggedIn,
   setBestScore,
   setEmail,
+  setPassword,
   setGamesPlayed,
   setUserName,
 } from "../userConfig.js";
@@ -203,15 +204,13 @@ const applyUserSettings = (userObj) => {
   // Info
   setEmail(userObj.email);
   setUserName(userObj.userName);
-  setPassword(userObj.password); // TODO: What for?
+  setPassword(userObj.password);
   setBestScore(userObj.bestScore);
   setGamesPlayed(userObj.gamesPlayed);
 
   // Settings
   setGridSize(userObj.settings.gridSize);
   setColorTheme(userObj.settings.colorTheme);
-  setSounds(userObj.settings.sounds);
-
   // Dark mode
   if (userObj.settings.darkMode == "light-theme") {
     css.href = "./light-theme.css";
@@ -221,27 +220,38 @@ const applyUserSettings = (userObj) => {
     togglerDarkMode.checked = true;
   }
 
+  // Change colors of existing tiles
+  const tiles = document.querySelectorAll(".tile");
+  const color = getColorTheme();
+  let colorDict;
+  if (color == "original") {
+    colorDict = colorDictDefault;
+  } else if (color == "blue") {
+    colorDict = colorDictBlue;
+  } else if (color == "green") {
+    colorDict = colorDictGreen;
+  }
+
+  tiles.forEach((tile) => {
+    const tileValue = parseInt(tile.textContent);
+    const tileColor = colorDict[tileValue];
+    tile.style.setProperty("--color", tileColor);
+  });
+
   // Handle tick icons for grid and color choosing
   const gridOptionElement = document.querySelector(
-    `[data-board-size="${gridSize}"]`
+    `[data-board-size="${userObj.settings.gridSize}"]`
   );
   handleTickIcon(gridOptionElement);
 
   // Color theme
   const colorOptionElement = document.querySelector(
-    `[data-color-theme="${colorTheme}"]`
+    `[data-color-theme="${userObj.settings.colorTheme}"]`
   );
   handleTickIcon(colorOptionElement);
 
   // Update colors
   updateColorByDarkLight();
-
-  // Update sounds
-  if (userObj.settings.sounds) {
-    togglerSounds.checked = true;
-  } else {
-    togglerSounds.checked = false;
-  }
 };
 
 export const applySettings = (userObj = null) => {

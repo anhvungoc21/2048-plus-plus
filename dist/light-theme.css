@@ -39,7 +39,7 @@ body::-webkit-scrollbar {
 /* TOP BAR */
 #top-bar {
   display: grid;
-  grid-template-columns: 35vw 30vw 17vw 12vw 6vw;
+  grid-template-columns: 35vw 30vw 20vw 9vw 6vw;
   font-size: var(--small-font-size);
   justify-items: center;
   align-items: center;
@@ -89,9 +89,10 @@ body::-webkit-scrollbar {
   font-size: 1.75rem;
 }
 
-/* #icon--muted {
+#icon--muted,
+#icon--unmuted {
   font-size: 1.5rem;
-} */
+}
 
 .icon--top.hidden {
   display: none;
