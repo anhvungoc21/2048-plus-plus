@@ -19127,6 +19127,53 @@ var updateAccount = /*#__PURE__*/function () {
     return _ref4.apply(this, arguments);
   };
 }();
+/* DYNAMODB TABLE FORMAT */
+
+/*
+{
+  "email": {
+    "S": ""
+  },
+  "userName": {
+    "S": ""
+  }
+  "password": {
+    "S": ""
+  },
+  "bestScore": {
+    "N": ""
+  },
+  "gamesPlayed": {
+    "M": {
+      "4x4": {
+        "N": ""
+      },
+      "5x5": {
+        "N": ""
+      },
+      "6x6": {
+        "N": ""
+      },
+      "total": {
+        "N": ""
+      }
+    }
+  },
+  "settings": {
+    "M": {
+      "colorTheme": {
+        "S": ""
+      },
+      "darkMode": {
+        "S": ""
+      },
+      "gridSize": {
+        "N": ""
+      }
+    }
+  },
+} 
+*/
 
 /***/ }),
 
@@ -20278,6 +20325,10 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 
+ // TODO: 
+// 1. Create alert display for successful/failed log-ins/sign-ups
+// 2. Apply settings & scores, update account modal upon successful login 
+// 3. Before user exits browser, send beacon to update dynamodb 
 
 var logIn = /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(email, password) {

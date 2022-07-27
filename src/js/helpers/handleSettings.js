@@ -13,7 +13,16 @@ import {
   colorDictBlue,
   colorDictGreen,
 } from "../colorConfig.js";
+import {
+  getLoggedIn,
+  setBestScore,
+  setEmail,
+  setGamesPlayed,
+  setUserName,
+} from "../userConfig.js";
 
+const css = document.querySelector("[rel='stylesheet']");
+const togglerDarkMode = document.getElementById("switch-dark");
 let music = undefined;
 
 /* BOARD SIZES */
@@ -43,7 +52,6 @@ function handleToggleBoardSize(e) {
 
 /* COLOR SCHEMES */
 const updateColorByDarkLight = () => {
-  const css = document.querySelector("[rel='stylesheet']");
   const docRoot = document.querySelector(":root");
   const colorTheme = getColorTheme();
 
@@ -132,7 +140,6 @@ function handleTickIcon(element) {
 }
 
 const toggleDarkMode = () => {
-  const css = document.querySelector("[rel='stylesheet']");
   const settings = JSON.parse(window.localStorage.getItem("settings2048++"));
 
   // Update CSS source and set settings for localStorage
@@ -151,28 +158,26 @@ const toggleDarkMode = () => {
   updateColorByDarkLight();
 };
 
-export const applyLSSettings = async () => {
+const applyLSSettings = () => {
   const localSettings = window.localStorage.getItem("settings2048++");
-  const { darkMode, gridSize, colorTheme, sounds } = JSON.parse(localSettings);
+  const { darkMode, gridSize, colorTheme, sounds, music } =
+    JSON.parse(localSettings);
 
-  // Handle grid size
+  // Grid size
   setGridSize(parseInt(gridSize));
   const gridOptionElement = document.querySelector(
     `[data-board-size="${gridSize}"]`
   );
   handleTickIcon(gridOptionElement);
 
-  // Handle color theme
+  // Color theme
   setColorTheme(colorTheme);
   const colorOptionElement = document.querySelector(
     `[data-color-theme="${colorTheme}"]`
   );
   handleTickIcon(colorOptionElement);
 
-  // Handle dark mode
-  const css = document.querySelector("[rel='stylesheet']");
-  const togglerDarkMode = document.getElementById("switch-dark");
-
+  // Dark mode
   if (darkMode == "light-theme") {
     css.href = "./light-theme.css";
     togglerDarkMode.checked = false;
@@ -185,13 +190,74 @@ export const applyLSSettings = async () => {
 
   // Handle sounds
   const togglerSounds = document.getElementById("switch-sounds");
-
   if (sounds) {
     togglerSounds.checked = true;
     setSounds(true);
   } else {
     togglerSounds.checked = false;
     setSounds(false);
+  }
+
+  // Handle sounds
+  const togglerMusic = document.getElementById("switch-music");
+  if (music) {
+    setMusic(true);
+    togglerMusic.checked = true;
+  } else {
+    setMusic(false);
+    togglerMusic.checked = false;
+  }
+};
+
+// bestScore: 2048
+// email: "anhvungoc.21@gmail.com"
+// gamesPlayed: {4x4: 30, 5x5: 75, total: 120, 6x6: 15}
+// password: "TEST"
+// settings: {colorTheme: 'green', darkMode: 'dark-theme', gridSize: 5, sounds: False, music: True}
+// userName: "Fakahrina"
+
+const applyUserSettings = (userObj) => {
+  // Info
+  setEmail(userObj.email);
+  setUserName(userObj.userName);
+  setPassword(userObj.password); // TODO: What for?
+  setBestScore(userObj.bestScore);
+  setGamesPlayed(userObj.gamesPlayed);
+
+  // Settings
+  setGridSize(userObj.settings.gridSize);
+  setColorTheme(userObj.settings.colorTheme);
+
+  // Dark mode
+  if (userObj.settings.darkMode == "light-theme") {
+    css.href = "./light-theme.css";
+    togglerDarkMode.checked = false;
+  } else {
+    css.href = "./dark-theme.css";
+    togglerDarkMode.checked = true;
+  }
+
+  // Handle tick icons for grid and color choosing
+  const gridOptionElement = document.querySelector(
+    `[data-board-size="${gridSize}"]`
+  );
+  handleTickIcon(gridOptionElement);
+
+  // Color theme
+  const colorOptionElement = document.querySelector(
+    `[data-color-theme="${colorTheme}"]`
+  );
+  handleTickIcon(colorOptionElement);
+
+  // Update colors
+  updateColorByDarkLight();
+};
+
+export const applySettings = (userObj = null) => {
+  if (getLoggedIn() && userObj) {
+    applyUserSettings(userObj);
+  } else {
+    applyLSSettings();
   }
 };
 
@@ -213,6 +279,7 @@ const toggleSounds = () => {
 
 const toggleMusic = () => {
   const curMusicSettings = getMusic();
+  const settings = JSON.parse(window.localStorage.getItem("settings2048++"));
 
   if (curMusicSettings) {
     setMusic(false);
@@ -220,19 +287,27 @@ const toggleMusic = () => {
       music.pause();
       music.currentTime = 0;
     }
+    settings.music = false;
   } else {
     setMusic(true);
-    music = new Audio("./chillBackground.mp3");
-    // Play music on loop
-    const playMusic = () => {
-      if (getMusic()) {
-        music.play();
-        music.addEventListener("ended", playMusic);
-      }
-    };
-
-    music.addEventListener("canplaythrough", playMusic);
+    settings.music = true;
+    playMusic();
   }
+
+  window.localStorage.setItem("settings2048++", JSON.stringify(settings));
+};
+
+export const playMusic = () => {
+  music = new Audio("./chillBackground.mp3");
+  // Play music on loop
+  const playMusic = () => {
+    if (getMusic()) {
+      music.play();
+      music.addEventListener("ended", playMusic);
+    }
+  };
+
+  music.addEventListener("canplaythrough", playMusic);
 };
 
 export const preventTransition = (restartGame) => {
