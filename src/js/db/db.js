@@ -80,3 +80,50 @@ export const createAccount = async (userName, email, password) => {
 
 // TODO: For both changing passwords and updating new best score.
 export const updateAccount = async (userName, email, password) => {};
+
+/* DYNAMODB TABLE FORMAT */
+/*
+{
+  "email": {
+    "S": ""
+  },
+  "userName": {
+    "S": ""
+  }
+  "password": {
+    "S": ""
+  },
+  "bestScore": {
+    "N": ""
+  },
+  "gamesPlayed": {
+    "M": {
+      "4x4": {
+        "N": ""
+      },
+      "5x5": {
+        "N": ""
+      },
+      "6x6": {
+        "N": ""
+      },
+      "total": {
+        "N": ""
+      }
+    }
+  },
+  "settings": {
+    "M": {
+      "colorTheme": {
+        "S": ""
+      },
+      "darkMode": {
+        "S": ""
+      },
+      "gridSize": {
+        "N": ""
+      }
+    }
+  },
+} 
+*/

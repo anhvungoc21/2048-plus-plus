@@ -55,8 +55,8 @@ At this point, 2048++ should open on your browser and you can start playing or m
 /src/js/helpers/handleNavbar.js // Remove any imports and functions related to handleUser.js
 ```
 
-2. Configure your own user log-in pipeline
-3. Set up your own DynamoDB database with the same table format as described in /src/js/db/db.js and create a .env file containing necessary secret keys for your DynamoDB user. I only recommend doing this if you are already familiar with DynamoDB.
+2. Set up your own DynamoDB database with the same table schema as described in /src/js/db/db.js and create a .env file containing necessary secret keys for your DynamoDB user. I only recommend doing this if you are already familiar with DynamoDB.
+3. Configure your own user log-in pipeline
 
 ## Acknowledgements
 
