@@ -512,7 +512,7 @@ label:active:after {
   gap: 1rem;
   font-size: var(--normal-font-size);
   color: var(--secondary-color);
-  z-index: 4;
+  z-index: 2;
   opacity: 0;
   transition: opacity 1s ease-in;
   user-select: none;
@@ -582,7 +582,7 @@ label:active:after {
   right: 0;
   left: 0;
   top: 0;
-  z-index: 2;
+  z-index: 3;
   user-select: none;
   pointer-events: none;
 }
@@ -622,7 +622,7 @@ label:active:after {
   transition: none !important;
 }
 
-.modal-no-transition {
+.modal.no-transition * {
   -webkit-transition: none !important;
   -moz-transition: none !important;
   -o-transition: none !important;
@@ -907,7 +907,7 @@ input::placeholder {
   padding: 0.75em;
   border-radius: 0.25em;
   opacity: 1;
-  transition: opacity 500ms ease-in-out;
+  transition: opacity 1s ease-in-out;
   pointer-events: none;
   user-select: none;
 }
