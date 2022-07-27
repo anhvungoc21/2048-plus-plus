@@ -25,6 +25,7 @@ const css = document.querySelector("[rel='stylesheet']");
 const togglerDarkMode = document.getElementById("switch-dark");
 const togglerSounds = document.getElementById("switch-sounds");
 const togglerMusic = document.getElementById("switch-music");
+const togglerAudio = document.getElementById("btn--muted");
 
 let music = undefined;
 
@@ -163,8 +164,7 @@ const toggleDarkMode = () => {
 
 const applyLSSettings = () => {
   const localSettings = window.localStorage.getItem("settings2048++");
-  const { darkMode, gridSize, colorTheme, sounds, music } =
-    JSON.parse(localSettings);
+  const { darkMode, gridSize, colorTheme } = JSON.parse(localSettings);
 
   // Grid size
   setGridSize(parseInt(gridSize));
@@ -190,31 +190,13 @@ const applyLSSettings = () => {
   }
 
   updateColorByDarkLight();
-
-  // Handle sounds
-  if (sounds) {
-    togglerSounds.checked = true;
-    setSounds(true);
-  } else {
-    togglerSounds.checked = false;
-    setSounds(false);
-  }
-
-  // Handle sounds
-  if (music) {
-    setMusic(true);
-    togglerMusic.checked = true;
-  } else {
-    setMusic(false);
-    togglerMusic.checked = false;
-  }
 };
 
 // bestScore: 2048
 // email: "anhvungoc.21@gmail.com"
 // gamesPlayed: {4x4: 30, 5x5: 75, total: 120, 6x6: 15}
 // password: "TEST"
-// settings: {colorTheme: 'green', darkMode: 'dark-theme', gridSize: 5, sounds: False, music: True}
+// settings: {colorTheme: 'green', darkMode: 'dark-theme', gridSize: 5}
 // userName: "Fakahrina"
 
 const applyUserSettings = (userObj) => {
@@ -229,7 +211,6 @@ const applyUserSettings = (userObj) => {
   setGridSize(userObj.settings.gridSize);
   setColorTheme(userObj.settings.colorTheme);
   setSounds(userObj.settings.sounds);
-  setMusic(userObj.settings.music);
 
   // Dark mode
   if (userObj.settings.darkMode == "light-theme") {
@@ -261,13 +242,6 @@ const applyUserSettings = (userObj) => {
   } else {
     togglerSounds.checked = false;
   }
-
-  // Update music
-  if (userObj.settings.music) {
-    togglerMusic.checked = true;
-  } else {
-    togglerMusic.checked = false;
-  }
 };
 
 export const applySettings = (userObj = null) => {
@@ -280,23 +254,16 @@ export const applySettings = (userObj = null) => {
 
 const toggleSounds = () => {
   const curSoundsSettings = getSounds();
-  const settings = JSON.parse(window.localStorage.getItem("settings2048++"));
   // Change settings
   if (curSoundsSettings) {
     setSounds(false);
-    settings.sounds = false;
   } else {
     setSounds(true);
-    settings.sounds = true;
   }
-
-  // Update in local storage
-  window.localStorage.setItem("settings2048++", JSON.stringify(settings));
 };
 
 const toggleMusic = () => {
   const curMusicSettings = getMusic();
-  const settings = JSON.parse(window.localStorage.getItem("settings2048++"));
 
   if (curMusicSettings) {
     setMusic(false);
@@ -304,14 +271,10 @@ const toggleMusic = () => {
       music.pause();
       music.currentTime = 0;
     }
-    settings.music = false;
   } else {
     setMusic(true);
-    settings.music = true;
     playMusic();
   }
-
-  window.localStorage.setItem("settings2048++", JSON.stringify(settings));
 };
 
 export const playMusic = () => {
@@ -325,6 +288,42 @@ export const playMusic = () => {
   };
 
   music.addEventListener("canplaythrough", playMusic);
+};
+
+const toggleAudio = () => {
+  // Update btn icon
+  const audioIcons = togglerAudio.querySelectorAll(".icon--top");
+  audioIcons.forEach((icon) => icon.classList.toggle("hidden"));
+
+  // Update state
+  if (togglerAudio.dataset.muted == "true") {
+    // State
+    togglerAudio.dataset.muted = "false";
+    setSounds(false);
+    setMusic(false);
+
+    // Music
+    if (music != undefined) {
+      music.pause();
+      music.currentTime = 0;
+    }
+
+    // Togglers display:
+    togglerSounds.checked = false;
+    togglerMusic.checked = false;
+  } else {
+    // State
+    togglerAudio.dataset.muted = "true";
+    setSounds(true);
+    setMusic(true);
+
+    // Music
+    playMusic();
+
+    // Togglers display:
+    togglerSounds.checked = true;
+    togglerMusic.checked = true;
+  }
 };
 
 export const preventTransition = (restartGame) => {
@@ -372,4 +371,5 @@ export function handleSettings() {
   togglerDarkMode.addEventListener("click", toggleDarkMode);
   togglerSounds.addEventListener("click", toggleSounds);
   togglerMusic.addEventListener("click", toggleMusic);
+  togglerAudio.addEventListener("click", toggleAudio);
 }
