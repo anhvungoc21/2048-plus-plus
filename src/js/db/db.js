@@ -41,7 +41,6 @@ export const getAccount = async (email) => {
     return null;
   } else {
     const item = unmarshall(res.Item);
-    console.log(item);
     return item;
   }
 };
@@ -73,7 +72,6 @@ export const createAccount = async (userName, email, password) => {
   try {
     await connectToDDB();
     const res = await ddbClient.send(new PutItemCommand(params));
-    console.log(res);
   } catch (err) {
     console.log(err);
     throw err;

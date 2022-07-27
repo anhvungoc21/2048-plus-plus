@@ -18209,8 +18209,7 @@ function setupGame() {
     var defaultSettings = {
       darkMode: "light-theme",
       gridSize: "4",
-      colorTheme: "original",
-      sounds: true
+      colorTheme: "original"
     };
     localStorage.setItem("settings2048++", JSON.stringify(defaultSettings));
   }
@@ -18899,7 +18898,7 @@ __webpack_require__.r(__webpack_exports__);
 var GRID_SIZE = 4;
 var PERCENT_VH_MAIN = 80;
 var COLOR_THEME = "original";
-var SOUNDS = true;
+var SOUNDS = false;
 var MUSIC = false;
 var getGridSize = function getGridSize() {
   return GRID_SIZE;
@@ -19741,6 +19740,10 @@ var showAccountModal = function showAccountModal() {
   });
 };
 
+var updateAccountModal = function updateAccountModal() {
+  if ((0,_userConfig_js__WEBPACK_IMPORTED_MODULE_0__.getLoggedIn)()) {}
+};
+
 var showSignupModal = function showSignupModal() {
   // Show modal
   signupModal.style.opacity = 1;
@@ -20104,6 +20107,7 @@ var css = document.querySelector("[rel='stylesheet']");
 var togglerDarkMode = document.getElementById("switch-dark");
 var togglerSounds = document.getElementById("switch-sounds");
 var togglerMusic = document.getElementById("switch-music");
+var togglerAudio = document.getElementById("btn--muted");
 var music = undefined;
 /* BOARD SIZES */
 
@@ -20230,8 +20234,7 @@ var applyLSSettings = function applyLSSettings() {
   var _JSON$parse = JSON.parse(localSettings),
       darkMode = _JSON$parse.darkMode,
       gridSize = _JSON$parse.gridSize,
-      colorTheme = _JSON$parse.colorTheme,
-      sounds = _JSON$parse.sounds; // Grid size
+      colorTheme = _JSON$parse.colorTheme; // Grid size
 
 
   (0,_config_js__WEBPACK_IMPORTED_MODULE_1__.setGridSize)(parseInt(gridSize));
@@ -20250,20 +20253,12 @@ var applyLSSettings = function applyLSSettings() {
     togglerDarkMode.checked = true;
   }
 
-  updateColorByDarkLight(); // Handle sounds
-
-  if (sounds) {
-    togglerSounds.checked = true;
-    (0,_config_js__WEBPACK_IMPORTED_MODULE_1__.setSounds)(true);
-  } else {
-    togglerSounds.checked = false;
-    (0,_config_js__WEBPACK_IMPORTED_MODULE_1__.setSounds)(false);
-  }
+  updateColorByDarkLight();
 }; // bestScore: 2048
 // email: "anhvungoc.21@gmail.com"
 // gamesPlayed: {4x4: 30, 5x5: 75, total: 120, 6x6: 15}
 // password: "TEST"
-// settings: {colorTheme: 'green', darkMode: 'dark-theme', gridSize: 5, sounds: False, music: True}
+// settings: {colorTheme: 'green', darkMode: 'dark-theme', gridSize: 5}
 // userName: "Fakahrina"
 
 
@@ -20315,24 +20310,17 @@ var applySettings = function applySettings() {
 };
 
 var toggleSounds = function toggleSounds() {
-  var curSoundsSettings = (0,_config_js__WEBPACK_IMPORTED_MODULE_1__.getSounds)();
-  var settings = JSON.parse(window.localStorage.getItem("settings2048++")); // Change settings
+  var curSoundsSettings = (0,_config_js__WEBPACK_IMPORTED_MODULE_1__.getSounds)(); // Change settings
 
   if (curSoundsSettings) {
     (0,_config_js__WEBPACK_IMPORTED_MODULE_1__.setSounds)(false);
-    settings.sounds = false;
   } else {
     (0,_config_js__WEBPACK_IMPORTED_MODULE_1__.setSounds)(true);
-    settings.sounds = true;
-  } // Update in local storage
-
-
-  window.localStorage.setItem("settings2048++", JSON.stringify(settings));
+  }
 };
 
 var toggleMusic = function toggleMusic() {
   var curMusicSettings = (0,_config_js__WEBPACK_IMPORTED_MODULE_1__.getMusic)();
-  var settings = JSON.parse(window.localStorage.getItem("settings2048++"));
 
   if (curMusicSettings) {
     (0,_config_js__WEBPACK_IMPORTED_MODULE_1__.setMusic)(false);
@@ -20341,11 +20329,8 @@ var toggleMusic = function toggleMusic() {
       music.pause();
       music.currentTime = 0;
     }
-
-    settings.music = false;
   } else {
     (0,_config_js__WEBPACK_IMPORTED_MODULE_1__.setMusic)(true);
-    settings.music = true;
     playMusic();
   }
 };
@@ -20362,6 +20347,41 @@ var playMusic = function playMusic() {
 
   music.addEventListener("canplaythrough", playMusic);
 };
+
+var toggleAudio = function toggleAudio() {
+  // Update btn icon
+  var audioIcons = togglerAudio.querySelectorAll(".icon--top");
+  audioIcons.forEach(function (icon) {
+    return icon.classList.toggle("hidden");
+  }); // Update state
+
+  if (togglerAudio.dataset.muted == "true") {
+    // State
+    togglerAudio.dataset.muted = "false";
+    (0,_config_js__WEBPACK_IMPORTED_MODULE_1__.setSounds)(false);
+    (0,_config_js__WEBPACK_IMPORTED_MODULE_1__.setMusic)(false); // Music
+
+    if (music != undefined) {
+      music.pause();
+      music.currentTime = 0;
+    } // Togglers display:
+
+
+    togglerSounds.checked = false;
+    togglerMusic.checked = false;
+  } else {
+    // State
+    togglerAudio.dataset.muted = "true";
+    (0,_config_js__WEBPACK_IMPORTED_MODULE_1__.setSounds)(true);
+    (0,_config_js__WEBPACK_IMPORTED_MODULE_1__.setMusic)(true); // Music
+
+    playMusic(); // Togglers display:
+
+    togglerSounds.checked = true;
+    togglerMusic.checked = true;
+  }
+};
+
 var preventTransition = function preventTransition(restartGame) {
   // Add no-transition classlist to all elements except tiles. This prevents darkMode CSS from running animations.
   document.body.classList.add("no-transition"); // Same reason, but for restarting the game
@@ -20410,6 +20430,7 @@ function handleSettings() {
   togglerDarkMode.addEventListener("click", toggleDarkMode);
   togglerSounds.addEventListener("click", toggleSounds);
   togglerMusic.addEventListener("click", toggleMusic);
+  togglerAudio.addEventListener("click", toggleAudio);
 }
 
 /***/ }),
@@ -20441,7 +20462,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
  // TODO:
 // 1. Create alert display, modal shaking -- DONE for successful/failed log-ins/sign-ups -- DONE
-// 2. Accessible mute button
+// 2. Accessible mute button -- DONE
 // 2. Apply settings & scores, update account modal upon successful login
 // 3. Fix display problem probably because of setTimeouts
 // 4. Before user exits browser or log out, send beacon to update dynamodb
