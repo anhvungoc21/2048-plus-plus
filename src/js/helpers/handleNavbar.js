@@ -203,9 +203,7 @@ const showSignupModal = () => {
   // Show modal
   signupModal.style.opacity = 1;
   modalOverlay.style.opacity = 0.6;
-  // if (lossModal.style.opacity == 1) {
-  //   lossModal.style["z-index"] = 2; // Signup can hide Loss Modal
-  // }
+
   signupModal.style["pointer-events"] = "initial";
   modalOverlay.style["pointer-events"] = "initial";
   modalOverlay.addEventListener(
@@ -215,15 +213,6 @@ const showSignupModal = () => {
       modalOverlay.style.opacity = 0;
       signupModal.style["pointer-events"] = "none";
       modalOverlay.style["pointer-events"] = "none";
-      // if (lossModal.style["z-index"] == 2) {
-      //   signupModal.addEventListener(
-      //     "transitionend",
-      //     () => {
-      //       lossModal.style["z-index"] = 4;
-      //     },
-      //     { once: true }
-      //   );
-      // }
     },
     { once: true }
   );
