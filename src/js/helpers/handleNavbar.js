@@ -6,8 +6,8 @@ import {
   getPassword,
   setPassword,
 } from "../userConfig.js";
-
 import { tryLogIn, logIn, logOut, tryCreateAccount } from "./handleUser.js";
+import displayAlert from "./handleAlert";
 
 const navBar = document.getElementById("navbar");
 const navToggle = document.getElementById("nav-toggle");
@@ -214,22 +214,34 @@ const showSignupModal = () => {
 const handleBtnsSignup = () => {
   // Handle Signup
   btnSignup.addEventListener("click", () => {
-    const email = loginModal.querySelector("#email-input").value;
-    const password = loginModal.querySelector("#password-input").value;
-    const rePassword = loginModal.querySelector("#password-reinput").value;
-    const username = loginModal.querySelector("#username-input").value;
+    const email = signupModal.querySelector("#email-input").value;
+    const password = signupModal.querySelector("#password-input").value;
+    const rePassword = signupModal.querySelector("#password-reinput").value;
+    const username = signupModal.querySelector("#username-input").value;
     if (rePassword != password) {
-      // NOTIFY THAT PASSWORD DOESN'T MATCH
+      displayAlert("Passwords did not match!");
+
+      // Shake signup modal
+      signupModal.classList.add("modal-shaker");
+      signupModal.addEventListener("animationend", () => {
+        signupModal.classList.remove("modal-shaker");
+      });
     }
 
     (async () => {
       const signupSuccess = await tryCreateAccount(username, email, password);
       if (signupSuccess) {
+        displayAlert("Successfully signed up!");
       } else {
-        console.log("SIGN UP FAILED");
-        // NOTIFY THAT EMAIL ALREADY EXISTS
-        // Report login failure
-        // Shake some kind of modal
+        displayAlert(
+          "Signup failed. Email is already associated with another account!"
+        );
+
+        // Shake signup modal
+        signupModal.classList.add("modal-shaker");
+        signupModal.addEventListener("animationend", () => {
+          signupModal.classList.remove("modal-shaker");
+        });
       }
     })();
   });
@@ -283,10 +295,27 @@ const handleBtnsLogin = () => {
     (async () => {
       const loginSuccess = await tryLogIn(email, password);
       if (loginSuccess) {
+        displayAlert("Successfully logged in!");
+
+        // Hide login modal
+        loginModal.style.opacity = 0;
+        modalOverlay.style.opacity = 0;
+        loginModal.style["pointer-events"] = "none";
+        modalOverlay.style["pointer-events"] = "none";
+        if (lossModal.style["z-index"] == 2) {
+          setTimeout(() => {
+            // Transition time of login modal is 0.5s
+            lossModal.style["z-index"] = 4;
+          }, 500);
+        }
       } else {
-        console.log("LOG IN FAILED");
-        // Report login failure
-        // Shake some kind of modal
+        displayAlert("Login failed! Invalid email-password combination!");
+
+        // Shake login modal
+        loginModal.classList.add("modal-shaker");
+        loginModal.addEventListener("animationend", () => {
+          loginModal.classList.remove("modal-shaker");
+        });
       }
     })();
   });
@@ -311,7 +340,6 @@ const handleBtnsLogin = () => {
 
 const handleUserViewer = () => {
   const isLoggedIn = getLoggedIn();
-  console.log(isLoggedIn);
   if (isLoggedIn) {
     showAccountModal();
   } else {

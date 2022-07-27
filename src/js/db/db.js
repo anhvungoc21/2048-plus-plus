@@ -27,7 +27,7 @@ const connectToDDB = async () => {
 /**
  * Get account information from DynamoDB
  * @param {*} email
- * @returns An object with entries: email, password, userName, bestScore, settings{colorTheme, darkMode, gridSize}, gamesPlayed{total, 4x4, 5x5, 6x6}
+ * @returns An object with entries: email, password, userName, bestScore, settings{colorTheme, darkMode, gridSize, sounds, music}, gamesPlayed{total, 4x4, 5x5, 6x6}
  */
 export const getAccount = async (email) => {
   const params = {
@@ -50,7 +50,9 @@ export const createAccount = async (userName, email, password) => {
   const bestScoreLocal = parseInt(
     window.localStorage.getItem("bestScore2048++")
   );
-  const settingsLocal = window.localStorage.getItem("settings2048++");
+  const settingsLocal = JSON.parse(
+    window.localStorage.getItem("settings2048++")
+  );
 
   const params = {
     TableName: "2048PlusPlus",
@@ -122,6 +124,12 @@ export const updateAccount = async (userName, email, password) => {};
       },
       "gridSize": {
         "N": ""
+      }
+      "sounds": {
+        "BOOL": true/false
+      }, 
+      "music": {
+        "BOOL": true/false
       }
     }
   },
