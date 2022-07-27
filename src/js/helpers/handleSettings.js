@@ -23,6 +23,9 @@ import {
 
 const css = document.querySelector("[rel='stylesheet']");
 const togglerDarkMode = document.getElementById("switch-dark");
+const togglerSounds = document.getElementById("switch-sounds");
+const togglerMusic = document.getElementById("switch-music");
+
 let music = undefined;
 
 /* BOARD SIZES */
@@ -189,7 +192,6 @@ const applyLSSettings = () => {
   updateColorByDarkLight();
 
   // Handle sounds
-  const togglerSounds = document.getElementById("switch-sounds");
   if (sounds) {
     togglerSounds.checked = true;
     setSounds(true);
@@ -199,7 +201,6 @@ const applyLSSettings = () => {
   }
 
   // Handle sounds
-  const togglerMusic = document.getElementById("switch-music");
   if (music) {
     setMusic(true);
     togglerMusic.checked = true;
@@ -227,6 +228,8 @@ const applyUserSettings = (userObj) => {
   // Settings
   setGridSize(userObj.settings.gridSize);
   setColorTheme(userObj.settings.colorTheme);
+  setSounds(userObj.settings.sounds);
+  setMusic(userObj.settings.music);
 
   // Dark mode
   if (userObj.settings.darkMode == "light-theme") {
@@ -251,6 +254,20 @@ const applyUserSettings = (userObj) => {
 
   // Update colors
   updateColorByDarkLight();
+
+  // Update sounds
+  if (userObj.settings.sounds) {
+    togglerSounds.checked = true;
+  } else {
+    togglerSounds.checked = false;
+  }
+
+  // Update music
+  if (userObj.settings.music) {
+    togglerMusic.checked = true;
+  } else {
+    togglerMusic.checked = false;
+  }
 };
 
 export const applySettings = (userObj = null) => {
@@ -349,9 +366,6 @@ export const preventTransition = (restartGame) => {
 export function handleSettings() {
   const menuBoardSize = document.getElementById("collapse--board-size");
   const menuColors = document.getElementById("collapse--colors");
-  const togglerDarkMode = document.getElementById("switch-dark");
-  const togglerSounds = document.getElementById("switch-sounds");
-  const togglerMusic = document.getElementById("switch-music");
 
   menuBoardSize.addEventListener("click", (e) => handleToggleBoardSize(e));
   menuColors.addEventListener("click", (e) => handleToggleColorTheme(e));
