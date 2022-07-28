@@ -4,3 +4,4 @@ node_modules
 favicon_io
 lambda.zip
 .DS_Store
+.env
