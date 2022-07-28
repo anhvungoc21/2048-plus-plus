@@ -7,7 +7,7 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 const Dotenv = require("dotenv-webpack");
 
 module.exports = {
-  mode: "production",
+  mode: "development",
   entry: {
     bundle: path.resolve(__dirname, "src/index.js"),
   },
