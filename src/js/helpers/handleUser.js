@@ -12,15 +12,6 @@ import {
   setBestScore,
 } from "../userConfig.js";
 
-// TODO:
-// 1. Create alert display, modal shaking -- DONE for successful/failed log-ins/sign-ups -- DONE
-// 2. Accessible mute button -- DONE
-// 3. Apply settings & scores, update account modal upon successful login -- DONE
-// 4. Fix display problem probably because of preventTransition -- DONE-ish
-// 5. Update best score and gamesPlayed when appropriate for logged-in users. -- DONE
-// 6. Before user exits, call lambda url to update dynamodb
-// 7. Log out functionality
-
 /* Login & Signup */
 export const logIn = async (email, password) => {
   // Log in and set necessary configs
@@ -33,7 +24,6 @@ export const logIn = async (email, password) => {
   setBestScore(account.bestScore);
 };
 
-// Maybe get from LocalStorage here? Maybe not actually
 export const logOut = () => {
   setLoggedIn(false);
   setEmail(null);
