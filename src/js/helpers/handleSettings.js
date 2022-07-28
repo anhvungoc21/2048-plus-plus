@@ -1,6 +1,7 @@
 import setupGame from "../../index.js";
 import {
   setGridSize,
+  getGridSize,
   setColorTheme,
   getColorTheme,
   setSounds,
@@ -163,7 +164,7 @@ const toggleDarkMode = () => {
   updateColorByDarkLight();
 };
 
-const applyLSSettings = () => {
+export const applyLSSettings = () => {
   const localSettings = window.localStorage.getItem("settings2048++");
   const { darkMode, gridSize, colorTheme } = JSON.parse(localSettings);
 
@@ -193,14 +194,7 @@ const applyLSSettings = () => {
   updateColorByDarkLight();
 };
 
-// bestScore: 2048
-// email: "anhvungoc.21@gmail.com"
-// gamesPlayed: {4x4: 30, 5x5: 75, total: 120, 6x6: 15}
-// password: "TEST"
-// settings: {colorTheme: 'green', darkMode: 'dark-theme', gridSize: 5}
-// userName: "Fakahrina"
-
-const applyUserSettings = (userObj) => {
+export const applyUserSettings = (userObj) => {
   // Info
   setEmail(userObj.email);
   setUserName(userObj.userName);
@@ -211,13 +205,21 @@ const applyUserSettings = (userObj) => {
   // Settings
   setGridSize(userObj.settings.gridSize);
   setColorTheme(userObj.settings.colorTheme);
-  // Dark mode
   if (userObj.settings.darkMode == "light-theme") {
     css.href = "./light-theme.css";
     togglerDarkMode.checked = false;
   } else {
     css.href = "./dark-theme.css";
     togglerDarkMode.checked = true;
+  }
+
+  // Update settings (darkMode, gridSize, and color, NOT bestScore) in localStorage
+  const lsSettings = JSON.parse(window.localStorage.getItem("settings2048++"));
+  if (lsSettings) {
+    lsSettings.darkMode = userObj.settings.darkMode;
+    lsSettings.colorTheme = userObj.settings.colorTheme;
+    lsSettings.gridSize = userObj.settings.gridSize;
+    window.localStorage.setItem("settings2048++", JSON.stringify(lsSettings));
   }
 
   // Change colors of existing tiles
@@ -252,14 +254,8 @@ const applyUserSettings = (userObj) => {
 
   // Update colors
   updateColorByDarkLight();
-};
 
-export const applySettings = (userObj = null) => {
-  if (getLoggedIn() && userObj) {
-    applyUserSettings(userObj);
-  } else {
-    applyLSSettings();
-  }
+  setupGame();
 };
 
 const toggleSounds = () => {

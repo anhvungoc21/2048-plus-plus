@@ -9,6 +9,7 @@ import setupGame from "../../index.js";
 import { preventTransition } from "./handleSettings.js";
 import { getCombo, getComboIntervalID } from "../gameState.js";
 import Tile from "../classes/Tile.js";
+import { incrementGameCount } from "./handleAccountInfo.js";
 
 /**
  * Handle key pressing inputs from user
@@ -110,6 +111,9 @@ function checkHandleLoss(grid, gameBoard, lastTile) {
 
     // Stop combo decreasing interval
     clearInterval(getComboIntervalID());
+
+    // Increment game count for user
+    incrementGameCount();
   } else {
     setupInput(grid, gameBoard);
   }

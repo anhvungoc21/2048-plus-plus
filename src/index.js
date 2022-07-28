@@ -3,20 +3,17 @@ import backgroundMusic from "./assets/chillBackground.mp3";
 import Grid from "./js/classes/Grid.js";
 import Tile from "./js/classes/Tile.js";
 
-import {
-  getGridSize,
-  getMusic,
-  getPercentVHMain,
-  getSounds,
-} from "./js/config.js";
+import { getGridSize, getPercentVHMain } from "./js/config.js";
 import { setCombo, setComboIntervalID, setGrid } from "./js/gameState.js";
 import setupInput from "./js/helpers/handleInput.js";
 import handleNavbar from "./js/helpers/handleNavbar.js";
 import {
   handleSettings,
-  applySettings,
+  applyLSSettings,
   preventTransition,
 } from "./js/helpers/handleSettings.js";
+import { incrementGameCount } from "./js/helpers/handleAccountInfo";
+import { getLoggedIn } from "./js/userConfig";
 
 // Start Game & Handle all inputs
 window.addEventListener("DOMContentLoaded", () => {
@@ -42,7 +39,10 @@ export default function setupGame() {
 
     localStorage.setItem("settings2048++", JSON.stringify(defaultSettings));
   }
-  applySettings();
+
+  if (!getLoggedIn()) {
+    applyLSSettings();
+  }
 
   // Destroy all exisitng cells and tiles
   const existingCells = document.querySelectorAll(".cell");
@@ -63,11 +63,13 @@ export default function setupGame() {
   }
 
   // Fetch best score from localStorage
-  const bestScoreContainer = document.querySelector(".best-container");
-  const bestScoreLocal = window.localStorage.getItem("bestScore2048++");
-  if (bestScoreLocal) {
-    bestScoreContainer.dataset.bestScore = bestScoreLocal;
-    bestScoreContainer.textContent = bestScoreLocal;
+  if (!getLoggedIn()) {
+    const bestScoreContainer = document.querySelector(".best-container");
+    const bestScoreLocal = window.localStorage.getItem("bestScore2048++");
+    if (bestScoreLocal) {
+      bestScoreContainer.dataset.bestScore = bestScoreLocal;
+      bestScoreContainer.textContent = bestScoreLocal;
+    }
   }
 
   // Elements:
@@ -109,6 +111,8 @@ export default function setupGame() {
 // Restart game handler
 const btnRestart = document.getElementById("btn--restart");
 btnRestart.addEventListener("click", () => {
+  incrementGameCount();
+
   const lossModal = document.getElementById("modal--loss");
   const gameBoard = document.getElementById("game-board");
   lossModal.style.opacity = 0;

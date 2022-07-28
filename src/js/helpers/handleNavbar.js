@@ -11,7 +11,7 @@ import {
 } from "../userConfig.js";
 import { tryLogIn, logIn, logOut, tryCreateAccount } from "./handleUser.js";
 import displayAlert from "./handleAlert";
-import { applySettings } from "./handleSettings.js";
+import { applyUserSettings } from "./handleSettings.js";
 
 const navBar = document.getElementById("navbar");
 const navToggle = document.getElementById("nav-toggle");
@@ -303,7 +303,7 @@ const handleBtnsLogin = () => {
         modalOverlay.style["pointer-events"] = "none";
 
         // Update account settings
-        applySettings(accountObj);
+        applyUserSettings(accountObj);
 
         // Update account modal
         updateAccountInfo();
