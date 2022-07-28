@@ -31542,7 +31542,7 @@ var invokeAsyncLambda = function invokeAsyncLambda(payload) {
   var funcName = "".concat("update2048DDB");
   lambdaClient = new _aws_sdk_client_lambda__WEBPACK_IMPORTED_MODULE_4__.LambdaClient({
     credentials: credentials,
-    egion: "us-east-1"
+    region: "us-east-1"
   });
   var params = {
     FunctionName: funcName,
@@ -32080,6 +32080,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _handleUser_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./handleUser.js */ "./src/js/helpers/handleUser.js");
 /* harmony import */ var _handleAlert__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./handleAlert */ "./src/js/helpers/handleAlert.js");
 /* harmony import */ var _handleSettings_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./handleSettings.js */ "./src/js/helpers/handleSettings.js");
+/* harmony import */ var _config_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../config.js */ "./src/js/config.js");
+/* harmony import */ var _db_db_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../db/db.js */ "./src/js/db/db.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
@@ -32099,6 +32101,8 @@ function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyri
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
 
 
 
@@ -32430,6 +32434,32 @@ var handleEyeIcons = function handleEyeIcons(eyeIcons) {
     });
   });
 };
+
+var handleLogOut = function handleLogOut() {
+  logOutBtn.addEventListener("click", function () {
+    // If logged in, invoke async lambda to update DDB
+    if ((0,_userConfig_js__WEBPACK_IMPORTED_MODULE_0__.getLoggedIn)()) {
+      var accountObj = {
+        email: (0,_userConfig_js__WEBPACK_IMPORTED_MODULE_0__.getEmail)(),
+        password: (0,_userConfig_js__WEBPACK_IMPORTED_MODULE_0__.getPassword)(),
+        bestScore: (0,_userConfig_js__WEBPACK_IMPORTED_MODULE_0__.getBestScore)(),
+        settings: {
+          darkMode: (0,_config_js__WEBPACK_IMPORTED_MODULE_4__.getDarkMode)(),
+          colorTheme: (0,_config_js__WEBPACK_IMPORTED_MODULE_4__.getColorTheme)(),
+          gridSize: (0,_config_js__WEBPACK_IMPORTED_MODULE_4__.getGridSize)()
+        },
+        gamesPlayed: (0,_userConfig_js__WEBPACK_IMPORTED_MODULE_0__.getGamesPlayed)()
+      };
+      (0,_db_db_js__WEBPACK_IMPORTED_MODULE_5__.updateAccount)(accountObj);
+    }
+
+    (0,_handleAlert__WEBPACK_IMPORTED_MODULE_2__["default"])("Successfully logged out!"); // Set logged out state
+
+    (0,_handleUser_js__WEBPACK_IMPORTED_MODULE_1__.logOut)(); // Update score from localStorage. Settings should remain the same.
+
+    var bestScore = window.localStorage.getItem("bestScore2048");
+  });
+};
 /**
  * Main function for handling navbar events
  */
@@ -32441,6 +32471,7 @@ function handleNavbar() {
   handleOpenCollapseMenu();
   handleBtnsSignup();
   handleBtnsLogin();
+  handleLogOut();
   handleEyeIcons(eyeIconsLogin);
   handleEyeIcons(eyeIconsSignup);
   handleEyeIcons(eyeIconsReSignup);
@@ -32700,9 +32731,11 @@ var toggleDarkMode = function toggleDarkMode() {
   if (css.href.includes("light-theme")) {
     css.href = "./dark-theme.css";
     settings.darkMode = "dark-theme";
+    (0,_config_js__WEBPACK_IMPORTED_MODULE_1__.setDarkMode)("dark-theme");
   } else {
     css.href = "./light-theme.css";
     settings.darkMode = "light-theme";
+    (0,_config_js__WEBPACK_IMPORTED_MODULE_1__.setDarkMode)("light-theme");
   } // Update in localStorage
 
 
@@ -32731,9 +32764,11 @@ var applyLSSettings = function applyLSSettings() {
   if (darkMode == "light-theme") {
     css.href = "./light-theme.css";
     togglerDarkMode.checked = false;
+    (0,_config_js__WEBPACK_IMPORTED_MODULE_1__.setDarkMode)("light-theme");
   } else {
     css.href = "./dark-theme.css";
     togglerDarkMode.checked = true;
+    (0,_config_js__WEBPACK_IMPORTED_MODULE_1__.setDarkMode)("dark-theme");
   }
 
   updateColorByDarkLight();
@@ -32755,8 +32790,9 @@ var applyUserSettings = function applyUserSettings(userObj) {
   } else {
     css.href = "./dark-theme.css";
     togglerDarkMode.checked = true;
-  } // Update settings (darkMode, gridSize, and color, NOT bestScore) in localStorage
+  }
 
+  (0,_config_js__WEBPACK_IMPORTED_MODULE_1__.setDarkMode)(userObj.settings.darkMode); // Update settings (darkMode, gridSize, and color, NOT bestScore) in localStorage
 
   var lsSettings = JSON.parse(window.localStorage.getItem("settings2048++"));
 
@@ -32953,7 +32989,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 // 3. Apply settings & scores, update account modal upon successful login -- DONE
 // 4. Fix display problem probably because of preventTransition -- DONE-ish
 // 5. Update best score and gamesPlayed when appropriate for logged-in users. -- DONE
-// 6. Before user exits, call lambda url to update dynamodb
+// 6. Before user exits, call lambda url to update dynamodb -- DONE
 // 7. Log out functionality
 
 /* Login & Signup */
@@ -32988,8 +33024,7 @@ var logIn = /*#__PURE__*/function () {
   return function logIn(_x, _x2) {
     return _ref.apply(this, arguments);
   };
-}(); // Maybe get from LocalStorage here? Maybe not actually
-
+}();
 var logOut = function logOut() {
   (0,_userConfig_js__WEBPACK_IMPORTED_MODULE_1__.setLoggedIn)(false);
   (0,_userConfig_js__WEBPACK_IMPORTED_MODULE_1__.setEmail)(null);

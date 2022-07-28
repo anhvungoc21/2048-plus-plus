@@ -1,15 +1,12 @@
 import {
   getLoggedIn,
-  setLoggedIn,
   getEmail,
-  setEmail,
   getPassword,
-  setPassword,
   getBestScore,
-  setBestScore,
   getGamesPlayed,
+  setBestScore,
 } from "../userConfig.js";
-import { tryLogIn, logIn, logOut, tryCreateAccount } from "./handleUser.js";
+import { tryLogIn, logOut, tryCreateAccount } from "./handleUser.js";
 import displayAlert from "./handleAlert";
 import { applyUserSettings } from "./handleSettings.js";
 import { getDarkMode, getGridSize, getColorTheme } from "../config.js";
@@ -351,23 +348,39 @@ const handleEyeIcons = (eyeIcons) => {
   );
 };
 
-logOutBtn.addEventListener("click", () => {
-  if (getLoggedIn()) {
-    const accountObj = {
-      email: getEmail(),
-      password: getPassword(),
-      bestScore: getBestScore(),
-      settings: {
-        darkMode: getDarkMode(),
-        colorTheme: getColorTheme(),
-        gridSize: getGridSize(),
-      },
-      gamesPlayed: getGamesPlayed(),
-    };
+const handleLogOut = () => {
+  logOutBtn.addEventListener("click", () => {
+    // If logged in, invoke async lambda to update DDB
+    if (getLoggedIn()) {
+      const accountObj = {
+        email: getEmail(),
+        password: getPassword(),
+        bestScore: getBestScore(),
+        settings: {
+          darkMode: getDarkMode(),
+          colorTheme: getColorTheme(),
+          gridSize: getGridSize(),
+        },
+        gamesPlayed: getGamesPlayed(),
+      };
 
-    updateAccount(accountObj);
-  }
-});
+      updateAccount(accountObj);
+
+      displayAlert("Successfully logged out!");
+
+      // Set logged out state
+      logOut();
+
+      // Update score from localStorage. Settings should remain the same.
+      const bestScore = JSON.parse(
+        window.localStorage.getItem("bestScore2048++")
+      );
+      bestScoreDisplay.textContent = bestScore;
+      bestScoreDisplay.dataset.bestScore = bestScore;
+    }
+  });
+};
+
 /**
  * Main function for handling navbar events
  */
@@ -377,6 +390,7 @@ export default function handleNavbar() {
   handleOpenCollapseMenu();
   handleBtnsSignup();
   handleBtnsLogin();
+  handleLogOut();
   handleEyeIcons(eyeIconsLogin);
   handleEyeIcons(eyeIconsSignup);
   handleEyeIcons(eyeIconsReSignup);
