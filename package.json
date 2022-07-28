@@ -4,9 +4,9 @@
   "description": "",
   "scripts": {
     "build": "webpack",
-    "push": "echo 'aws\ndist\nnode_modules\nfavicon_io\nlambda.zip\n.DS_Store\n.env' > .gitignore && git add . && git commit -m 'Deploying to public repo' && git remote rm origin && git remote add origin https://github.com/anhvungoc21/2048-plus-plus.git && git branch -M main && git push -u origin main",
-    "push-prod": "echo 'aws\ndist\nnode_modules\nfavicon_io\nlambda.zip\n.DS_Store' > .gitignore && git add . && git commit -m 'Deploying to private repo' && git remote rm origin && git remote add origin https://github.com/anhvungoc21/2048-plus-plus-build.git && git branch -M main && git push -u origin main",
-    "dev": "webpack serve --config webpack-dev.config.js",
+    "push": "git rm -r --cached . && echo 'aws\ndist\nnode_modules\nfavicon_io\nlambda.zip\n.DS_Store\n.env' > .gitignore && git add . && git commit -m 'Deploying to public repo' && git remote rm origin && git remote add origin https://github.com/anhvungoc21/2048-plus-plus.git && git branch -M main && git push -u origin main",
+    "push-prod": "git rm -r --cached . && echo 'aws\ndist\nnode_modules\nfavicon_io\nlambda.zip\n.DS_Store' > .gitignore && git add . && git commit -m 'Deploying to private repo' && git remote rm origin && git remote add origin https://github.com/anhvungoc21/2048-plus-plus-build.git && git branch -M main && git push -u origin main",
+    "dev": "webpack serve",
     "zip": "cd ./aws && zip -r ../lambda.zip ./"
   },
   "author": "",
