@@ -3,7 +3,12 @@ import backgroundMusic from "./assets/chillBackground.mp3";
 import Grid from "./js/classes/Grid.js";
 import Tile from "./js/classes/Tile.js";
 
-import { getGridSize, getPercentVHMain } from "./js/config.js";
+import {
+  getColorTheme,
+  getDarkMode,
+  getGridSize,
+  getPercentVHMain,
+} from "./js/config.js";
 import { setCombo, setComboIntervalID, setGrid } from "./js/gameState.js";
 import setupInput from "./js/helpers/handleInput.js";
 import handleNavbar from "./js/helpers/handleNavbar.js";
@@ -13,7 +18,14 @@ import {
   preventTransition,
 } from "./js/helpers/handleSettings.js";
 import { incrementGameCount } from "./js/helpers/handleAccountInfo";
-import { getLoggedIn } from "./js/userConfig";
+import {
+  getBestScore,
+  getEmail,
+  getGamesPlayed,
+  getLoggedIn,
+  getPassword,
+} from "./js/userConfig";
+import { updateAccount } from "./js/db/db.js";
 
 // Start Game & Handle all inputs
 window.addEventListener("DOMContentLoaded", () => {
@@ -118,4 +130,22 @@ btnRestart.addEventListener("click", () => {
   lossModal.style.opacity = 0;
   gameBoard.style.opacity = 1;
   setupGame();
+});
+
+window.addEventListener("beforeunload", () => {
+  if (getLoggedIn()) {
+    const accountObj = {
+      email: getEmail(),
+      password: getPassword(),
+      bestScore: getBestScore(),
+      settings: {
+        darkMode: getDarkMode(),
+        colorTheme: getColorTheme(),
+        gridSize: getGridSize(),
+      },
+      gamesPlayed: getGamesPlayed(),
+    };
+
+    updateAccount(accountObj);
+  }
 });
