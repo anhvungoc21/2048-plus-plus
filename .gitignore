@@ -1,6 +1,7 @@
+aws
+dist
 node_modules
 favicon_io
-aws
 lambda.zip
 .env
 .DS_Store
