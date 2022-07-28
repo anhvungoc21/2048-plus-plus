@@ -1,6 +1,6 @@
 import soundEffect from "../../assets/tileSoundEffect.wav";
 import { updateScore, updateCombo } from "./handleScore.js";
-import { getSounds } from "../config";
+import { getSounds } from "../config.js";
 
 /**
  * For each cell group (column/row):

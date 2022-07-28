@@ -7,7 +7,7 @@ import {
   setBestScore,
 } from "../userConfig.js";
 import { tryLogIn, logOut, tryCreateAccount } from "./handleUser.js";
-import displayAlert from "./handleAlert";
+import displayAlert from "./handleAlert.js";
 import { applyUserSettings } from "./handleSettings.js";
 import { getDarkMode, getGridSize, getColorTheme } from "../config.js";
 import { updateAccount } from "../db/db.js";
