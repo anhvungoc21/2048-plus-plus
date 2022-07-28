@@ -5,3 +5,4 @@ favicon_io
 lambda.zip
 .env
 .DS_Store
+netlify.toml
