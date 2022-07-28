@@ -1,7 +1,7 @@
 import comboSoundEffect from "../../assets/comboSoundEffect.wav";
 import { setCombo, getCombo, INC_PER_COMBO, getGrid } from "../gameState.js";
 import { getSounds } from "../config.js";
-import { updateUserBestScore } from "./handleAccountInfo";
+import { updateUserBestScore } from "./handleAccountInfo.js";
 
 const scoreContainer = document.querySelector(".score-container");
 const bestScoreContainer = document.querySelector(".best-container");

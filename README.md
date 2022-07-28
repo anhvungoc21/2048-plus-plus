@@ -47,16 +47,19 @@ At this point, 2048++ should open on your browser and you can start playing or m
 1. Get rid of any user account-related features. This would be located in the following files:
 
 ```
-/src/template.html // Remove element with the tag or class with keywords: "account", "user", "login", or "signup"
-/src/styles // Remove styles related to the same keywords
-/src/js/db // Remove folder entirely
-/src/js/userConfig.js // Remove file entirely
-/src/js/helpers/handleUser.js // Remove file entirely
-/src/js/helpers/handleNavbar.js // Remove any imports and functions related to handleUser.js
+/src/template.html  // Remove element with the tag or class with keywords: "account", "user", "login", or "signup"
+/src/styles  // Remove styles related to the same keywords
+/src/js/db  // Remove folder entirely
+/src/js/userConfig.js  // Remove file entirely
+/src/js/helpers/handleUser.js  // Remove file entirely
+/src/js/helpers/handleAccountInfo.js  // Remove file entirely
+/src/js/helpers/handleSettings.js  // Remove any imports and functions related to handleUser.js, or userConfig.js
+/src/js/helpers/handleNavbar.js  // Remove any imports and functions related to handleUser.js, db.js, or userConfig.js
+/src/js/helpers/handleScore.js // Remove any imports and functions related to handleAccountInfo.js
+/src/index.js  // Remove any imports and functions related to handleUser.js, db.js, userConfig.js, or handleAccountInfo.js
 ```
 
 2. Set up your own DynamoDB database with the same table schema as described in /src/js/db/db.js and create a .env file containing necessary secret keys for your DynamoDB user. I only recommend doing this if you are already familiar with DynamoDB.
-3. Configure your own user log-in pipeline
 
 ## Acknowledgements
 

@@ -4,8 +4,8 @@ import {
   setBestScore,
   getGamesPlayed,
   setGamesPlayed,
-} from "../userConfig";
-import { getGridSize } from "../config";
+} from "../userConfig.js";
+import { getGridSize } from "../config.js";
 
 // Called upon loss or game restart
 export const incrementGameCount = () => {

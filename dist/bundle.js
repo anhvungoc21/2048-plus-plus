@@ -30572,8 +30572,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _js_helpers_handleInput_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./js/helpers/handleInput.js */ "./src/js/helpers/handleInput.js");
 /* harmony import */ var _js_helpers_handleNavbar_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./js/helpers/handleNavbar.js */ "./src/js/helpers/handleNavbar.js");
 /* harmony import */ var _js_helpers_handleSettings_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./js/helpers/handleSettings.js */ "./src/js/helpers/handleSettings.js");
-/* harmony import */ var _js_helpers_handleAccountInfo__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./js/helpers/handleAccountInfo */ "./src/js/helpers/handleAccountInfo.js");
-/* harmony import */ var _js_userConfig__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./js/userConfig */ "./src/js/userConfig.js");
+/* harmony import */ var _js_helpers_handleAccountInfo_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./js/helpers/handleAccountInfo.js */ "./src/js/helpers/handleAccountInfo.js");
+/* harmony import */ var _js_userConfig_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./js/userConfig.js */ "./src/js/userConfig.js");
 /* harmony import */ var _js_db_db_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./js/db/db.js */ "./src/js/db/db.js");
 
 
@@ -30609,7 +30609,7 @@ function setupGame() {
     localStorage.setItem("settings2048++", JSON.stringify(defaultSettings));
   }
 
-  if (!(0,_js_userConfig__WEBPACK_IMPORTED_MODULE_9__.getLoggedIn)()) {
+  if (!(0,_js_userConfig_js__WEBPACK_IMPORTED_MODULE_9__.getLoggedIn)()) {
     (0,_js_helpers_handleSettings_js__WEBPACK_IMPORTED_MODULE_7__.applyLSSettings)();
   } // Destroy all exisitng cells and tiles
 
@@ -30638,7 +30638,7 @@ function setupGame() {
   } // Fetch best score from localStorage
 
 
-  if (!(0,_js_userConfig__WEBPACK_IMPORTED_MODULE_9__.getLoggedIn)()) {
+  if (!(0,_js_userConfig_js__WEBPACK_IMPORTED_MODULE_9__.getLoggedIn)()) {
     var bestScoreContainer = document.querySelector(".best-container");
     var bestScoreLocal = window.localStorage.getItem("bestScore2048++");
 
@@ -30679,7 +30679,7 @@ function setupGame() {
 
 var btnRestart = document.getElementById("btn--restart");
 btnRestart.addEventListener("click", function () {
-  (0,_js_helpers_handleAccountInfo__WEBPACK_IMPORTED_MODULE_8__.incrementGameCount)();
+  (0,_js_helpers_handleAccountInfo_js__WEBPACK_IMPORTED_MODULE_8__.incrementGameCount)();
   var lossModal = document.getElementById("modal--loss");
   var gameBoard = document.getElementById("game-board");
   lossModal.style.opacity = 0;
@@ -30687,17 +30687,17 @@ btnRestart.addEventListener("click", function () {
   setupGame();
 });
 window.addEventListener("beforeunload", function () {
-  if ((0,_js_userConfig__WEBPACK_IMPORTED_MODULE_9__.getLoggedIn)()) {
+  if ((0,_js_userConfig_js__WEBPACK_IMPORTED_MODULE_9__.getLoggedIn)()) {
     var accountObj = {
-      email: (0,_js_userConfig__WEBPACK_IMPORTED_MODULE_9__.getEmail)(),
-      password: (0,_js_userConfig__WEBPACK_IMPORTED_MODULE_9__.getPassword)(),
-      bestScore: (0,_js_userConfig__WEBPACK_IMPORTED_MODULE_9__.getBestScore)(),
+      email: (0,_js_userConfig_js__WEBPACK_IMPORTED_MODULE_9__.getEmail)(),
+      password: (0,_js_userConfig_js__WEBPACK_IMPORTED_MODULE_9__.getPassword)(),
+      bestScore: (0,_js_userConfig_js__WEBPACK_IMPORTED_MODULE_9__.getBestScore)(),
       settings: {
         darkMode: (0,_js_config_js__WEBPACK_IMPORTED_MODULE_3__.getDarkMode)(),
         colorTheme: (0,_js_config_js__WEBPACK_IMPORTED_MODULE_3__.getColorTheme)(),
         gridSize: (0,_js_config_js__WEBPACK_IMPORTED_MODULE_3__.getGridSize)()
       },
-      gamesPlayed: (0,_js_userConfig__WEBPACK_IMPORTED_MODULE_9__.getGamesPlayed)()
+      gamesPlayed: (0,_js_userConfig_js__WEBPACK_IMPORTED_MODULE_9__.getGamesPlayed)()
     };
     (0,_js_db_db_js__WEBPACK_IMPORTED_MODULE_10__.updateAccount)(accountObj);
   }
@@ -31734,20 +31734,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "incrementGameCount": () => (/* binding */ incrementGameCount),
 /* harmony export */   "updateUserBestScore": () => (/* binding */ updateUserBestScore)
 /* harmony export */ });
-/* harmony import */ var _userConfig__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../userConfig */ "./src/js/userConfig.js");
-/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../config */ "./src/js/config.js");
+/* harmony import */ var _userConfig_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../userConfig.js */ "./src/js/userConfig.js");
+/* harmony import */ var _config_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../config.js */ "./src/js/config.js");
 
  // Called upon loss or game restart
 
 var incrementGameCount = function incrementGameCount() {
   // Only count games when logged in
-  if (!(0,_userConfig__WEBPACK_IMPORTED_MODULE_0__.getLoggedIn)()) return; // Only count a game if number if present tiles is greater than 2
+  if (!(0,_userConfig_js__WEBPACK_IMPORTED_MODULE_0__.getLoggedIn)()) return; // Only count a game if number if present tiles is greater than 2
 
   var gameBoard = document.getElementById("game-board");
   var tiles = gameBoard.querySelectorAll(".tile");
   if (tiles.length <= 2) return;
-  var gridSize = (0,_config__WEBPACK_IMPORTED_MODULE_1__.getGridSize)();
-  var gamesPlayedObj = (0,_userConfig__WEBPACK_IMPORTED_MODULE_0__.getGamesPlayed)();
+  var gridSize = (0,_config_js__WEBPACK_IMPORTED_MODULE_1__.getGridSize)();
+  var gamesPlayedObj = (0,_userConfig_js__WEBPACK_IMPORTED_MODULE_0__.getGamesPlayed)();
   var gamesPlayedContainer;
   var newGamesPlayedCount;
 
@@ -31765,16 +31765,16 @@ var incrementGameCount = function incrementGameCount() {
     gamesPlayedContainer = document.getElementById("games-played--6x6");
   }
 
-  (0,_userConfig__WEBPACK_IMPORTED_MODULE_0__.setGamesPlayed)(gamesPlayedObj); // Update account modal
+  (0,_userConfig_js__WEBPACK_IMPORTED_MODULE_0__.setGamesPlayed)(gamesPlayedObj); // Update account modal
 
   gamesPlayedContainer.textContent = newGamesPlayedCount;
 };
 var updateUserBestScore = function updateUserBestScore(curScore) {
-  if (!(0,_userConfig__WEBPACK_IMPORTED_MODULE_0__.getLoggedIn)()) return;
-  var bestScore = (0,_userConfig__WEBPACK_IMPORTED_MODULE_0__.getBestScore)();
+  if (!(0,_userConfig_js__WEBPACK_IMPORTED_MODULE_0__.getLoggedIn)()) return;
+  var bestScore = (0,_userConfig_js__WEBPACK_IMPORTED_MODULE_0__.getBestScore)();
 
   if (curScore > bestScore) {
-    (0,_userConfig__WEBPACK_IMPORTED_MODULE_0__.setBestScore)(curScore); // Update account modal
+    (0,_userConfig_js__WEBPACK_IMPORTED_MODULE_0__.setBestScore)(curScore); // Update account modal
 
     var bestScoreContainer = document.getElementById("best-score-data");
     bestScoreContainer.textContent = curScore;
@@ -32078,7 +32078,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _userConfig_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../userConfig.js */ "./src/js/userConfig.js");
 /* harmony import */ var _handleUser_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./handleUser.js */ "./src/js/helpers/handleUser.js");
-/* harmony import */ var _handleAlert__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./handleAlert */ "./src/js/helpers/handleAlert.js");
+/* harmony import */ var _handleAlert_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./handleAlert.js */ "./src/js/helpers/handleAlert.js");
 /* harmony import */ var _handleSettings_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./handleSettings.js */ "./src/js/helpers/handleSettings.js");
 /* harmony import */ var _config_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../config.js */ "./src/js/config.js");
 /* harmony import */ var _db_db_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../db/db.js */ "./src/js/db/db.js");
@@ -32282,7 +32282,7 @@ var handleBtnsSignup = function handleBtnsSignup() {
     var username = signupModal.querySelector("#username-input").value;
 
     if (rePassword != password) {
-      (0,_handleAlert__WEBPACK_IMPORTED_MODULE_2__["default"])("Passwords did not match!"); // Shake signup modal
+      (0,_handleAlert_js__WEBPACK_IMPORTED_MODULE_2__["default"])("Passwords did not match!"); // Shake signup modal
 
       signupModal.classList.add("modal-shaker");
       signupModal.addEventListener("animationend", function () {
@@ -32303,9 +32303,9 @@ var handleBtnsSignup = function handleBtnsSignup() {
               signupSuccess = _context.sent;
 
               if (signupSuccess) {
-                (0,_handleAlert__WEBPACK_IMPORTED_MODULE_2__["default"])("Successfully signed up!");
+                (0,_handleAlert_js__WEBPACK_IMPORTED_MODULE_2__["default"])("Successfully signed up!");
               } else {
-                (0,_handleAlert__WEBPACK_IMPORTED_MODULE_2__["default"])("Signup failed. Email is already associated with another account!"); // Shake signup modal
+                (0,_handleAlert_js__WEBPACK_IMPORTED_MODULE_2__["default"])("Signup failed. Email is already associated with another account!"); // Shake signup modal
 
                 signupModal.classList.add("modal-shaker");
                 signupModal.addEventListener("animationend", function () {
@@ -32375,7 +32375,7 @@ var handleBtnsLogin = function handleBtnsLogin() {
               accountObj = _yield$tryLogIn2[1];
 
               if (loginSuccess && accountObj != null) {
-                (0,_handleAlert__WEBPACK_IMPORTED_MODULE_2__["default"])("Successfully logged in!"); // Hide login modal
+                (0,_handleAlert_js__WEBPACK_IMPORTED_MODULE_2__["default"])("Successfully logged in!"); // Hide login modal
 
                 loginModal.style.opacity = 0;
                 modalOverlay.style.opacity = 0;
@@ -32386,7 +32386,7 @@ var handleBtnsLogin = function handleBtnsLogin() {
 
                 updateAccountInfo();
               } else {
-                (0,_handleAlert__WEBPACK_IMPORTED_MODULE_2__["default"])("Login failed! Invalid email-password combination!"); // Shake login modal
+                (0,_handleAlert_js__WEBPACK_IMPORTED_MODULE_2__["default"])("Login failed! Invalid email-password combination!"); // Shake login modal
 
                 loginModal.classList.add("modal-shaker");
                 loginModal.addEventListener("animationend", function () {
@@ -32451,7 +32451,7 @@ var handleLogOut = function handleLogOut() {
         gamesPlayed: (0,_userConfig_js__WEBPACK_IMPORTED_MODULE_0__.getGamesPlayed)()
       };
       (0,_db_db_js__WEBPACK_IMPORTED_MODULE_5__.updateAccount)(accountObj);
-      (0,_handleAlert__WEBPACK_IMPORTED_MODULE_2__["default"])("Successfully logged out!"); // Set logged out state
+      (0,_handleAlert_js__WEBPACK_IMPORTED_MODULE_2__["default"])("Successfully logged out!"); // Set logged out state
 
       (0,_handleUser_js__WEBPACK_IMPORTED_MODULE_1__.logOut)(); // Update score from localStorage. Settings should remain the same.
 
@@ -32498,7 +32498,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _assets_comboSoundEffect_wav__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../assets/comboSoundEffect.wav */ "./src/assets/comboSoundEffect.wav");
 /* harmony import */ var _gameState_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../gameState.js */ "./src/js/gameState.js");
 /* harmony import */ var _config_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../config.js */ "./src/js/config.js");
-/* harmony import */ var _handleAccountInfo__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./handleAccountInfo */ "./src/js/helpers/handleAccountInfo.js");
+/* harmony import */ var _handleAccountInfo_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./handleAccountInfo.js */ "./src/js/helpers/handleAccountInfo.js");
 
 
 
@@ -32527,7 +32527,7 @@ function updateScore(scoreAdd) {
   } // Update bestScore for user. This keeps the bestScore in the game state.
 
 
-  (0,_handleAccountInfo__WEBPACK_IMPORTED_MODULE_3__.updateUserBestScore)(parseInt(scoreContainer.dataset.score)); // Add new "score-addition" element
+  (0,_handleAccountInfo_js__WEBPACK_IMPORTED_MODULE_3__.updateUserBestScore)(parseInt(scoreContainer.dataset.score)); // Add new "score-addition" element
 
   var addScoreHtml = document.createElement("div");
   addScoreHtml.classList.add("score-addition");
@@ -33134,7 +33134,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _assets_tileSoundEffect_wav__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../assets/tileSoundEffect.wav */ "./src/assets/tileSoundEffect.wav");
 /* harmony import */ var _handleScore_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./handleScore.js */ "./src/js/helpers/handleScore.js");
-/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../config */ "./src/js/config.js");
+/* harmony import */ var _config_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../config.js */ "./src/js/config.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
@@ -33219,7 +33219,7 @@ function slideTiles(cells) {
     return promises;
   }); // Play sound effect for tile merging
 
-  if (playSound && (0,_config__WEBPACK_IMPORTED_MODULE_2__.getSounds)()) {
+  if (playSound && (0,_config_js__WEBPACK_IMPORTED_MODULE_2__.getSounds)()) {
     var sndEffect = new Audio("./tileSoundEffect.wav");
     sndEffect.play();
   } // Update score

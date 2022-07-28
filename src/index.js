@@ -17,14 +17,14 @@ import {
   applyLSSettings,
   preventTransition,
 } from "./js/helpers/handleSettings.js";
-import { incrementGameCount } from "./js/helpers/handleAccountInfo";
+import { incrementGameCount } from "./js/helpers/handleAccountInfo.js";
 import {
   getBestScore,
   getEmail,
   getGamesPlayed,
   getLoggedIn,
   getPassword,
-} from "./js/userConfig";
+} from "./js/userConfig.js";
 import { updateAccount } from "./js/db/db.js";
 
 // Start Game & Handle all inputs
