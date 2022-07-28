@@ -1,4 +1,5 @@
 aws
+dist
 node_modules
 favicon_io
 lambda.zip
