@@ -32451,13 +32451,14 @@ var handleLogOut = function handleLogOut() {
         gamesPlayed: (0,_userConfig_js__WEBPACK_IMPORTED_MODULE_0__.getGamesPlayed)()
       };
       (0,_db_db_js__WEBPACK_IMPORTED_MODULE_5__.updateAccount)(accountObj);
+      (0,_handleAlert__WEBPACK_IMPORTED_MODULE_2__["default"])("Successfully logged out!"); // Set logged out state
+
+      (0,_handleUser_js__WEBPACK_IMPORTED_MODULE_1__.logOut)(); // Update score from localStorage. Settings should remain the same.
+
+      var bestScore = JSON.parse(window.localStorage.getItem("bestScore2048++"));
+      bestScoreDisplay.textContent = bestScore;
+      bestScoreDisplay.dataset.bestScore = bestScore;
     }
-
-    (0,_handleAlert__WEBPACK_IMPORTED_MODULE_2__["default"])("Successfully logged out!"); // Set logged out state
-
-    (0,_handleUser_js__WEBPACK_IMPORTED_MODULE_1__.logOut)(); // Update score from localStorage. Settings should remain the same.
-
-    var bestScore = window.localStorage.getItem("bestScore2048");
   });
 };
 /**
@@ -32983,14 +32984,6 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 
- // TODO:
-// 1. Create alert display, modal shaking -- DONE for successful/failed log-ins/sign-ups -- DONE
-// 2. Accessible mute button -- DONE
-// 3. Apply settings & scores, update account modal upon successful login -- DONE
-// 4. Fix display problem probably because of preventTransition -- DONE-ish
-// 5. Update best score and gamesPlayed when appropriate for logged-in users. -- DONE
-// 6. Before user exits, call lambda url to update dynamodb -- DONE
-// 7. Log out functionality
 
 /* Login & Signup */
 
