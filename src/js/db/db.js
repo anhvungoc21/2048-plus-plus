@@ -2,11 +2,12 @@ import {
   DynamoDBClient,
   GetItemCommand,
   PutItemCommand,
-  UpdateItemCommand,
 } from "@aws-sdk/client-dynamodb";
+import { LambdaClient, InvokeCommand } from "@aws-sdk/client-lambda";
 import { marshall, unmarshall } from "@aws-sdk/util-dynamodb";
 
 let ddbClient;
+let lambdaClient;
 const credentials = {
   accessKeyId: process.env.AWS_ACCESS_KEY_ID,
   secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
@@ -69,6 +70,8 @@ export const createAccount = async (userName, email, password) => {
     }),
   };
 
+  console.log(params);
+
   try {
     await connectToDDB();
     const res = await ddbClient.send(new PutItemCommand(params));
@@ -78,8 +81,29 @@ export const createAccount = async (userName, email, password) => {
   }
 };
 
-// TODO: For both changing passwords and updating new best score/gamesPlayed.
-export const updateAccount = async (userName, email, password) => {};
+// Asynchronously invokes an AWS Lambda to update DynamoDB
+const invokeAsyncLambda = (payload) => {
+  const funcName = `${process.env.LAMBDA_FUNC_NAME}`;
+  lambdaClient = new LambdaClient({
+    credentials: credentials,
+    region: "us-east-1",
+  });
+
+  const params = {
+    FunctionName: funcName,
+    InvocationType: "Event",
+    Payload: payload,
+  };
+
+  lambdaClient.send(new InvokeCommand(params));
+};
+
+export const updateAccount = (accountObj) => {
+  const payload = JSON.stringify(accountObj);
+  invokeAsyncLambda(payload);
+};
+
+//////////////////////////////////////////////////////////
 
 /* DYNAMODB TABLE FORMAT */
 /*

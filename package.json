@@ -4,7 +4,8 @@
   "description": "",
   "scripts": {
     "build": "webpack",
-    "dev": "webpack serve"
+    "dev": "webpack serve",
+    "zip": "cd ./aws && zip -r ../lambda.zip ./"
   },
   "author": "",
   "license": "ISC",
@@ -28,7 +29,8 @@
   },
   "dependencies": {
     "@aws-sdk/client-dynamodb": "^3.131.0",
-    "@aws-sdk/util-dynamodb": "^3.131.0",
+    "@aws-sdk/client-lambda": "^3.137.0",
+    "@aws-sdk/util-dynamodb": "^3.137.0",
     "mongodb": "^4.8.0"
   }
 }

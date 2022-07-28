@@ -11455,6 +11455,12395 @@ function validate(uuid) {
 
 /***/ }),
 
+/***/ "./node_modules/@aws-sdk/client-lambda/dist-es/LambdaClient.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/@aws-sdk/client-lambda/dist-es/LambdaClient.js ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "LambdaClient": () => (/* binding */ LambdaClient)
+/* harmony export */ });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _aws_sdk_config_resolver__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @aws-sdk/config-resolver */ "./node_modules/@aws-sdk/config-resolver/dist-es/index.js");
+/* harmony import */ var _aws_sdk_middleware_content_length__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @aws-sdk/middleware-content-length */ "./node_modules/@aws-sdk/middleware-content-length/dist-es/index.js");
+/* harmony import */ var _aws_sdk_middleware_host_header__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @aws-sdk/middleware-host-header */ "./node_modules/@aws-sdk/middleware-host-header/dist-es/index.js");
+/* harmony import */ var _aws_sdk_middleware_logger__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @aws-sdk/middleware-logger */ "./node_modules/@aws-sdk/middleware-logger/dist-es/index.js");
+/* harmony import */ var _aws_sdk_middleware_recursion_detection__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @aws-sdk/middleware-recursion-detection */ "./node_modules/@aws-sdk/middleware-recursion-detection/dist-es/index.js");
+/* harmony import */ var _aws_sdk_middleware_retry__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @aws-sdk/middleware-retry */ "./node_modules/@aws-sdk/middleware-retry/dist-es/index.js");
+/* harmony import */ var _aws_sdk_middleware_signing__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @aws-sdk/middleware-signing */ "./node_modules/@aws-sdk/middleware-signing/dist-es/index.js");
+/* harmony import */ var _aws_sdk_middleware_user_agent__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @aws-sdk/middleware-user-agent */ "./node_modules/@aws-sdk/middleware-user-agent/dist-es/index.js");
+/* harmony import */ var _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @aws-sdk/smithy-client */ "./node_modules/@aws-sdk/client-lambda/node_modules/@aws-sdk/smithy-client/dist-es/index.js");
+/* harmony import */ var _runtimeConfig__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./runtimeConfig */ "./node_modules/@aws-sdk/client-lambda/dist-es/runtimeConfig.browser.js");
+
+
+
+
+
+
+
+
+
+
+
+var LambdaClient = (function (_super) {
+    (0,tslib__WEBPACK_IMPORTED_MODULE_9__.__extends)(LambdaClient, _super);
+    function LambdaClient(configuration) {
+        var _this = this;
+        var _config_0 = (0,_runtimeConfig__WEBPACK_IMPORTED_MODULE_10__.getRuntimeConfig)(configuration);
+        var _config_1 = (0,_aws_sdk_config_resolver__WEBPACK_IMPORTED_MODULE_0__.resolveRegionConfig)(_config_0);
+        var _config_2 = (0,_aws_sdk_config_resolver__WEBPACK_IMPORTED_MODULE_0__.resolveEndpointsConfig)(_config_1);
+        var _config_3 = (0,_aws_sdk_middleware_retry__WEBPACK_IMPORTED_MODULE_5__.resolveRetryConfig)(_config_2);
+        var _config_4 = (0,_aws_sdk_middleware_host_header__WEBPACK_IMPORTED_MODULE_2__.resolveHostHeaderConfig)(_config_3);
+        var _config_5 = (0,_aws_sdk_middleware_signing__WEBPACK_IMPORTED_MODULE_6__.resolveAwsAuthConfig)(_config_4);
+        var _config_6 = (0,_aws_sdk_middleware_user_agent__WEBPACK_IMPORTED_MODULE_7__.resolveUserAgentConfig)(_config_5);
+        _this = _super.call(this, _config_6) || this;
+        _this.config = _config_6;
+        _this.middlewareStack.use((0,_aws_sdk_middleware_retry__WEBPACK_IMPORTED_MODULE_5__.getRetryPlugin)(_this.config));
+        _this.middlewareStack.use((0,_aws_sdk_middleware_content_length__WEBPACK_IMPORTED_MODULE_1__.getContentLengthPlugin)(_this.config));
+        _this.middlewareStack.use((0,_aws_sdk_middleware_host_header__WEBPACK_IMPORTED_MODULE_2__.getHostHeaderPlugin)(_this.config));
+        _this.middlewareStack.use((0,_aws_sdk_middleware_logger__WEBPACK_IMPORTED_MODULE_3__.getLoggerPlugin)(_this.config));
+        _this.middlewareStack.use((0,_aws_sdk_middleware_recursion_detection__WEBPACK_IMPORTED_MODULE_4__.getRecursionDetectionPlugin)(_this.config));
+        _this.middlewareStack.use((0,_aws_sdk_middleware_signing__WEBPACK_IMPORTED_MODULE_6__.getAwsAuthPlugin)(_this.config));
+        _this.middlewareStack.use((0,_aws_sdk_middleware_user_agent__WEBPACK_IMPORTED_MODULE_7__.getUserAgentPlugin)(_this.config));
+        return _this;
+    }
+    LambdaClient.prototype.destroy = function () {
+        _super.prototype.destroy.call(this);
+    };
+    return LambdaClient;
+}(_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_8__.Client));
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@aws-sdk/client-lambda/dist-es/commands/InvokeCommand.js":
+/*!*******************************************************************************!*\
+  !*** ./node_modules/@aws-sdk/client-lambda/dist-es/commands/InvokeCommand.js ***!
+  \*******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "InvokeCommand": () => (/* binding */ InvokeCommand)
+/* harmony export */ });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _aws_sdk_middleware_serde__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @aws-sdk/middleware-serde */ "./node_modules/@aws-sdk/middleware-serde/dist-es/index.js");
+/* harmony import */ var _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @aws-sdk/smithy-client */ "./node_modules/@aws-sdk/client-lambda/node_modules/@aws-sdk/smithy-client/dist-es/index.js");
+/* harmony import */ var _models_models_0__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../models/models_0 */ "./node_modules/@aws-sdk/client-lambda/dist-es/models/models_0.js");
+/* harmony import */ var _protocols_Aws_restJson1__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../protocols/Aws_restJson1 */ "./node_modules/@aws-sdk/client-lambda/dist-es/protocols/Aws_restJson1.js");
+
+
+
+
+
+var InvokeCommand = (function (_super) {
+    (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__extends)(InvokeCommand, _super);
+    function InvokeCommand(input) {
+        var _this = _super.call(this) || this;
+        _this.input = input;
+        return _this;
+    }
+    InvokeCommand.prototype.resolveMiddleware = function (clientStack, configuration, options) {
+        this.middlewareStack.use((0,_aws_sdk_middleware_serde__WEBPACK_IMPORTED_MODULE_0__.getSerdePlugin)(configuration, this.serialize, this.deserialize));
+        var stack = clientStack.concat(this.middlewareStack);
+        var logger = configuration.logger;
+        var clientName = "LambdaClient";
+        var commandName = "InvokeCommand";
+        var handlerExecutionContext = {
+            logger: logger,
+            clientName: clientName,
+            commandName: commandName,
+            inputFilterSensitiveLog: _models_models_0__WEBPACK_IMPORTED_MODULE_3__.InvocationRequestFilterSensitiveLog,
+            outputFilterSensitiveLog: _models_models_0__WEBPACK_IMPORTED_MODULE_3__.InvocationResponseFilterSensitiveLog,
+        };
+        var requestHandler = configuration.requestHandler;
+        return stack.resolve(function (request) {
+            return requestHandler.handle(request.request, options || {});
+        }, handlerExecutionContext);
+    };
+    InvokeCommand.prototype.serialize = function (input, context) {
+        return (0,_protocols_Aws_restJson1__WEBPACK_IMPORTED_MODULE_4__.serializeAws_restJson1InvokeCommand)(input, context);
+    };
+    InvokeCommand.prototype.deserialize = function (output, context) {
+        return (0,_protocols_Aws_restJson1__WEBPACK_IMPORTED_MODULE_4__.deserializeAws_restJson1InvokeCommand)(output, context);
+    };
+    return InvokeCommand;
+}(_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.Command));
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@aws-sdk/client-lambda/dist-es/endpoints.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/@aws-sdk/client-lambda/dist-es/endpoints.js ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "defaultRegionInfoProvider": () => (/* binding */ defaultRegionInfoProvider)
+/* harmony export */ });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _aws_sdk_config_resolver__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @aws-sdk/config-resolver */ "./node_modules/@aws-sdk/config-resolver/dist-es/index.js");
+
+
+var regionHash = {
+    "af-south-1": {
+        variants: [
+            {
+                hostname: "lambda.af-south-1.api.aws",
+                tags: ["dualstack"],
+            },
+        ],
+    },
+    "ap-east-1": {
+        variants: [
+            {
+                hostname: "lambda.ap-east-1.api.aws",
+                tags: ["dualstack"],
+            },
+        ],
+    },
+    "ap-northeast-1": {
+        variants: [
+            {
+                hostname: "lambda.ap-northeast-1.api.aws",
+                tags: ["dualstack"],
+            },
+        ],
+    },
+    "ap-northeast-2": {
+        variants: [
+            {
+                hostname: "lambda.ap-northeast-2.api.aws",
+                tags: ["dualstack"],
+            },
+        ],
+    },
+    "ap-northeast-3": {
+        variants: [
+            {
+                hostname: "lambda.ap-northeast-3.api.aws",
+                tags: ["dualstack"],
+            },
+        ],
+    },
+    "ap-south-1": {
+        variants: [
+            {
+                hostname: "lambda.ap-south-1.api.aws",
+                tags: ["dualstack"],
+            },
+        ],
+    },
+    "ap-southeast-1": {
+        variants: [
+            {
+                hostname: "lambda.ap-southeast-1.api.aws",
+                tags: ["dualstack"],
+            },
+        ],
+    },
+    "ap-southeast-2": {
+        variants: [
+            {
+                hostname: "lambda.ap-southeast-2.api.aws",
+                tags: ["dualstack"],
+            },
+        ],
+    },
+    "ap-southeast-3": {
+        variants: [
+            {
+                hostname: "lambda.ap-southeast-3.api.aws",
+                tags: ["dualstack"],
+            },
+        ],
+    },
+    "ca-central-1": {
+        variants: [
+            {
+                hostname: "lambda.ca-central-1.api.aws",
+                tags: ["dualstack"],
+            },
+        ],
+    },
+    "cn-north-1": {
+        variants: [
+            {
+                hostname: "lambda.cn-north-1.api.amazonwebservices.com.cn",
+                tags: ["dualstack"],
+            },
+        ],
+    },
+    "cn-northwest-1": {
+        variants: [
+            {
+                hostname: "lambda.cn-northwest-1.api.amazonwebservices.com.cn",
+                tags: ["dualstack"],
+            },
+        ],
+    },
+    "eu-central-1": {
+        variants: [
+            {
+                hostname: "lambda.eu-central-1.api.aws",
+                tags: ["dualstack"],
+            },
+        ],
+    },
+    "eu-north-1": {
+        variants: [
+            {
+                hostname: "lambda.eu-north-1.api.aws",
+                tags: ["dualstack"],
+            },
+        ],
+    },
+    "eu-south-1": {
+        variants: [
+            {
+                hostname: "lambda.eu-south-1.api.aws",
+                tags: ["dualstack"],
+            },
+        ],
+    },
+    "eu-west-1": {
+        variants: [
+            {
+                hostname: "lambda.eu-west-1.api.aws",
+                tags: ["dualstack"],
+            },
+        ],
+    },
+    "eu-west-2": {
+        variants: [
+            {
+                hostname: "lambda.eu-west-2.api.aws",
+                tags: ["dualstack"],
+            },
+        ],
+    },
+    "eu-west-3": {
+        variants: [
+            {
+                hostname: "lambda.eu-west-3.api.aws",
+                tags: ["dualstack"],
+            },
+        ],
+    },
+    "me-south-1": {
+        variants: [
+            {
+                hostname: "lambda.me-south-1.api.aws",
+                tags: ["dualstack"],
+            },
+        ],
+    },
+    "sa-east-1": {
+        variants: [
+            {
+                hostname: "lambda.sa-east-1.api.aws",
+                tags: ["dualstack"],
+            },
+        ],
+    },
+    "us-east-1": {
+        variants: [
+            {
+                hostname: "lambda-fips.us-east-1.amazonaws.com",
+                tags: ["fips"],
+            },
+            {
+                hostname: "lambda.us-east-1.api.aws",
+                tags: ["dualstack"],
+            },
+        ],
+    },
+    "us-east-2": {
+        variants: [
+            {
+                hostname: "lambda-fips.us-east-2.amazonaws.com",
+                tags: ["fips"],
+            },
+            {
+                hostname: "lambda.us-east-2.api.aws",
+                tags: ["dualstack"],
+            },
+        ],
+    },
+    "us-gov-east-1": {
+        variants: [
+            {
+                hostname: "lambda-fips.us-gov-east-1.amazonaws.com",
+                tags: ["fips"],
+            },
+        ],
+    },
+    "us-gov-west-1": {
+        variants: [
+            {
+                hostname: "lambda-fips.us-gov-west-1.amazonaws.com",
+                tags: ["fips"],
+            },
+        ],
+    },
+    "us-west-1": {
+        variants: [
+            {
+                hostname: "lambda-fips.us-west-1.amazonaws.com",
+                tags: ["fips"],
+            },
+            {
+                hostname: "lambda.us-west-1.api.aws",
+                tags: ["dualstack"],
+            },
+        ],
+    },
+    "us-west-2": {
+        variants: [
+            {
+                hostname: "lambda-fips.us-west-2.amazonaws.com",
+                tags: ["fips"],
+            },
+            {
+                hostname: "lambda.us-west-2.api.aws",
+                tags: ["dualstack"],
+            },
+        ],
+    },
+};
+var partitionHash = {
+    aws: {
+        regions: [
+            "af-south-1",
+            "ap-east-1",
+            "ap-northeast-1",
+            "ap-northeast-2",
+            "ap-northeast-3",
+            "ap-south-1",
+            "ap-southeast-1",
+            "ap-southeast-2",
+            "ap-southeast-3",
+            "ca-central-1",
+            "eu-central-1",
+            "eu-north-1",
+            "eu-south-1",
+            "eu-west-1",
+            "eu-west-2",
+            "eu-west-3",
+            "fips-us-east-1",
+            "fips-us-east-2",
+            "fips-us-west-1",
+            "fips-us-west-2",
+            "me-south-1",
+            "sa-east-1",
+            "us-east-1",
+            "us-east-2",
+            "us-west-1",
+            "us-west-2",
+        ],
+        regionRegex: "^(us|eu|ap|sa|ca|me|af)\\-\\w+\\-\\d+$",
+        variants: [
+            {
+                hostname: "lambda.{region}.amazonaws.com",
+                tags: [],
+            },
+            {
+                hostname: "lambda-fips.{region}.amazonaws.com",
+                tags: ["fips"],
+            },
+            {
+                hostname: "lambda-fips.{region}.api.aws",
+                tags: ["dualstack", "fips"],
+            },
+            {
+                hostname: "lambda.{region}.api.aws",
+                tags: ["dualstack"],
+            },
+        ],
+    },
+    "aws-cn": {
+        regions: ["cn-north-1", "cn-northwest-1"],
+        regionRegex: "^cn\\-\\w+\\-\\d+$",
+        variants: [
+            {
+                hostname: "lambda.{region}.amazonaws.com.cn",
+                tags: [],
+            },
+            {
+                hostname: "lambda-fips.{region}.amazonaws.com.cn",
+                tags: ["fips"],
+            },
+            {
+                hostname: "lambda-fips.{region}.api.amazonwebservices.com.cn",
+                tags: ["dualstack", "fips"],
+            },
+            {
+                hostname: "lambda.{region}.api.amazonwebservices.com.cn",
+                tags: ["dualstack"],
+            },
+        ],
+    },
+    "aws-iso": {
+        regions: ["us-iso-east-1", "us-iso-west-1"],
+        regionRegex: "^us\\-iso\\-\\w+\\-\\d+$",
+        variants: [
+            {
+                hostname: "lambda.{region}.c2s.ic.gov",
+                tags: [],
+            },
+            {
+                hostname: "lambda-fips.{region}.c2s.ic.gov",
+                tags: ["fips"],
+            },
+        ],
+    },
+    "aws-iso-b": {
+        regions: ["us-isob-east-1"],
+        regionRegex: "^us\\-isob\\-\\w+\\-\\d+$",
+        variants: [
+            {
+                hostname: "lambda.{region}.sc2s.sgov.gov",
+                tags: [],
+            },
+            {
+                hostname: "lambda-fips.{region}.sc2s.sgov.gov",
+                tags: ["fips"],
+            },
+        ],
+    },
+    "aws-us-gov": {
+        regions: ["fips-us-gov-east-1", "fips-us-gov-west-1", "us-gov-east-1", "us-gov-west-1"],
+        regionRegex: "^us\\-gov\\-\\w+\\-\\d+$",
+        variants: [
+            {
+                hostname: "lambda.{region}.amazonaws.com",
+                tags: [],
+            },
+            {
+                hostname: "lambda-fips.{region}.amazonaws.com",
+                tags: ["fips"],
+            },
+            {
+                hostname: "lambda-fips.{region}.api.aws",
+                tags: ["dualstack", "fips"],
+            },
+            {
+                hostname: "lambda.{region}.api.aws",
+                tags: ["dualstack"],
+            },
+        ],
+    },
+};
+var defaultRegionInfoProvider = function (region, options) { return (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__awaiter)(void 0, void 0, void 0, function () {
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__generator)(this, function (_a) {
+        return [2, (0,_aws_sdk_config_resolver__WEBPACK_IMPORTED_MODULE_0__.getRegionInfo)(region, (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, options), { signingService: "lambda", regionHash: regionHash, partitionHash: partitionHash }))];
+    });
+}); };
+
+
+/***/ }),
+
+/***/ "./node_modules/@aws-sdk/client-lambda/dist-es/models/LambdaServiceException.js":
+/*!**************************************************************************************!*\
+  !*** ./node_modules/@aws-sdk/client-lambda/dist-es/models/LambdaServiceException.js ***!
+  \**************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "LambdaServiceException": () => (/* binding */ LambdaServiceException)
+/* harmony export */ });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @aws-sdk/smithy-client */ "./node_modules/@aws-sdk/client-lambda/node_modules/@aws-sdk/smithy-client/dist-es/index.js");
+
+
+var LambdaServiceException = (function (_super) {
+    (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__extends)(LambdaServiceException, _super);
+    function LambdaServiceException(options) {
+        var _this = _super.call(this, options) || this;
+        Object.setPrototypeOf(_this, LambdaServiceException.prototype);
+        return _this;
+    }
+    return LambdaServiceException;
+}(_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_0__.ServiceException));
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@aws-sdk/client-lambda/dist-es/models/models_0.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/@aws-sdk/client-lambda/dist-es/models/models_0.js ***!
+  \************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "AccountLimitFilterSensitiveLog": () => (/* binding */ AccountLimitFilterSensitiveLog),
+/* harmony export */   "AccountUsageFilterSensitiveLog": () => (/* binding */ AccountUsageFilterSensitiveLog),
+/* harmony export */   "AddLayerVersionPermissionRequestFilterSensitiveLog": () => (/* binding */ AddLayerVersionPermissionRequestFilterSensitiveLog),
+/* harmony export */   "AddLayerVersionPermissionResponseFilterSensitiveLog": () => (/* binding */ AddLayerVersionPermissionResponseFilterSensitiveLog),
+/* harmony export */   "AddPermissionRequestFilterSensitiveLog": () => (/* binding */ AddPermissionRequestFilterSensitiveLog),
+/* harmony export */   "AddPermissionResponseFilterSensitiveLog": () => (/* binding */ AddPermissionResponseFilterSensitiveLog),
+/* harmony export */   "AliasConfigurationFilterSensitiveLog": () => (/* binding */ AliasConfigurationFilterSensitiveLog),
+/* harmony export */   "AliasRoutingConfigurationFilterSensitiveLog": () => (/* binding */ AliasRoutingConfigurationFilterSensitiveLog),
+/* harmony export */   "AllowedPublishersFilterSensitiveLog": () => (/* binding */ AllowedPublishersFilterSensitiveLog),
+/* harmony export */   "Architecture": () => (/* binding */ Architecture),
+/* harmony export */   "CodeSigningConfigFilterSensitiveLog": () => (/* binding */ CodeSigningConfigFilterSensitiveLog),
+/* harmony export */   "CodeSigningConfigNotFoundException": () => (/* binding */ CodeSigningConfigNotFoundException),
+/* harmony export */   "CodeSigningPoliciesFilterSensitiveLog": () => (/* binding */ CodeSigningPoliciesFilterSensitiveLog),
+/* harmony export */   "CodeSigningPolicy": () => (/* binding */ CodeSigningPolicy),
+/* harmony export */   "CodeStorageExceededException": () => (/* binding */ CodeStorageExceededException),
+/* harmony export */   "CodeVerificationFailedException": () => (/* binding */ CodeVerificationFailedException),
+/* harmony export */   "ConcurrencyFilterSensitiveLog": () => (/* binding */ ConcurrencyFilterSensitiveLog),
+/* harmony export */   "CorsFilterSensitiveLog": () => (/* binding */ CorsFilterSensitiveLog),
+/* harmony export */   "CreateAliasRequestFilterSensitiveLog": () => (/* binding */ CreateAliasRequestFilterSensitiveLog),
+/* harmony export */   "CreateCodeSigningConfigRequestFilterSensitiveLog": () => (/* binding */ CreateCodeSigningConfigRequestFilterSensitiveLog),
+/* harmony export */   "CreateCodeSigningConfigResponseFilterSensitiveLog": () => (/* binding */ CreateCodeSigningConfigResponseFilterSensitiveLog),
+/* harmony export */   "CreateEventSourceMappingRequestFilterSensitiveLog": () => (/* binding */ CreateEventSourceMappingRequestFilterSensitiveLog),
+/* harmony export */   "CreateFunctionRequestFilterSensitiveLog": () => (/* binding */ CreateFunctionRequestFilterSensitiveLog),
+/* harmony export */   "CreateFunctionUrlConfigRequestFilterSensitiveLog": () => (/* binding */ CreateFunctionUrlConfigRequestFilterSensitiveLog),
+/* harmony export */   "CreateFunctionUrlConfigResponseFilterSensitiveLog": () => (/* binding */ CreateFunctionUrlConfigResponseFilterSensitiveLog),
+/* harmony export */   "DeadLetterConfigFilterSensitiveLog": () => (/* binding */ DeadLetterConfigFilterSensitiveLog),
+/* harmony export */   "DeleteAliasRequestFilterSensitiveLog": () => (/* binding */ DeleteAliasRequestFilterSensitiveLog),
+/* harmony export */   "DeleteCodeSigningConfigRequestFilterSensitiveLog": () => (/* binding */ DeleteCodeSigningConfigRequestFilterSensitiveLog),
+/* harmony export */   "DeleteCodeSigningConfigResponseFilterSensitiveLog": () => (/* binding */ DeleteCodeSigningConfigResponseFilterSensitiveLog),
+/* harmony export */   "DeleteEventSourceMappingRequestFilterSensitiveLog": () => (/* binding */ DeleteEventSourceMappingRequestFilterSensitiveLog),
+/* harmony export */   "DeleteFunctionCodeSigningConfigRequestFilterSensitiveLog": () => (/* binding */ DeleteFunctionCodeSigningConfigRequestFilterSensitiveLog),
+/* harmony export */   "DeleteFunctionConcurrencyRequestFilterSensitiveLog": () => (/* binding */ DeleteFunctionConcurrencyRequestFilterSensitiveLog),
+/* harmony export */   "DeleteFunctionEventInvokeConfigRequestFilterSensitiveLog": () => (/* binding */ DeleteFunctionEventInvokeConfigRequestFilterSensitiveLog),
+/* harmony export */   "DeleteFunctionRequestFilterSensitiveLog": () => (/* binding */ DeleteFunctionRequestFilterSensitiveLog),
+/* harmony export */   "DeleteFunctionUrlConfigRequestFilterSensitiveLog": () => (/* binding */ DeleteFunctionUrlConfigRequestFilterSensitiveLog),
+/* harmony export */   "DeleteLayerVersionRequestFilterSensitiveLog": () => (/* binding */ DeleteLayerVersionRequestFilterSensitiveLog),
+/* harmony export */   "DeleteProvisionedConcurrencyConfigRequestFilterSensitiveLog": () => (/* binding */ DeleteProvisionedConcurrencyConfigRequestFilterSensitiveLog),
+/* harmony export */   "DestinationConfigFilterSensitiveLog": () => (/* binding */ DestinationConfigFilterSensitiveLog),
+/* harmony export */   "EC2AccessDeniedException": () => (/* binding */ EC2AccessDeniedException),
+/* harmony export */   "EC2ThrottledException": () => (/* binding */ EC2ThrottledException),
+/* harmony export */   "EC2UnexpectedException": () => (/* binding */ EC2UnexpectedException),
+/* harmony export */   "EFSIOException": () => (/* binding */ EFSIOException),
+/* harmony export */   "EFSMountConnectivityException": () => (/* binding */ EFSMountConnectivityException),
+/* harmony export */   "EFSMountFailureException": () => (/* binding */ EFSMountFailureException),
+/* harmony export */   "EFSMountTimeoutException": () => (/* binding */ EFSMountTimeoutException),
+/* harmony export */   "ENILimitReachedException": () => (/* binding */ ENILimitReachedException),
+/* harmony export */   "EndPointType": () => (/* binding */ EndPointType),
+/* harmony export */   "EnvironmentErrorFilterSensitiveLog": () => (/* binding */ EnvironmentErrorFilterSensitiveLog),
+/* harmony export */   "EnvironmentFilterSensitiveLog": () => (/* binding */ EnvironmentFilterSensitiveLog),
+/* harmony export */   "EnvironmentResponseFilterSensitiveLog": () => (/* binding */ EnvironmentResponseFilterSensitiveLog),
+/* harmony export */   "EphemeralStorageFilterSensitiveLog": () => (/* binding */ EphemeralStorageFilterSensitiveLog),
+/* harmony export */   "EventSourceMappingConfigurationFilterSensitiveLog": () => (/* binding */ EventSourceMappingConfigurationFilterSensitiveLog),
+/* harmony export */   "EventSourcePosition": () => (/* binding */ EventSourcePosition),
+/* harmony export */   "FileSystemConfigFilterSensitiveLog": () => (/* binding */ FileSystemConfigFilterSensitiveLog),
+/* harmony export */   "FilterCriteriaFilterSensitiveLog": () => (/* binding */ FilterCriteriaFilterSensitiveLog),
+/* harmony export */   "FilterFilterSensitiveLog": () => (/* binding */ FilterFilterSensitiveLog),
+/* harmony export */   "FunctionCodeFilterSensitiveLog": () => (/* binding */ FunctionCodeFilterSensitiveLog),
+/* harmony export */   "FunctionCodeLocationFilterSensitiveLog": () => (/* binding */ FunctionCodeLocationFilterSensitiveLog),
+/* harmony export */   "FunctionConfigurationFilterSensitiveLog": () => (/* binding */ FunctionConfigurationFilterSensitiveLog),
+/* harmony export */   "FunctionEventInvokeConfigFilterSensitiveLog": () => (/* binding */ FunctionEventInvokeConfigFilterSensitiveLog),
+/* harmony export */   "FunctionResponseType": () => (/* binding */ FunctionResponseType),
+/* harmony export */   "FunctionUrlAuthType": () => (/* binding */ FunctionUrlAuthType),
+/* harmony export */   "FunctionUrlConfigFilterSensitiveLog": () => (/* binding */ FunctionUrlConfigFilterSensitiveLog),
+/* harmony export */   "FunctionVersion": () => (/* binding */ FunctionVersion),
+/* harmony export */   "GetAccountSettingsRequestFilterSensitiveLog": () => (/* binding */ GetAccountSettingsRequestFilterSensitiveLog),
+/* harmony export */   "GetAccountSettingsResponseFilterSensitiveLog": () => (/* binding */ GetAccountSettingsResponseFilterSensitiveLog),
+/* harmony export */   "GetAliasRequestFilterSensitiveLog": () => (/* binding */ GetAliasRequestFilterSensitiveLog),
+/* harmony export */   "GetCodeSigningConfigRequestFilterSensitiveLog": () => (/* binding */ GetCodeSigningConfigRequestFilterSensitiveLog),
+/* harmony export */   "GetCodeSigningConfigResponseFilterSensitiveLog": () => (/* binding */ GetCodeSigningConfigResponseFilterSensitiveLog),
+/* harmony export */   "GetEventSourceMappingRequestFilterSensitiveLog": () => (/* binding */ GetEventSourceMappingRequestFilterSensitiveLog),
+/* harmony export */   "GetFunctionCodeSigningConfigRequestFilterSensitiveLog": () => (/* binding */ GetFunctionCodeSigningConfigRequestFilterSensitiveLog),
+/* harmony export */   "GetFunctionCodeSigningConfigResponseFilterSensitiveLog": () => (/* binding */ GetFunctionCodeSigningConfigResponseFilterSensitiveLog),
+/* harmony export */   "GetFunctionConcurrencyRequestFilterSensitiveLog": () => (/* binding */ GetFunctionConcurrencyRequestFilterSensitiveLog),
+/* harmony export */   "GetFunctionConcurrencyResponseFilterSensitiveLog": () => (/* binding */ GetFunctionConcurrencyResponseFilterSensitiveLog),
+/* harmony export */   "GetFunctionConfigurationRequestFilterSensitiveLog": () => (/* binding */ GetFunctionConfigurationRequestFilterSensitiveLog),
+/* harmony export */   "GetFunctionEventInvokeConfigRequestFilterSensitiveLog": () => (/* binding */ GetFunctionEventInvokeConfigRequestFilterSensitiveLog),
+/* harmony export */   "GetFunctionRequestFilterSensitiveLog": () => (/* binding */ GetFunctionRequestFilterSensitiveLog),
+/* harmony export */   "GetFunctionResponseFilterSensitiveLog": () => (/* binding */ GetFunctionResponseFilterSensitiveLog),
+/* harmony export */   "GetFunctionUrlConfigRequestFilterSensitiveLog": () => (/* binding */ GetFunctionUrlConfigRequestFilterSensitiveLog),
+/* harmony export */   "GetFunctionUrlConfigResponseFilterSensitiveLog": () => (/* binding */ GetFunctionUrlConfigResponseFilterSensitiveLog),
+/* harmony export */   "GetLayerVersionByArnRequestFilterSensitiveLog": () => (/* binding */ GetLayerVersionByArnRequestFilterSensitiveLog),
+/* harmony export */   "GetLayerVersionPolicyRequestFilterSensitiveLog": () => (/* binding */ GetLayerVersionPolicyRequestFilterSensitiveLog),
+/* harmony export */   "GetLayerVersionPolicyResponseFilterSensitiveLog": () => (/* binding */ GetLayerVersionPolicyResponseFilterSensitiveLog),
+/* harmony export */   "GetLayerVersionRequestFilterSensitiveLog": () => (/* binding */ GetLayerVersionRequestFilterSensitiveLog),
+/* harmony export */   "GetLayerVersionResponseFilterSensitiveLog": () => (/* binding */ GetLayerVersionResponseFilterSensitiveLog),
+/* harmony export */   "GetPolicyRequestFilterSensitiveLog": () => (/* binding */ GetPolicyRequestFilterSensitiveLog),
+/* harmony export */   "GetPolicyResponseFilterSensitiveLog": () => (/* binding */ GetPolicyResponseFilterSensitiveLog),
+/* harmony export */   "GetProvisionedConcurrencyConfigRequestFilterSensitiveLog": () => (/* binding */ GetProvisionedConcurrencyConfigRequestFilterSensitiveLog),
+/* harmony export */   "GetProvisionedConcurrencyConfigResponseFilterSensitiveLog": () => (/* binding */ GetProvisionedConcurrencyConfigResponseFilterSensitiveLog),
+/* harmony export */   "ImageConfigErrorFilterSensitiveLog": () => (/* binding */ ImageConfigErrorFilterSensitiveLog),
+/* harmony export */   "ImageConfigFilterSensitiveLog": () => (/* binding */ ImageConfigFilterSensitiveLog),
+/* harmony export */   "ImageConfigResponseFilterSensitiveLog": () => (/* binding */ ImageConfigResponseFilterSensitiveLog),
+/* harmony export */   "InvalidCodeSignatureException": () => (/* binding */ InvalidCodeSignatureException),
+/* harmony export */   "InvalidParameterValueException": () => (/* binding */ InvalidParameterValueException),
+/* harmony export */   "InvalidRequestContentException": () => (/* binding */ InvalidRequestContentException),
+/* harmony export */   "InvalidRuntimeException": () => (/* binding */ InvalidRuntimeException),
+/* harmony export */   "InvalidSecurityGroupIDException": () => (/* binding */ InvalidSecurityGroupIDException),
+/* harmony export */   "InvalidSubnetIDException": () => (/* binding */ InvalidSubnetIDException),
+/* harmony export */   "InvalidZipFileException": () => (/* binding */ InvalidZipFileException),
+/* harmony export */   "InvocationRequestFilterSensitiveLog": () => (/* binding */ InvocationRequestFilterSensitiveLog),
+/* harmony export */   "InvocationResponseFilterSensitiveLog": () => (/* binding */ InvocationResponseFilterSensitiveLog),
+/* harmony export */   "InvocationType": () => (/* binding */ InvocationType),
+/* harmony export */   "InvokeAsyncRequestFilterSensitiveLog": () => (/* binding */ InvokeAsyncRequestFilterSensitiveLog),
+/* harmony export */   "InvokeAsyncResponseFilterSensitiveLog": () => (/* binding */ InvokeAsyncResponseFilterSensitiveLog),
+/* harmony export */   "KMSAccessDeniedException": () => (/* binding */ KMSAccessDeniedException),
+/* harmony export */   "KMSDisabledException": () => (/* binding */ KMSDisabledException),
+/* harmony export */   "KMSInvalidStateException": () => (/* binding */ KMSInvalidStateException),
+/* harmony export */   "KMSNotFoundException": () => (/* binding */ KMSNotFoundException),
+/* harmony export */   "LastUpdateStatus": () => (/* binding */ LastUpdateStatus),
+/* harmony export */   "LastUpdateStatusReasonCode": () => (/* binding */ LastUpdateStatusReasonCode),
+/* harmony export */   "LayerFilterSensitiveLog": () => (/* binding */ LayerFilterSensitiveLog),
+/* harmony export */   "LayerVersionContentInputFilterSensitiveLog": () => (/* binding */ LayerVersionContentInputFilterSensitiveLog),
+/* harmony export */   "LayerVersionContentOutputFilterSensitiveLog": () => (/* binding */ LayerVersionContentOutputFilterSensitiveLog),
+/* harmony export */   "LayerVersionsListItemFilterSensitiveLog": () => (/* binding */ LayerVersionsListItemFilterSensitiveLog),
+/* harmony export */   "LayersListItemFilterSensitiveLog": () => (/* binding */ LayersListItemFilterSensitiveLog),
+/* harmony export */   "ListAliasesRequestFilterSensitiveLog": () => (/* binding */ ListAliasesRequestFilterSensitiveLog),
+/* harmony export */   "ListAliasesResponseFilterSensitiveLog": () => (/* binding */ ListAliasesResponseFilterSensitiveLog),
+/* harmony export */   "ListCodeSigningConfigsRequestFilterSensitiveLog": () => (/* binding */ ListCodeSigningConfigsRequestFilterSensitiveLog),
+/* harmony export */   "ListCodeSigningConfigsResponseFilterSensitiveLog": () => (/* binding */ ListCodeSigningConfigsResponseFilterSensitiveLog),
+/* harmony export */   "ListEventSourceMappingsRequestFilterSensitiveLog": () => (/* binding */ ListEventSourceMappingsRequestFilterSensitiveLog),
+/* harmony export */   "ListEventSourceMappingsResponseFilterSensitiveLog": () => (/* binding */ ListEventSourceMappingsResponseFilterSensitiveLog),
+/* harmony export */   "ListFunctionEventInvokeConfigsRequestFilterSensitiveLog": () => (/* binding */ ListFunctionEventInvokeConfigsRequestFilterSensitiveLog),
+/* harmony export */   "ListFunctionEventInvokeConfigsResponseFilterSensitiveLog": () => (/* binding */ ListFunctionEventInvokeConfigsResponseFilterSensitiveLog),
+/* harmony export */   "ListFunctionUrlConfigsRequestFilterSensitiveLog": () => (/* binding */ ListFunctionUrlConfigsRequestFilterSensitiveLog),
+/* harmony export */   "ListFunctionUrlConfigsResponseFilterSensitiveLog": () => (/* binding */ ListFunctionUrlConfigsResponseFilterSensitiveLog),
+/* harmony export */   "ListFunctionsByCodeSigningConfigRequestFilterSensitiveLog": () => (/* binding */ ListFunctionsByCodeSigningConfigRequestFilterSensitiveLog),
+/* harmony export */   "ListFunctionsByCodeSigningConfigResponseFilterSensitiveLog": () => (/* binding */ ListFunctionsByCodeSigningConfigResponseFilterSensitiveLog),
+/* harmony export */   "ListFunctionsRequestFilterSensitiveLog": () => (/* binding */ ListFunctionsRequestFilterSensitiveLog),
+/* harmony export */   "ListFunctionsResponseFilterSensitiveLog": () => (/* binding */ ListFunctionsResponseFilterSensitiveLog),
+/* harmony export */   "ListLayerVersionsRequestFilterSensitiveLog": () => (/* binding */ ListLayerVersionsRequestFilterSensitiveLog),
+/* harmony export */   "ListLayerVersionsResponseFilterSensitiveLog": () => (/* binding */ ListLayerVersionsResponseFilterSensitiveLog),
+/* harmony export */   "ListLayersRequestFilterSensitiveLog": () => (/* binding */ ListLayersRequestFilterSensitiveLog),
+/* harmony export */   "ListLayersResponseFilterSensitiveLog": () => (/* binding */ ListLayersResponseFilterSensitiveLog),
+/* harmony export */   "ListProvisionedConcurrencyConfigsRequestFilterSensitiveLog": () => (/* binding */ ListProvisionedConcurrencyConfigsRequestFilterSensitiveLog),
+/* harmony export */   "ListProvisionedConcurrencyConfigsResponseFilterSensitiveLog": () => (/* binding */ ListProvisionedConcurrencyConfigsResponseFilterSensitiveLog),
+/* harmony export */   "ListTagsRequestFilterSensitiveLog": () => (/* binding */ ListTagsRequestFilterSensitiveLog),
+/* harmony export */   "ListTagsResponseFilterSensitiveLog": () => (/* binding */ ListTagsResponseFilterSensitiveLog),
+/* harmony export */   "ListVersionsByFunctionRequestFilterSensitiveLog": () => (/* binding */ ListVersionsByFunctionRequestFilterSensitiveLog),
+/* harmony export */   "ListVersionsByFunctionResponseFilterSensitiveLog": () => (/* binding */ ListVersionsByFunctionResponseFilterSensitiveLog),
+/* harmony export */   "LogType": () => (/* binding */ LogType),
+/* harmony export */   "OnFailureFilterSensitiveLog": () => (/* binding */ OnFailureFilterSensitiveLog),
+/* harmony export */   "OnSuccessFilterSensitiveLog": () => (/* binding */ OnSuccessFilterSensitiveLog),
+/* harmony export */   "PackageType": () => (/* binding */ PackageType),
+/* harmony export */   "PolicyLengthExceededException": () => (/* binding */ PolicyLengthExceededException),
+/* harmony export */   "PreconditionFailedException": () => (/* binding */ PreconditionFailedException),
+/* harmony export */   "ProvisionedConcurrencyConfigListItemFilterSensitiveLog": () => (/* binding */ ProvisionedConcurrencyConfigListItemFilterSensitiveLog),
+/* harmony export */   "ProvisionedConcurrencyConfigNotFoundException": () => (/* binding */ ProvisionedConcurrencyConfigNotFoundException),
+/* harmony export */   "ProvisionedConcurrencyStatusEnum": () => (/* binding */ ProvisionedConcurrencyStatusEnum),
+/* harmony export */   "PublishLayerVersionRequestFilterSensitiveLog": () => (/* binding */ PublishLayerVersionRequestFilterSensitiveLog),
+/* harmony export */   "PublishLayerVersionResponseFilterSensitiveLog": () => (/* binding */ PublishLayerVersionResponseFilterSensitiveLog),
+/* harmony export */   "PublishVersionRequestFilterSensitiveLog": () => (/* binding */ PublishVersionRequestFilterSensitiveLog),
+/* harmony export */   "PutFunctionCodeSigningConfigRequestFilterSensitiveLog": () => (/* binding */ PutFunctionCodeSigningConfigRequestFilterSensitiveLog),
+/* harmony export */   "PutFunctionCodeSigningConfigResponseFilterSensitiveLog": () => (/* binding */ PutFunctionCodeSigningConfigResponseFilterSensitiveLog),
+/* harmony export */   "PutFunctionConcurrencyRequestFilterSensitiveLog": () => (/* binding */ PutFunctionConcurrencyRequestFilterSensitiveLog),
+/* harmony export */   "PutFunctionEventInvokeConfigRequestFilterSensitiveLog": () => (/* binding */ PutFunctionEventInvokeConfigRequestFilterSensitiveLog),
+/* harmony export */   "PutProvisionedConcurrencyConfigRequestFilterSensitiveLog": () => (/* binding */ PutProvisionedConcurrencyConfigRequestFilterSensitiveLog),
+/* harmony export */   "PutProvisionedConcurrencyConfigResponseFilterSensitiveLog": () => (/* binding */ PutProvisionedConcurrencyConfigResponseFilterSensitiveLog),
+/* harmony export */   "RemoveLayerVersionPermissionRequestFilterSensitiveLog": () => (/* binding */ RemoveLayerVersionPermissionRequestFilterSensitiveLog),
+/* harmony export */   "RemovePermissionRequestFilterSensitiveLog": () => (/* binding */ RemovePermissionRequestFilterSensitiveLog),
+/* harmony export */   "RequestTooLargeException": () => (/* binding */ RequestTooLargeException),
+/* harmony export */   "ResourceConflictException": () => (/* binding */ ResourceConflictException),
+/* harmony export */   "ResourceInUseException": () => (/* binding */ ResourceInUseException),
+/* harmony export */   "ResourceNotFoundException": () => (/* binding */ ResourceNotFoundException),
+/* harmony export */   "ResourceNotReadyException": () => (/* binding */ ResourceNotReadyException),
+/* harmony export */   "Runtime": () => (/* binding */ Runtime),
+/* harmony export */   "SelfManagedEventSourceFilterSensitiveLog": () => (/* binding */ SelfManagedEventSourceFilterSensitiveLog),
+/* harmony export */   "ServiceException": () => (/* binding */ ServiceException),
+/* harmony export */   "SourceAccessConfigurationFilterSensitiveLog": () => (/* binding */ SourceAccessConfigurationFilterSensitiveLog),
+/* harmony export */   "SourceAccessType": () => (/* binding */ SourceAccessType),
+/* harmony export */   "State": () => (/* binding */ State),
+/* harmony export */   "StateReasonCode": () => (/* binding */ StateReasonCode),
+/* harmony export */   "SubnetIPAddressLimitReachedException": () => (/* binding */ SubnetIPAddressLimitReachedException),
+/* harmony export */   "TagResourceRequestFilterSensitiveLog": () => (/* binding */ TagResourceRequestFilterSensitiveLog),
+/* harmony export */   "ThrottleReason": () => (/* binding */ ThrottleReason),
+/* harmony export */   "TooManyRequestsException": () => (/* binding */ TooManyRequestsException),
+/* harmony export */   "TracingConfigFilterSensitiveLog": () => (/* binding */ TracingConfigFilterSensitiveLog),
+/* harmony export */   "TracingConfigResponseFilterSensitiveLog": () => (/* binding */ TracingConfigResponseFilterSensitiveLog),
+/* harmony export */   "TracingMode": () => (/* binding */ TracingMode),
+/* harmony export */   "UnsupportedMediaTypeException": () => (/* binding */ UnsupportedMediaTypeException),
+/* harmony export */   "UntagResourceRequestFilterSensitiveLog": () => (/* binding */ UntagResourceRequestFilterSensitiveLog),
+/* harmony export */   "UpdateAliasRequestFilterSensitiveLog": () => (/* binding */ UpdateAliasRequestFilterSensitiveLog),
+/* harmony export */   "UpdateCodeSigningConfigRequestFilterSensitiveLog": () => (/* binding */ UpdateCodeSigningConfigRequestFilterSensitiveLog),
+/* harmony export */   "UpdateCodeSigningConfigResponseFilterSensitiveLog": () => (/* binding */ UpdateCodeSigningConfigResponseFilterSensitiveLog),
+/* harmony export */   "UpdateEventSourceMappingRequestFilterSensitiveLog": () => (/* binding */ UpdateEventSourceMappingRequestFilterSensitiveLog),
+/* harmony export */   "UpdateFunctionCodeRequestFilterSensitiveLog": () => (/* binding */ UpdateFunctionCodeRequestFilterSensitiveLog),
+/* harmony export */   "UpdateFunctionConfigurationRequestFilterSensitiveLog": () => (/* binding */ UpdateFunctionConfigurationRequestFilterSensitiveLog),
+/* harmony export */   "UpdateFunctionEventInvokeConfigRequestFilterSensitiveLog": () => (/* binding */ UpdateFunctionEventInvokeConfigRequestFilterSensitiveLog),
+/* harmony export */   "UpdateFunctionUrlConfigRequestFilterSensitiveLog": () => (/* binding */ UpdateFunctionUrlConfigRequestFilterSensitiveLog),
+/* harmony export */   "UpdateFunctionUrlConfigResponseFilterSensitiveLog": () => (/* binding */ UpdateFunctionUrlConfigResponseFilterSensitiveLog),
+/* harmony export */   "VpcConfigFilterSensitiveLog": () => (/* binding */ VpcConfigFilterSensitiveLog),
+/* harmony export */   "VpcConfigResponseFilterSensitiveLog": () => (/* binding */ VpcConfigResponseFilterSensitiveLog)
+/* harmony export */ });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @aws-sdk/smithy-client */ "./node_modules/@aws-sdk/client-lambda/node_modules/@aws-sdk/smithy-client/dist-es/index.js");
+/* harmony import */ var _LambdaServiceException__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./LambdaServiceException */ "./node_modules/@aws-sdk/client-lambda/dist-es/models/LambdaServiceException.js");
+
+
+
+var InvalidParameterValueException = (function (_super) {
+    (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__extends)(InvalidParameterValueException, _super);
+    function InvalidParameterValueException(opts) {
+        var _this = _super.call(this, (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({ name: "InvalidParameterValueException", $fault: "client" }, opts)) || this;
+        _this.name = "InvalidParameterValueException";
+        _this.$fault = "client";
+        Object.setPrototypeOf(_this, InvalidParameterValueException.prototype);
+        _this.Type = opts.Type;
+        return _this;
+    }
+    return InvalidParameterValueException;
+}(_LambdaServiceException__WEBPACK_IMPORTED_MODULE_2__.LambdaServiceException));
+
+var PolicyLengthExceededException = (function (_super) {
+    (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__extends)(PolicyLengthExceededException, _super);
+    function PolicyLengthExceededException(opts) {
+        var _this = _super.call(this, (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({ name: "PolicyLengthExceededException", $fault: "client" }, opts)) || this;
+        _this.name = "PolicyLengthExceededException";
+        _this.$fault = "client";
+        Object.setPrototypeOf(_this, PolicyLengthExceededException.prototype);
+        _this.Type = opts.Type;
+        return _this;
+    }
+    return PolicyLengthExceededException;
+}(_LambdaServiceException__WEBPACK_IMPORTED_MODULE_2__.LambdaServiceException));
+
+var PreconditionFailedException = (function (_super) {
+    (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__extends)(PreconditionFailedException, _super);
+    function PreconditionFailedException(opts) {
+        var _this = _super.call(this, (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({ name: "PreconditionFailedException", $fault: "client" }, opts)) || this;
+        _this.name = "PreconditionFailedException";
+        _this.$fault = "client";
+        Object.setPrototypeOf(_this, PreconditionFailedException.prototype);
+        _this.Type = opts.Type;
+        return _this;
+    }
+    return PreconditionFailedException;
+}(_LambdaServiceException__WEBPACK_IMPORTED_MODULE_2__.LambdaServiceException));
+
+var ResourceConflictException = (function (_super) {
+    (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__extends)(ResourceConflictException, _super);
+    function ResourceConflictException(opts) {
+        var _this = _super.call(this, (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({ name: "ResourceConflictException", $fault: "client" }, opts)) || this;
+        _this.name = "ResourceConflictException";
+        _this.$fault = "client";
+        Object.setPrototypeOf(_this, ResourceConflictException.prototype);
+        _this.Type = opts.Type;
+        return _this;
+    }
+    return ResourceConflictException;
+}(_LambdaServiceException__WEBPACK_IMPORTED_MODULE_2__.LambdaServiceException));
+
+var ResourceNotFoundException = (function (_super) {
+    (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__extends)(ResourceNotFoundException, _super);
+    function ResourceNotFoundException(opts) {
+        var _this = _super.call(this, (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({ name: "ResourceNotFoundException", $fault: "client" }, opts)) || this;
+        _this.name = "ResourceNotFoundException";
+        _this.$fault = "client";
+        Object.setPrototypeOf(_this, ResourceNotFoundException.prototype);
+        _this.Type = opts.Type;
+        _this.Message = opts.Message;
+        return _this;
+    }
+    return ResourceNotFoundException;
+}(_LambdaServiceException__WEBPACK_IMPORTED_MODULE_2__.LambdaServiceException));
+
+var ServiceException = (function (_super) {
+    (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__extends)(ServiceException, _super);
+    function ServiceException(opts) {
+        var _this = _super.call(this, (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({ name: "ServiceException", $fault: "server" }, opts)) || this;
+        _this.name = "ServiceException";
+        _this.$fault = "server";
+        Object.setPrototypeOf(_this, ServiceException.prototype);
+        _this.Type = opts.Type;
+        _this.Message = opts.Message;
+        return _this;
+    }
+    return ServiceException;
+}(_LambdaServiceException__WEBPACK_IMPORTED_MODULE_2__.LambdaServiceException));
+
+var ThrottleReason;
+(function (ThrottleReason) {
+    ThrottleReason["CallerRateLimitExceeded"] = "CallerRateLimitExceeded";
+    ThrottleReason["ConcurrentInvocationLimitExceeded"] = "ConcurrentInvocationLimitExceeded";
+    ThrottleReason["FunctionInvocationRateLimitExceeded"] = "FunctionInvocationRateLimitExceeded";
+    ThrottleReason["ReservedFunctionConcurrentInvocationLimitExceeded"] = "ReservedFunctionConcurrentInvocationLimitExceeded";
+    ThrottleReason["ReservedFunctionInvocationRateLimitExceeded"] = "ReservedFunctionInvocationRateLimitExceeded";
+})(ThrottleReason || (ThrottleReason = {}));
+var TooManyRequestsException = (function (_super) {
+    (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__extends)(TooManyRequestsException, _super);
+    function TooManyRequestsException(opts) {
+        var _this = _super.call(this, (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({ name: "TooManyRequestsException", $fault: "client" }, opts)) || this;
+        _this.name = "TooManyRequestsException";
+        _this.$fault = "client";
+        Object.setPrototypeOf(_this, TooManyRequestsException.prototype);
+        _this.retryAfterSeconds = opts.retryAfterSeconds;
+        _this.Type = opts.Type;
+        _this.Reason = opts.Reason;
+        return _this;
+    }
+    return TooManyRequestsException;
+}(_LambdaServiceException__WEBPACK_IMPORTED_MODULE_2__.LambdaServiceException));
+
+var FunctionUrlAuthType;
+(function (FunctionUrlAuthType) {
+    FunctionUrlAuthType["AWS_IAM"] = "AWS_IAM";
+    FunctionUrlAuthType["NONE"] = "NONE";
+})(FunctionUrlAuthType || (FunctionUrlAuthType = {}));
+var Architecture;
+(function (Architecture) {
+    Architecture["arm64"] = "arm64";
+    Architecture["x86_64"] = "x86_64";
+})(Architecture || (Architecture = {}));
+var CodeSigningPolicy;
+(function (CodeSigningPolicy) {
+    CodeSigningPolicy["Enforce"] = "Enforce";
+    CodeSigningPolicy["Warn"] = "Warn";
+})(CodeSigningPolicy || (CodeSigningPolicy = {}));
+var FunctionResponseType;
+(function (FunctionResponseType) {
+    FunctionResponseType["ReportBatchItemFailures"] = "ReportBatchItemFailures";
+})(FunctionResponseType || (FunctionResponseType = {}));
+var EndPointType;
+(function (EndPointType) {
+    EndPointType["KAFKA_BOOTSTRAP_SERVERS"] = "KAFKA_BOOTSTRAP_SERVERS";
+})(EndPointType || (EndPointType = {}));
+var SourceAccessType;
+(function (SourceAccessType) {
+    SourceAccessType["BASIC_AUTH"] = "BASIC_AUTH";
+    SourceAccessType["CLIENT_CERTIFICATE_TLS_AUTH"] = "CLIENT_CERTIFICATE_TLS_AUTH";
+    SourceAccessType["SASL_SCRAM_256_AUTH"] = "SASL_SCRAM_256_AUTH";
+    SourceAccessType["SASL_SCRAM_512_AUTH"] = "SASL_SCRAM_512_AUTH";
+    SourceAccessType["SERVER_ROOT_CA_CERTIFICATE"] = "SERVER_ROOT_CA_CERTIFICATE";
+    SourceAccessType["VIRTUAL_HOST"] = "VIRTUAL_HOST";
+    SourceAccessType["VPC_SECURITY_GROUP"] = "VPC_SECURITY_GROUP";
+    SourceAccessType["VPC_SUBNET"] = "VPC_SUBNET";
+})(SourceAccessType || (SourceAccessType = {}));
+var EventSourcePosition;
+(function (EventSourcePosition) {
+    EventSourcePosition["AT_TIMESTAMP"] = "AT_TIMESTAMP";
+    EventSourcePosition["LATEST"] = "LATEST";
+    EventSourcePosition["TRIM_HORIZON"] = "TRIM_HORIZON";
+})(EventSourcePosition || (EventSourcePosition = {}));
+var CodeSigningConfigNotFoundException = (function (_super) {
+    (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__extends)(CodeSigningConfigNotFoundException, _super);
+    function CodeSigningConfigNotFoundException(opts) {
+        var _this = _super.call(this, (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({ name: "CodeSigningConfigNotFoundException", $fault: "client" }, opts)) || this;
+        _this.name = "CodeSigningConfigNotFoundException";
+        _this.$fault = "client";
+        Object.setPrototypeOf(_this, CodeSigningConfigNotFoundException.prototype);
+        _this.Type = opts.Type;
+        _this.Message = opts.Message;
+        return _this;
+    }
+    return CodeSigningConfigNotFoundException;
+}(_LambdaServiceException__WEBPACK_IMPORTED_MODULE_2__.LambdaServiceException));
+
+var CodeStorageExceededException = (function (_super) {
+    (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__extends)(CodeStorageExceededException, _super);
+    function CodeStorageExceededException(opts) {
+        var _this = _super.call(this, (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({ name: "CodeStorageExceededException", $fault: "client" }, opts)) || this;
+        _this.name = "CodeStorageExceededException";
+        _this.$fault = "client";
+        Object.setPrototypeOf(_this, CodeStorageExceededException.prototype);
+        _this.Type = opts.Type;
+        return _this;
+    }
+    return CodeStorageExceededException;
+}(_LambdaServiceException__WEBPACK_IMPORTED_MODULE_2__.LambdaServiceException));
+
+var CodeVerificationFailedException = (function (_super) {
+    (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__extends)(CodeVerificationFailedException, _super);
+    function CodeVerificationFailedException(opts) {
+        var _this = _super.call(this, (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({ name: "CodeVerificationFailedException", $fault: "client" }, opts)) || this;
+        _this.name = "CodeVerificationFailedException";
+        _this.$fault = "client";
+        Object.setPrototypeOf(_this, CodeVerificationFailedException.prototype);
+        _this.Type = opts.Type;
+        _this.Message = opts.Message;
+        return _this;
+    }
+    return CodeVerificationFailedException;
+}(_LambdaServiceException__WEBPACK_IMPORTED_MODULE_2__.LambdaServiceException));
+
+var PackageType;
+(function (PackageType) {
+    PackageType["Image"] = "Image";
+    PackageType["Zip"] = "Zip";
+})(PackageType || (PackageType = {}));
+var Runtime;
+(function (Runtime) {
+    Runtime["dotnet6"] = "dotnet6";
+    Runtime["dotnetcore10"] = "dotnetcore1.0";
+    Runtime["dotnetcore20"] = "dotnetcore2.0";
+    Runtime["dotnetcore21"] = "dotnetcore2.1";
+    Runtime["dotnetcore31"] = "dotnetcore3.1";
+    Runtime["go1x"] = "go1.x";
+    Runtime["java11"] = "java11";
+    Runtime["java8"] = "java8";
+    Runtime["java8al2"] = "java8.al2";
+    Runtime["nodejs"] = "nodejs";
+    Runtime["nodejs10x"] = "nodejs10.x";
+    Runtime["nodejs12x"] = "nodejs12.x";
+    Runtime["nodejs14x"] = "nodejs14.x";
+    Runtime["nodejs16x"] = "nodejs16.x";
+    Runtime["nodejs43"] = "nodejs4.3";
+    Runtime["nodejs43edge"] = "nodejs4.3-edge";
+    Runtime["nodejs610"] = "nodejs6.10";
+    Runtime["nodejs810"] = "nodejs8.10";
+    Runtime["provided"] = "provided";
+    Runtime["providedal2"] = "provided.al2";
+    Runtime["python27"] = "python2.7";
+    Runtime["python36"] = "python3.6";
+    Runtime["python37"] = "python3.7";
+    Runtime["python38"] = "python3.8";
+    Runtime["python39"] = "python3.9";
+    Runtime["ruby25"] = "ruby2.5";
+    Runtime["ruby27"] = "ruby2.7";
+})(Runtime || (Runtime = {}));
+var TracingMode;
+(function (TracingMode) {
+    TracingMode["Active"] = "Active";
+    TracingMode["PassThrough"] = "PassThrough";
+})(TracingMode || (TracingMode = {}));
+var LastUpdateStatus;
+(function (LastUpdateStatus) {
+    LastUpdateStatus["Failed"] = "Failed";
+    LastUpdateStatus["InProgress"] = "InProgress";
+    LastUpdateStatus["Successful"] = "Successful";
+})(LastUpdateStatus || (LastUpdateStatus = {}));
+var LastUpdateStatusReasonCode;
+(function (LastUpdateStatusReasonCode) {
+    LastUpdateStatusReasonCode["EniLimitExceeded"] = "EniLimitExceeded";
+    LastUpdateStatusReasonCode["ImageAccessDenied"] = "ImageAccessDenied";
+    LastUpdateStatusReasonCode["ImageDeleted"] = "ImageDeleted";
+    LastUpdateStatusReasonCode["InsufficientRolePermissions"] = "InsufficientRolePermissions";
+    LastUpdateStatusReasonCode["InternalError"] = "InternalError";
+    LastUpdateStatusReasonCode["InvalidConfiguration"] = "InvalidConfiguration";
+    LastUpdateStatusReasonCode["InvalidImage"] = "InvalidImage";
+    LastUpdateStatusReasonCode["InvalidSecurityGroup"] = "InvalidSecurityGroup";
+    LastUpdateStatusReasonCode["InvalidSubnet"] = "InvalidSubnet";
+    LastUpdateStatusReasonCode["SubnetOutOfIPAddresses"] = "SubnetOutOfIPAddresses";
+})(LastUpdateStatusReasonCode || (LastUpdateStatusReasonCode = {}));
+var State;
+(function (State) {
+    State["Active"] = "Active";
+    State["Failed"] = "Failed";
+    State["Inactive"] = "Inactive";
+    State["Pending"] = "Pending";
+})(State || (State = {}));
+var StateReasonCode;
+(function (StateReasonCode) {
+    StateReasonCode["Creating"] = "Creating";
+    StateReasonCode["EniLimitExceeded"] = "EniLimitExceeded";
+    StateReasonCode["Idle"] = "Idle";
+    StateReasonCode["ImageAccessDenied"] = "ImageAccessDenied";
+    StateReasonCode["ImageDeleted"] = "ImageDeleted";
+    StateReasonCode["InsufficientRolePermissions"] = "InsufficientRolePermissions";
+    StateReasonCode["InternalError"] = "InternalError";
+    StateReasonCode["InvalidConfiguration"] = "InvalidConfiguration";
+    StateReasonCode["InvalidImage"] = "InvalidImage";
+    StateReasonCode["InvalidSecurityGroup"] = "InvalidSecurityGroup";
+    StateReasonCode["InvalidSubnet"] = "InvalidSubnet";
+    StateReasonCode["Restoring"] = "Restoring";
+    StateReasonCode["SubnetOutOfIPAddresses"] = "SubnetOutOfIPAddresses";
+})(StateReasonCode || (StateReasonCode = {}));
+var InvalidCodeSignatureException = (function (_super) {
+    (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__extends)(InvalidCodeSignatureException, _super);
+    function InvalidCodeSignatureException(opts) {
+        var _this = _super.call(this, (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({ name: "InvalidCodeSignatureException", $fault: "client" }, opts)) || this;
+        _this.name = "InvalidCodeSignatureException";
+        _this.$fault = "client";
+        Object.setPrototypeOf(_this, InvalidCodeSignatureException.prototype);
+        _this.Type = opts.Type;
+        _this.Message = opts.Message;
+        return _this;
+    }
+    return InvalidCodeSignatureException;
+}(_LambdaServiceException__WEBPACK_IMPORTED_MODULE_2__.LambdaServiceException));
+
+var ResourceInUseException = (function (_super) {
+    (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__extends)(ResourceInUseException, _super);
+    function ResourceInUseException(opts) {
+        var _this = _super.call(this, (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({ name: "ResourceInUseException", $fault: "client" }, opts)) || this;
+        _this.name = "ResourceInUseException";
+        _this.$fault = "client";
+        Object.setPrototypeOf(_this, ResourceInUseException.prototype);
+        _this.Type = opts.Type;
+        _this.Message = opts.Message;
+        return _this;
+    }
+    return ResourceInUseException;
+}(_LambdaServiceException__WEBPACK_IMPORTED_MODULE_2__.LambdaServiceException));
+
+var ProvisionedConcurrencyStatusEnum;
+(function (ProvisionedConcurrencyStatusEnum) {
+    ProvisionedConcurrencyStatusEnum["FAILED"] = "FAILED";
+    ProvisionedConcurrencyStatusEnum["IN_PROGRESS"] = "IN_PROGRESS";
+    ProvisionedConcurrencyStatusEnum["READY"] = "READY";
+})(ProvisionedConcurrencyStatusEnum || (ProvisionedConcurrencyStatusEnum = {}));
+var ProvisionedConcurrencyConfigNotFoundException = (function (_super) {
+    (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__extends)(ProvisionedConcurrencyConfigNotFoundException, _super);
+    function ProvisionedConcurrencyConfigNotFoundException(opts) {
+        var _this = _super.call(this, (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({ name: "ProvisionedConcurrencyConfigNotFoundException", $fault: "client" }, opts)) || this;
+        _this.name = "ProvisionedConcurrencyConfigNotFoundException";
+        _this.$fault = "client";
+        Object.setPrototypeOf(_this, ProvisionedConcurrencyConfigNotFoundException.prototype);
+        _this.Type = opts.Type;
+        return _this;
+    }
+    return ProvisionedConcurrencyConfigNotFoundException;
+}(_LambdaServiceException__WEBPACK_IMPORTED_MODULE_2__.LambdaServiceException));
+
+var EC2AccessDeniedException = (function (_super) {
+    (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__extends)(EC2AccessDeniedException, _super);
+    function EC2AccessDeniedException(opts) {
+        var _this = _super.call(this, (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({ name: "EC2AccessDeniedException", $fault: "server" }, opts)) || this;
+        _this.name = "EC2AccessDeniedException";
+        _this.$fault = "server";
+        Object.setPrototypeOf(_this, EC2AccessDeniedException.prototype);
+        _this.Type = opts.Type;
+        _this.Message = opts.Message;
+        return _this;
+    }
+    return EC2AccessDeniedException;
+}(_LambdaServiceException__WEBPACK_IMPORTED_MODULE_2__.LambdaServiceException));
+
+var EC2ThrottledException = (function (_super) {
+    (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__extends)(EC2ThrottledException, _super);
+    function EC2ThrottledException(opts) {
+        var _this = _super.call(this, (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({ name: "EC2ThrottledException", $fault: "server" }, opts)) || this;
+        _this.name = "EC2ThrottledException";
+        _this.$fault = "server";
+        Object.setPrototypeOf(_this, EC2ThrottledException.prototype);
+        _this.Type = opts.Type;
+        _this.Message = opts.Message;
+        return _this;
+    }
+    return EC2ThrottledException;
+}(_LambdaServiceException__WEBPACK_IMPORTED_MODULE_2__.LambdaServiceException));
+
+var EC2UnexpectedException = (function (_super) {
+    (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__extends)(EC2UnexpectedException, _super);
+    function EC2UnexpectedException(opts) {
+        var _this = _super.call(this, (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({ name: "EC2UnexpectedException", $fault: "server" }, opts)) || this;
+        _this.name = "EC2UnexpectedException";
+        _this.$fault = "server";
+        Object.setPrototypeOf(_this, EC2UnexpectedException.prototype);
+        _this.Type = opts.Type;
+        _this.Message = opts.Message;
+        _this.EC2ErrorCode = opts.EC2ErrorCode;
+        return _this;
+    }
+    return EC2UnexpectedException;
+}(_LambdaServiceException__WEBPACK_IMPORTED_MODULE_2__.LambdaServiceException));
+
+var EFSIOException = (function (_super) {
+    (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__extends)(EFSIOException, _super);
+    function EFSIOException(opts) {
+        var _this = _super.call(this, (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({ name: "EFSIOException", $fault: "client" }, opts)) || this;
+        _this.name = "EFSIOException";
+        _this.$fault = "client";
+        Object.setPrototypeOf(_this, EFSIOException.prototype);
+        _this.Type = opts.Type;
+        _this.Message = opts.Message;
+        return _this;
+    }
+    return EFSIOException;
+}(_LambdaServiceException__WEBPACK_IMPORTED_MODULE_2__.LambdaServiceException));
+
+var EFSMountConnectivityException = (function (_super) {
+    (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__extends)(EFSMountConnectivityException, _super);
+    function EFSMountConnectivityException(opts) {
+        var _this = _super.call(this, (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({ name: "EFSMountConnectivityException", $fault: "client" }, opts)) || this;
+        _this.name = "EFSMountConnectivityException";
+        _this.$fault = "client";
+        Object.setPrototypeOf(_this, EFSMountConnectivityException.prototype);
+        _this.Type = opts.Type;
+        _this.Message = opts.Message;
+        return _this;
+    }
+    return EFSMountConnectivityException;
+}(_LambdaServiceException__WEBPACK_IMPORTED_MODULE_2__.LambdaServiceException));
+
+var EFSMountFailureException = (function (_super) {
+    (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__extends)(EFSMountFailureException, _super);
+    function EFSMountFailureException(opts) {
+        var _this = _super.call(this, (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({ name: "EFSMountFailureException", $fault: "client" }, opts)) || this;
+        _this.name = "EFSMountFailureException";
+        _this.$fault = "client";
+        Object.setPrototypeOf(_this, EFSMountFailureException.prototype);
+        _this.Type = opts.Type;
+        _this.Message = opts.Message;
+        return _this;
+    }
+    return EFSMountFailureException;
+}(_LambdaServiceException__WEBPACK_IMPORTED_MODULE_2__.LambdaServiceException));
+
+var EFSMountTimeoutException = (function (_super) {
+    (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__extends)(EFSMountTimeoutException, _super);
+    function EFSMountTimeoutException(opts) {
+        var _this = _super.call(this, (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({ name: "EFSMountTimeoutException", $fault: "client" }, opts)) || this;
+        _this.name = "EFSMountTimeoutException";
+        _this.$fault = "client";
+        Object.setPrototypeOf(_this, EFSMountTimeoutException.prototype);
+        _this.Type = opts.Type;
+        _this.Message = opts.Message;
+        return _this;
+    }
+    return EFSMountTimeoutException;
+}(_LambdaServiceException__WEBPACK_IMPORTED_MODULE_2__.LambdaServiceException));
+
+var ENILimitReachedException = (function (_super) {
+    (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__extends)(ENILimitReachedException, _super);
+    function ENILimitReachedException(opts) {
+        var _this = _super.call(this, (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({ name: "ENILimitReachedException", $fault: "server" }, opts)) || this;
+        _this.name = "ENILimitReachedException";
+        _this.$fault = "server";
+        Object.setPrototypeOf(_this, ENILimitReachedException.prototype);
+        _this.Type = opts.Type;
+        _this.Message = opts.Message;
+        return _this;
+    }
+    return ENILimitReachedException;
+}(_LambdaServiceException__WEBPACK_IMPORTED_MODULE_2__.LambdaServiceException));
+
+var InvalidRequestContentException = (function (_super) {
+    (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__extends)(InvalidRequestContentException, _super);
+    function InvalidRequestContentException(opts) {
+        var _this = _super.call(this, (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({ name: "InvalidRequestContentException", $fault: "client" }, opts)) || this;
+        _this.name = "InvalidRequestContentException";
+        _this.$fault = "client";
+        Object.setPrototypeOf(_this, InvalidRequestContentException.prototype);
+        _this.Type = opts.Type;
+        return _this;
+    }
+    return InvalidRequestContentException;
+}(_LambdaServiceException__WEBPACK_IMPORTED_MODULE_2__.LambdaServiceException));
+
+var InvalidRuntimeException = (function (_super) {
+    (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__extends)(InvalidRuntimeException, _super);
+    function InvalidRuntimeException(opts) {
+        var _this = _super.call(this, (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({ name: "InvalidRuntimeException", $fault: "server" }, opts)) || this;
+        _this.name = "InvalidRuntimeException";
+        _this.$fault = "server";
+        Object.setPrototypeOf(_this, InvalidRuntimeException.prototype);
+        _this.Type = opts.Type;
+        _this.Message = opts.Message;
+        return _this;
+    }
+    return InvalidRuntimeException;
+}(_LambdaServiceException__WEBPACK_IMPORTED_MODULE_2__.LambdaServiceException));
+
+var InvalidSecurityGroupIDException = (function (_super) {
+    (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__extends)(InvalidSecurityGroupIDException, _super);
+    function InvalidSecurityGroupIDException(opts) {
+        var _this = _super.call(this, (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({ name: "InvalidSecurityGroupIDException", $fault: "server" }, opts)) || this;
+        _this.name = "InvalidSecurityGroupIDException";
+        _this.$fault = "server";
+        Object.setPrototypeOf(_this, InvalidSecurityGroupIDException.prototype);
+        _this.Type = opts.Type;
+        _this.Message = opts.Message;
+        return _this;
+    }
+    return InvalidSecurityGroupIDException;
+}(_LambdaServiceException__WEBPACK_IMPORTED_MODULE_2__.LambdaServiceException));
+
+var InvalidSubnetIDException = (function (_super) {
+    (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__extends)(InvalidSubnetIDException, _super);
+    function InvalidSubnetIDException(opts) {
+        var _this = _super.call(this, (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({ name: "InvalidSubnetIDException", $fault: "server" }, opts)) || this;
+        _this.name = "InvalidSubnetIDException";
+        _this.$fault = "server";
+        Object.setPrototypeOf(_this, InvalidSubnetIDException.prototype);
+        _this.Type = opts.Type;
+        _this.Message = opts.Message;
+        return _this;
+    }
+    return InvalidSubnetIDException;
+}(_LambdaServiceException__WEBPACK_IMPORTED_MODULE_2__.LambdaServiceException));
+
+var InvalidZipFileException = (function (_super) {
+    (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__extends)(InvalidZipFileException, _super);
+    function InvalidZipFileException(opts) {
+        var _this = _super.call(this, (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({ name: "InvalidZipFileException", $fault: "server" }, opts)) || this;
+        _this.name = "InvalidZipFileException";
+        _this.$fault = "server";
+        Object.setPrototypeOf(_this, InvalidZipFileException.prototype);
+        _this.Type = opts.Type;
+        _this.Message = opts.Message;
+        return _this;
+    }
+    return InvalidZipFileException;
+}(_LambdaServiceException__WEBPACK_IMPORTED_MODULE_2__.LambdaServiceException));
+
+var InvocationType;
+(function (InvocationType) {
+    InvocationType["DryRun"] = "DryRun";
+    InvocationType["Event"] = "Event";
+    InvocationType["RequestResponse"] = "RequestResponse";
+})(InvocationType || (InvocationType = {}));
+var LogType;
+(function (LogType) {
+    LogType["None"] = "None";
+    LogType["Tail"] = "Tail";
+})(LogType || (LogType = {}));
+var KMSAccessDeniedException = (function (_super) {
+    (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__extends)(KMSAccessDeniedException, _super);
+    function KMSAccessDeniedException(opts) {
+        var _this = _super.call(this, (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({ name: "KMSAccessDeniedException", $fault: "server" }, opts)) || this;
+        _this.name = "KMSAccessDeniedException";
+        _this.$fault = "server";
+        Object.setPrototypeOf(_this, KMSAccessDeniedException.prototype);
+        _this.Type = opts.Type;
+        _this.Message = opts.Message;
+        return _this;
+    }
+    return KMSAccessDeniedException;
+}(_LambdaServiceException__WEBPACK_IMPORTED_MODULE_2__.LambdaServiceException));
+
+var KMSDisabledException = (function (_super) {
+    (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__extends)(KMSDisabledException, _super);
+    function KMSDisabledException(opts) {
+        var _this = _super.call(this, (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({ name: "KMSDisabledException", $fault: "server" }, opts)) || this;
+        _this.name = "KMSDisabledException";
+        _this.$fault = "server";
+        Object.setPrototypeOf(_this, KMSDisabledException.prototype);
+        _this.Type = opts.Type;
+        _this.Message = opts.Message;
+        return _this;
+    }
+    return KMSDisabledException;
+}(_LambdaServiceException__WEBPACK_IMPORTED_MODULE_2__.LambdaServiceException));
+
+var KMSInvalidStateException = (function (_super) {
+    (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__extends)(KMSInvalidStateException, _super);
+    function KMSInvalidStateException(opts) {
+        var _this = _super.call(this, (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({ name: "KMSInvalidStateException", $fault: "server" }, opts)) || this;
+        _this.name = "KMSInvalidStateException";
+        _this.$fault = "server";
+        Object.setPrototypeOf(_this, KMSInvalidStateException.prototype);
+        _this.Type = opts.Type;
+        _this.Message = opts.Message;
+        return _this;
+    }
+    return KMSInvalidStateException;
+}(_LambdaServiceException__WEBPACK_IMPORTED_MODULE_2__.LambdaServiceException));
+
+var KMSNotFoundException = (function (_super) {
+    (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__extends)(KMSNotFoundException, _super);
+    function KMSNotFoundException(opts) {
+        var _this = _super.call(this, (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({ name: "KMSNotFoundException", $fault: "server" }, opts)) || this;
+        _this.name = "KMSNotFoundException";
+        _this.$fault = "server";
+        Object.setPrototypeOf(_this, KMSNotFoundException.prototype);
+        _this.Type = opts.Type;
+        _this.Message = opts.Message;
+        return _this;
+    }
+    return KMSNotFoundException;
+}(_LambdaServiceException__WEBPACK_IMPORTED_MODULE_2__.LambdaServiceException));
+
+var RequestTooLargeException = (function (_super) {
+    (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__extends)(RequestTooLargeException, _super);
+    function RequestTooLargeException(opts) {
+        var _this = _super.call(this, (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({ name: "RequestTooLargeException", $fault: "client" }, opts)) || this;
+        _this.name = "RequestTooLargeException";
+        _this.$fault = "client";
+        Object.setPrototypeOf(_this, RequestTooLargeException.prototype);
+        _this.Type = opts.Type;
+        return _this;
+    }
+    return RequestTooLargeException;
+}(_LambdaServiceException__WEBPACK_IMPORTED_MODULE_2__.LambdaServiceException));
+
+var ResourceNotReadyException = (function (_super) {
+    (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__extends)(ResourceNotReadyException, _super);
+    function ResourceNotReadyException(opts) {
+        var _this = _super.call(this, (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({ name: "ResourceNotReadyException", $fault: "server" }, opts)) || this;
+        _this.name = "ResourceNotReadyException";
+        _this.$fault = "server";
+        Object.setPrototypeOf(_this, ResourceNotReadyException.prototype);
+        _this.Type = opts.Type;
+        return _this;
+    }
+    return ResourceNotReadyException;
+}(_LambdaServiceException__WEBPACK_IMPORTED_MODULE_2__.LambdaServiceException));
+
+var SubnetIPAddressLimitReachedException = (function (_super) {
+    (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__extends)(SubnetIPAddressLimitReachedException, _super);
+    function SubnetIPAddressLimitReachedException(opts) {
+        var _this = _super.call(this, (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({ name: "SubnetIPAddressLimitReachedException", $fault: "server" }, opts)) || this;
+        _this.name = "SubnetIPAddressLimitReachedException";
+        _this.$fault = "server";
+        Object.setPrototypeOf(_this, SubnetIPAddressLimitReachedException.prototype);
+        _this.Type = opts.Type;
+        _this.Message = opts.Message;
+        return _this;
+    }
+    return SubnetIPAddressLimitReachedException;
+}(_LambdaServiceException__WEBPACK_IMPORTED_MODULE_2__.LambdaServiceException));
+
+var UnsupportedMediaTypeException = (function (_super) {
+    (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__extends)(UnsupportedMediaTypeException, _super);
+    function UnsupportedMediaTypeException(opts) {
+        var _this = _super.call(this, (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({ name: "UnsupportedMediaTypeException", $fault: "client" }, opts)) || this;
+        _this.name = "UnsupportedMediaTypeException";
+        _this.$fault = "client";
+        Object.setPrototypeOf(_this, UnsupportedMediaTypeException.prototype);
+        _this.Type = opts.Type;
+        return _this;
+    }
+    return UnsupportedMediaTypeException;
+}(_LambdaServiceException__WEBPACK_IMPORTED_MODULE_2__.LambdaServiceException));
+
+var FunctionVersion;
+(function (FunctionVersion) {
+    FunctionVersion["ALL"] = "ALL";
+})(FunctionVersion || (FunctionVersion = {}));
+var AccountLimitFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var AccountUsageFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var AddLayerVersionPermissionRequestFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var AddLayerVersionPermissionResponseFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var AddPermissionRequestFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var AddPermissionResponseFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var AliasRoutingConfigurationFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var AliasConfigurationFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var AllowedPublishersFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var CreateAliasRequestFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var CodeSigningPoliciesFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var CreateCodeSigningConfigRequestFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var CodeSigningConfigFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var CreateCodeSigningConfigResponseFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var OnFailureFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var OnSuccessFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var DestinationConfigFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var FilterFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var FilterCriteriaFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var SelfManagedEventSourceFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var SourceAccessConfigurationFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var CreateEventSourceMappingRequestFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var EventSourceMappingConfigurationFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var FunctionCodeFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj), (obj.ZipFile && { ZipFile: _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_0__.SENSITIVE_STRING }))); };
+var DeadLetterConfigFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var EnvironmentFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj), (obj.Variables && { Variables: _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_0__.SENSITIVE_STRING }))); };
+var EphemeralStorageFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var FileSystemConfigFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var ImageConfigFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var TracingConfigFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var VpcConfigFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var CreateFunctionRequestFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj), (obj.Code && { Code: FunctionCodeFilterSensitiveLog(obj.Code) })), (obj.Environment && { Environment: EnvironmentFilterSensitiveLog(obj.Environment) }))); };
+var EnvironmentErrorFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj), (obj.Message && { Message: _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_0__.SENSITIVE_STRING }))); };
+var EnvironmentResponseFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj), (obj.Variables && { Variables: _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_0__.SENSITIVE_STRING })), (obj.Error && { Error: EnvironmentErrorFilterSensitiveLog(obj.Error) }))); };
+var ImageConfigErrorFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj), (obj.Message && { Message: _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_0__.SENSITIVE_STRING }))); };
+var ImageConfigResponseFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj), (obj.Error && { Error: ImageConfigErrorFilterSensitiveLog(obj.Error) }))); };
+var LayerFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var TracingConfigResponseFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var VpcConfigResponseFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var FunctionConfigurationFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj), (obj.Environment && { Environment: EnvironmentResponseFilterSensitiveLog(obj.Environment) })), (obj.ImageConfigResponse && {
+    ImageConfigResponse: ImageConfigResponseFilterSensitiveLog(obj.ImageConfigResponse),
+}))); };
+var CorsFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var CreateFunctionUrlConfigRequestFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var CreateFunctionUrlConfigResponseFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var DeleteAliasRequestFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var DeleteCodeSigningConfigRequestFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var DeleteCodeSigningConfigResponseFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var DeleteEventSourceMappingRequestFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var DeleteFunctionRequestFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var DeleteFunctionCodeSigningConfigRequestFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var DeleteFunctionConcurrencyRequestFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var DeleteFunctionEventInvokeConfigRequestFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var DeleteFunctionUrlConfigRequestFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var DeleteLayerVersionRequestFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var DeleteProvisionedConcurrencyConfigRequestFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var GetAccountSettingsRequestFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var GetAccountSettingsResponseFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var GetAliasRequestFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var GetCodeSigningConfigRequestFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var GetCodeSigningConfigResponseFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var GetEventSourceMappingRequestFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var GetFunctionRequestFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var FunctionCodeLocationFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var ConcurrencyFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var GetFunctionResponseFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj), (obj.Configuration && { Configuration: FunctionConfigurationFilterSensitiveLog(obj.Configuration) }))); };
+var GetFunctionCodeSigningConfigRequestFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var GetFunctionCodeSigningConfigResponseFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var GetFunctionConcurrencyRequestFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var GetFunctionConcurrencyResponseFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var GetFunctionConfigurationRequestFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var FunctionEventInvokeConfigFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var GetFunctionEventInvokeConfigRequestFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var GetFunctionUrlConfigRequestFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var GetFunctionUrlConfigResponseFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var GetLayerVersionRequestFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var LayerVersionContentOutputFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var GetLayerVersionResponseFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var GetLayerVersionByArnRequestFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var GetLayerVersionPolicyRequestFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var GetLayerVersionPolicyResponseFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var GetPolicyRequestFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var GetPolicyResponseFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var GetProvisionedConcurrencyConfigRequestFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var GetProvisionedConcurrencyConfigResponseFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var InvocationRequestFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj), (obj.Payload && { Payload: _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_0__.SENSITIVE_STRING }))); };
+var InvocationResponseFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj), (obj.Payload && { Payload: _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_0__.SENSITIVE_STRING }))); };
+var InvokeAsyncRequestFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var InvokeAsyncResponseFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var ListAliasesRequestFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var ListAliasesResponseFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var ListCodeSigningConfigsRequestFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var ListCodeSigningConfigsResponseFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var ListEventSourceMappingsRequestFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var ListEventSourceMappingsResponseFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var ListFunctionEventInvokeConfigsRequestFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var ListFunctionEventInvokeConfigsResponseFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var ListFunctionsRequestFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var ListFunctionsResponseFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj), (obj.Functions && { Functions: obj.Functions.map(function (item) { return FunctionConfigurationFilterSensitiveLog(item); }) }))); };
+var ListFunctionsByCodeSigningConfigRequestFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var ListFunctionsByCodeSigningConfigResponseFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var ListFunctionUrlConfigsRequestFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var FunctionUrlConfigFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var ListFunctionUrlConfigsResponseFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var ListLayersRequestFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var LayerVersionsListItemFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var LayersListItemFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var ListLayersResponseFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var ListLayerVersionsRequestFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var ListLayerVersionsResponseFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var ListProvisionedConcurrencyConfigsRequestFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var ProvisionedConcurrencyConfigListItemFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var ListProvisionedConcurrencyConfigsResponseFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var ListTagsRequestFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var ListTagsResponseFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var ListVersionsByFunctionRequestFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var ListVersionsByFunctionResponseFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj), (obj.Versions && { Versions: obj.Versions.map(function (item) { return FunctionConfigurationFilterSensitiveLog(item); }) }))); };
+var LayerVersionContentInputFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj), (obj.ZipFile && { ZipFile: _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_0__.SENSITIVE_STRING }))); };
+var PublishLayerVersionRequestFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj), (obj.Content && { Content: LayerVersionContentInputFilterSensitiveLog(obj.Content) }))); };
+var PublishLayerVersionResponseFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var PublishVersionRequestFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var PutFunctionCodeSigningConfigRequestFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var PutFunctionCodeSigningConfigResponseFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var PutFunctionConcurrencyRequestFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var PutFunctionEventInvokeConfigRequestFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var PutProvisionedConcurrencyConfigRequestFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var PutProvisionedConcurrencyConfigResponseFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var RemoveLayerVersionPermissionRequestFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var RemovePermissionRequestFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var TagResourceRequestFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var UntagResourceRequestFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var UpdateAliasRequestFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var UpdateCodeSigningConfigRequestFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var UpdateCodeSigningConfigResponseFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var UpdateEventSourceMappingRequestFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var UpdateFunctionCodeRequestFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj), (obj.ZipFile && { ZipFile: _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_0__.SENSITIVE_STRING }))); };
+var UpdateFunctionConfigurationRequestFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj), (obj.Environment && { Environment: EnvironmentFilterSensitiveLog(obj.Environment) }))); };
+var UpdateFunctionEventInvokeConfigRequestFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var UpdateFunctionUrlConfigRequestFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+var UpdateFunctionUrlConfigResponseFilterSensitiveLog = function (obj) { return ((0,tslib__WEBPACK_IMPORTED_MODULE_1__.__assign)({}, obj)); };
+
+
+/***/ }),
+
+/***/ "./node_modules/@aws-sdk/client-lambda/dist-es/protocols/Aws_restJson1.js":
+/*!********************************************************************************!*\
+  !*** ./node_modules/@aws-sdk/client-lambda/dist-es/protocols/Aws_restJson1.js ***!
+  \********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "deserializeAws_restJson1AddLayerVersionPermissionCommand": () => (/* binding */ deserializeAws_restJson1AddLayerVersionPermissionCommand),
+/* harmony export */   "deserializeAws_restJson1AddPermissionCommand": () => (/* binding */ deserializeAws_restJson1AddPermissionCommand),
+/* harmony export */   "deserializeAws_restJson1CreateAliasCommand": () => (/* binding */ deserializeAws_restJson1CreateAliasCommand),
+/* harmony export */   "deserializeAws_restJson1CreateCodeSigningConfigCommand": () => (/* binding */ deserializeAws_restJson1CreateCodeSigningConfigCommand),
+/* harmony export */   "deserializeAws_restJson1CreateEventSourceMappingCommand": () => (/* binding */ deserializeAws_restJson1CreateEventSourceMappingCommand),
+/* harmony export */   "deserializeAws_restJson1CreateFunctionCommand": () => (/* binding */ deserializeAws_restJson1CreateFunctionCommand),
+/* harmony export */   "deserializeAws_restJson1CreateFunctionUrlConfigCommand": () => (/* binding */ deserializeAws_restJson1CreateFunctionUrlConfigCommand),
+/* harmony export */   "deserializeAws_restJson1DeleteAliasCommand": () => (/* binding */ deserializeAws_restJson1DeleteAliasCommand),
+/* harmony export */   "deserializeAws_restJson1DeleteCodeSigningConfigCommand": () => (/* binding */ deserializeAws_restJson1DeleteCodeSigningConfigCommand),
+/* harmony export */   "deserializeAws_restJson1DeleteEventSourceMappingCommand": () => (/* binding */ deserializeAws_restJson1DeleteEventSourceMappingCommand),
+/* harmony export */   "deserializeAws_restJson1DeleteFunctionCodeSigningConfigCommand": () => (/* binding */ deserializeAws_restJson1DeleteFunctionCodeSigningConfigCommand),
+/* harmony export */   "deserializeAws_restJson1DeleteFunctionCommand": () => (/* binding */ deserializeAws_restJson1DeleteFunctionCommand),
+/* harmony export */   "deserializeAws_restJson1DeleteFunctionConcurrencyCommand": () => (/* binding */ deserializeAws_restJson1DeleteFunctionConcurrencyCommand),
+/* harmony export */   "deserializeAws_restJson1DeleteFunctionEventInvokeConfigCommand": () => (/* binding */ deserializeAws_restJson1DeleteFunctionEventInvokeConfigCommand),
+/* harmony export */   "deserializeAws_restJson1DeleteFunctionUrlConfigCommand": () => (/* binding */ deserializeAws_restJson1DeleteFunctionUrlConfigCommand),
+/* harmony export */   "deserializeAws_restJson1DeleteLayerVersionCommand": () => (/* binding */ deserializeAws_restJson1DeleteLayerVersionCommand),
+/* harmony export */   "deserializeAws_restJson1DeleteProvisionedConcurrencyConfigCommand": () => (/* binding */ deserializeAws_restJson1DeleteProvisionedConcurrencyConfigCommand),
+/* harmony export */   "deserializeAws_restJson1GetAccountSettingsCommand": () => (/* binding */ deserializeAws_restJson1GetAccountSettingsCommand),
+/* harmony export */   "deserializeAws_restJson1GetAliasCommand": () => (/* binding */ deserializeAws_restJson1GetAliasCommand),
+/* harmony export */   "deserializeAws_restJson1GetCodeSigningConfigCommand": () => (/* binding */ deserializeAws_restJson1GetCodeSigningConfigCommand),
+/* harmony export */   "deserializeAws_restJson1GetEventSourceMappingCommand": () => (/* binding */ deserializeAws_restJson1GetEventSourceMappingCommand),
+/* harmony export */   "deserializeAws_restJson1GetFunctionCodeSigningConfigCommand": () => (/* binding */ deserializeAws_restJson1GetFunctionCodeSigningConfigCommand),
+/* harmony export */   "deserializeAws_restJson1GetFunctionCommand": () => (/* binding */ deserializeAws_restJson1GetFunctionCommand),
+/* harmony export */   "deserializeAws_restJson1GetFunctionConcurrencyCommand": () => (/* binding */ deserializeAws_restJson1GetFunctionConcurrencyCommand),
+/* harmony export */   "deserializeAws_restJson1GetFunctionConfigurationCommand": () => (/* binding */ deserializeAws_restJson1GetFunctionConfigurationCommand),
+/* harmony export */   "deserializeAws_restJson1GetFunctionEventInvokeConfigCommand": () => (/* binding */ deserializeAws_restJson1GetFunctionEventInvokeConfigCommand),
+/* harmony export */   "deserializeAws_restJson1GetFunctionUrlConfigCommand": () => (/* binding */ deserializeAws_restJson1GetFunctionUrlConfigCommand),
+/* harmony export */   "deserializeAws_restJson1GetLayerVersionByArnCommand": () => (/* binding */ deserializeAws_restJson1GetLayerVersionByArnCommand),
+/* harmony export */   "deserializeAws_restJson1GetLayerVersionCommand": () => (/* binding */ deserializeAws_restJson1GetLayerVersionCommand),
+/* harmony export */   "deserializeAws_restJson1GetLayerVersionPolicyCommand": () => (/* binding */ deserializeAws_restJson1GetLayerVersionPolicyCommand),
+/* harmony export */   "deserializeAws_restJson1GetPolicyCommand": () => (/* binding */ deserializeAws_restJson1GetPolicyCommand),
+/* harmony export */   "deserializeAws_restJson1GetProvisionedConcurrencyConfigCommand": () => (/* binding */ deserializeAws_restJson1GetProvisionedConcurrencyConfigCommand),
+/* harmony export */   "deserializeAws_restJson1InvokeAsyncCommand": () => (/* binding */ deserializeAws_restJson1InvokeAsyncCommand),
+/* harmony export */   "deserializeAws_restJson1InvokeCommand": () => (/* binding */ deserializeAws_restJson1InvokeCommand),
+/* harmony export */   "deserializeAws_restJson1ListAliasesCommand": () => (/* binding */ deserializeAws_restJson1ListAliasesCommand),
+/* harmony export */   "deserializeAws_restJson1ListCodeSigningConfigsCommand": () => (/* binding */ deserializeAws_restJson1ListCodeSigningConfigsCommand),
+/* harmony export */   "deserializeAws_restJson1ListEventSourceMappingsCommand": () => (/* binding */ deserializeAws_restJson1ListEventSourceMappingsCommand),
+/* harmony export */   "deserializeAws_restJson1ListFunctionEventInvokeConfigsCommand": () => (/* binding */ deserializeAws_restJson1ListFunctionEventInvokeConfigsCommand),
+/* harmony export */   "deserializeAws_restJson1ListFunctionUrlConfigsCommand": () => (/* binding */ deserializeAws_restJson1ListFunctionUrlConfigsCommand),
+/* harmony export */   "deserializeAws_restJson1ListFunctionsByCodeSigningConfigCommand": () => (/* binding */ deserializeAws_restJson1ListFunctionsByCodeSigningConfigCommand),
+/* harmony export */   "deserializeAws_restJson1ListFunctionsCommand": () => (/* binding */ deserializeAws_restJson1ListFunctionsCommand),
+/* harmony export */   "deserializeAws_restJson1ListLayerVersionsCommand": () => (/* binding */ deserializeAws_restJson1ListLayerVersionsCommand),
+/* harmony export */   "deserializeAws_restJson1ListLayersCommand": () => (/* binding */ deserializeAws_restJson1ListLayersCommand),
+/* harmony export */   "deserializeAws_restJson1ListProvisionedConcurrencyConfigsCommand": () => (/* binding */ deserializeAws_restJson1ListProvisionedConcurrencyConfigsCommand),
+/* harmony export */   "deserializeAws_restJson1ListTagsCommand": () => (/* binding */ deserializeAws_restJson1ListTagsCommand),
+/* harmony export */   "deserializeAws_restJson1ListVersionsByFunctionCommand": () => (/* binding */ deserializeAws_restJson1ListVersionsByFunctionCommand),
+/* harmony export */   "deserializeAws_restJson1PublishLayerVersionCommand": () => (/* binding */ deserializeAws_restJson1PublishLayerVersionCommand),
+/* harmony export */   "deserializeAws_restJson1PublishVersionCommand": () => (/* binding */ deserializeAws_restJson1PublishVersionCommand),
+/* harmony export */   "deserializeAws_restJson1PutFunctionCodeSigningConfigCommand": () => (/* binding */ deserializeAws_restJson1PutFunctionCodeSigningConfigCommand),
+/* harmony export */   "deserializeAws_restJson1PutFunctionConcurrencyCommand": () => (/* binding */ deserializeAws_restJson1PutFunctionConcurrencyCommand),
+/* harmony export */   "deserializeAws_restJson1PutFunctionEventInvokeConfigCommand": () => (/* binding */ deserializeAws_restJson1PutFunctionEventInvokeConfigCommand),
+/* harmony export */   "deserializeAws_restJson1PutProvisionedConcurrencyConfigCommand": () => (/* binding */ deserializeAws_restJson1PutProvisionedConcurrencyConfigCommand),
+/* harmony export */   "deserializeAws_restJson1RemoveLayerVersionPermissionCommand": () => (/* binding */ deserializeAws_restJson1RemoveLayerVersionPermissionCommand),
+/* harmony export */   "deserializeAws_restJson1RemovePermissionCommand": () => (/* binding */ deserializeAws_restJson1RemovePermissionCommand),
+/* harmony export */   "deserializeAws_restJson1TagResourceCommand": () => (/* binding */ deserializeAws_restJson1TagResourceCommand),
+/* harmony export */   "deserializeAws_restJson1UntagResourceCommand": () => (/* binding */ deserializeAws_restJson1UntagResourceCommand),
+/* harmony export */   "deserializeAws_restJson1UpdateAliasCommand": () => (/* binding */ deserializeAws_restJson1UpdateAliasCommand),
+/* harmony export */   "deserializeAws_restJson1UpdateCodeSigningConfigCommand": () => (/* binding */ deserializeAws_restJson1UpdateCodeSigningConfigCommand),
+/* harmony export */   "deserializeAws_restJson1UpdateEventSourceMappingCommand": () => (/* binding */ deserializeAws_restJson1UpdateEventSourceMappingCommand),
+/* harmony export */   "deserializeAws_restJson1UpdateFunctionCodeCommand": () => (/* binding */ deserializeAws_restJson1UpdateFunctionCodeCommand),
+/* harmony export */   "deserializeAws_restJson1UpdateFunctionConfigurationCommand": () => (/* binding */ deserializeAws_restJson1UpdateFunctionConfigurationCommand),
+/* harmony export */   "deserializeAws_restJson1UpdateFunctionEventInvokeConfigCommand": () => (/* binding */ deserializeAws_restJson1UpdateFunctionEventInvokeConfigCommand),
+/* harmony export */   "deserializeAws_restJson1UpdateFunctionUrlConfigCommand": () => (/* binding */ deserializeAws_restJson1UpdateFunctionUrlConfigCommand),
+/* harmony export */   "serializeAws_restJson1AddLayerVersionPermissionCommand": () => (/* binding */ serializeAws_restJson1AddLayerVersionPermissionCommand),
+/* harmony export */   "serializeAws_restJson1AddPermissionCommand": () => (/* binding */ serializeAws_restJson1AddPermissionCommand),
+/* harmony export */   "serializeAws_restJson1CreateAliasCommand": () => (/* binding */ serializeAws_restJson1CreateAliasCommand),
+/* harmony export */   "serializeAws_restJson1CreateCodeSigningConfigCommand": () => (/* binding */ serializeAws_restJson1CreateCodeSigningConfigCommand),
+/* harmony export */   "serializeAws_restJson1CreateEventSourceMappingCommand": () => (/* binding */ serializeAws_restJson1CreateEventSourceMappingCommand),
+/* harmony export */   "serializeAws_restJson1CreateFunctionCommand": () => (/* binding */ serializeAws_restJson1CreateFunctionCommand),
+/* harmony export */   "serializeAws_restJson1CreateFunctionUrlConfigCommand": () => (/* binding */ serializeAws_restJson1CreateFunctionUrlConfigCommand),
+/* harmony export */   "serializeAws_restJson1DeleteAliasCommand": () => (/* binding */ serializeAws_restJson1DeleteAliasCommand),
+/* harmony export */   "serializeAws_restJson1DeleteCodeSigningConfigCommand": () => (/* binding */ serializeAws_restJson1DeleteCodeSigningConfigCommand),
+/* harmony export */   "serializeAws_restJson1DeleteEventSourceMappingCommand": () => (/* binding */ serializeAws_restJson1DeleteEventSourceMappingCommand),
+/* harmony export */   "serializeAws_restJson1DeleteFunctionCodeSigningConfigCommand": () => (/* binding */ serializeAws_restJson1DeleteFunctionCodeSigningConfigCommand),
+/* harmony export */   "serializeAws_restJson1DeleteFunctionCommand": () => (/* binding */ serializeAws_restJson1DeleteFunctionCommand),
+/* harmony export */   "serializeAws_restJson1DeleteFunctionConcurrencyCommand": () => (/* binding */ serializeAws_restJson1DeleteFunctionConcurrencyCommand),
+/* harmony export */   "serializeAws_restJson1DeleteFunctionEventInvokeConfigCommand": () => (/* binding */ serializeAws_restJson1DeleteFunctionEventInvokeConfigCommand),
+/* harmony export */   "serializeAws_restJson1DeleteFunctionUrlConfigCommand": () => (/* binding */ serializeAws_restJson1DeleteFunctionUrlConfigCommand),
+/* harmony export */   "serializeAws_restJson1DeleteLayerVersionCommand": () => (/* binding */ serializeAws_restJson1DeleteLayerVersionCommand),
+/* harmony export */   "serializeAws_restJson1DeleteProvisionedConcurrencyConfigCommand": () => (/* binding */ serializeAws_restJson1DeleteProvisionedConcurrencyConfigCommand),
+/* harmony export */   "serializeAws_restJson1GetAccountSettingsCommand": () => (/* binding */ serializeAws_restJson1GetAccountSettingsCommand),
+/* harmony export */   "serializeAws_restJson1GetAliasCommand": () => (/* binding */ serializeAws_restJson1GetAliasCommand),
+/* harmony export */   "serializeAws_restJson1GetCodeSigningConfigCommand": () => (/* binding */ serializeAws_restJson1GetCodeSigningConfigCommand),
+/* harmony export */   "serializeAws_restJson1GetEventSourceMappingCommand": () => (/* binding */ serializeAws_restJson1GetEventSourceMappingCommand),
+/* harmony export */   "serializeAws_restJson1GetFunctionCodeSigningConfigCommand": () => (/* binding */ serializeAws_restJson1GetFunctionCodeSigningConfigCommand),
+/* harmony export */   "serializeAws_restJson1GetFunctionCommand": () => (/* binding */ serializeAws_restJson1GetFunctionCommand),
+/* harmony export */   "serializeAws_restJson1GetFunctionConcurrencyCommand": () => (/* binding */ serializeAws_restJson1GetFunctionConcurrencyCommand),
+/* harmony export */   "serializeAws_restJson1GetFunctionConfigurationCommand": () => (/* binding */ serializeAws_restJson1GetFunctionConfigurationCommand),
+/* harmony export */   "serializeAws_restJson1GetFunctionEventInvokeConfigCommand": () => (/* binding */ serializeAws_restJson1GetFunctionEventInvokeConfigCommand),
+/* harmony export */   "serializeAws_restJson1GetFunctionUrlConfigCommand": () => (/* binding */ serializeAws_restJson1GetFunctionUrlConfigCommand),
+/* harmony export */   "serializeAws_restJson1GetLayerVersionByArnCommand": () => (/* binding */ serializeAws_restJson1GetLayerVersionByArnCommand),
+/* harmony export */   "serializeAws_restJson1GetLayerVersionCommand": () => (/* binding */ serializeAws_restJson1GetLayerVersionCommand),
+/* harmony export */   "serializeAws_restJson1GetLayerVersionPolicyCommand": () => (/* binding */ serializeAws_restJson1GetLayerVersionPolicyCommand),
+/* harmony export */   "serializeAws_restJson1GetPolicyCommand": () => (/* binding */ serializeAws_restJson1GetPolicyCommand),
+/* harmony export */   "serializeAws_restJson1GetProvisionedConcurrencyConfigCommand": () => (/* binding */ serializeAws_restJson1GetProvisionedConcurrencyConfigCommand),
+/* harmony export */   "serializeAws_restJson1InvokeAsyncCommand": () => (/* binding */ serializeAws_restJson1InvokeAsyncCommand),
+/* harmony export */   "serializeAws_restJson1InvokeCommand": () => (/* binding */ serializeAws_restJson1InvokeCommand),
+/* harmony export */   "serializeAws_restJson1ListAliasesCommand": () => (/* binding */ serializeAws_restJson1ListAliasesCommand),
+/* harmony export */   "serializeAws_restJson1ListCodeSigningConfigsCommand": () => (/* binding */ serializeAws_restJson1ListCodeSigningConfigsCommand),
+/* harmony export */   "serializeAws_restJson1ListEventSourceMappingsCommand": () => (/* binding */ serializeAws_restJson1ListEventSourceMappingsCommand),
+/* harmony export */   "serializeAws_restJson1ListFunctionEventInvokeConfigsCommand": () => (/* binding */ serializeAws_restJson1ListFunctionEventInvokeConfigsCommand),
+/* harmony export */   "serializeAws_restJson1ListFunctionUrlConfigsCommand": () => (/* binding */ serializeAws_restJson1ListFunctionUrlConfigsCommand),
+/* harmony export */   "serializeAws_restJson1ListFunctionsByCodeSigningConfigCommand": () => (/* binding */ serializeAws_restJson1ListFunctionsByCodeSigningConfigCommand),
+/* harmony export */   "serializeAws_restJson1ListFunctionsCommand": () => (/* binding */ serializeAws_restJson1ListFunctionsCommand),
+/* harmony export */   "serializeAws_restJson1ListLayerVersionsCommand": () => (/* binding */ serializeAws_restJson1ListLayerVersionsCommand),
+/* harmony export */   "serializeAws_restJson1ListLayersCommand": () => (/* binding */ serializeAws_restJson1ListLayersCommand),
+/* harmony export */   "serializeAws_restJson1ListProvisionedConcurrencyConfigsCommand": () => (/* binding */ serializeAws_restJson1ListProvisionedConcurrencyConfigsCommand),
+/* harmony export */   "serializeAws_restJson1ListTagsCommand": () => (/* binding */ serializeAws_restJson1ListTagsCommand),
+/* harmony export */   "serializeAws_restJson1ListVersionsByFunctionCommand": () => (/* binding */ serializeAws_restJson1ListVersionsByFunctionCommand),
+/* harmony export */   "serializeAws_restJson1PublishLayerVersionCommand": () => (/* binding */ serializeAws_restJson1PublishLayerVersionCommand),
+/* harmony export */   "serializeAws_restJson1PublishVersionCommand": () => (/* binding */ serializeAws_restJson1PublishVersionCommand),
+/* harmony export */   "serializeAws_restJson1PutFunctionCodeSigningConfigCommand": () => (/* binding */ serializeAws_restJson1PutFunctionCodeSigningConfigCommand),
+/* harmony export */   "serializeAws_restJson1PutFunctionConcurrencyCommand": () => (/* binding */ serializeAws_restJson1PutFunctionConcurrencyCommand),
+/* harmony export */   "serializeAws_restJson1PutFunctionEventInvokeConfigCommand": () => (/* binding */ serializeAws_restJson1PutFunctionEventInvokeConfigCommand),
+/* harmony export */   "serializeAws_restJson1PutProvisionedConcurrencyConfigCommand": () => (/* binding */ serializeAws_restJson1PutProvisionedConcurrencyConfigCommand),
+/* harmony export */   "serializeAws_restJson1RemoveLayerVersionPermissionCommand": () => (/* binding */ serializeAws_restJson1RemoveLayerVersionPermissionCommand),
+/* harmony export */   "serializeAws_restJson1RemovePermissionCommand": () => (/* binding */ serializeAws_restJson1RemovePermissionCommand),
+/* harmony export */   "serializeAws_restJson1TagResourceCommand": () => (/* binding */ serializeAws_restJson1TagResourceCommand),
+/* harmony export */   "serializeAws_restJson1UntagResourceCommand": () => (/* binding */ serializeAws_restJson1UntagResourceCommand),
+/* harmony export */   "serializeAws_restJson1UpdateAliasCommand": () => (/* binding */ serializeAws_restJson1UpdateAliasCommand),
+/* harmony export */   "serializeAws_restJson1UpdateCodeSigningConfigCommand": () => (/* binding */ serializeAws_restJson1UpdateCodeSigningConfigCommand),
+/* harmony export */   "serializeAws_restJson1UpdateEventSourceMappingCommand": () => (/* binding */ serializeAws_restJson1UpdateEventSourceMappingCommand),
+/* harmony export */   "serializeAws_restJson1UpdateFunctionCodeCommand": () => (/* binding */ serializeAws_restJson1UpdateFunctionCodeCommand),
+/* harmony export */   "serializeAws_restJson1UpdateFunctionConfigurationCommand": () => (/* binding */ serializeAws_restJson1UpdateFunctionConfigurationCommand),
+/* harmony export */   "serializeAws_restJson1UpdateFunctionEventInvokeConfigCommand": () => (/* binding */ serializeAws_restJson1UpdateFunctionEventInvokeConfigCommand),
+/* harmony export */   "serializeAws_restJson1UpdateFunctionUrlConfigCommand": () => (/* binding */ serializeAws_restJson1UpdateFunctionUrlConfigCommand)
+/* harmony export */ });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _aws_sdk_protocol_http__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @aws-sdk/protocol-http */ "./node_modules/@aws-sdk/protocol-http/dist-es/index.js");
+/* harmony import */ var _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @aws-sdk/smithy-client */ "./node_modules/@aws-sdk/client-lambda/node_modules/@aws-sdk/smithy-client/dist-es/index.js");
+/* harmony import */ var _models_LambdaServiceException__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../models/LambdaServiceException */ "./node_modules/@aws-sdk/client-lambda/dist-es/models/LambdaServiceException.js");
+/* harmony import */ var _models_models_0__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../models/models_0 */ "./node_modules/@aws-sdk/client-lambda/dist-es/models/models_0.js");
+
+
+
+
+
+var serializeAws_restJson1AddLayerVersionPermissionCommand = function (input, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var _a, hostname, _b, protocol, port, basePath, headers, resolvedPath, labelValue, labelValue, query, body;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0: return [4, context.endpoint()];
+            case 1:
+                _a = _c.sent(), hostname = _a.hostname, _b = _a.protocol, protocol = _b === void 0 ? "https" : _b, port = _a.port, basePath = _a.path;
+                headers = {
+                    "content-type": "application/json",
+                };
+                resolvedPath = "".concat((basePath === null || basePath === void 0 ? void 0 : basePath.endsWith("/")) ? basePath.slice(0, -1) : basePath || "") +
+                    "/2018-10-31/layers/{LayerName}/versions/{VersionNumber}/policy";
+                if (input.LayerName !== undefined) {
+                    labelValue = input.LayerName;
+                    if (labelValue.length <= 0) {
+                        throw new Error("Empty value provided for input HTTP label: LayerName.");
+                    }
+                    resolvedPath = resolvedPath.replace("{LayerName}", (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.extendedEncodeURIComponent)(labelValue));
+                }
+                else {
+                    throw new Error("No value provided for input HTTP label: LayerName.");
+                }
+                if (input.VersionNumber !== undefined) {
+                    labelValue = input.VersionNumber.toString();
+                    if (labelValue.length <= 0) {
+                        throw new Error("Empty value provided for input HTTP label: VersionNumber.");
+                    }
+                    resolvedPath = resolvedPath.replace("{VersionNumber}", (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.extendedEncodeURIComponent)(labelValue));
+                }
+                else {
+                    throw new Error("No value provided for input HTTP label: VersionNumber.");
+                }
+                query = (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, (input.RevisionId !== undefined && { RevisionId: input.RevisionId }));
+                body = JSON.stringify((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, (input.Action != null && { Action: input.Action })), (input.OrganizationId != null && { OrganizationId: input.OrganizationId })), (input.Principal != null && { Principal: input.Principal })), (input.StatementId != null && { StatementId: input.StatementId })));
+                return [2, new _aws_sdk_protocol_http__WEBPACK_IMPORTED_MODULE_0__.HttpRequest({
+                        protocol: protocol,
+                        hostname: hostname,
+                        port: port,
+                        method: "POST",
+                        headers: headers,
+                        path: resolvedPath,
+                        query: query,
+                        body: body,
+                    })];
+        }
+    });
+}); };
+var serializeAws_restJson1AddPermissionCommand = function (input, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var _a, hostname, _b, protocol, port, basePath, headers, resolvedPath, labelValue, query, body;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0: return [4, context.endpoint()];
+            case 1:
+                _a = _c.sent(), hostname = _a.hostname, _b = _a.protocol, protocol = _b === void 0 ? "https" : _b, port = _a.port, basePath = _a.path;
+                headers = {
+                    "content-type": "application/json",
+                };
+                resolvedPath = "".concat((basePath === null || basePath === void 0 ? void 0 : basePath.endsWith("/")) ? basePath.slice(0, -1) : basePath || "") +
+                    "/2015-03-31/functions/{FunctionName}/policy";
+                if (input.FunctionName !== undefined) {
+                    labelValue = input.FunctionName;
+                    if (labelValue.length <= 0) {
+                        throw new Error("Empty value provided for input HTTP label: FunctionName.");
+                    }
+                    resolvedPath = resolvedPath.replace("{FunctionName}", (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.extendedEncodeURIComponent)(labelValue));
+                }
+                else {
+                    throw new Error("No value provided for input HTTP label: FunctionName.");
+                }
+                query = (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, (input.Qualifier !== undefined && { Qualifier: input.Qualifier }));
+                body = JSON.stringify((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, (input.Action != null && { Action: input.Action })), (input.EventSourceToken != null && { EventSourceToken: input.EventSourceToken })), (input.FunctionUrlAuthType != null && { FunctionUrlAuthType: input.FunctionUrlAuthType })), (input.Principal != null && { Principal: input.Principal })), (input.PrincipalOrgID != null && { PrincipalOrgID: input.PrincipalOrgID })), (input.RevisionId != null && { RevisionId: input.RevisionId })), (input.SourceAccount != null && { SourceAccount: input.SourceAccount })), (input.SourceArn != null && { SourceArn: input.SourceArn })), (input.StatementId != null && { StatementId: input.StatementId })));
+                return [2, new _aws_sdk_protocol_http__WEBPACK_IMPORTED_MODULE_0__.HttpRequest({
+                        protocol: protocol,
+                        hostname: hostname,
+                        port: port,
+                        method: "POST",
+                        headers: headers,
+                        path: resolvedPath,
+                        query: query,
+                        body: body,
+                    })];
+        }
+    });
+}); };
+var serializeAws_restJson1CreateAliasCommand = function (input, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var _a, hostname, _b, protocol, port, basePath, headers, resolvedPath, labelValue, body;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0: return [4, context.endpoint()];
+            case 1:
+                _a = _c.sent(), hostname = _a.hostname, _b = _a.protocol, protocol = _b === void 0 ? "https" : _b, port = _a.port, basePath = _a.path;
+                headers = {
+                    "content-type": "application/json",
+                };
+                resolvedPath = "".concat((basePath === null || basePath === void 0 ? void 0 : basePath.endsWith("/")) ? basePath.slice(0, -1) : basePath || "") +
+                    "/2015-03-31/functions/{FunctionName}/aliases";
+                if (input.FunctionName !== undefined) {
+                    labelValue = input.FunctionName;
+                    if (labelValue.length <= 0) {
+                        throw new Error("Empty value provided for input HTTP label: FunctionName.");
+                    }
+                    resolvedPath = resolvedPath.replace("{FunctionName}", (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.extendedEncodeURIComponent)(labelValue));
+                }
+                else {
+                    throw new Error("No value provided for input HTTP label: FunctionName.");
+                }
+                body = JSON.stringify((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, (input.Description != null && { Description: input.Description })), (input.FunctionVersion != null && { FunctionVersion: input.FunctionVersion })), (input.Name != null && { Name: input.Name })), (input.RoutingConfig != null && {
+                    RoutingConfig: serializeAws_restJson1AliasRoutingConfiguration(input.RoutingConfig, context),
+                })));
+                return [2, new _aws_sdk_protocol_http__WEBPACK_IMPORTED_MODULE_0__.HttpRequest({
+                        protocol: protocol,
+                        hostname: hostname,
+                        port: port,
+                        method: "POST",
+                        headers: headers,
+                        path: resolvedPath,
+                        body: body,
+                    })];
+        }
+    });
+}); };
+var serializeAws_restJson1CreateCodeSigningConfigCommand = function (input, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var _a, hostname, _b, protocol, port, basePath, headers, resolvedPath, body;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0: return [4, context.endpoint()];
+            case 1:
+                _a = _c.sent(), hostname = _a.hostname, _b = _a.protocol, protocol = _b === void 0 ? "https" : _b, port = _a.port, basePath = _a.path;
+                headers = {
+                    "content-type": "application/json",
+                };
+                resolvedPath = "".concat((basePath === null || basePath === void 0 ? void 0 : basePath.endsWith("/")) ? basePath.slice(0, -1) : basePath || "") + "/2020-04-22/code-signing-configs";
+                body = JSON.stringify((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, (input.AllowedPublishers != null && {
+                    AllowedPublishers: serializeAws_restJson1AllowedPublishers(input.AllowedPublishers, context),
+                })), (input.CodeSigningPolicies != null && {
+                    CodeSigningPolicies: serializeAws_restJson1CodeSigningPolicies(input.CodeSigningPolicies, context),
+                })), (input.Description != null && { Description: input.Description })));
+                return [2, new _aws_sdk_protocol_http__WEBPACK_IMPORTED_MODULE_0__.HttpRequest({
+                        protocol: protocol,
+                        hostname: hostname,
+                        port: port,
+                        method: "POST",
+                        headers: headers,
+                        path: resolvedPath,
+                        body: body,
+                    })];
+        }
+    });
+}); };
+var serializeAws_restJson1CreateEventSourceMappingCommand = function (input, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var _a, hostname, _b, protocol, port, basePath, headers, resolvedPath, body;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0: return [4, context.endpoint()];
+            case 1:
+                _a = _c.sent(), hostname = _a.hostname, _b = _a.protocol, protocol = _b === void 0 ? "https" : _b, port = _a.port, basePath = _a.path;
+                headers = {
+                    "content-type": "application/json",
+                };
+                resolvedPath = "".concat((basePath === null || basePath === void 0 ? void 0 : basePath.endsWith("/")) ? basePath.slice(0, -1) : basePath || "") + "/2015-03-31/event-source-mappings";
+                body = JSON.stringify((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, (input.BatchSize != null && { BatchSize: input.BatchSize })), (input.BisectBatchOnFunctionError != null && { BisectBatchOnFunctionError: input.BisectBatchOnFunctionError })), (input.DestinationConfig != null && {
+                    DestinationConfig: serializeAws_restJson1DestinationConfig(input.DestinationConfig, context),
+                })), (input.Enabled != null && { Enabled: input.Enabled })), (input.EventSourceArn != null && { EventSourceArn: input.EventSourceArn })), (input.FilterCriteria != null && {
+                    FilterCriteria: serializeAws_restJson1FilterCriteria(input.FilterCriteria, context),
+                })), (input.FunctionName != null && { FunctionName: input.FunctionName })), (input.FunctionResponseTypes != null && {
+                    FunctionResponseTypes: serializeAws_restJson1FunctionResponseTypeList(input.FunctionResponseTypes, context),
+                })), (input.MaximumBatchingWindowInSeconds != null && {
+                    MaximumBatchingWindowInSeconds: input.MaximumBatchingWindowInSeconds,
+                })), (input.MaximumRecordAgeInSeconds != null && { MaximumRecordAgeInSeconds: input.MaximumRecordAgeInSeconds })), (input.MaximumRetryAttempts != null && { MaximumRetryAttempts: input.MaximumRetryAttempts })), (input.ParallelizationFactor != null && { ParallelizationFactor: input.ParallelizationFactor })), (input.Queues != null && { Queues: serializeAws_restJson1Queues(input.Queues, context) })), (input.SelfManagedEventSource != null && {
+                    SelfManagedEventSource: serializeAws_restJson1SelfManagedEventSource(input.SelfManagedEventSource, context),
+                })), (input.SourceAccessConfigurations != null && {
+                    SourceAccessConfigurations: serializeAws_restJson1SourceAccessConfigurations(input.SourceAccessConfigurations, context),
+                })), (input.StartingPosition != null && { StartingPosition: input.StartingPosition })), (input.StartingPositionTimestamp != null && {
+                    StartingPositionTimestamp: Math.round(input.StartingPositionTimestamp.getTime() / 1000),
+                })), (input.Topics != null && { Topics: serializeAws_restJson1Topics(input.Topics, context) })), (input.TumblingWindowInSeconds != null && { TumblingWindowInSeconds: input.TumblingWindowInSeconds })));
+                return [2, new _aws_sdk_protocol_http__WEBPACK_IMPORTED_MODULE_0__.HttpRequest({
+                        protocol: protocol,
+                        hostname: hostname,
+                        port: port,
+                        method: "POST",
+                        headers: headers,
+                        path: resolvedPath,
+                        body: body,
+                    })];
+        }
+    });
+}); };
+var serializeAws_restJson1CreateFunctionCommand = function (input, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var _a, hostname, _b, protocol, port, basePath, headers, resolvedPath, body;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0: return [4, context.endpoint()];
+            case 1:
+                _a = _c.sent(), hostname = _a.hostname, _b = _a.protocol, protocol = _b === void 0 ? "https" : _b, port = _a.port, basePath = _a.path;
+                headers = {
+                    "content-type": "application/json",
+                };
+                resolvedPath = "".concat((basePath === null || basePath === void 0 ? void 0 : basePath.endsWith("/")) ? basePath.slice(0, -1) : basePath || "") + "/2015-03-31/functions";
+                body = JSON.stringify((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, (input.Architectures != null && {
+                    Architectures: serializeAws_restJson1ArchitecturesList(input.Architectures, context),
+                })), (input.Code != null && { Code: serializeAws_restJson1FunctionCode(input.Code, context) })), (input.CodeSigningConfigArn != null && { CodeSigningConfigArn: input.CodeSigningConfigArn })), (input.DeadLetterConfig != null && {
+                    DeadLetterConfig: serializeAws_restJson1DeadLetterConfig(input.DeadLetterConfig, context),
+                })), (input.Description != null && { Description: input.Description })), (input.Environment != null && { Environment: serializeAws_restJson1Environment(input.Environment, context) })), (input.EphemeralStorage != null && {
+                    EphemeralStorage: serializeAws_restJson1EphemeralStorage(input.EphemeralStorage, context),
+                })), (input.FileSystemConfigs != null && {
+                    FileSystemConfigs: serializeAws_restJson1FileSystemConfigList(input.FileSystemConfigs, context),
+                })), (input.FunctionName != null && { FunctionName: input.FunctionName })), (input.Handler != null && { Handler: input.Handler })), (input.ImageConfig != null && { ImageConfig: serializeAws_restJson1ImageConfig(input.ImageConfig, context) })), (input.KMSKeyArn != null && { KMSKeyArn: input.KMSKeyArn })), (input.Layers != null && { Layers: serializeAws_restJson1LayerList(input.Layers, context) })), (input.MemorySize != null && { MemorySize: input.MemorySize })), (input.PackageType != null && { PackageType: input.PackageType })), (input.Publish != null && { Publish: input.Publish })), (input.Role != null && { Role: input.Role })), (input.Runtime != null && { Runtime: input.Runtime })), (input.Tags != null && { Tags: serializeAws_restJson1Tags(input.Tags, context) })), (input.Timeout != null && { Timeout: input.Timeout })), (input.TracingConfig != null && {
+                    TracingConfig: serializeAws_restJson1TracingConfig(input.TracingConfig, context),
+                })), (input.VpcConfig != null && { VpcConfig: serializeAws_restJson1VpcConfig(input.VpcConfig, context) })));
+                return [2, new _aws_sdk_protocol_http__WEBPACK_IMPORTED_MODULE_0__.HttpRequest({
+                        protocol: protocol,
+                        hostname: hostname,
+                        port: port,
+                        method: "POST",
+                        headers: headers,
+                        path: resolvedPath,
+                        body: body,
+                    })];
+        }
+    });
+}); };
+var serializeAws_restJson1CreateFunctionUrlConfigCommand = function (input, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var _a, hostname, _b, protocol, port, basePath, headers, resolvedPath, labelValue, query, body;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0: return [4, context.endpoint()];
+            case 1:
+                _a = _c.sent(), hostname = _a.hostname, _b = _a.protocol, protocol = _b === void 0 ? "https" : _b, port = _a.port, basePath = _a.path;
+                headers = {
+                    "content-type": "application/json",
+                };
+                resolvedPath = "".concat((basePath === null || basePath === void 0 ? void 0 : basePath.endsWith("/")) ? basePath.slice(0, -1) : basePath || "") + "/2021-10-31/functions/{FunctionName}/url";
+                if (input.FunctionName !== undefined) {
+                    labelValue = input.FunctionName;
+                    if (labelValue.length <= 0) {
+                        throw new Error("Empty value provided for input HTTP label: FunctionName.");
+                    }
+                    resolvedPath = resolvedPath.replace("{FunctionName}", (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.extendedEncodeURIComponent)(labelValue));
+                }
+                else {
+                    throw new Error("No value provided for input HTTP label: FunctionName.");
+                }
+                query = (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, (input.Qualifier !== undefined && { Qualifier: input.Qualifier }));
+                body = JSON.stringify((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, (input.AuthType != null && { AuthType: input.AuthType })), (input.Cors != null && { Cors: serializeAws_restJson1Cors(input.Cors, context) })));
+                return [2, new _aws_sdk_protocol_http__WEBPACK_IMPORTED_MODULE_0__.HttpRequest({
+                        protocol: protocol,
+                        hostname: hostname,
+                        port: port,
+                        method: "POST",
+                        headers: headers,
+                        path: resolvedPath,
+                        query: query,
+                        body: body,
+                    })];
+        }
+    });
+}); };
+var serializeAws_restJson1DeleteAliasCommand = function (input, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var _a, hostname, _b, protocol, port, basePath, headers, resolvedPath, labelValue, labelValue, body;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0: return [4, context.endpoint()];
+            case 1:
+                _a = _c.sent(), hostname = _a.hostname, _b = _a.protocol, protocol = _b === void 0 ? "https" : _b, port = _a.port, basePath = _a.path;
+                headers = {};
+                resolvedPath = "".concat((basePath === null || basePath === void 0 ? void 0 : basePath.endsWith("/")) ? basePath.slice(0, -1) : basePath || "") +
+                    "/2015-03-31/functions/{FunctionName}/aliases/{Name}";
+                if (input.FunctionName !== undefined) {
+                    labelValue = input.FunctionName;
+                    if (labelValue.length <= 0) {
+                        throw new Error("Empty value provided for input HTTP label: FunctionName.");
+                    }
+                    resolvedPath = resolvedPath.replace("{FunctionName}", (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.extendedEncodeURIComponent)(labelValue));
+                }
+                else {
+                    throw new Error("No value provided for input HTTP label: FunctionName.");
+                }
+                if (input.Name !== undefined) {
+                    labelValue = input.Name;
+                    if (labelValue.length <= 0) {
+                        throw new Error("Empty value provided for input HTTP label: Name.");
+                    }
+                    resolvedPath = resolvedPath.replace("{Name}", (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.extendedEncodeURIComponent)(labelValue));
+                }
+                else {
+                    throw new Error("No value provided for input HTTP label: Name.");
+                }
+                return [2, new _aws_sdk_protocol_http__WEBPACK_IMPORTED_MODULE_0__.HttpRequest({
+                        protocol: protocol,
+                        hostname: hostname,
+                        port: port,
+                        method: "DELETE",
+                        headers: headers,
+                        path: resolvedPath,
+                        body: body,
+                    })];
+        }
+    });
+}); };
+var serializeAws_restJson1DeleteCodeSigningConfigCommand = function (input, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var _a, hostname, _b, protocol, port, basePath, headers, resolvedPath, labelValue, body;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0: return [4, context.endpoint()];
+            case 1:
+                _a = _c.sent(), hostname = _a.hostname, _b = _a.protocol, protocol = _b === void 0 ? "https" : _b, port = _a.port, basePath = _a.path;
+                headers = {};
+                resolvedPath = "".concat((basePath === null || basePath === void 0 ? void 0 : basePath.endsWith("/")) ? basePath.slice(0, -1) : basePath || "") +
+                    "/2020-04-22/code-signing-configs/{CodeSigningConfigArn}";
+                if (input.CodeSigningConfigArn !== undefined) {
+                    labelValue = input.CodeSigningConfigArn;
+                    if (labelValue.length <= 0) {
+                        throw new Error("Empty value provided for input HTTP label: CodeSigningConfigArn.");
+                    }
+                    resolvedPath = resolvedPath.replace("{CodeSigningConfigArn}", (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.extendedEncodeURIComponent)(labelValue));
+                }
+                else {
+                    throw new Error("No value provided for input HTTP label: CodeSigningConfigArn.");
+                }
+                return [2, new _aws_sdk_protocol_http__WEBPACK_IMPORTED_MODULE_0__.HttpRequest({
+                        protocol: protocol,
+                        hostname: hostname,
+                        port: port,
+                        method: "DELETE",
+                        headers: headers,
+                        path: resolvedPath,
+                        body: body,
+                    })];
+        }
+    });
+}); };
+var serializeAws_restJson1DeleteEventSourceMappingCommand = function (input, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var _a, hostname, _b, protocol, port, basePath, headers, resolvedPath, labelValue, body;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0: return [4, context.endpoint()];
+            case 1:
+                _a = _c.sent(), hostname = _a.hostname, _b = _a.protocol, protocol = _b === void 0 ? "https" : _b, port = _a.port, basePath = _a.path;
+                headers = {};
+                resolvedPath = "".concat((basePath === null || basePath === void 0 ? void 0 : basePath.endsWith("/")) ? basePath.slice(0, -1) : basePath || "") + "/2015-03-31/event-source-mappings/{UUID}";
+                if (input.UUID !== undefined) {
+                    labelValue = input.UUID;
+                    if (labelValue.length <= 0) {
+                        throw new Error("Empty value provided for input HTTP label: UUID.");
+                    }
+                    resolvedPath = resolvedPath.replace("{UUID}", (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.extendedEncodeURIComponent)(labelValue));
+                }
+                else {
+                    throw new Error("No value provided for input HTTP label: UUID.");
+                }
+                return [2, new _aws_sdk_protocol_http__WEBPACK_IMPORTED_MODULE_0__.HttpRequest({
+                        protocol: protocol,
+                        hostname: hostname,
+                        port: port,
+                        method: "DELETE",
+                        headers: headers,
+                        path: resolvedPath,
+                        body: body,
+                    })];
+        }
+    });
+}); };
+var serializeAws_restJson1DeleteFunctionCommand = function (input, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var _a, hostname, _b, protocol, port, basePath, headers, resolvedPath, labelValue, query, body;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0: return [4, context.endpoint()];
+            case 1:
+                _a = _c.sent(), hostname = _a.hostname, _b = _a.protocol, protocol = _b === void 0 ? "https" : _b, port = _a.port, basePath = _a.path;
+                headers = {};
+                resolvedPath = "".concat((basePath === null || basePath === void 0 ? void 0 : basePath.endsWith("/")) ? basePath.slice(0, -1) : basePath || "") + "/2015-03-31/functions/{FunctionName}";
+                if (input.FunctionName !== undefined) {
+                    labelValue = input.FunctionName;
+                    if (labelValue.length <= 0) {
+                        throw new Error("Empty value provided for input HTTP label: FunctionName.");
+                    }
+                    resolvedPath = resolvedPath.replace("{FunctionName}", (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.extendedEncodeURIComponent)(labelValue));
+                }
+                else {
+                    throw new Error("No value provided for input HTTP label: FunctionName.");
+                }
+                query = (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, (input.Qualifier !== undefined && { Qualifier: input.Qualifier }));
+                return [2, new _aws_sdk_protocol_http__WEBPACK_IMPORTED_MODULE_0__.HttpRequest({
+                        protocol: protocol,
+                        hostname: hostname,
+                        port: port,
+                        method: "DELETE",
+                        headers: headers,
+                        path: resolvedPath,
+                        query: query,
+                        body: body,
+                    })];
+        }
+    });
+}); };
+var serializeAws_restJson1DeleteFunctionCodeSigningConfigCommand = function (input, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var _a, hostname, _b, protocol, port, basePath, headers, resolvedPath, labelValue, body;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0: return [4, context.endpoint()];
+            case 1:
+                _a = _c.sent(), hostname = _a.hostname, _b = _a.protocol, protocol = _b === void 0 ? "https" : _b, port = _a.port, basePath = _a.path;
+                headers = {};
+                resolvedPath = "".concat((basePath === null || basePath === void 0 ? void 0 : basePath.endsWith("/")) ? basePath.slice(0, -1) : basePath || "") +
+                    "/2020-06-30/functions/{FunctionName}/code-signing-config";
+                if (input.FunctionName !== undefined) {
+                    labelValue = input.FunctionName;
+                    if (labelValue.length <= 0) {
+                        throw new Error("Empty value provided for input HTTP label: FunctionName.");
+                    }
+                    resolvedPath = resolvedPath.replace("{FunctionName}", (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.extendedEncodeURIComponent)(labelValue));
+                }
+                else {
+                    throw new Error("No value provided for input HTTP label: FunctionName.");
+                }
+                return [2, new _aws_sdk_protocol_http__WEBPACK_IMPORTED_MODULE_0__.HttpRequest({
+                        protocol: protocol,
+                        hostname: hostname,
+                        port: port,
+                        method: "DELETE",
+                        headers: headers,
+                        path: resolvedPath,
+                        body: body,
+                    })];
+        }
+    });
+}); };
+var serializeAws_restJson1DeleteFunctionConcurrencyCommand = function (input, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var _a, hostname, _b, protocol, port, basePath, headers, resolvedPath, labelValue, body;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0: return [4, context.endpoint()];
+            case 1:
+                _a = _c.sent(), hostname = _a.hostname, _b = _a.protocol, protocol = _b === void 0 ? "https" : _b, port = _a.port, basePath = _a.path;
+                headers = {};
+                resolvedPath = "".concat((basePath === null || basePath === void 0 ? void 0 : basePath.endsWith("/")) ? basePath.slice(0, -1) : basePath || "") +
+                    "/2017-10-31/functions/{FunctionName}/concurrency";
+                if (input.FunctionName !== undefined) {
+                    labelValue = input.FunctionName;
+                    if (labelValue.length <= 0) {
+                        throw new Error("Empty value provided for input HTTP label: FunctionName.");
+                    }
+                    resolvedPath = resolvedPath.replace("{FunctionName}", (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.extendedEncodeURIComponent)(labelValue));
+                }
+                else {
+                    throw new Error("No value provided for input HTTP label: FunctionName.");
+                }
+                return [2, new _aws_sdk_protocol_http__WEBPACK_IMPORTED_MODULE_0__.HttpRequest({
+                        protocol: protocol,
+                        hostname: hostname,
+                        port: port,
+                        method: "DELETE",
+                        headers: headers,
+                        path: resolvedPath,
+                        body: body,
+                    })];
+        }
+    });
+}); };
+var serializeAws_restJson1DeleteFunctionEventInvokeConfigCommand = function (input, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var _a, hostname, _b, protocol, port, basePath, headers, resolvedPath, labelValue, query, body;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0: return [4, context.endpoint()];
+            case 1:
+                _a = _c.sent(), hostname = _a.hostname, _b = _a.protocol, protocol = _b === void 0 ? "https" : _b, port = _a.port, basePath = _a.path;
+                headers = {};
+                resolvedPath = "".concat((basePath === null || basePath === void 0 ? void 0 : basePath.endsWith("/")) ? basePath.slice(0, -1) : basePath || "") +
+                    "/2019-09-25/functions/{FunctionName}/event-invoke-config";
+                if (input.FunctionName !== undefined) {
+                    labelValue = input.FunctionName;
+                    if (labelValue.length <= 0) {
+                        throw new Error("Empty value provided for input HTTP label: FunctionName.");
+                    }
+                    resolvedPath = resolvedPath.replace("{FunctionName}", (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.extendedEncodeURIComponent)(labelValue));
+                }
+                else {
+                    throw new Error("No value provided for input HTTP label: FunctionName.");
+                }
+                query = (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, (input.Qualifier !== undefined && { Qualifier: input.Qualifier }));
+                return [2, new _aws_sdk_protocol_http__WEBPACK_IMPORTED_MODULE_0__.HttpRequest({
+                        protocol: protocol,
+                        hostname: hostname,
+                        port: port,
+                        method: "DELETE",
+                        headers: headers,
+                        path: resolvedPath,
+                        query: query,
+                        body: body,
+                    })];
+        }
+    });
+}); };
+var serializeAws_restJson1DeleteFunctionUrlConfigCommand = function (input, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var _a, hostname, _b, protocol, port, basePath, headers, resolvedPath, labelValue, query, body;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0: return [4, context.endpoint()];
+            case 1:
+                _a = _c.sent(), hostname = _a.hostname, _b = _a.protocol, protocol = _b === void 0 ? "https" : _b, port = _a.port, basePath = _a.path;
+                headers = {};
+                resolvedPath = "".concat((basePath === null || basePath === void 0 ? void 0 : basePath.endsWith("/")) ? basePath.slice(0, -1) : basePath || "") + "/2021-10-31/functions/{FunctionName}/url";
+                if (input.FunctionName !== undefined) {
+                    labelValue = input.FunctionName;
+                    if (labelValue.length <= 0) {
+                        throw new Error("Empty value provided for input HTTP label: FunctionName.");
+                    }
+                    resolvedPath = resolvedPath.replace("{FunctionName}", (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.extendedEncodeURIComponent)(labelValue));
+                }
+                else {
+                    throw new Error("No value provided for input HTTP label: FunctionName.");
+                }
+                query = (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, (input.Qualifier !== undefined && { Qualifier: input.Qualifier }));
+                return [2, new _aws_sdk_protocol_http__WEBPACK_IMPORTED_MODULE_0__.HttpRequest({
+                        protocol: protocol,
+                        hostname: hostname,
+                        port: port,
+                        method: "DELETE",
+                        headers: headers,
+                        path: resolvedPath,
+                        query: query,
+                        body: body,
+                    })];
+        }
+    });
+}); };
+var serializeAws_restJson1DeleteLayerVersionCommand = function (input, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var _a, hostname, _b, protocol, port, basePath, headers, resolvedPath, labelValue, labelValue, body;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0: return [4, context.endpoint()];
+            case 1:
+                _a = _c.sent(), hostname = _a.hostname, _b = _a.protocol, protocol = _b === void 0 ? "https" : _b, port = _a.port, basePath = _a.path;
+                headers = {};
+                resolvedPath = "".concat((basePath === null || basePath === void 0 ? void 0 : basePath.endsWith("/")) ? basePath.slice(0, -1) : basePath || "") +
+                    "/2018-10-31/layers/{LayerName}/versions/{VersionNumber}";
+                if (input.LayerName !== undefined) {
+                    labelValue = input.LayerName;
+                    if (labelValue.length <= 0) {
+                        throw new Error("Empty value provided for input HTTP label: LayerName.");
+                    }
+                    resolvedPath = resolvedPath.replace("{LayerName}", (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.extendedEncodeURIComponent)(labelValue));
+                }
+                else {
+                    throw new Error("No value provided for input HTTP label: LayerName.");
+                }
+                if (input.VersionNumber !== undefined) {
+                    labelValue = input.VersionNumber.toString();
+                    if (labelValue.length <= 0) {
+                        throw new Error("Empty value provided for input HTTP label: VersionNumber.");
+                    }
+                    resolvedPath = resolvedPath.replace("{VersionNumber}", (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.extendedEncodeURIComponent)(labelValue));
+                }
+                else {
+                    throw new Error("No value provided for input HTTP label: VersionNumber.");
+                }
+                return [2, new _aws_sdk_protocol_http__WEBPACK_IMPORTED_MODULE_0__.HttpRequest({
+                        protocol: protocol,
+                        hostname: hostname,
+                        port: port,
+                        method: "DELETE",
+                        headers: headers,
+                        path: resolvedPath,
+                        body: body,
+                    })];
+        }
+    });
+}); };
+var serializeAws_restJson1DeleteProvisionedConcurrencyConfigCommand = function (input, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var _a, hostname, _b, protocol, port, basePath, headers, resolvedPath, labelValue, query, body;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0: return [4, context.endpoint()];
+            case 1:
+                _a = _c.sent(), hostname = _a.hostname, _b = _a.protocol, protocol = _b === void 0 ? "https" : _b, port = _a.port, basePath = _a.path;
+                headers = {};
+                resolvedPath = "".concat((basePath === null || basePath === void 0 ? void 0 : basePath.endsWith("/")) ? basePath.slice(0, -1) : basePath || "") +
+                    "/2019-09-30/functions/{FunctionName}/provisioned-concurrency";
+                if (input.FunctionName !== undefined) {
+                    labelValue = input.FunctionName;
+                    if (labelValue.length <= 0) {
+                        throw new Error("Empty value provided for input HTTP label: FunctionName.");
+                    }
+                    resolvedPath = resolvedPath.replace("{FunctionName}", (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.extendedEncodeURIComponent)(labelValue));
+                }
+                else {
+                    throw new Error("No value provided for input HTTP label: FunctionName.");
+                }
+                query = (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, (input.Qualifier !== undefined && { Qualifier: input.Qualifier }));
+                return [2, new _aws_sdk_protocol_http__WEBPACK_IMPORTED_MODULE_0__.HttpRequest({
+                        protocol: protocol,
+                        hostname: hostname,
+                        port: port,
+                        method: "DELETE",
+                        headers: headers,
+                        path: resolvedPath,
+                        query: query,
+                        body: body,
+                    })];
+        }
+    });
+}); };
+var serializeAws_restJson1GetAccountSettingsCommand = function (input, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var _a, hostname, _b, protocol, port, basePath, headers, resolvedPath, body;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0: return [4, context.endpoint()];
+            case 1:
+                _a = _c.sent(), hostname = _a.hostname, _b = _a.protocol, protocol = _b === void 0 ? "https" : _b, port = _a.port, basePath = _a.path;
+                headers = {
+                    "content-type": "application/json",
+                };
+                resolvedPath = "".concat((basePath === null || basePath === void 0 ? void 0 : basePath.endsWith("/")) ? basePath.slice(0, -1) : basePath || "") + "/2016-08-19/account-settings";
+                body = "";
+                return [2, new _aws_sdk_protocol_http__WEBPACK_IMPORTED_MODULE_0__.HttpRequest({
+                        protocol: protocol,
+                        hostname: hostname,
+                        port: port,
+                        method: "GET",
+                        headers: headers,
+                        path: resolvedPath,
+                        body: body,
+                    })];
+        }
+    });
+}); };
+var serializeAws_restJson1GetAliasCommand = function (input, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var _a, hostname, _b, protocol, port, basePath, headers, resolvedPath, labelValue, labelValue, body;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0: return [4, context.endpoint()];
+            case 1:
+                _a = _c.sent(), hostname = _a.hostname, _b = _a.protocol, protocol = _b === void 0 ? "https" : _b, port = _a.port, basePath = _a.path;
+                headers = {};
+                resolvedPath = "".concat((basePath === null || basePath === void 0 ? void 0 : basePath.endsWith("/")) ? basePath.slice(0, -1) : basePath || "") +
+                    "/2015-03-31/functions/{FunctionName}/aliases/{Name}";
+                if (input.FunctionName !== undefined) {
+                    labelValue = input.FunctionName;
+                    if (labelValue.length <= 0) {
+                        throw new Error("Empty value provided for input HTTP label: FunctionName.");
+                    }
+                    resolvedPath = resolvedPath.replace("{FunctionName}", (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.extendedEncodeURIComponent)(labelValue));
+                }
+                else {
+                    throw new Error("No value provided for input HTTP label: FunctionName.");
+                }
+                if (input.Name !== undefined) {
+                    labelValue = input.Name;
+                    if (labelValue.length <= 0) {
+                        throw new Error("Empty value provided for input HTTP label: Name.");
+                    }
+                    resolvedPath = resolvedPath.replace("{Name}", (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.extendedEncodeURIComponent)(labelValue));
+                }
+                else {
+                    throw new Error("No value provided for input HTTP label: Name.");
+                }
+                return [2, new _aws_sdk_protocol_http__WEBPACK_IMPORTED_MODULE_0__.HttpRequest({
+                        protocol: protocol,
+                        hostname: hostname,
+                        port: port,
+                        method: "GET",
+                        headers: headers,
+                        path: resolvedPath,
+                        body: body,
+                    })];
+        }
+    });
+}); };
+var serializeAws_restJson1GetCodeSigningConfigCommand = function (input, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var _a, hostname, _b, protocol, port, basePath, headers, resolvedPath, labelValue, body;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0: return [4, context.endpoint()];
+            case 1:
+                _a = _c.sent(), hostname = _a.hostname, _b = _a.protocol, protocol = _b === void 0 ? "https" : _b, port = _a.port, basePath = _a.path;
+                headers = {};
+                resolvedPath = "".concat((basePath === null || basePath === void 0 ? void 0 : basePath.endsWith("/")) ? basePath.slice(0, -1) : basePath || "") +
+                    "/2020-04-22/code-signing-configs/{CodeSigningConfigArn}";
+                if (input.CodeSigningConfigArn !== undefined) {
+                    labelValue = input.CodeSigningConfigArn;
+                    if (labelValue.length <= 0) {
+                        throw new Error("Empty value provided for input HTTP label: CodeSigningConfigArn.");
+                    }
+                    resolvedPath = resolvedPath.replace("{CodeSigningConfigArn}", (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.extendedEncodeURIComponent)(labelValue));
+                }
+                else {
+                    throw new Error("No value provided for input HTTP label: CodeSigningConfigArn.");
+                }
+                return [2, new _aws_sdk_protocol_http__WEBPACK_IMPORTED_MODULE_0__.HttpRequest({
+                        protocol: protocol,
+                        hostname: hostname,
+                        port: port,
+                        method: "GET",
+                        headers: headers,
+                        path: resolvedPath,
+                        body: body,
+                    })];
+        }
+    });
+}); };
+var serializeAws_restJson1GetEventSourceMappingCommand = function (input, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var _a, hostname, _b, protocol, port, basePath, headers, resolvedPath, labelValue, body;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0: return [4, context.endpoint()];
+            case 1:
+                _a = _c.sent(), hostname = _a.hostname, _b = _a.protocol, protocol = _b === void 0 ? "https" : _b, port = _a.port, basePath = _a.path;
+                headers = {};
+                resolvedPath = "".concat((basePath === null || basePath === void 0 ? void 0 : basePath.endsWith("/")) ? basePath.slice(0, -1) : basePath || "") + "/2015-03-31/event-source-mappings/{UUID}";
+                if (input.UUID !== undefined) {
+                    labelValue = input.UUID;
+                    if (labelValue.length <= 0) {
+                        throw new Error("Empty value provided for input HTTP label: UUID.");
+                    }
+                    resolvedPath = resolvedPath.replace("{UUID}", (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.extendedEncodeURIComponent)(labelValue));
+                }
+                else {
+                    throw new Error("No value provided for input HTTP label: UUID.");
+                }
+                return [2, new _aws_sdk_protocol_http__WEBPACK_IMPORTED_MODULE_0__.HttpRequest({
+                        protocol: protocol,
+                        hostname: hostname,
+                        port: port,
+                        method: "GET",
+                        headers: headers,
+                        path: resolvedPath,
+                        body: body,
+                    })];
+        }
+    });
+}); };
+var serializeAws_restJson1GetFunctionCommand = function (input, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var _a, hostname, _b, protocol, port, basePath, headers, resolvedPath, labelValue, query, body;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0: return [4, context.endpoint()];
+            case 1:
+                _a = _c.sent(), hostname = _a.hostname, _b = _a.protocol, protocol = _b === void 0 ? "https" : _b, port = _a.port, basePath = _a.path;
+                headers = {};
+                resolvedPath = "".concat((basePath === null || basePath === void 0 ? void 0 : basePath.endsWith("/")) ? basePath.slice(0, -1) : basePath || "") + "/2015-03-31/functions/{FunctionName}";
+                if (input.FunctionName !== undefined) {
+                    labelValue = input.FunctionName;
+                    if (labelValue.length <= 0) {
+                        throw new Error("Empty value provided for input HTTP label: FunctionName.");
+                    }
+                    resolvedPath = resolvedPath.replace("{FunctionName}", (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.extendedEncodeURIComponent)(labelValue));
+                }
+                else {
+                    throw new Error("No value provided for input HTTP label: FunctionName.");
+                }
+                query = (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, (input.Qualifier !== undefined && { Qualifier: input.Qualifier }));
+                return [2, new _aws_sdk_protocol_http__WEBPACK_IMPORTED_MODULE_0__.HttpRequest({
+                        protocol: protocol,
+                        hostname: hostname,
+                        port: port,
+                        method: "GET",
+                        headers: headers,
+                        path: resolvedPath,
+                        query: query,
+                        body: body,
+                    })];
+        }
+    });
+}); };
+var serializeAws_restJson1GetFunctionCodeSigningConfigCommand = function (input, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var _a, hostname, _b, protocol, port, basePath, headers, resolvedPath, labelValue, body;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0: return [4, context.endpoint()];
+            case 1:
+                _a = _c.sent(), hostname = _a.hostname, _b = _a.protocol, protocol = _b === void 0 ? "https" : _b, port = _a.port, basePath = _a.path;
+                headers = {};
+                resolvedPath = "".concat((basePath === null || basePath === void 0 ? void 0 : basePath.endsWith("/")) ? basePath.slice(0, -1) : basePath || "") +
+                    "/2020-06-30/functions/{FunctionName}/code-signing-config";
+                if (input.FunctionName !== undefined) {
+                    labelValue = input.FunctionName;
+                    if (labelValue.length <= 0) {
+                        throw new Error("Empty value provided for input HTTP label: FunctionName.");
+                    }
+                    resolvedPath = resolvedPath.replace("{FunctionName}", (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.extendedEncodeURIComponent)(labelValue));
+                }
+                else {
+                    throw new Error("No value provided for input HTTP label: FunctionName.");
+                }
+                return [2, new _aws_sdk_protocol_http__WEBPACK_IMPORTED_MODULE_0__.HttpRequest({
+                        protocol: protocol,
+                        hostname: hostname,
+                        port: port,
+                        method: "GET",
+                        headers: headers,
+                        path: resolvedPath,
+                        body: body,
+                    })];
+        }
+    });
+}); };
+var serializeAws_restJson1GetFunctionConcurrencyCommand = function (input, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var _a, hostname, _b, protocol, port, basePath, headers, resolvedPath, labelValue, body;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0: return [4, context.endpoint()];
+            case 1:
+                _a = _c.sent(), hostname = _a.hostname, _b = _a.protocol, protocol = _b === void 0 ? "https" : _b, port = _a.port, basePath = _a.path;
+                headers = {};
+                resolvedPath = "".concat((basePath === null || basePath === void 0 ? void 0 : basePath.endsWith("/")) ? basePath.slice(0, -1) : basePath || "") +
+                    "/2019-09-30/functions/{FunctionName}/concurrency";
+                if (input.FunctionName !== undefined) {
+                    labelValue = input.FunctionName;
+                    if (labelValue.length <= 0) {
+                        throw new Error("Empty value provided for input HTTP label: FunctionName.");
+                    }
+                    resolvedPath = resolvedPath.replace("{FunctionName}", (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.extendedEncodeURIComponent)(labelValue));
+                }
+                else {
+                    throw new Error("No value provided for input HTTP label: FunctionName.");
+                }
+                return [2, new _aws_sdk_protocol_http__WEBPACK_IMPORTED_MODULE_0__.HttpRequest({
+                        protocol: protocol,
+                        hostname: hostname,
+                        port: port,
+                        method: "GET",
+                        headers: headers,
+                        path: resolvedPath,
+                        body: body,
+                    })];
+        }
+    });
+}); };
+var serializeAws_restJson1GetFunctionConfigurationCommand = function (input, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var _a, hostname, _b, protocol, port, basePath, headers, resolvedPath, labelValue, query, body;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0: return [4, context.endpoint()];
+            case 1:
+                _a = _c.sent(), hostname = _a.hostname, _b = _a.protocol, protocol = _b === void 0 ? "https" : _b, port = _a.port, basePath = _a.path;
+                headers = {};
+                resolvedPath = "".concat((basePath === null || basePath === void 0 ? void 0 : basePath.endsWith("/")) ? basePath.slice(0, -1) : basePath || "") +
+                    "/2015-03-31/functions/{FunctionName}/configuration";
+                if (input.FunctionName !== undefined) {
+                    labelValue = input.FunctionName;
+                    if (labelValue.length <= 0) {
+                        throw new Error("Empty value provided for input HTTP label: FunctionName.");
+                    }
+                    resolvedPath = resolvedPath.replace("{FunctionName}", (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.extendedEncodeURIComponent)(labelValue));
+                }
+                else {
+                    throw new Error("No value provided for input HTTP label: FunctionName.");
+                }
+                query = (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, (input.Qualifier !== undefined && { Qualifier: input.Qualifier }));
+                return [2, new _aws_sdk_protocol_http__WEBPACK_IMPORTED_MODULE_0__.HttpRequest({
+                        protocol: protocol,
+                        hostname: hostname,
+                        port: port,
+                        method: "GET",
+                        headers: headers,
+                        path: resolvedPath,
+                        query: query,
+                        body: body,
+                    })];
+        }
+    });
+}); };
+var serializeAws_restJson1GetFunctionEventInvokeConfigCommand = function (input, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var _a, hostname, _b, protocol, port, basePath, headers, resolvedPath, labelValue, query, body;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0: return [4, context.endpoint()];
+            case 1:
+                _a = _c.sent(), hostname = _a.hostname, _b = _a.protocol, protocol = _b === void 0 ? "https" : _b, port = _a.port, basePath = _a.path;
+                headers = {};
+                resolvedPath = "".concat((basePath === null || basePath === void 0 ? void 0 : basePath.endsWith("/")) ? basePath.slice(0, -1) : basePath || "") +
+                    "/2019-09-25/functions/{FunctionName}/event-invoke-config";
+                if (input.FunctionName !== undefined) {
+                    labelValue = input.FunctionName;
+                    if (labelValue.length <= 0) {
+                        throw new Error("Empty value provided for input HTTP label: FunctionName.");
+                    }
+                    resolvedPath = resolvedPath.replace("{FunctionName}", (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.extendedEncodeURIComponent)(labelValue));
+                }
+                else {
+                    throw new Error("No value provided for input HTTP label: FunctionName.");
+                }
+                query = (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, (input.Qualifier !== undefined && { Qualifier: input.Qualifier }));
+                return [2, new _aws_sdk_protocol_http__WEBPACK_IMPORTED_MODULE_0__.HttpRequest({
+                        protocol: protocol,
+                        hostname: hostname,
+                        port: port,
+                        method: "GET",
+                        headers: headers,
+                        path: resolvedPath,
+                        query: query,
+                        body: body,
+                    })];
+        }
+    });
+}); };
+var serializeAws_restJson1GetFunctionUrlConfigCommand = function (input, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var _a, hostname, _b, protocol, port, basePath, headers, resolvedPath, labelValue, query, body;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0: return [4, context.endpoint()];
+            case 1:
+                _a = _c.sent(), hostname = _a.hostname, _b = _a.protocol, protocol = _b === void 0 ? "https" : _b, port = _a.port, basePath = _a.path;
+                headers = {};
+                resolvedPath = "".concat((basePath === null || basePath === void 0 ? void 0 : basePath.endsWith("/")) ? basePath.slice(0, -1) : basePath || "") + "/2021-10-31/functions/{FunctionName}/url";
+                if (input.FunctionName !== undefined) {
+                    labelValue = input.FunctionName;
+                    if (labelValue.length <= 0) {
+                        throw new Error("Empty value provided for input HTTP label: FunctionName.");
+                    }
+                    resolvedPath = resolvedPath.replace("{FunctionName}", (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.extendedEncodeURIComponent)(labelValue));
+                }
+                else {
+                    throw new Error("No value provided for input HTTP label: FunctionName.");
+                }
+                query = (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, (input.Qualifier !== undefined && { Qualifier: input.Qualifier }));
+                return [2, new _aws_sdk_protocol_http__WEBPACK_IMPORTED_MODULE_0__.HttpRequest({
+                        protocol: protocol,
+                        hostname: hostname,
+                        port: port,
+                        method: "GET",
+                        headers: headers,
+                        path: resolvedPath,
+                        query: query,
+                        body: body,
+                    })];
+        }
+    });
+}); };
+var serializeAws_restJson1GetLayerVersionCommand = function (input, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var _a, hostname, _b, protocol, port, basePath, headers, resolvedPath, labelValue, labelValue, body;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0: return [4, context.endpoint()];
+            case 1:
+                _a = _c.sent(), hostname = _a.hostname, _b = _a.protocol, protocol = _b === void 0 ? "https" : _b, port = _a.port, basePath = _a.path;
+                headers = {};
+                resolvedPath = "".concat((basePath === null || basePath === void 0 ? void 0 : basePath.endsWith("/")) ? basePath.slice(0, -1) : basePath || "") +
+                    "/2018-10-31/layers/{LayerName}/versions/{VersionNumber}";
+                if (input.LayerName !== undefined) {
+                    labelValue = input.LayerName;
+                    if (labelValue.length <= 0) {
+                        throw new Error("Empty value provided for input HTTP label: LayerName.");
+                    }
+                    resolvedPath = resolvedPath.replace("{LayerName}", (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.extendedEncodeURIComponent)(labelValue));
+                }
+                else {
+                    throw new Error("No value provided for input HTTP label: LayerName.");
+                }
+                if (input.VersionNumber !== undefined) {
+                    labelValue = input.VersionNumber.toString();
+                    if (labelValue.length <= 0) {
+                        throw new Error("Empty value provided for input HTTP label: VersionNumber.");
+                    }
+                    resolvedPath = resolvedPath.replace("{VersionNumber}", (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.extendedEncodeURIComponent)(labelValue));
+                }
+                else {
+                    throw new Error("No value provided for input HTTP label: VersionNumber.");
+                }
+                return [2, new _aws_sdk_protocol_http__WEBPACK_IMPORTED_MODULE_0__.HttpRequest({
+                        protocol: protocol,
+                        hostname: hostname,
+                        port: port,
+                        method: "GET",
+                        headers: headers,
+                        path: resolvedPath,
+                        body: body,
+                    })];
+        }
+    });
+}); };
+var serializeAws_restJson1GetLayerVersionByArnCommand = function (input, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var _a, hostname, _b, protocol, port, basePath, headers, resolvedPath, query, body;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0: return [4, context.endpoint()];
+            case 1:
+                _a = _c.sent(), hostname = _a.hostname, _b = _a.protocol, protocol = _b === void 0 ? "https" : _b, port = _a.port, basePath = _a.path;
+                headers = {};
+                resolvedPath = "".concat((basePath === null || basePath === void 0 ? void 0 : basePath.endsWith("/")) ? basePath.slice(0, -1) : basePath || "") + "/2018-10-31/layers";
+                query = (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({ find: "LayerVersion" }, (input.Arn !== undefined && { Arn: input.Arn }));
+                return [2, new _aws_sdk_protocol_http__WEBPACK_IMPORTED_MODULE_0__.HttpRequest({
+                        protocol: protocol,
+                        hostname: hostname,
+                        port: port,
+                        method: "GET",
+                        headers: headers,
+                        path: resolvedPath,
+                        query: query,
+                        body: body,
+                    })];
+        }
+    });
+}); };
+var serializeAws_restJson1GetLayerVersionPolicyCommand = function (input, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var _a, hostname, _b, protocol, port, basePath, headers, resolvedPath, labelValue, labelValue, body;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0: return [4, context.endpoint()];
+            case 1:
+                _a = _c.sent(), hostname = _a.hostname, _b = _a.protocol, protocol = _b === void 0 ? "https" : _b, port = _a.port, basePath = _a.path;
+                headers = {};
+                resolvedPath = "".concat((basePath === null || basePath === void 0 ? void 0 : basePath.endsWith("/")) ? basePath.slice(0, -1) : basePath || "") +
+                    "/2018-10-31/layers/{LayerName}/versions/{VersionNumber}/policy";
+                if (input.LayerName !== undefined) {
+                    labelValue = input.LayerName;
+                    if (labelValue.length <= 0) {
+                        throw new Error("Empty value provided for input HTTP label: LayerName.");
+                    }
+                    resolvedPath = resolvedPath.replace("{LayerName}", (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.extendedEncodeURIComponent)(labelValue));
+                }
+                else {
+                    throw new Error("No value provided for input HTTP label: LayerName.");
+                }
+                if (input.VersionNumber !== undefined) {
+                    labelValue = input.VersionNumber.toString();
+                    if (labelValue.length <= 0) {
+                        throw new Error("Empty value provided for input HTTP label: VersionNumber.");
+                    }
+                    resolvedPath = resolvedPath.replace("{VersionNumber}", (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.extendedEncodeURIComponent)(labelValue));
+                }
+                else {
+                    throw new Error("No value provided for input HTTP label: VersionNumber.");
+                }
+                return [2, new _aws_sdk_protocol_http__WEBPACK_IMPORTED_MODULE_0__.HttpRequest({
+                        protocol: protocol,
+                        hostname: hostname,
+                        port: port,
+                        method: "GET",
+                        headers: headers,
+                        path: resolvedPath,
+                        body: body,
+                    })];
+        }
+    });
+}); };
+var serializeAws_restJson1GetPolicyCommand = function (input, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var _a, hostname, _b, protocol, port, basePath, headers, resolvedPath, labelValue, query, body;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0: return [4, context.endpoint()];
+            case 1:
+                _a = _c.sent(), hostname = _a.hostname, _b = _a.protocol, protocol = _b === void 0 ? "https" : _b, port = _a.port, basePath = _a.path;
+                headers = {};
+                resolvedPath = "".concat((basePath === null || basePath === void 0 ? void 0 : basePath.endsWith("/")) ? basePath.slice(0, -1) : basePath || "") +
+                    "/2015-03-31/functions/{FunctionName}/policy";
+                if (input.FunctionName !== undefined) {
+                    labelValue = input.FunctionName;
+                    if (labelValue.length <= 0) {
+                        throw new Error("Empty value provided for input HTTP label: FunctionName.");
+                    }
+                    resolvedPath = resolvedPath.replace("{FunctionName}", (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.extendedEncodeURIComponent)(labelValue));
+                }
+                else {
+                    throw new Error("No value provided for input HTTP label: FunctionName.");
+                }
+                query = (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, (input.Qualifier !== undefined && { Qualifier: input.Qualifier }));
+                return [2, new _aws_sdk_protocol_http__WEBPACK_IMPORTED_MODULE_0__.HttpRequest({
+                        protocol: protocol,
+                        hostname: hostname,
+                        port: port,
+                        method: "GET",
+                        headers: headers,
+                        path: resolvedPath,
+                        query: query,
+                        body: body,
+                    })];
+        }
+    });
+}); };
+var serializeAws_restJson1GetProvisionedConcurrencyConfigCommand = function (input, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var _a, hostname, _b, protocol, port, basePath, headers, resolvedPath, labelValue, query, body;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0: return [4, context.endpoint()];
+            case 1:
+                _a = _c.sent(), hostname = _a.hostname, _b = _a.protocol, protocol = _b === void 0 ? "https" : _b, port = _a.port, basePath = _a.path;
+                headers = {};
+                resolvedPath = "".concat((basePath === null || basePath === void 0 ? void 0 : basePath.endsWith("/")) ? basePath.slice(0, -1) : basePath || "") +
+                    "/2019-09-30/functions/{FunctionName}/provisioned-concurrency";
+                if (input.FunctionName !== undefined) {
+                    labelValue = input.FunctionName;
+                    if (labelValue.length <= 0) {
+                        throw new Error("Empty value provided for input HTTP label: FunctionName.");
+                    }
+                    resolvedPath = resolvedPath.replace("{FunctionName}", (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.extendedEncodeURIComponent)(labelValue));
+                }
+                else {
+                    throw new Error("No value provided for input HTTP label: FunctionName.");
+                }
+                query = (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, (input.Qualifier !== undefined && { Qualifier: input.Qualifier }));
+                return [2, new _aws_sdk_protocol_http__WEBPACK_IMPORTED_MODULE_0__.HttpRequest({
+                        protocol: protocol,
+                        hostname: hostname,
+                        port: port,
+                        method: "GET",
+                        headers: headers,
+                        path: resolvedPath,
+                        query: query,
+                        body: body,
+                    })];
+        }
+    });
+}); };
+var serializeAws_restJson1InvokeCommand = function (input, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var _a, hostname, _b, protocol, port, basePath, headers, resolvedPath, labelValue, query, body;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0: return [4, context.endpoint()];
+            case 1:
+                _a = _c.sent(), hostname = _a.hostname, _b = _a.protocol, protocol = _b === void 0 ? "https" : _b, port = _a.port, basePath = _a.path;
+                headers = (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({ "content-type": "application/octet-stream" }, (isSerializableHeaderValue(input.InvocationType) && { "x-amz-invocation-type": input.InvocationType })), (isSerializableHeaderValue(input.LogType) && { "x-amz-log-type": input.LogType })), (isSerializableHeaderValue(input.ClientContext) && { "x-amz-client-context": input.ClientContext }));
+                resolvedPath = "".concat((basePath === null || basePath === void 0 ? void 0 : basePath.endsWith("/")) ? basePath.slice(0, -1) : basePath || "") +
+                    "/2015-03-31/functions/{FunctionName}/invocations";
+                if (input.FunctionName !== undefined) {
+                    labelValue = input.FunctionName;
+                    if (labelValue.length <= 0) {
+                        throw new Error("Empty value provided for input HTTP label: FunctionName.");
+                    }
+                    resolvedPath = resolvedPath.replace("{FunctionName}", (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.extendedEncodeURIComponent)(labelValue));
+                }
+                else {
+                    throw new Error("No value provided for input HTTP label: FunctionName.");
+                }
+                query = (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, (input.Qualifier !== undefined && { Qualifier: input.Qualifier }));
+                if (input.Payload !== undefined) {
+                    body = input.Payload;
+                }
+                return [2, new _aws_sdk_protocol_http__WEBPACK_IMPORTED_MODULE_0__.HttpRequest({
+                        protocol: protocol,
+                        hostname: hostname,
+                        port: port,
+                        method: "POST",
+                        headers: headers,
+                        path: resolvedPath,
+                        query: query,
+                        body: body,
+                    })];
+        }
+    });
+}); };
+var serializeAws_restJson1InvokeAsyncCommand = function (input, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var _a, hostname, _b, protocol, port, basePath, headers, resolvedPath, labelValue, body;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0: return [4, context.endpoint()];
+            case 1:
+                _a = _c.sent(), hostname = _a.hostname, _b = _a.protocol, protocol = _b === void 0 ? "https" : _b, port = _a.port, basePath = _a.path;
+                headers = {
+                    "content-type": "application/octet-stream",
+                };
+                resolvedPath = "".concat((basePath === null || basePath === void 0 ? void 0 : basePath.endsWith("/")) ? basePath.slice(0, -1) : basePath || "") +
+                    "/2014-11-13/functions/{FunctionName}/invoke-async";
+                if (input.FunctionName !== undefined) {
+                    labelValue = input.FunctionName;
+                    if (labelValue.length <= 0) {
+                        throw new Error("Empty value provided for input HTTP label: FunctionName.");
+                    }
+                    resolvedPath = resolvedPath.replace("{FunctionName}", (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.extendedEncodeURIComponent)(labelValue));
+                }
+                else {
+                    throw new Error("No value provided for input HTTP label: FunctionName.");
+                }
+                if (input.InvokeArgs !== undefined) {
+                    body = input.InvokeArgs;
+                }
+                return [2, new _aws_sdk_protocol_http__WEBPACK_IMPORTED_MODULE_0__.HttpRequest({
+                        protocol: protocol,
+                        hostname: hostname,
+                        port: port,
+                        method: "POST",
+                        headers: headers,
+                        path: resolvedPath,
+                        body: body,
+                    })];
+        }
+    });
+}); };
+var serializeAws_restJson1ListAliasesCommand = function (input, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var _a, hostname, _b, protocol, port, basePath, headers, resolvedPath, labelValue, query, body;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0: return [4, context.endpoint()];
+            case 1:
+                _a = _c.sent(), hostname = _a.hostname, _b = _a.protocol, protocol = _b === void 0 ? "https" : _b, port = _a.port, basePath = _a.path;
+                headers = {};
+                resolvedPath = "".concat((basePath === null || basePath === void 0 ? void 0 : basePath.endsWith("/")) ? basePath.slice(0, -1) : basePath || "") +
+                    "/2015-03-31/functions/{FunctionName}/aliases";
+                if (input.FunctionName !== undefined) {
+                    labelValue = input.FunctionName;
+                    if (labelValue.length <= 0) {
+                        throw new Error("Empty value provided for input HTTP label: FunctionName.");
+                    }
+                    resolvedPath = resolvedPath.replace("{FunctionName}", (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.extendedEncodeURIComponent)(labelValue));
+                }
+                else {
+                    throw new Error("No value provided for input HTTP label: FunctionName.");
+                }
+                query = (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, (input.FunctionVersion !== undefined && { FunctionVersion: input.FunctionVersion })), (input.Marker !== undefined && { Marker: input.Marker })), (input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }));
+                return [2, new _aws_sdk_protocol_http__WEBPACK_IMPORTED_MODULE_0__.HttpRequest({
+                        protocol: protocol,
+                        hostname: hostname,
+                        port: port,
+                        method: "GET",
+                        headers: headers,
+                        path: resolvedPath,
+                        query: query,
+                        body: body,
+                    })];
+        }
+    });
+}); };
+var serializeAws_restJson1ListCodeSigningConfigsCommand = function (input, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var _a, hostname, _b, protocol, port, basePath, headers, resolvedPath, query, body;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0: return [4, context.endpoint()];
+            case 1:
+                _a = _c.sent(), hostname = _a.hostname, _b = _a.protocol, protocol = _b === void 0 ? "https" : _b, port = _a.port, basePath = _a.path;
+                headers = {};
+                resolvedPath = "".concat((basePath === null || basePath === void 0 ? void 0 : basePath.endsWith("/")) ? basePath.slice(0, -1) : basePath || "") + "/2020-04-22/code-signing-configs";
+                query = (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, (input.Marker !== undefined && { Marker: input.Marker })), (input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }));
+                return [2, new _aws_sdk_protocol_http__WEBPACK_IMPORTED_MODULE_0__.HttpRequest({
+                        protocol: protocol,
+                        hostname: hostname,
+                        port: port,
+                        method: "GET",
+                        headers: headers,
+                        path: resolvedPath,
+                        query: query,
+                        body: body,
+                    })];
+        }
+    });
+}); };
+var serializeAws_restJson1ListEventSourceMappingsCommand = function (input, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var _a, hostname, _b, protocol, port, basePath, headers, resolvedPath, query, body;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0: return [4, context.endpoint()];
+            case 1:
+                _a = _c.sent(), hostname = _a.hostname, _b = _a.protocol, protocol = _b === void 0 ? "https" : _b, port = _a.port, basePath = _a.path;
+                headers = {};
+                resolvedPath = "".concat((basePath === null || basePath === void 0 ? void 0 : basePath.endsWith("/")) ? basePath.slice(0, -1) : basePath || "") + "/2015-03-31/event-source-mappings";
+                query = (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, (input.EventSourceArn !== undefined && { EventSourceArn: input.EventSourceArn })), (input.FunctionName !== undefined && { FunctionName: input.FunctionName })), (input.Marker !== undefined && { Marker: input.Marker })), (input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }));
+                return [2, new _aws_sdk_protocol_http__WEBPACK_IMPORTED_MODULE_0__.HttpRequest({
+                        protocol: protocol,
+                        hostname: hostname,
+                        port: port,
+                        method: "GET",
+                        headers: headers,
+                        path: resolvedPath,
+                        query: query,
+                        body: body,
+                    })];
+        }
+    });
+}); };
+var serializeAws_restJson1ListFunctionEventInvokeConfigsCommand = function (input, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var _a, hostname, _b, protocol, port, basePath, headers, resolvedPath, labelValue, query, body;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0: return [4, context.endpoint()];
+            case 1:
+                _a = _c.sent(), hostname = _a.hostname, _b = _a.protocol, protocol = _b === void 0 ? "https" : _b, port = _a.port, basePath = _a.path;
+                headers = {};
+                resolvedPath = "".concat((basePath === null || basePath === void 0 ? void 0 : basePath.endsWith("/")) ? basePath.slice(0, -1) : basePath || "") +
+                    "/2019-09-25/functions/{FunctionName}/event-invoke-config/list";
+                if (input.FunctionName !== undefined) {
+                    labelValue = input.FunctionName;
+                    if (labelValue.length <= 0) {
+                        throw new Error("Empty value provided for input HTTP label: FunctionName.");
+                    }
+                    resolvedPath = resolvedPath.replace("{FunctionName}", (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.extendedEncodeURIComponent)(labelValue));
+                }
+                else {
+                    throw new Error("No value provided for input HTTP label: FunctionName.");
+                }
+                query = (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, (input.Marker !== undefined && { Marker: input.Marker })), (input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }));
+                return [2, new _aws_sdk_protocol_http__WEBPACK_IMPORTED_MODULE_0__.HttpRequest({
+                        protocol: protocol,
+                        hostname: hostname,
+                        port: port,
+                        method: "GET",
+                        headers: headers,
+                        path: resolvedPath,
+                        query: query,
+                        body: body,
+                    })];
+        }
+    });
+}); };
+var serializeAws_restJson1ListFunctionsCommand = function (input, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var _a, hostname, _b, protocol, port, basePath, headers, resolvedPath, query, body;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0: return [4, context.endpoint()];
+            case 1:
+                _a = _c.sent(), hostname = _a.hostname, _b = _a.protocol, protocol = _b === void 0 ? "https" : _b, port = _a.port, basePath = _a.path;
+                headers = {};
+                resolvedPath = "".concat((basePath === null || basePath === void 0 ? void 0 : basePath.endsWith("/")) ? basePath.slice(0, -1) : basePath || "") + "/2015-03-31/functions";
+                query = (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, (input.MasterRegion !== undefined && { MasterRegion: input.MasterRegion })), (input.FunctionVersion !== undefined && { FunctionVersion: input.FunctionVersion })), (input.Marker !== undefined && { Marker: input.Marker })), (input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }));
+                return [2, new _aws_sdk_protocol_http__WEBPACK_IMPORTED_MODULE_0__.HttpRequest({
+                        protocol: protocol,
+                        hostname: hostname,
+                        port: port,
+                        method: "GET",
+                        headers: headers,
+                        path: resolvedPath,
+                        query: query,
+                        body: body,
+                    })];
+        }
+    });
+}); };
+var serializeAws_restJson1ListFunctionsByCodeSigningConfigCommand = function (input, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var _a, hostname, _b, protocol, port, basePath, headers, resolvedPath, labelValue, query, body;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0: return [4, context.endpoint()];
+            case 1:
+                _a = _c.sent(), hostname = _a.hostname, _b = _a.protocol, protocol = _b === void 0 ? "https" : _b, port = _a.port, basePath = _a.path;
+                headers = {};
+                resolvedPath = "".concat((basePath === null || basePath === void 0 ? void 0 : basePath.endsWith("/")) ? basePath.slice(0, -1) : basePath || "") +
+                    "/2020-04-22/code-signing-configs/{CodeSigningConfigArn}/functions";
+                if (input.CodeSigningConfigArn !== undefined) {
+                    labelValue = input.CodeSigningConfigArn;
+                    if (labelValue.length <= 0) {
+                        throw new Error("Empty value provided for input HTTP label: CodeSigningConfigArn.");
+                    }
+                    resolvedPath = resolvedPath.replace("{CodeSigningConfigArn}", (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.extendedEncodeURIComponent)(labelValue));
+                }
+                else {
+                    throw new Error("No value provided for input HTTP label: CodeSigningConfigArn.");
+                }
+                query = (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, (input.Marker !== undefined && { Marker: input.Marker })), (input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }));
+                return [2, new _aws_sdk_protocol_http__WEBPACK_IMPORTED_MODULE_0__.HttpRequest({
+                        protocol: protocol,
+                        hostname: hostname,
+                        port: port,
+                        method: "GET",
+                        headers: headers,
+                        path: resolvedPath,
+                        query: query,
+                        body: body,
+                    })];
+        }
+    });
+}); };
+var serializeAws_restJson1ListFunctionUrlConfigsCommand = function (input, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var _a, hostname, _b, protocol, port, basePath, headers, resolvedPath, labelValue, query, body;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0: return [4, context.endpoint()];
+            case 1:
+                _a = _c.sent(), hostname = _a.hostname, _b = _a.protocol, protocol = _b === void 0 ? "https" : _b, port = _a.port, basePath = _a.path;
+                headers = {};
+                resolvedPath = "".concat((basePath === null || basePath === void 0 ? void 0 : basePath.endsWith("/")) ? basePath.slice(0, -1) : basePath || "") + "/2021-10-31/functions/{FunctionName}/urls";
+                if (input.FunctionName !== undefined) {
+                    labelValue = input.FunctionName;
+                    if (labelValue.length <= 0) {
+                        throw new Error("Empty value provided for input HTTP label: FunctionName.");
+                    }
+                    resolvedPath = resolvedPath.replace("{FunctionName}", (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.extendedEncodeURIComponent)(labelValue));
+                }
+                else {
+                    throw new Error("No value provided for input HTTP label: FunctionName.");
+                }
+                query = (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, (input.Marker !== undefined && { Marker: input.Marker })), (input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }));
+                return [2, new _aws_sdk_protocol_http__WEBPACK_IMPORTED_MODULE_0__.HttpRequest({
+                        protocol: protocol,
+                        hostname: hostname,
+                        port: port,
+                        method: "GET",
+                        headers: headers,
+                        path: resolvedPath,
+                        query: query,
+                        body: body,
+                    })];
+        }
+    });
+}); };
+var serializeAws_restJson1ListLayersCommand = function (input, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var _a, hostname, _b, protocol, port, basePath, headers, resolvedPath, query, body;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0: return [4, context.endpoint()];
+            case 1:
+                _a = _c.sent(), hostname = _a.hostname, _b = _a.protocol, protocol = _b === void 0 ? "https" : _b, port = _a.port, basePath = _a.path;
+                headers = {};
+                resolvedPath = "".concat((basePath === null || basePath === void 0 ? void 0 : basePath.endsWith("/")) ? basePath.slice(0, -1) : basePath || "") + "/2018-10-31/layers";
+                query = (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, (input.CompatibleRuntime !== undefined && { CompatibleRuntime: input.CompatibleRuntime })), (input.Marker !== undefined && { Marker: input.Marker })), (input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() })), (input.CompatibleArchitecture !== undefined && { CompatibleArchitecture: input.CompatibleArchitecture }));
+                return [2, new _aws_sdk_protocol_http__WEBPACK_IMPORTED_MODULE_0__.HttpRequest({
+                        protocol: protocol,
+                        hostname: hostname,
+                        port: port,
+                        method: "GET",
+                        headers: headers,
+                        path: resolvedPath,
+                        query: query,
+                        body: body,
+                    })];
+        }
+    });
+}); };
+var serializeAws_restJson1ListLayerVersionsCommand = function (input, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var _a, hostname, _b, protocol, port, basePath, headers, resolvedPath, labelValue, query, body;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0: return [4, context.endpoint()];
+            case 1:
+                _a = _c.sent(), hostname = _a.hostname, _b = _a.protocol, protocol = _b === void 0 ? "https" : _b, port = _a.port, basePath = _a.path;
+                headers = {};
+                resolvedPath = "".concat((basePath === null || basePath === void 0 ? void 0 : basePath.endsWith("/")) ? basePath.slice(0, -1) : basePath || "") + "/2018-10-31/layers/{LayerName}/versions";
+                if (input.LayerName !== undefined) {
+                    labelValue = input.LayerName;
+                    if (labelValue.length <= 0) {
+                        throw new Error("Empty value provided for input HTTP label: LayerName.");
+                    }
+                    resolvedPath = resolvedPath.replace("{LayerName}", (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.extendedEncodeURIComponent)(labelValue));
+                }
+                else {
+                    throw new Error("No value provided for input HTTP label: LayerName.");
+                }
+                query = (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, (input.CompatibleRuntime !== undefined && { CompatibleRuntime: input.CompatibleRuntime })), (input.Marker !== undefined && { Marker: input.Marker })), (input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() })), (input.CompatibleArchitecture !== undefined && { CompatibleArchitecture: input.CompatibleArchitecture }));
+                return [2, new _aws_sdk_protocol_http__WEBPACK_IMPORTED_MODULE_0__.HttpRequest({
+                        protocol: protocol,
+                        hostname: hostname,
+                        port: port,
+                        method: "GET",
+                        headers: headers,
+                        path: resolvedPath,
+                        query: query,
+                        body: body,
+                    })];
+        }
+    });
+}); };
+var serializeAws_restJson1ListProvisionedConcurrencyConfigsCommand = function (input, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var _a, hostname, _b, protocol, port, basePath, headers, resolvedPath, labelValue, query, body;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0: return [4, context.endpoint()];
+            case 1:
+                _a = _c.sent(), hostname = _a.hostname, _b = _a.protocol, protocol = _b === void 0 ? "https" : _b, port = _a.port, basePath = _a.path;
+                headers = {};
+                resolvedPath = "".concat((basePath === null || basePath === void 0 ? void 0 : basePath.endsWith("/")) ? basePath.slice(0, -1) : basePath || "") +
+                    "/2019-09-30/functions/{FunctionName}/provisioned-concurrency";
+                if (input.FunctionName !== undefined) {
+                    labelValue = input.FunctionName;
+                    if (labelValue.length <= 0) {
+                        throw new Error("Empty value provided for input HTTP label: FunctionName.");
+                    }
+                    resolvedPath = resolvedPath.replace("{FunctionName}", (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.extendedEncodeURIComponent)(labelValue));
+                }
+                else {
+                    throw new Error("No value provided for input HTTP label: FunctionName.");
+                }
+                query = (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({ List: "ALL" }, (input.Marker !== undefined && { Marker: input.Marker })), (input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }));
+                return [2, new _aws_sdk_protocol_http__WEBPACK_IMPORTED_MODULE_0__.HttpRequest({
+                        protocol: protocol,
+                        hostname: hostname,
+                        port: port,
+                        method: "GET",
+                        headers: headers,
+                        path: resolvedPath,
+                        query: query,
+                        body: body,
+                    })];
+        }
+    });
+}); };
+var serializeAws_restJson1ListTagsCommand = function (input, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var _a, hostname, _b, protocol, port, basePath, headers, resolvedPath, labelValue, body;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0: return [4, context.endpoint()];
+            case 1:
+                _a = _c.sent(), hostname = _a.hostname, _b = _a.protocol, protocol = _b === void 0 ? "https" : _b, port = _a.port, basePath = _a.path;
+                headers = {};
+                resolvedPath = "".concat((basePath === null || basePath === void 0 ? void 0 : basePath.endsWith("/")) ? basePath.slice(0, -1) : basePath || "") + "/2017-03-31/tags/{Resource}";
+                if (input.Resource !== undefined) {
+                    labelValue = input.Resource;
+                    if (labelValue.length <= 0) {
+                        throw new Error("Empty value provided for input HTTP label: Resource.");
+                    }
+                    resolvedPath = resolvedPath.replace("{Resource}", (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.extendedEncodeURIComponent)(labelValue));
+                }
+                else {
+                    throw new Error("No value provided for input HTTP label: Resource.");
+                }
+                return [2, new _aws_sdk_protocol_http__WEBPACK_IMPORTED_MODULE_0__.HttpRequest({
+                        protocol: protocol,
+                        hostname: hostname,
+                        port: port,
+                        method: "GET",
+                        headers: headers,
+                        path: resolvedPath,
+                        body: body,
+                    })];
+        }
+    });
+}); };
+var serializeAws_restJson1ListVersionsByFunctionCommand = function (input, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var _a, hostname, _b, protocol, port, basePath, headers, resolvedPath, labelValue, query, body;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0: return [4, context.endpoint()];
+            case 1:
+                _a = _c.sent(), hostname = _a.hostname, _b = _a.protocol, protocol = _b === void 0 ? "https" : _b, port = _a.port, basePath = _a.path;
+                headers = {};
+                resolvedPath = "".concat((basePath === null || basePath === void 0 ? void 0 : basePath.endsWith("/")) ? basePath.slice(0, -1) : basePath || "") +
+                    "/2015-03-31/functions/{FunctionName}/versions";
+                if (input.FunctionName !== undefined) {
+                    labelValue = input.FunctionName;
+                    if (labelValue.length <= 0) {
+                        throw new Error("Empty value provided for input HTTP label: FunctionName.");
+                    }
+                    resolvedPath = resolvedPath.replace("{FunctionName}", (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.extendedEncodeURIComponent)(labelValue));
+                }
+                else {
+                    throw new Error("No value provided for input HTTP label: FunctionName.");
+                }
+                query = (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, (input.Marker !== undefined && { Marker: input.Marker })), (input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }));
+                return [2, new _aws_sdk_protocol_http__WEBPACK_IMPORTED_MODULE_0__.HttpRequest({
+                        protocol: protocol,
+                        hostname: hostname,
+                        port: port,
+                        method: "GET",
+                        headers: headers,
+                        path: resolvedPath,
+                        query: query,
+                        body: body,
+                    })];
+        }
+    });
+}); };
+var serializeAws_restJson1PublishLayerVersionCommand = function (input, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var _a, hostname, _b, protocol, port, basePath, headers, resolvedPath, labelValue, body;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0: return [4, context.endpoint()];
+            case 1:
+                _a = _c.sent(), hostname = _a.hostname, _b = _a.protocol, protocol = _b === void 0 ? "https" : _b, port = _a.port, basePath = _a.path;
+                headers = {
+                    "content-type": "application/json",
+                };
+                resolvedPath = "".concat((basePath === null || basePath === void 0 ? void 0 : basePath.endsWith("/")) ? basePath.slice(0, -1) : basePath || "") + "/2018-10-31/layers/{LayerName}/versions";
+                if (input.LayerName !== undefined) {
+                    labelValue = input.LayerName;
+                    if (labelValue.length <= 0) {
+                        throw new Error("Empty value provided for input HTTP label: LayerName.");
+                    }
+                    resolvedPath = resolvedPath.replace("{LayerName}", (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.extendedEncodeURIComponent)(labelValue));
+                }
+                else {
+                    throw new Error("No value provided for input HTTP label: LayerName.");
+                }
+                body = JSON.stringify((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, (input.CompatibleArchitectures != null && {
+                    CompatibleArchitectures: serializeAws_restJson1CompatibleArchitectures(input.CompatibleArchitectures, context),
+                })), (input.CompatibleRuntimes != null && {
+                    CompatibleRuntimes: serializeAws_restJson1CompatibleRuntimes(input.CompatibleRuntimes, context),
+                })), (input.Content != null && { Content: serializeAws_restJson1LayerVersionContentInput(input.Content, context) })), (input.Description != null && { Description: input.Description })), (input.LicenseInfo != null && { LicenseInfo: input.LicenseInfo })));
+                return [2, new _aws_sdk_protocol_http__WEBPACK_IMPORTED_MODULE_0__.HttpRequest({
+                        protocol: protocol,
+                        hostname: hostname,
+                        port: port,
+                        method: "POST",
+                        headers: headers,
+                        path: resolvedPath,
+                        body: body,
+                    })];
+        }
+    });
+}); };
+var serializeAws_restJson1PublishVersionCommand = function (input, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var _a, hostname, _b, protocol, port, basePath, headers, resolvedPath, labelValue, body;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0: return [4, context.endpoint()];
+            case 1:
+                _a = _c.sent(), hostname = _a.hostname, _b = _a.protocol, protocol = _b === void 0 ? "https" : _b, port = _a.port, basePath = _a.path;
+                headers = {
+                    "content-type": "application/json",
+                };
+                resolvedPath = "".concat((basePath === null || basePath === void 0 ? void 0 : basePath.endsWith("/")) ? basePath.slice(0, -1) : basePath || "") +
+                    "/2015-03-31/functions/{FunctionName}/versions";
+                if (input.FunctionName !== undefined) {
+                    labelValue = input.FunctionName;
+                    if (labelValue.length <= 0) {
+                        throw new Error("Empty value provided for input HTTP label: FunctionName.");
+                    }
+                    resolvedPath = resolvedPath.replace("{FunctionName}", (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.extendedEncodeURIComponent)(labelValue));
+                }
+                else {
+                    throw new Error("No value provided for input HTTP label: FunctionName.");
+                }
+                body = JSON.stringify((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, (input.CodeSha256 != null && { CodeSha256: input.CodeSha256 })), (input.Description != null && { Description: input.Description })), (input.RevisionId != null && { RevisionId: input.RevisionId })));
+                return [2, new _aws_sdk_protocol_http__WEBPACK_IMPORTED_MODULE_0__.HttpRequest({
+                        protocol: protocol,
+                        hostname: hostname,
+                        port: port,
+                        method: "POST",
+                        headers: headers,
+                        path: resolvedPath,
+                        body: body,
+                    })];
+        }
+    });
+}); };
+var serializeAws_restJson1PutFunctionCodeSigningConfigCommand = function (input, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var _a, hostname, _b, protocol, port, basePath, headers, resolvedPath, labelValue, body;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0: return [4, context.endpoint()];
+            case 1:
+                _a = _c.sent(), hostname = _a.hostname, _b = _a.protocol, protocol = _b === void 0 ? "https" : _b, port = _a.port, basePath = _a.path;
+                headers = {
+                    "content-type": "application/json",
+                };
+                resolvedPath = "".concat((basePath === null || basePath === void 0 ? void 0 : basePath.endsWith("/")) ? basePath.slice(0, -1) : basePath || "") +
+                    "/2020-06-30/functions/{FunctionName}/code-signing-config";
+                if (input.FunctionName !== undefined) {
+                    labelValue = input.FunctionName;
+                    if (labelValue.length <= 0) {
+                        throw new Error("Empty value provided for input HTTP label: FunctionName.");
+                    }
+                    resolvedPath = resolvedPath.replace("{FunctionName}", (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.extendedEncodeURIComponent)(labelValue));
+                }
+                else {
+                    throw new Error("No value provided for input HTTP label: FunctionName.");
+                }
+                body = JSON.stringify((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, (input.CodeSigningConfigArn != null && { CodeSigningConfigArn: input.CodeSigningConfigArn })));
+                return [2, new _aws_sdk_protocol_http__WEBPACK_IMPORTED_MODULE_0__.HttpRequest({
+                        protocol: protocol,
+                        hostname: hostname,
+                        port: port,
+                        method: "PUT",
+                        headers: headers,
+                        path: resolvedPath,
+                        body: body,
+                    })];
+        }
+    });
+}); };
+var serializeAws_restJson1PutFunctionConcurrencyCommand = function (input, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var _a, hostname, _b, protocol, port, basePath, headers, resolvedPath, labelValue, body;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0: return [4, context.endpoint()];
+            case 1:
+                _a = _c.sent(), hostname = _a.hostname, _b = _a.protocol, protocol = _b === void 0 ? "https" : _b, port = _a.port, basePath = _a.path;
+                headers = {
+                    "content-type": "application/json",
+                };
+                resolvedPath = "".concat((basePath === null || basePath === void 0 ? void 0 : basePath.endsWith("/")) ? basePath.slice(0, -1) : basePath || "") +
+                    "/2017-10-31/functions/{FunctionName}/concurrency";
+                if (input.FunctionName !== undefined) {
+                    labelValue = input.FunctionName;
+                    if (labelValue.length <= 0) {
+                        throw new Error("Empty value provided for input HTTP label: FunctionName.");
+                    }
+                    resolvedPath = resolvedPath.replace("{FunctionName}", (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.extendedEncodeURIComponent)(labelValue));
+                }
+                else {
+                    throw new Error("No value provided for input HTTP label: FunctionName.");
+                }
+                body = JSON.stringify((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, (input.ReservedConcurrentExecutions != null && {
+                    ReservedConcurrentExecutions: input.ReservedConcurrentExecutions,
+                })));
+                return [2, new _aws_sdk_protocol_http__WEBPACK_IMPORTED_MODULE_0__.HttpRequest({
+                        protocol: protocol,
+                        hostname: hostname,
+                        port: port,
+                        method: "PUT",
+                        headers: headers,
+                        path: resolvedPath,
+                        body: body,
+                    })];
+        }
+    });
+}); };
+var serializeAws_restJson1PutFunctionEventInvokeConfigCommand = function (input, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var _a, hostname, _b, protocol, port, basePath, headers, resolvedPath, labelValue, query, body;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0: return [4, context.endpoint()];
+            case 1:
+                _a = _c.sent(), hostname = _a.hostname, _b = _a.protocol, protocol = _b === void 0 ? "https" : _b, port = _a.port, basePath = _a.path;
+                headers = {
+                    "content-type": "application/json",
+                };
+                resolvedPath = "".concat((basePath === null || basePath === void 0 ? void 0 : basePath.endsWith("/")) ? basePath.slice(0, -1) : basePath || "") +
+                    "/2019-09-25/functions/{FunctionName}/event-invoke-config";
+                if (input.FunctionName !== undefined) {
+                    labelValue = input.FunctionName;
+                    if (labelValue.length <= 0) {
+                        throw new Error("Empty value provided for input HTTP label: FunctionName.");
+                    }
+                    resolvedPath = resolvedPath.replace("{FunctionName}", (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.extendedEncodeURIComponent)(labelValue));
+                }
+                else {
+                    throw new Error("No value provided for input HTTP label: FunctionName.");
+                }
+                query = (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, (input.Qualifier !== undefined && { Qualifier: input.Qualifier }));
+                body = JSON.stringify((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, (input.DestinationConfig != null && {
+                    DestinationConfig: serializeAws_restJson1DestinationConfig(input.DestinationConfig, context),
+                })), (input.MaximumEventAgeInSeconds != null && { MaximumEventAgeInSeconds: input.MaximumEventAgeInSeconds })), (input.MaximumRetryAttempts != null && { MaximumRetryAttempts: input.MaximumRetryAttempts })));
+                return [2, new _aws_sdk_protocol_http__WEBPACK_IMPORTED_MODULE_0__.HttpRequest({
+                        protocol: protocol,
+                        hostname: hostname,
+                        port: port,
+                        method: "PUT",
+                        headers: headers,
+                        path: resolvedPath,
+                        query: query,
+                        body: body,
+                    })];
+        }
+    });
+}); };
+var serializeAws_restJson1PutProvisionedConcurrencyConfigCommand = function (input, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var _a, hostname, _b, protocol, port, basePath, headers, resolvedPath, labelValue, query, body;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0: return [4, context.endpoint()];
+            case 1:
+                _a = _c.sent(), hostname = _a.hostname, _b = _a.protocol, protocol = _b === void 0 ? "https" : _b, port = _a.port, basePath = _a.path;
+                headers = {
+                    "content-type": "application/json",
+                };
+                resolvedPath = "".concat((basePath === null || basePath === void 0 ? void 0 : basePath.endsWith("/")) ? basePath.slice(0, -1) : basePath || "") +
+                    "/2019-09-30/functions/{FunctionName}/provisioned-concurrency";
+                if (input.FunctionName !== undefined) {
+                    labelValue = input.FunctionName;
+                    if (labelValue.length <= 0) {
+                        throw new Error("Empty value provided for input HTTP label: FunctionName.");
+                    }
+                    resolvedPath = resolvedPath.replace("{FunctionName}", (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.extendedEncodeURIComponent)(labelValue));
+                }
+                else {
+                    throw new Error("No value provided for input HTTP label: FunctionName.");
+                }
+                query = (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, (input.Qualifier !== undefined && { Qualifier: input.Qualifier }));
+                body = JSON.stringify((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, (input.ProvisionedConcurrentExecutions != null && {
+                    ProvisionedConcurrentExecutions: input.ProvisionedConcurrentExecutions,
+                })));
+                return [2, new _aws_sdk_protocol_http__WEBPACK_IMPORTED_MODULE_0__.HttpRequest({
+                        protocol: protocol,
+                        hostname: hostname,
+                        port: port,
+                        method: "PUT",
+                        headers: headers,
+                        path: resolvedPath,
+                        query: query,
+                        body: body,
+                    })];
+        }
+    });
+}); };
+var serializeAws_restJson1RemoveLayerVersionPermissionCommand = function (input, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var _a, hostname, _b, protocol, port, basePath, headers, resolvedPath, labelValue, labelValue, labelValue, query, body;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0: return [4, context.endpoint()];
+            case 1:
+                _a = _c.sent(), hostname = _a.hostname, _b = _a.protocol, protocol = _b === void 0 ? "https" : _b, port = _a.port, basePath = _a.path;
+                headers = {};
+                resolvedPath = "".concat((basePath === null || basePath === void 0 ? void 0 : basePath.endsWith("/")) ? basePath.slice(0, -1) : basePath || "") +
+                    "/2018-10-31/layers/{LayerName}/versions/{VersionNumber}/policy/{StatementId}";
+                if (input.LayerName !== undefined) {
+                    labelValue = input.LayerName;
+                    if (labelValue.length <= 0) {
+                        throw new Error("Empty value provided for input HTTP label: LayerName.");
+                    }
+                    resolvedPath = resolvedPath.replace("{LayerName}", (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.extendedEncodeURIComponent)(labelValue));
+                }
+                else {
+                    throw new Error("No value provided for input HTTP label: LayerName.");
+                }
+                if (input.VersionNumber !== undefined) {
+                    labelValue = input.VersionNumber.toString();
+                    if (labelValue.length <= 0) {
+                        throw new Error("Empty value provided for input HTTP label: VersionNumber.");
+                    }
+                    resolvedPath = resolvedPath.replace("{VersionNumber}", (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.extendedEncodeURIComponent)(labelValue));
+                }
+                else {
+                    throw new Error("No value provided for input HTTP label: VersionNumber.");
+                }
+                if (input.StatementId !== undefined) {
+                    labelValue = input.StatementId;
+                    if (labelValue.length <= 0) {
+                        throw new Error("Empty value provided for input HTTP label: StatementId.");
+                    }
+                    resolvedPath = resolvedPath.replace("{StatementId}", (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.extendedEncodeURIComponent)(labelValue));
+                }
+                else {
+                    throw new Error("No value provided for input HTTP label: StatementId.");
+                }
+                query = (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, (input.RevisionId !== undefined && { RevisionId: input.RevisionId }));
+                return [2, new _aws_sdk_protocol_http__WEBPACK_IMPORTED_MODULE_0__.HttpRequest({
+                        protocol: protocol,
+                        hostname: hostname,
+                        port: port,
+                        method: "DELETE",
+                        headers: headers,
+                        path: resolvedPath,
+                        query: query,
+                        body: body,
+                    })];
+        }
+    });
+}); };
+var serializeAws_restJson1RemovePermissionCommand = function (input, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var _a, hostname, _b, protocol, port, basePath, headers, resolvedPath, labelValue, labelValue, query, body;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0: return [4, context.endpoint()];
+            case 1:
+                _a = _c.sent(), hostname = _a.hostname, _b = _a.protocol, protocol = _b === void 0 ? "https" : _b, port = _a.port, basePath = _a.path;
+                headers = {};
+                resolvedPath = "".concat((basePath === null || basePath === void 0 ? void 0 : basePath.endsWith("/")) ? basePath.slice(0, -1) : basePath || "") +
+                    "/2015-03-31/functions/{FunctionName}/policy/{StatementId}";
+                if (input.FunctionName !== undefined) {
+                    labelValue = input.FunctionName;
+                    if (labelValue.length <= 0) {
+                        throw new Error("Empty value provided for input HTTP label: FunctionName.");
+                    }
+                    resolvedPath = resolvedPath.replace("{FunctionName}", (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.extendedEncodeURIComponent)(labelValue));
+                }
+                else {
+                    throw new Error("No value provided for input HTTP label: FunctionName.");
+                }
+                if (input.StatementId !== undefined) {
+                    labelValue = input.StatementId;
+                    if (labelValue.length <= 0) {
+                        throw new Error("Empty value provided for input HTTP label: StatementId.");
+                    }
+                    resolvedPath = resolvedPath.replace("{StatementId}", (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.extendedEncodeURIComponent)(labelValue));
+                }
+                else {
+                    throw new Error("No value provided for input HTTP label: StatementId.");
+                }
+                query = (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, (input.Qualifier !== undefined && { Qualifier: input.Qualifier })), (input.RevisionId !== undefined && { RevisionId: input.RevisionId }));
+                return [2, new _aws_sdk_protocol_http__WEBPACK_IMPORTED_MODULE_0__.HttpRequest({
+                        protocol: protocol,
+                        hostname: hostname,
+                        port: port,
+                        method: "DELETE",
+                        headers: headers,
+                        path: resolvedPath,
+                        query: query,
+                        body: body,
+                    })];
+        }
+    });
+}); };
+var serializeAws_restJson1TagResourceCommand = function (input, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var _a, hostname, _b, protocol, port, basePath, headers, resolvedPath, labelValue, body;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0: return [4, context.endpoint()];
+            case 1:
+                _a = _c.sent(), hostname = _a.hostname, _b = _a.protocol, protocol = _b === void 0 ? "https" : _b, port = _a.port, basePath = _a.path;
+                headers = {
+                    "content-type": "application/json",
+                };
+                resolvedPath = "".concat((basePath === null || basePath === void 0 ? void 0 : basePath.endsWith("/")) ? basePath.slice(0, -1) : basePath || "") + "/2017-03-31/tags/{Resource}";
+                if (input.Resource !== undefined) {
+                    labelValue = input.Resource;
+                    if (labelValue.length <= 0) {
+                        throw new Error("Empty value provided for input HTTP label: Resource.");
+                    }
+                    resolvedPath = resolvedPath.replace("{Resource}", (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.extendedEncodeURIComponent)(labelValue));
+                }
+                else {
+                    throw new Error("No value provided for input HTTP label: Resource.");
+                }
+                body = JSON.stringify((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, (input.Tags != null && { Tags: serializeAws_restJson1Tags(input.Tags, context) })));
+                return [2, new _aws_sdk_protocol_http__WEBPACK_IMPORTED_MODULE_0__.HttpRequest({
+                        protocol: protocol,
+                        hostname: hostname,
+                        port: port,
+                        method: "POST",
+                        headers: headers,
+                        path: resolvedPath,
+                        body: body,
+                    })];
+        }
+    });
+}); };
+var serializeAws_restJson1UntagResourceCommand = function (input, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var _a, hostname, _b, protocol, port, basePath, headers, resolvedPath, labelValue, query, body;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0: return [4, context.endpoint()];
+            case 1:
+                _a = _c.sent(), hostname = _a.hostname, _b = _a.protocol, protocol = _b === void 0 ? "https" : _b, port = _a.port, basePath = _a.path;
+                headers = {};
+                resolvedPath = "".concat((basePath === null || basePath === void 0 ? void 0 : basePath.endsWith("/")) ? basePath.slice(0, -1) : basePath || "") + "/2017-03-31/tags/{Resource}";
+                if (input.Resource !== undefined) {
+                    labelValue = input.Resource;
+                    if (labelValue.length <= 0) {
+                        throw new Error("Empty value provided for input HTTP label: Resource.");
+                    }
+                    resolvedPath = resolvedPath.replace("{Resource}", (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.extendedEncodeURIComponent)(labelValue));
+                }
+                else {
+                    throw new Error("No value provided for input HTTP label: Resource.");
+                }
+                query = (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, (input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map(function (_entry) { return _entry; }) }));
+                return [2, new _aws_sdk_protocol_http__WEBPACK_IMPORTED_MODULE_0__.HttpRequest({
+                        protocol: protocol,
+                        hostname: hostname,
+                        port: port,
+                        method: "DELETE",
+                        headers: headers,
+                        path: resolvedPath,
+                        query: query,
+                        body: body,
+                    })];
+        }
+    });
+}); };
+var serializeAws_restJson1UpdateAliasCommand = function (input, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var _a, hostname, _b, protocol, port, basePath, headers, resolvedPath, labelValue, labelValue, body;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0: return [4, context.endpoint()];
+            case 1:
+                _a = _c.sent(), hostname = _a.hostname, _b = _a.protocol, protocol = _b === void 0 ? "https" : _b, port = _a.port, basePath = _a.path;
+                headers = {
+                    "content-type": "application/json",
+                };
+                resolvedPath = "".concat((basePath === null || basePath === void 0 ? void 0 : basePath.endsWith("/")) ? basePath.slice(0, -1) : basePath || "") +
+                    "/2015-03-31/functions/{FunctionName}/aliases/{Name}";
+                if (input.FunctionName !== undefined) {
+                    labelValue = input.FunctionName;
+                    if (labelValue.length <= 0) {
+                        throw new Error("Empty value provided for input HTTP label: FunctionName.");
+                    }
+                    resolvedPath = resolvedPath.replace("{FunctionName}", (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.extendedEncodeURIComponent)(labelValue));
+                }
+                else {
+                    throw new Error("No value provided for input HTTP label: FunctionName.");
+                }
+                if (input.Name !== undefined) {
+                    labelValue = input.Name;
+                    if (labelValue.length <= 0) {
+                        throw new Error("Empty value provided for input HTTP label: Name.");
+                    }
+                    resolvedPath = resolvedPath.replace("{Name}", (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.extendedEncodeURIComponent)(labelValue));
+                }
+                else {
+                    throw new Error("No value provided for input HTTP label: Name.");
+                }
+                body = JSON.stringify((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, (input.Description != null && { Description: input.Description })), (input.FunctionVersion != null && { FunctionVersion: input.FunctionVersion })), (input.RevisionId != null && { RevisionId: input.RevisionId })), (input.RoutingConfig != null && {
+                    RoutingConfig: serializeAws_restJson1AliasRoutingConfiguration(input.RoutingConfig, context),
+                })));
+                return [2, new _aws_sdk_protocol_http__WEBPACK_IMPORTED_MODULE_0__.HttpRequest({
+                        protocol: protocol,
+                        hostname: hostname,
+                        port: port,
+                        method: "PUT",
+                        headers: headers,
+                        path: resolvedPath,
+                        body: body,
+                    })];
+        }
+    });
+}); };
+var serializeAws_restJson1UpdateCodeSigningConfigCommand = function (input, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var _a, hostname, _b, protocol, port, basePath, headers, resolvedPath, labelValue, body;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0: return [4, context.endpoint()];
+            case 1:
+                _a = _c.sent(), hostname = _a.hostname, _b = _a.protocol, protocol = _b === void 0 ? "https" : _b, port = _a.port, basePath = _a.path;
+                headers = {
+                    "content-type": "application/json",
+                };
+                resolvedPath = "".concat((basePath === null || basePath === void 0 ? void 0 : basePath.endsWith("/")) ? basePath.slice(0, -1) : basePath || "") +
+                    "/2020-04-22/code-signing-configs/{CodeSigningConfigArn}";
+                if (input.CodeSigningConfigArn !== undefined) {
+                    labelValue = input.CodeSigningConfigArn;
+                    if (labelValue.length <= 0) {
+                        throw new Error("Empty value provided for input HTTP label: CodeSigningConfigArn.");
+                    }
+                    resolvedPath = resolvedPath.replace("{CodeSigningConfigArn}", (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.extendedEncodeURIComponent)(labelValue));
+                }
+                else {
+                    throw new Error("No value provided for input HTTP label: CodeSigningConfigArn.");
+                }
+                body = JSON.stringify((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, (input.AllowedPublishers != null && {
+                    AllowedPublishers: serializeAws_restJson1AllowedPublishers(input.AllowedPublishers, context),
+                })), (input.CodeSigningPolicies != null && {
+                    CodeSigningPolicies: serializeAws_restJson1CodeSigningPolicies(input.CodeSigningPolicies, context),
+                })), (input.Description != null && { Description: input.Description })));
+                return [2, new _aws_sdk_protocol_http__WEBPACK_IMPORTED_MODULE_0__.HttpRequest({
+                        protocol: protocol,
+                        hostname: hostname,
+                        port: port,
+                        method: "PUT",
+                        headers: headers,
+                        path: resolvedPath,
+                        body: body,
+                    })];
+        }
+    });
+}); };
+var serializeAws_restJson1UpdateEventSourceMappingCommand = function (input, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var _a, hostname, _b, protocol, port, basePath, headers, resolvedPath, labelValue, body;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0: return [4, context.endpoint()];
+            case 1:
+                _a = _c.sent(), hostname = _a.hostname, _b = _a.protocol, protocol = _b === void 0 ? "https" : _b, port = _a.port, basePath = _a.path;
+                headers = {
+                    "content-type": "application/json",
+                };
+                resolvedPath = "".concat((basePath === null || basePath === void 0 ? void 0 : basePath.endsWith("/")) ? basePath.slice(0, -1) : basePath || "") + "/2015-03-31/event-source-mappings/{UUID}";
+                if (input.UUID !== undefined) {
+                    labelValue = input.UUID;
+                    if (labelValue.length <= 0) {
+                        throw new Error("Empty value provided for input HTTP label: UUID.");
+                    }
+                    resolvedPath = resolvedPath.replace("{UUID}", (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.extendedEncodeURIComponent)(labelValue));
+                }
+                else {
+                    throw new Error("No value provided for input HTTP label: UUID.");
+                }
+                body = JSON.stringify((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, (input.BatchSize != null && { BatchSize: input.BatchSize })), (input.BisectBatchOnFunctionError != null && { BisectBatchOnFunctionError: input.BisectBatchOnFunctionError })), (input.DestinationConfig != null && {
+                    DestinationConfig: serializeAws_restJson1DestinationConfig(input.DestinationConfig, context),
+                })), (input.Enabled != null && { Enabled: input.Enabled })), (input.FilterCriteria != null && {
+                    FilterCriteria: serializeAws_restJson1FilterCriteria(input.FilterCriteria, context),
+                })), (input.FunctionName != null && { FunctionName: input.FunctionName })), (input.FunctionResponseTypes != null && {
+                    FunctionResponseTypes: serializeAws_restJson1FunctionResponseTypeList(input.FunctionResponseTypes, context),
+                })), (input.MaximumBatchingWindowInSeconds != null && {
+                    MaximumBatchingWindowInSeconds: input.MaximumBatchingWindowInSeconds,
+                })), (input.MaximumRecordAgeInSeconds != null && { MaximumRecordAgeInSeconds: input.MaximumRecordAgeInSeconds })), (input.MaximumRetryAttempts != null && { MaximumRetryAttempts: input.MaximumRetryAttempts })), (input.ParallelizationFactor != null && { ParallelizationFactor: input.ParallelizationFactor })), (input.SourceAccessConfigurations != null && {
+                    SourceAccessConfigurations: serializeAws_restJson1SourceAccessConfigurations(input.SourceAccessConfigurations, context),
+                })), (input.TumblingWindowInSeconds != null && { TumblingWindowInSeconds: input.TumblingWindowInSeconds })));
+                return [2, new _aws_sdk_protocol_http__WEBPACK_IMPORTED_MODULE_0__.HttpRequest({
+                        protocol: protocol,
+                        hostname: hostname,
+                        port: port,
+                        method: "PUT",
+                        headers: headers,
+                        path: resolvedPath,
+                        body: body,
+                    })];
+        }
+    });
+}); };
+var serializeAws_restJson1UpdateFunctionCodeCommand = function (input, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var _a, hostname, _b, protocol, port, basePath, headers, resolvedPath, labelValue, body;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0: return [4, context.endpoint()];
+            case 1:
+                _a = _c.sent(), hostname = _a.hostname, _b = _a.protocol, protocol = _b === void 0 ? "https" : _b, port = _a.port, basePath = _a.path;
+                headers = {
+                    "content-type": "application/json",
+                };
+                resolvedPath = "".concat((basePath === null || basePath === void 0 ? void 0 : basePath.endsWith("/")) ? basePath.slice(0, -1) : basePath || "") + "/2015-03-31/functions/{FunctionName}/code";
+                if (input.FunctionName !== undefined) {
+                    labelValue = input.FunctionName;
+                    if (labelValue.length <= 0) {
+                        throw new Error("Empty value provided for input HTTP label: FunctionName.");
+                    }
+                    resolvedPath = resolvedPath.replace("{FunctionName}", (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.extendedEncodeURIComponent)(labelValue));
+                }
+                else {
+                    throw new Error("No value provided for input HTTP label: FunctionName.");
+                }
+                body = JSON.stringify((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, (input.Architectures != null && {
+                    Architectures: serializeAws_restJson1ArchitecturesList(input.Architectures, context),
+                })), (input.DryRun != null && { DryRun: input.DryRun })), (input.ImageUri != null && { ImageUri: input.ImageUri })), (input.Publish != null && { Publish: input.Publish })), (input.RevisionId != null && { RevisionId: input.RevisionId })), (input.S3Bucket != null && { S3Bucket: input.S3Bucket })), (input.S3Key != null && { S3Key: input.S3Key })), (input.S3ObjectVersion != null && { S3ObjectVersion: input.S3ObjectVersion })), (input.ZipFile != null && { ZipFile: context.base64Encoder(input.ZipFile) })));
+                return [2, new _aws_sdk_protocol_http__WEBPACK_IMPORTED_MODULE_0__.HttpRequest({
+                        protocol: protocol,
+                        hostname: hostname,
+                        port: port,
+                        method: "PUT",
+                        headers: headers,
+                        path: resolvedPath,
+                        body: body,
+                    })];
+        }
+    });
+}); };
+var serializeAws_restJson1UpdateFunctionConfigurationCommand = function (input, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var _a, hostname, _b, protocol, port, basePath, headers, resolvedPath, labelValue, body;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0: return [4, context.endpoint()];
+            case 1:
+                _a = _c.sent(), hostname = _a.hostname, _b = _a.protocol, protocol = _b === void 0 ? "https" : _b, port = _a.port, basePath = _a.path;
+                headers = {
+                    "content-type": "application/json",
+                };
+                resolvedPath = "".concat((basePath === null || basePath === void 0 ? void 0 : basePath.endsWith("/")) ? basePath.slice(0, -1) : basePath || "") +
+                    "/2015-03-31/functions/{FunctionName}/configuration";
+                if (input.FunctionName !== undefined) {
+                    labelValue = input.FunctionName;
+                    if (labelValue.length <= 0) {
+                        throw new Error("Empty value provided for input HTTP label: FunctionName.");
+                    }
+                    resolvedPath = resolvedPath.replace("{FunctionName}", (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.extendedEncodeURIComponent)(labelValue));
+                }
+                else {
+                    throw new Error("No value provided for input HTTP label: FunctionName.");
+                }
+                body = JSON.stringify((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, (input.DeadLetterConfig != null && {
+                    DeadLetterConfig: serializeAws_restJson1DeadLetterConfig(input.DeadLetterConfig, context),
+                })), (input.Description != null && { Description: input.Description })), (input.Environment != null && { Environment: serializeAws_restJson1Environment(input.Environment, context) })), (input.EphemeralStorage != null && {
+                    EphemeralStorage: serializeAws_restJson1EphemeralStorage(input.EphemeralStorage, context),
+                })), (input.FileSystemConfigs != null && {
+                    FileSystemConfigs: serializeAws_restJson1FileSystemConfigList(input.FileSystemConfigs, context),
+                })), (input.Handler != null && { Handler: input.Handler })), (input.ImageConfig != null && { ImageConfig: serializeAws_restJson1ImageConfig(input.ImageConfig, context) })), (input.KMSKeyArn != null && { KMSKeyArn: input.KMSKeyArn })), (input.Layers != null && { Layers: serializeAws_restJson1LayerList(input.Layers, context) })), (input.MemorySize != null && { MemorySize: input.MemorySize })), (input.RevisionId != null && { RevisionId: input.RevisionId })), (input.Role != null && { Role: input.Role })), (input.Runtime != null && { Runtime: input.Runtime })), (input.Timeout != null && { Timeout: input.Timeout })), (input.TracingConfig != null && {
+                    TracingConfig: serializeAws_restJson1TracingConfig(input.TracingConfig, context),
+                })), (input.VpcConfig != null && { VpcConfig: serializeAws_restJson1VpcConfig(input.VpcConfig, context) })));
+                return [2, new _aws_sdk_protocol_http__WEBPACK_IMPORTED_MODULE_0__.HttpRequest({
+                        protocol: protocol,
+                        hostname: hostname,
+                        port: port,
+                        method: "PUT",
+                        headers: headers,
+                        path: resolvedPath,
+                        body: body,
+                    })];
+        }
+    });
+}); };
+var serializeAws_restJson1UpdateFunctionEventInvokeConfigCommand = function (input, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var _a, hostname, _b, protocol, port, basePath, headers, resolvedPath, labelValue, query, body;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0: return [4, context.endpoint()];
+            case 1:
+                _a = _c.sent(), hostname = _a.hostname, _b = _a.protocol, protocol = _b === void 0 ? "https" : _b, port = _a.port, basePath = _a.path;
+                headers = {
+                    "content-type": "application/json",
+                };
+                resolvedPath = "".concat((basePath === null || basePath === void 0 ? void 0 : basePath.endsWith("/")) ? basePath.slice(0, -1) : basePath || "") +
+                    "/2019-09-25/functions/{FunctionName}/event-invoke-config";
+                if (input.FunctionName !== undefined) {
+                    labelValue = input.FunctionName;
+                    if (labelValue.length <= 0) {
+                        throw new Error("Empty value provided for input HTTP label: FunctionName.");
+                    }
+                    resolvedPath = resolvedPath.replace("{FunctionName}", (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.extendedEncodeURIComponent)(labelValue));
+                }
+                else {
+                    throw new Error("No value provided for input HTTP label: FunctionName.");
+                }
+                query = (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, (input.Qualifier !== undefined && { Qualifier: input.Qualifier }));
+                body = JSON.stringify((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, (input.DestinationConfig != null && {
+                    DestinationConfig: serializeAws_restJson1DestinationConfig(input.DestinationConfig, context),
+                })), (input.MaximumEventAgeInSeconds != null && { MaximumEventAgeInSeconds: input.MaximumEventAgeInSeconds })), (input.MaximumRetryAttempts != null && { MaximumRetryAttempts: input.MaximumRetryAttempts })));
+                return [2, new _aws_sdk_protocol_http__WEBPACK_IMPORTED_MODULE_0__.HttpRequest({
+                        protocol: protocol,
+                        hostname: hostname,
+                        port: port,
+                        method: "POST",
+                        headers: headers,
+                        path: resolvedPath,
+                        query: query,
+                        body: body,
+                    })];
+        }
+    });
+}); };
+var serializeAws_restJson1UpdateFunctionUrlConfigCommand = function (input, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var _a, hostname, _b, protocol, port, basePath, headers, resolvedPath, labelValue, query, body;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0: return [4, context.endpoint()];
+            case 1:
+                _a = _c.sent(), hostname = _a.hostname, _b = _a.protocol, protocol = _b === void 0 ? "https" : _b, port = _a.port, basePath = _a.path;
+                headers = {
+                    "content-type": "application/json",
+                };
+                resolvedPath = "".concat((basePath === null || basePath === void 0 ? void 0 : basePath.endsWith("/")) ? basePath.slice(0, -1) : basePath || "") + "/2021-10-31/functions/{FunctionName}/url";
+                if (input.FunctionName !== undefined) {
+                    labelValue = input.FunctionName;
+                    if (labelValue.length <= 0) {
+                        throw new Error("Empty value provided for input HTTP label: FunctionName.");
+                    }
+                    resolvedPath = resolvedPath.replace("{FunctionName}", (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.extendedEncodeURIComponent)(labelValue));
+                }
+                else {
+                    throw new Error("No value provided for input HTTP label: FunctionName.");
+                }
+                query = (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, (input.Qualifier !== undefined && { Qualifier: input.Qualifier }));
+                body = JSON.stringify((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, (input.AuthType != null && { AuthType: input.AuthType })), (input.Cors != null && { Cors: serializeAws_restJson1Cors(input.Cors, context) })));
+                return [2, new _aws_sdk_protocol_http__WEBPACK_IMPORTED_MODULE_0__.HttpRequest({
+                        protocol: protocol,
+                        hostname: hostname,
+                        port: port,
+                        method: "PUT",
+                        headers: headers,
+                        path: resolvedPath,
+                        query: query,
+                        body: body,
+                    })];
+        }
+    });
+}); };
+var deserializeAws_restJson1AddLayerVersionPermissionCommand = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, _a, _b;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0:
+                if (output.statusCode !== 201 && output.statusCode >= 300) {
+                    return [2, deserializeAws_restJson1AddLayerVersionPermissionCommandError(output, context)];
+                }
+                contents = {
+                    $metadata: deserializeMetadata(output),
+                    RevisionId: undefined,
+                    Statement: undefined,
+                };
+                _a = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectNonNull;
+                _b = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectObject;
+                return [4, parseBody(output.body, context)];
+            case 1:
+                data = _a.apply(void 0, [_b.apply(void 0, [_c.sent()]), "body"]);
+                if (data.RevisionId !== undefined && data.RevisionId !== null) {
+                    contents.RevisionId = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.RevisionId);
+                }
+                if (data.Statement !== undefined && data.Statement !== null) {
+                    contents.Statement = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Statement);
+                }
+                return [2, Promise.resolve(contents)];
+        }
+    });
+}); };
+var deserializeAws_restJson1AddLayerVersionPermissionCommandError = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var parsedOutput, _a, response, errorCode, _b, parsedBody, $metadata, statusCode;
+    var _c;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_d) {
+        switch (_d.label) {
+            case 0:
+                _a = [(0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, output)];
+                _c = {};
+                return [4, parseBody(output.body, context)];
+            case 1:
+                parsedOutput = tslib__WEBPACK_IMPORTED_MODULE_2__.__assign.apply(void 0, _a.concat([(_c.body = _d.sent(), _c)]));
+                errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+                _b = errorCode;
+                switch (_b) {
+                    case "InvalidParameterValueException": return [3, 2];
+                    case "com.amazonaws.lambda#InvalidParameterValueException": return [3, 2];
+                    case "PolicyLengthExceededException": return [3, 4];
+                    case "com.amazonaws.lambda#PolicyLengthExceededException": return [3, 4];
+                    case "PreconditionFailedException": return [3, 6];
+                    case "com.amazonaws.lambda#PreconditionFailedException": return [3, 6];
+                    case "ResourceConflictException": return [3, 8];
+                    case "com.amazonaws.lambda#ResourceConflictException": return [3, 8];
+                    case "ResourceNotFoundException": return [3, 10];
+                    case "com.amazonaws.lambda#ResourceNotFoundException": return [3, 10];
+                    case "ServiceException": return [3, 12];
+                    case "com.amazonaws.lambda#ServiceException": return [3, 12];
+                    case "TooManyRequestsException": return [3, 14];
+                    case "com.amazonaws.lambda#TooManyRequestsException": return [3, 14];
+                }
+                return [3, 16];
+            case 2: return [4, deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)];
+            case 3: throw _d.sent();
+            case 4: return [4, deserializeAws_restJson1PolicyLengthExceededExceptionResponse(parsedOutput, context)];
+            case 5: throw _d.sent();
+            case 6: return [4, deserializeAws_restJson1PreconditionFailedExceptionResponse(parsedOutput, context)];
+            case 7: throw _d.sent();
+            case 8: return [4, deserializeAws_restJson1ResourceConflictExceptionResponse(parsedOutput, context)];
+            case 9: throw _d.sent();
+            case 10: return [4, deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)];
+            case 11: throw _d.sent();
+            case 12: return [4, deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)];
+            case 13: throw _d.sent();
+            case 14: return [4, deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)];
+            case 15: throw _d.sent();
+            case 16:
+                parsedBody = parsedOutput.body;
+                $metadata = deserializeMetadata(output);
+                statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+                response = new _models_LambdaServiceException__WEBPACK_IMPORTED_MODULE_3__.LambdaServiceException({
+                    name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+                    $fault: "client",
+                    $metadata: $metadata,
+                });
+                throw (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(response, parsedBody);
+        }
+    });
+}); };
+var deserializeAws_restJson1AddPermissionCommand = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, _a, _b;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0:
+                if (output.statusCode !== 201 && output.statusCode >= 300) {
+                    return [2, deserializeAws_restJson1AddPermissionCommandError(output, context)];
+                }
+                contents = {
+                    $metadata: deserializeMetadata(output),
+                    Statement: undefined,
+                };
+                _a = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectNonNull;
+                _b = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectObject;
+                return [4, parseBody(output.body, context)];
+            case 1:
+                data = _a.apply(void 0, [_b.apply(void 0, [_c.sent()]), "body"]);
+                if (data.Statement !== undefined && data.Statement !== null) {
+                    contents.Statement = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Statement);
+                }
+                return [2, Promise.resolve(contents)];
+        }
+    });
+}); };
+var deserializeAws_restJson1AddPermissionCommandError = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var parsedOutput, _a, response, errorCode, _b, parsedBody, $metadata, statusCode;
+    var _c;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_d) {
+        switch (_d.label) {
+            case 0:
+                _a = [(0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, output)];
+                _c = {};
+                return [4, parseBody(output.body, context)];
+            case 1:
+                parsedOutput = tslib__WEBPACK_IMPORTED_MODULE_2__.__assign.apply(void 0, _a.concat([(_c.body = _d.sent(), _c)]));
+                errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+                _b = errorCode;
+                switch (_b) {
+                    case "InvalidParameterValueException": return [3, 2];
+                    case "com.amazonaws.lambda#InvalidParameterValueException": return [3, 2];
+                    case "PolicyLengthExceededException": return [3, 4];
+                    case "com.amazonaws.lambda#PolicyLengthExceededException": return [3, 4];
+                    case "PreconditionFailedException": return [3, 6];
+                    case "com.amazonaws.lambda#PreconditionFailedException": return [3, 6];
+                    case "ResourceConflictException": return [3, 8];
+                    case "com.amazonaws.lambda#ResourceConflictException": return [3, 8];
+                    case "ResourceNotFoundException": return [3, 10];
+                    case "com.amazonaws.lambda#ResourceNotFoundException": return [3, 10];
+                    case "ServiceException": return [3, 12];
+                    case "com.amazonaws.lambda#ServiceException": return [3, 12];
+                    case "TooManyRequestsException": return [3, 14];
+                    case "com.amazonaws.lambda#TooManyRequestsException": return [3, 14];
+                }
+                return [3, 16];
+            case 2: return [4, deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)];
+            case 3: throw _d.sent();
+            case 4: return [4, deserializeAws_restJson1PolicyLengthExceededExceptionResponse(parsedOutput, context)];
+            case 5: throw _d.sent();
+            case 6: return [4, deserializeAws_restJson1PreconditionFailedExceptionResponse(parsedOutput, context)];
+            case 7: throw _d.sent();
+            case 8: return [4, deserializeAws_restJson1ResourceConflictExceptionResponse(parsedOutput, context)];
+            case 9: throw _d.sent();
+            case 10: return [4, deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)];
+            case 11: throw _d.sent();
+            case 12: return [4, deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)];
+            case 13: throw _d.sent();
+            case 14: return [4, deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)];
+            case 15: throw _d.sent();
+            case 16:
+                parsedBody = parsedOutput.body;
+                $metadata = deserializeMetadata(output);
+                statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+                response = new _models_LambdaServiceException__WEBPACK_IMPORTED_MODULE_3__.LambdaServiceException({
+                    name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+                    $fault: "client",
+                    $metadata: $metadata,
+                });
+                throw (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(response, parsedBody);
+        }
+    });
+}); };
+var deserializeAws_restJson1CreateAliasCommand = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, _a, _b;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0:
+                if (output.statusCode !== 201 && output.statusCode >= 300) {
+                    return [2, deserializeAws_restJson1CreateAliasCommandError(output, context)];
+                }
+                contents = {
+                    $metadata: deserializeMetadata(output),
+                    AliasArn: undefined,
+                    Description: undefined,
+                    FunctionVersion: undefined,
+                    Name: undefined,
+                    RevisionId: undefined,
+                    RoutingConfig: undefined,
+                };
+                _a = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectNonNull;
+                _b = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectObject;
+                return [4, parseBody(output.body, context)];
+            case 1:
+                data = _a.apply(void 0, [_b.apply(void 0, [_c.sent()]), "body"]);
+                if (data.AliasArn !== undefined && data.AliasArn !== null) {
+                    contents.AliasArn = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.AliasArn);
+                }
+                if (data.Description !== undefined && data.Description !== null) {
+                    contents.Description = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Description);
+                }
+                if (data.FunctionVersion !== undefined && data.FunctionVersion !== null) {
+                    contents.FunctionVersion = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.FunctionVersion);
+                }
+                if (data.Name !== undefined && data.Name !== null) {
+                    contents.Name = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Name);
+                }
+                if (data.RevisionId !== undefined && data.RevisionId !== null) {
+                    contents.RevisionId = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.RevisionId);
+                }
+                if (data.RoutingConfig !== undefined && data.RoutingConfig !== null) {
+                    contents.RoutingConfig = deserializeAws_restJson1AliasRoutingConfiguration(data.RoutingConfig, context);
+                }
+                return [2, Promise.resolve(contents)];
+        }
+    });
+}); };
+var deserializeAws_restJson1CreateAliasCommandError = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var parsedOutput, _a, response, errorCode, _b, parsedBody, $metadata, statusCode;
+    var _c;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_d) {
+        switch (_d.label) {
+            case 0:
+                _a = [(0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, output)];
+                _c = {};
+                return [4, parseBody(output.body, context)];
+            case 1:
+                parsedOutput = tslib__WEBPACK_IMPORTED_MODULE_2__.__assign.apply(void 0, _a.concat([(_c.body = _d.sent(), _c)]));
+                errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+                _b = errorCode;
+                switch (_b) {
+                    case "InvalidParameterValueException": return [3, 2];
+                    case "com.amazonaws.lambda#InvalidParameterValueException": return [3, 2];
+                    case "ResourceConflictException": return [3, 4];
+                    case "com.amazonaws.lambda#ResourceConflictException": return [3, 4];
+                    case "ResourceNotFoundException": return [3, 6];
+                    case "com.amazonaws.lambda#ResourceNotFoundException": return [3, 6];
+                    case "ServiceException": return [3, 8];
+                    case "com.amazonaws.lambda#ServiceException": return [3, 8];
+                    case "TooManyRequestsException": return [3, 10];
+                    case "com.amazonaws.lambda#TooManyRequestsException": return [3, 10];
+                }
+                return [3, 12];
+            case 2: return [4, deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)];
+            case 3: throw _d.sent();
+            case 4: return [4, deserializeAws_restJson1ResourceConflictExceptionResponse(parsedOutput, context)];
+            case 5: throw _d.sent();
+            case 6: return [4, deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)];
+            case 7: throw _d.sent();
+            case 8: return [4, deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)];
+            case 9: throw _d.sent();
+            case 10: return [4, deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)];
+            case 11: throw _d.sent();
+            case 12:
+                parsedBody = parsedOutput.body;
+                $metadata = deserializeMetadata(output);
+                statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+                response = new _models_LambdaServiceException__WEBPACK_IMPORTED_MODULE_3__.LambdaServiceException({
+                    name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+                    $fault: "client",
+                    $metadata: $metadata,
+                });
+                throw (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(response, parsedBody);
+        }
+    });
+}); };
+var deserializeAws_restJson1CreateCodeSigningConfigCommand = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, _a, _b;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0:
+                if (output.statusCode !== 201 && output.statusCode >= 300) {
+                    return [2, deserializeAws_restJson1CreateCodeSigningConfigCommandError(output, context)];
+                }
+                contents = {
+                    $metadata: deserializeMetadata(output),
+                    CodeSigningConfig: undefined,
+                };
+                _a = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectNonNull;
+                _b = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectObject;
+                return [4, parseBody(output.body, context)];
+            case 1:
+                data = _a.apply(void 0, [_b.apply(void 0, [_c.sent()]), "body"]);
+                if (data.CodeSigningConfig !== undefined && data.CodeSigningConfig !== null) {
+                    contents.CodeSigningConfig = deserializeAws_restJson1CodeSigningConfig(data.CodeSigningConfig, context);
+                }
+                return [2, Promise.resolve(contents)];
+        }
+    });
+}); };
+var deserializeAws_restJson1CreateCodeSigningConfigCommandError = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var parsedOutput, _a, response, errorCode, _b, parsedBody, $metadata, statusCode;
+    var _c;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_d) {
+        switch (_d.label) {
+            case 0:
+                _a = [(0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, output)];
+                _c = {};
+                return [4, parseBody(output.body, context)];
+            case 1:
+                parsedOutput = tslib__WEBPACK_IMPORTED_MODULE_2__.__assign.apply(void 0, _a.concat([(_c.body = _d.sent(), _c)]));
+                errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+                _b = errorCode;
+                switch (_b) {
+                    case "InvalidParameterValueException": return [3, 2];
+                    case "com.amazonaws.lambda#InvalidParameterValueException": return [3, 2];
+                    case "ServiceException": return [3, 4];
+                    case "com.amazonaws.lambda#ServiceException": return [3, 4];
+                }
+                return [3, 6];
+            case 2: return [4, deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)];
+            case 3: throw _d.sent();
+            case 4: return [4, deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)];
+            case 5: throw _d.sent();
+            case 6:
+                parsedBody = parsedOutput.body;
+                $metadata = deserializeMetadata(output);
+                statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+                response = new _models_LambdaServiceException__WEBPACK_IMPORTED_MODULE_3__.LambdaServiceException({
+                    name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+                    $fault: "client",
+                    $metadata: $metadata,
+                });
+                throw (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(response, parsedBody);
+        }
+    });
+}); };
+var deserializeAws_restJson1CreateEventSourceMappingCommand = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, _a, _b;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0:
+                if (output.statusCode !== 202 && output.statusCode >= 300) {
+                    return [2, deserializeAws_restJson1CreateEventSourceMappingCommandError(output, context)];
+                }
+                contents = {
+                    $metadata: deserializeMetadata(output),
+                    BatchSize: undefined,
+                    BisectBatchOnFunctionError: undefined,
+                    DestinationConfig: undefined,
+                    EventSourceArn: undefined,
+                    FilterCriteria: undefined,
+                    FunctionArn: undefined,
+                    FunctionResponseTypes: undefined,
+                    LastModified: undefined,
+                    LastProcessingResult: undefined,
+                    MaximumBatchingWindowInSeconds: undefined,
+                    MaximumRecordAgeInSeconds: undefined,
+                    MaximumRetryAttempts: undefined,
+                    ParallelizationFactor: undefined,
+                    Queues: undefined,
+                    SelfManagedEventSource: undefined,
+                    SourceAccessConfigurations: undefined,
+                    StartingPosition: undefined,
+                    StartingPositionTimestamp: undefined,
+                    State: undefined,
+                    StateTransitionReason: undefined,
+                    Topics: undefined,
+                    TumblingWindowInSeconds: undefined,
+                    UUID: undefined,
+                };
+                _a = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectNonNull;
+                _b = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectObject;
+                return [4, parseBody(output.body, context)];
+            case 1:
+                data = _a.apply(void 0, [_b.apply(void 0, [_c.sent()]), "body"]);
+                if (data.BatchSize !== undefined && data.BatchSize !== null) {
+                    contents.BatchSize = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectInt32)(data.BatchSize);
+                }
+                if (data.BisectBatchOnFunctionError !== undefined && data.BisectBatchOnFunctionError !== null) {
+                    contents.BisectBatchOnFunctionError = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectBoolean)(data.BisectBatchOnFunctionError);
+                }
+                if (data.DestinationConfig !== undefined && data.DestinationConfig !== null) {
+                    contents.DestinationConfig = deserializeAws_restJson1DestinationConfig(data.DestinationConfig, context);
+                }
+                if (data.EventSourceArn !== undefined && data.EventSourceArn !== null) {
+                    contents.EventSourceArn = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.EventSourceArn);
+                }
+                if (data.FilterCriteria !== undefined && data.FilterCriteria !== null) {
+                    contents.FilterCriteria = deserializeAws_restJson1FilterCriteria(data.FilterCriteria, context);
+                }
+                if (data.FunctionArn !== undefined && data.FunctionArn !== null) {
+                    contents.FunctionArn = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.FunctionArn);
+                }
+                if (data.FunctionResponseTypes !== undefined && data.FunctionResponseTypes !== null) {
+                    contents.FunctionResponseTypes = deserializeAws_restJson1FunctionResponseTypeList(data.FunctionResponseTypes, context);
+                }
+                if (data.LastModified !== undefined && data.LastModified !== null) {
+                    contents.LastModified = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectNonNull)((0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.parseEpochTimestamp)((0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectNumber)(data.LastModified)));
+                }
+                if (data.LastProcessingResult !== undefined && data.LastProcessingResult !== null) {
+                    contents.LastProcessingResult = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.LastProcessingResult);
+                }
+                if (data.MaximumBatchingWindowInSeconds !== undefined && data.MaximumBatchingWindowInSeconds !== null) {
+                    contents.MaximumBatchingWindowInSeconds = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectInt32)(data.MaximumBatchingWindowInSeconds);
+                }
+                if (data.MaximumRecordAgeInSeconds !== undefined && data.MaximumRecordAgeInSeconds !== null) {
+                    contents.MaximumRecordAgeInSeconds = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectInt32)(data.MaximumRecordAgeInSeconds);
+                }
+                if (data.MaximumRetryAttempts !== undefined && data.MaximumRetryAttempts !== null) {
+                    contents.MaximumRetryAttempts = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectInt32)(data.MaximumRetryAttempts);
+                }
+                if (data.ParallelizationFactor !== undefined && data.ParallelizationFactor !== null) {
+                    contents.ParallelizationFactor = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectInt32)(data.ParallelizationFactor);
+                }
+                if (data.Queues !== undefined && data.Queues !== null) {
+                    contents.Queues = deserializeAws_restJson1Queues(data.Queues, context);
+                }
+                if (data.SelfManagedEventSource !== undefined && data.SelfManagedEventSource !== null) {
+                    contents.SelfManagedEventSource = deserializeAws_restJson1SelfManagedEventSource(data.SelfManagedEventSource, context);
+                }
+                if (data.SourceAccessConfigurations !== undefined && data.SourceAccessConfigurations !== null) {
+                    contents.SourceAccessConfigurations = deserializeAws_restJson1SourceAccessConfigurations(data.SourceAccessConfigurations, context);
+                }
+                if (data.StartingPosition !== undefined && data.StartingPosition !== null) {
+                    contents.StartingPosition = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.StartingPosition);
+                }
+                if (data.StartingPositionTimestamp !== undefined && data.StartingPositionTimestamp !== null) {
+                    contents.StartingPositionTimestamp = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectNonNull)((0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.parseEpochTimestamp)((0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectNumber)(data.StartingPositionTimestamp)));
+                }
+                if (data.State !== undefined && data.State !== null) {
+                    contents.State = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.State);
+                }
+                if (data.StateTransitionReason !== undefined && data.StateTransitionReason !== null) {
+                    contents.StateTransitionReason = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.StateTransitionReason);
+                }
+                if (data.Topics !== undefined && data.Topics !== null) {
+                    contents.Topics = deserializeAws_restJson1Topics(data.Topics, context);
+                }
+                if (data.TumblingWindowInSeconds !== undefined && data.TumblingWindowInSeconds !== null) {
+                    contents.TumblingWindowInSeconds = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectInt32)(data.TumblingWindowInSeconds);
+                }
+                if (data.UUID !== undefined && data.UUID !== null) {
+                    contents.UUID = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.UUID);
+                }
+                return [2, Promise.resolve(contents)];
+        }
+    });
+}); };
+var deserializeAws_restJson1CreateEventSourceMappingCommandError = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var parsedOutput, _a, response, errorCode, _b, parsedBody, $metadata, statusCode;
+    var _c;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_d) {
+        switch (_d.label) {
+            case 0:
+                _a = [(0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, output)];
+                _c = {};
+                return [4, parseBody(output.body, context)];
+            case 1:
+                parsedOutput = tslib__WEBPACK_IMPORTED_MODULE_2__.__assign.apply(void 0, _a.concat([(_c.body = _d.sent(), _c)]));
+                errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+                _b = errorCode;
+                switch (_b) {
+                    case "InvalidParameterValueException": return [3, 2];
+                    case "com.amazonaws.lambda#InvalidParameterValueException": return [3, 2];
+                    case "ResourceConflictException": return [3, 4];
+                    case "com.amazonaws.lambda#ResourceConflictException": return [3, 4];
+                    case "ResourceNotFoundException": return [3, 6];
+                    case "com.amazonaws.lambda#ResourceNotFoundException": return [3, 6];
+                    case "ServiceException": return [3, 8];
+                    case "com.amazonaws.lambda#ServiceException": return [3, 8];
+                    case "TooManyRequestsException": return [3, 10];
+                    case "com.amazonaws.lambda#TooManyRequestsException": return [3, 10];
+                }
+                return [3, 12];
+            case 2: return [4, deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)];
+            case 3: throw _d.sent();
+            case 4: return [4, deserializeAws_restJson1ResourceConflictExceptionResponse(parsedOutput, context)];
+            case 5: throw _d.sent();
+            case 6: return [4, deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)];
+            case 7: throw _d.sent();
+            case 8: return [4, deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)];
+            case 9: throw _d.sent();
+            case 10: return [4, deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)];
+            case 11: throw _d.sent();
+            case 12:
+                parsedBody = parsedOutput.body;
+                $metadata = deserializeMetadata(output);
+                statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+                response = new _models_LambdaServiceException__WEBPACK_IMPORTED_MODULE_3__.LambdaServiceException({
+                    name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+                    $fault: "client",
+                    $metadata: $metadata,
+                });
+                throw (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(response, parsedBody);
+        }
+    });
+}); };
+var deserializeAws_restJson1CreateFunctionCommand = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, _a, _b;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0:
+                if (output.statusCode !== 201 && output.statusCode >= 300) {
+                    return [2, deserializeAws_restJson1CreateFunctionCommandError(output, context)];
+                }
+                contents = {
+                    $metadata: deserializeMetadata(output),
+                    Architectures: undefined,
+                    CodeSha256: undefined,
+                    CodeSize: undefined,
+                    DeadLetterConfig: undefined,
+                    Description: undefined,
+                    Environment: undefined,
+                    EphemeralStorage: undefined,
+                    FileSystemConfigs: undefined,
+                    FunctionArn: undefined,
+                    FunctionName: undefined,
+                    Handler: undefined,
+                    ImageConfigResponse: undefined,
+                    KMSKeyArn: undefined,
+                    LastModified: undefined,
+                    LastUpdateStatus: undefined,
+                    LastUpdateStatusReason: undefined,
+                    LastUpdateStatusReasonCode: undefined,
+                    Layers: undefined,
+                    MasterArn: undefined,
+                    MemorySize: undefined,
+                    PackageType: undefined,
+                    RevisionId: undefined,
+                    Role: undefined,
+                    Runtime: undefined,
+                    SigningJobArn: undefined,
+                    SigningProfileVersionArn: undefined,
+                    State: undefined,
+                    StateReason: undefined,
+                    StateReasonCode: undefined,
+                    Timeout: undefined,
+                    TracingConfig: undefined,
+                    Version: undefined,
+                    VpcConfig: undefined,
+                };
+                _a = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectNonNull;
+                _b = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectObject;
+                return [4, parseBody(output.body, context)];
+            case 1:
+                data = _a.apply(void 0, [_b.apply(void 0, [_c.sent()]), "body"]);
+                if (data.Architectures !== undefined && data.Architectures !== null) {
+                    contents.Architectures = deserializeAws_restJson1ArchitecturesList(data.Architectures, context);
+                }
+                if (data.CodeSha256 !== undefined && data.CodeSha256 !== null) {
+                    contents.CodeSha256 = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.CodeSha256);
+                }
+                if (data.CodeSize !== undefined && data.CodeSize !== null) {
+                    contents.CodeSize = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectLong)(data.CodeSize);
+                }
+                if (data.DeadLetterConfig !== undefined && data.DeadLetterConfig !== null) {
+                    contents.DeadLetterConfig = deserializeAws_restJson1DeadLetterConfig(data.DeadLetterConfig, context);
+                }
+                if (data.Description !== undefined && data.Description !== null) {
+                    contents.Description = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Description);
+                }
+                if (data.Environment !== undefined && data.Environment !== null) {
+                    contents.Environment = deserializeAws_restJson1EnvironmentResponse(data.Environment, context);
+                }
+                if (data.EphemeralStorage !== undefined && data.EphemeralStorage !== null) {
+                    contents.EphemeralStorage = deserializeAws_restJson1EphemeralStorage(data.EphemeralStorage, context);
+                }
+                if (data.FileSystemConfigs !== undefined && data.FileSystemConfigs !== null) {
+                    contents.FileSystemConfigs = deserializeAws_restJson1FileSystemConfigList(data.FileSystemConfigs, context);
+                }
+                if (data.FunctionArn !== undefined && data.FunctionArn !== null) {
+                    contents.FunctionArn = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.FunctionArn);
+                }
+                if (data.FunctionName !== undefined && data.FunctionName !== null) {
+                    contents.FunctionName = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.FunctionName);
+                }
+                if (data.Handler !== undefined && data.Handler !== null) {
+                    contents.Handler = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Handler);
+                }
+                if (data.ImageConfigResponse !== undefined && data.ImageConfigResponse !== null) {
+                    contents.ImageConfigResponse = deserializeAws_restJson1ImageConfigResponse(data.ImageConfigResponse, context);
+                }
+                if (data.KMSKeyArn !== undefined && data.KMSKeyArn !== null) {
+                    contents.KMSKeyArn = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.KMSKeyArn);
+                }
+                if (data.LastModified !== undefined && data.LastModified !== null) {
+                    contents.LastModified = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.LastModified);
+                }
+                if (data.LastUpdateStatus !== undefined && data.LastUpdateStatus !== null) {
+                    contents.LastUpdateStatus = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.LastUpdateStatus);
+                }
+                if (data.LastUpdateStatusReason !== undefined && data.LastUpdateStatusReason !== null) {
+                    contents.LastUpdateStatusReason = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.LastUpdateStatusReason);
+                }
+                if (data.LastUpdateStatusReasonCode !== undefined && data.LastUpdateStatusReasonCode !== null) {
+                    contents.LastUpdateStatusReasonCode = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.LastUpdateStatusReasonCode);
+                }
+                if (data.Layers !== undefined && data.Layers !== null) {
+                    contents.Layers = deserializeAws_restJson1LayersReferenceList(data.Layers, context);
+                }
+                if (data.MasterArn !== undefined && data.MasterArn !== null) {
+                    contents.MasterArn = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.MasterArn);
+                }
+                if (data.MemorySize !== undefined && data.MemorySize !== null) {
+                    contents.MemorySize = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectInt32)(data.MemorySize);
+                }
+                if (data.PackageType !== undefined && data.PackageType !== null) {
+                    contents.PackageType = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.PackageType);
+                }
+                if (data.RevisionId !== undefined && data.RevisionId !== null) {
+                    contents.RevisionId = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.RevisionId);
+                }
+                if (data.Role !== undefined && data.Role !== null) {
+                    contents.Role = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Role);
+                }
+                if (data.Runtime !== undefined && data.Runtime !== null) {
+                    contents.Runtime = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Runtime);
+                }
+                if (data.SigningJobArn !== undefined && data.SigningJobArn !== null) {
+                    contents.SigningJobArn = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.SigningJobArn);
+                }
+                if (data.SigningProfileVersionArn !== undefined && data.SigningProfileVersionArn !== null) {
+                    contents.SigningProfileVersionArn = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.SigningProfileVersionArn);
+                }
+                if (data.State !== undefined && data.State !== null) {
+                    contents.State = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.State);
+                }
+                if (data.StateReason !== undefined && data.StateReason !== null) {
+                    contents.StateReason = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.StateReason);
+                }
+                if (data.StateReasonCode !== undefined && data.StateReasonCode !== null) {
+                    contents.StateReasonCode = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.StateReasonCode);
+                }
+                if (data.Timeout !== undefined && data.Timeout !== null) {
+                    contents.Timeout = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectInt32)(data.Timeout);
+                }
+                if (data.TracingConfig !== undefined && data.TracingConfig !== null) {
+                    contents.TracingConfig = deserializeAws_restJson1TracingConfigResponse(data.TracingConfig, context);
+                }
+                if (data.Version !== undefined && data.Version !== null) {
+                    contents.Version = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Version);
+                }
+                if (data.VpcConfig !== undefined && data.VpcConfig !== null) {
+                    contents.VpcConfig = deserializeAws_restJson1VpcConfigResponse(data.VpcConfig, context);
+                }
+                return [2, Promise.resolve(contents)];
+        }
+    });
+}); };
+var deserializeAws_restJson1CreateFunctionCommandError = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var parsedOutput, _a, response, errorCode, _b, parsedBody, $metadata, statusCode;
+    var _c;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_d) {
+        switch (_d.label) {
+            case 0:
+                _a = [(0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, output)];
+                _c = {};
+                return [4, parseBody(output.body, context)];
+            case 1:
+                parsedOutput = tslib__WEBPACK_IMPORTED_MODULE_2__.__assign.apply(void 0, _a.concat([(_c.body = _d.sent(), _c)]));
+                errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+                _b = errorCode;
+                switch (_b) {
+                    case "CodeSigningConfigNotFoundException": return [3, 2];
+                    case "com.amazonaws.lambda#CodeSigningConfigNotFoundException": return [3, 2];
+                    case "CodeStorageExceededException": return [3, 4];
+                    case "com.amazonaws.lambda#CodeStorageExceededException": return [3, 4];
+                    case "CodeVerificationFailedException": return [3, 6];
+                    case "com.amazonaws.lambda#CodeVerificationFailedException": return [3, 6];
+                    case "InvalidCodeSignatureException": return [3, 8];
+                    case "com.amazonaws.lambda#InvalidCodeSignatureException": return [3, 8];
+                    case "InvalidParameterValueException": return [3, 10];
+                    case "com.amazonaws.lambda#InvalidParameterValueException": return [3, 10];
+                    case "ResourceConflictException": return [3, 12];
+                    case "com.amazonaws.lambda#ResourceConflictException": return [3, 12];
+                    case "ResourceNotFoundException": return [3, 14];
+                    case "com.amazonaws.lambda#ResourceNotFoundException": return [3, 14];
+                    case "ServiceException": return [3, 16];
+                    case "com.amazonaws.lambda#ServiceException": return [3, 16];
+                    case "TooManyRequestsException": return [3, 18];
+                    case "com.amazonaws.lambda#TooManyRequestsException": return [3, 18];
+                }
+                return [3, 20];
+            case 2: return [4, deserializeAws_restJson1CodeSigningConfigNotFoundExceptionResponse(parsedOutput, context)];
+            case 3: throw _d.sent();
+            case 4: return [4, deserializeAws_restJson1CodeStorageExceededExceptionResponse(parsedOutput, context)];
+            case 5: throw _d.sent();
+            case 6: return [4, deserializeAws_restJson1CodeVerificationFailedExceptionResponse(parsedOutput, context)];
+            case 7: throw _d.sent();
+            case 8: return [4, deserializeAws_restJson1InvalidCodeSignatureExceptionResponse(parsedOutput, context)];
+            case 9: throw _d.sent();
+            case 10: return [4, deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)];
+            case 11: throw _d.sent();
+            case 12: return [4, deserializeAws_restJson1ResourceConflictExceptionResponse(parsedOutput, context)];
+            case 13: throw _d.sent();
+            case 14: return [4, deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)];
+            case 15: throw _d.sent();
+            case 16: return [4, deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)];
+            case 17: throw _d.sent();
+            case 18: return [4, deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)];
+            case 19: throw _d.sent();
+            case 20:
+                parsedBody = parsedOutput.body;
+                $metadata = deserializeMetadata(output);
+                statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+                response = new _models_LambdaServiceException__WEBPACK_IMPORTED_MODULE_3__.LambdaServiceException({
+                    name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+                    $fault: "client",
+                    $metadata: $metadata,
+                });
+                throw (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(response, parsedBody);
+        }
+    });
+}); };
+var deserializeAws_restJson1CreateFunctionUrlConfigCommand = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, _a, _b;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0:
+                if (output.statusCode !== 201 && output.statusCode >= 300) {
+                    return [2, deserializeAws_restJson1CreateFunctionUrlConfigCommandError(output, context)];
+                }
+                contents = {
+                    $metadata: deserializeMetadata(output),
+                    AuthType: undefined,
+                    Cors: undefined,
+                    CreationTime: undefined,
+                    FunctionArn: undefined,
+                    FunctionUrl: undefined,
+                };
+                _a = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectNonNull;
+                _b = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectObject;
+                return [4, parseBody(output.body, context)];
+            case 1:
+                data = _a.apply(void 0, [_b.apply(void 0, [_c.sent()]), "body"]);
+                if (data.AuthType !== undefined && data.AuthType !== null) {
+                    contents.AuthType = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.AuthType);
+                }
+                if (data.Cors !== undefined && data.Cors !== null) {
+                    contents.Cors = deserializeAws_restJson1Cors(data.Cors, context);
+                }
+                if (data.CreationTime !== undefined && data.CreationTime !== null) {
+                    contents.CreationTime = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.CreationTime);
+                }
+                if (data.FunctionArn !== undefined && data.FunctionArn !== null) {
+                    contents.FunctionArn = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.FunctionArn);
+                }
+                if (data.FunctionUrl !== undefined && data.FunctionUrl !== null) {
+                    contents.FunctionUrl = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.FunctionUrl);
+                }
+                return [2, Promise.resolve(contents)];
+        }
+    });
+}); };
+var deserializeAws_restJson1CreateFunctionUrlConfigCommandError = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var parsedOutput, _a, response, errorCode, _b, parsedBody, $metadata, statusCode;
+    var _c;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_d) {
+        switch (_d.label) {
+            case 0:
+                _a = [(0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, output)];
+                _c = {};
+                return [4, parseBody(output.body, context)];
+            case 1:
+                parsedOutput = tslib__WEBPACK_IMPORTED_MODULE_2__.__assign.apply(void 0, _a.concat([(_c.body = _d.sent(), _c)]));
+                errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+                _b = errorCode;
+                switch (_b) {
+                    case "InvalidParameterValueException": return [3, 2];
+                    case "com.amazonaws.lambda#InvalidParameterValueException": return [3, 2];
+                    case "ResourceConflictException": return [3, 4];
+                    case "com.amazonaws.lambda#ResourceConflictException": return [3, 4];
+                    case "ResourceNotFoundException": return [3, 6];
+                    case "com.amazonaws.lambda#ResourceNotFoundException": return [3, 6];
+                    case "ServiceException": return [3, 8];
+                    case "com.amazonaws.lambda#ServiceException": return [3, 8];
+                    case "TooManyRequestsException": return [3, 10];
+                    case "com.amazonaws.lambda#TooManyRequestsException": return [3, 10];
+                }
+                return [3, 12];
+            case 2: return [4, deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)];
+            case 3: throw _d.sent();
+            case 4: return [4, deserializeAws_restJson1ResourceConflictExceptionResponse(parsedOutput, context)];
+            case 5: throw _d.sent();
+            case 6: return [4, deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)];
+            case 7: throw _d.sent();
+            case 8: return [4, deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)];
+            case 9: throw _d.sent();
+            case 10: return [4, deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)];
+            case 11: throw _d.sent();
+            case 12:
+                parsedBody = parsedOutput.body;
+                $metadata = deserializeMetadata(output);
+                statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+                response = new _models_LambdaServiceException__WEBPACK_IMPORTED_MODULE_3__.LambdaServiceException({
+                    name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+                    $fault: "client",
+                    $metadata: $metadata,
+                });
+                throw (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(response, parsedBody);
+        }
+    });
+}); };
+var deserializeAws_restJson1DeleteAliasCommand = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                if (output.statusCode !== 204 && output.statusCode >= 300) {
+                    return [2, deserializeAws_restJson1DeleteAliasCommandError(output, context)];
+                }
+                contents = {
+                    $metadata: deserializeMetadata(output),
+                };
+                return [4, collectBody(output.body, context)];
+            case 1:
+                _a.sent();
+                return [2, Promise.resolve(contents)];
+        }
+    });
+}); };
+var deserializeAws_restJson1DeleteAliasCommandError = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var parsedOutput, _a, response, errorCode, _b, parsedBody, $metadata, statusCode;
+    var _c;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_d) {
+        switch (_d.label) {
+            case 0:
+                _a = [(0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, output)];
+                _c = {};
+                return [4, parseBody(output.body, context)];
+            case 1:
+                parsedOutput = tslib__WEBPACK_IMPORTED_MODULE_2__.__assign.apply(void 0, _a.concat([(_c.body = _d.sent(), _c)]));
+                errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+                _b = errorCode;
+                switch (_b) {
+                    case "InvalidParameterValueException": return [3, 2];
+                    case "com.amazonaws.lambda#InvalidParameterValueException": return [3, 2];
+                    case "ResourceConflictException": return [3, 4];
+                    case "com.amazonaws.lambda#ResourceConflictException": return [3, 4];
+                    case "ServiceException": return [3, 6];
+                    case "com.amazonaws.lambda#ServiceException": return [3, 6];
+                    case "TooManyRequestsException": return [3, 8];
+                    case "com.amazonaws.lambda#TooManyRequestsException": return [3, 8];
+                }
+                return [3, 10];
+            case 2: return [4, deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)];
+            case 3: throw _d.sent();
+            case 4: return [4, deserializeAws_restJson1ResourceConflictExceptionResponse(parsedOutput, context)];
+            case 5: throw _d.sent();
+            case 6: return [4, deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)];
+            case 7: throw _d.sent();
+            case 8: return [4, deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)];
+            case 9: throw _d.sent();
+            case 10:
+                parsedBody = parsedOutput.body;
+                $metadata = deserializeMetadata(output);
+                statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+                response = new _models_LambdaServiceException__WEBPACK_IMPORTED_MODULE_3__.LambdaServiceException({
+                    name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+                    $fault: "client",
+                    $metadata: $metadata,
+                });
+                throw (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(response, parsedBody);
+        }
+    });
+}); };
+var deserializeAws_restJson1DeleteCodeSigningConfigCommand = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                if (output.statusCode !== 204 && output.statusCode >= 300) {
+                    return [2, deserializeAws_restJson1DeleteCodeSigningConfigCommandError(output, context)];
+                }
+                contents = {
+                    $metadata: deserializeMetadata(output),
+                };
+                return [4, collectBody(output.body, context)];
+            case 1:
+                _a.sent();
+                return [2, Promise.resolve(contents)];
+        }
+    });
+}); };
+var deserializeAws_restJson1DeleteCodeSigningConfigCommandError = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var parsedOutput, _a, response, errorCode, _b, parsedBody, $metadata, statusCode;
+    var _c;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_d) {
+        switch (_d.label) {
+            case 0:
+                _a = [(0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, output)];
+                _c = {};
+                return [4, parseBody(output.body, context)];
+            case 1:
+                parsedOutput = tslib__WEBPACK_IMPORTED_MODULE_2__.__assign.apply(void 0, _a.concat([(_c.body = _d.sent(), _c)]));
+                errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+                _b = errorCode;
+                switch (_b) {
+                    case "InvalidParameterValueException": return [3, 2];
+                    case "com.amazonaws.lambda#InvalidParameterValueException": return [3, 2];
+                    case "ResourceConflictException": return [3, 4];
+                    case "com.amazonaws.lambda#ResourceConflictException": return [3, 4];
+                    case "ResourceNotFoundException": return [3, 6];
+                    case "com.amazonaws.lambda#ResourceNotFoundException": return [3, 6];
+                    case "ServiceException": return [3, 8];
+                    case "com.amazonaws.lambda#ServiceException": return [3, 8];
+                }
+                return [3, 10];
+            case 2: return [4, deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)];
+            case 3: throw _d.sent();
+            case 4: return [4, deserializeAws_restJson1ResourceConflictExceptionResponse(parsedOutput, context)];
+            case 5: throw _d.sent();
+            case 6: return [4, deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)];
+            case 7: throw _d.sent();
+            case 8: return [4, deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)];
+            case 9: throw _d.sent();
+            case 10:
+                parsedBody = parsedOutput.body;
+                $metadata = deserializeMetadata(output);
+                statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+                response = new _models_LambdaServiceException__WEBPACK_IMPORTED_MODULE_3__.LambdaServiceException({
+                    name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+                    $fault: "client",
+                    $metadata: $metadata,
+                });
+                throw (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(response, parsedBody);
+        }
+    });
+}); };
+var deserializeAws_restJson1DeleteEventSourceMappingCommand = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, _a, _b;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0:
+                if (output.statusCode !== 202 && output.statusCode >= 300) {
+                    return [2, deserializeAws_restJson1DeleteEventSourceMappingCommandError(output, context)];
+                }
+                contents = {
+                    $metadata: deserializeMetadata(output),
+                    BatchSize: undefined,
+                    BisectBatchOnFunctionError: undefined,
+                    DestinationConfig: undefined,
+                    EventSourceArn: undefined,
+                    FilterCriteria: undefined,
+                    FunctionArn: undefined,
+                    FunctionResponseTypes: undefined,
+                    LastModified: undefined,
+                    LastProcessingResult: undefined,
+                    MaximumBatchingWindowInSeconds: undefined,
+                    MaximumRecordAgeInSeconds: undefined,
+                    MaximumRetryAttempts: undefined,
+                    ParallelizationFactor: undefined,
+                    Queues: undefined,
+                    SelfManagedEventSource: undefined,
+                    SourceAccessConfigurations: undefined,
+                    StartingPosition: undefined,
+                    StartingPositionTimestamp: undefined,
+                    State: undefined,
+                    StateTransitionReason: undefined,
+                    Topics: undefined,
+                    TumblingWindowInSeconds: undefined,
+                    UUID: undefined,
+                };
+                _a = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectNonNull;
+                _b = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectObject;
+                return [4, parseBody(output.body, context)];
+            case 1:
+                data = _a.apply(void 0, [_b.apply(void 0, [_c.sent()]), "body"]);
+                if (data.BatchSize !== undefined && data.BatchSize !== null) {
+                    contents.BatchSize = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectInt32)(data.BatchSize);
+                }
+                if (data.BisectBatchOnFunctionError !== undefined && data.BisectBatchOnFunctionError !== null) {
+                    contents.BisectBatchOnFunctionError = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectBoolean)(data.BisectBatchOnFunctionError);
+                }
+                if (data.DestinationConfig !== undefined && data.DestinationConfig !== null) {
+                    contents.DestinationConfig = deserializeAws_restJson1DestinationConfig(data.DestinationConfig, context);
+                }
+                if (data.EventSourceArn !== undefined && data.EventSourceArn !== null) {
+                    contents.EventSourceArn = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.EventSourceArn);
+                }
+                if (data.FilterCriteria !== undefined && data.FilterCriteria !== null) {
+                    contents.FilterCriteria = deserializeAws_restJson1FilterCriteria(data.FilterCriteria, context);
+                }
+                if (data.FunctionArn !== undefined && data.FunctionArn !== null) {
+                    contents.FunctionArn = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.FunctionArn);
+                }
+                if (data.FunctionResponseTypes !== undefined && data.FunctionResponseTypes !== null) {
+                    contents.FunctionResponseTypes = deserializeAws_restJson1FunctionResponseTypeList(data.FunctionResponseTypes, context);
+                }
+                if (data.LastModified !== undefined && data.LastModified !== null) {
+                    contents.LastModified = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectNonNull)((0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.parseEpochTimestamp)((0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectNumber)(data.LastModified)));
+                }
+                if (data.LastProcessingResult !== undefined && data.LastProcessingResult !== null) {
+                    contents.LastProcessingResult = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.LastProcessingResult);
+                }
+                if (data.MaximumBatchingWindowInSeconds !== undefined && data.MaximumBatchingWindowInSeconds !== null) {
+                    contents.MaximumBatchingWindowInSeconds = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectInt32)(data.MaximumBatchingWindowInSeconds);
+                }
+                if (data.MaximumRecordAgeInSeconds !== undefined && data.MaximumRecordAgeInSeconds !== null) {
+                    contents.MaximumRecordAgeInSeconds = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectInt32)(data.MaximumRecordAgeInSeconds);
+                }
+                if (data.MaximumRetryAttempts !== undefined && data.MaximumRetryAttempts !== null) {
+                    contents.MaximumRetryAttempts = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectInt32)(data.MaximumRetryAttempts);
+                }
+                if (data.ParallelizationFactor !== undefined && data.ParallelizationFactor !== null) {
+                    contents.ParallelizationFactor = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectInt32)(data.ParallelizationFactor);
+                }
+                if (data.Queues !== undefined && data.Queues !== null) {
+                    contents.Queues = deserializeAws_restJson1Queues(data.Queues, context);
+                }
+                if (data.SelfManagedEventSource !== undefined && data.SelfManagedEventSource !== null) {
+                    contents.SelfManagedEventSource = deserializeAws_restJson1SelfManagedEventSource(data.SelfManagedEventSource, context);
+                }
+                if (data.SourceAccessConfigurations !== undefined && data.SourceAccessConfigurations !== null) {
+                    contents.SourceAccessConfigurations = deserializeAws_restJson1SourceAccessConfigurations(data.SourceAccessConfigurations, context);
+                }
+                if (data.StartingPosition !== undefined && data.StartingPosition !== null) {
+                    contents.StartingPosition = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.StartingPosition);
+                }
+                if (data.StartingPositionTimestamp !== undefined && data.StartingPositionTimestamp !== null) {
+                    contents.StartingPositionTimestamp = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectNonNull)((0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.parseEpochTimestamp)((0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectNumber)(data.StartingPositionTimestamp)));
+                }
+                if (data.State !== undefined && data.State !== null) {
+                    contents.State = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.State);
+                }
+                if (data.StateTransitionReason !== undefined && data.StateTransitionReason !== null) {
+                    contents.StateTransitionReason = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.StateTransitionReason);
+                }
+                if (data.Topics !== undefined && data.Topics !== null) {
+                    contents.Topics = deserializeAws_restJson1Topics(data.Topics, context);
+                }
+                if (data.TumblingWindowInSeconds !== undefined && data.TumblingWindowInSeconds !== null) {
+                    contents.TumblingWindowInSeconds = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectInt32)(data.TumblingWindowInSeconds);
+                }
+                if (data.UUID !== undefined && data.UUID !== null) {
+                    contents.UUID = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.UUID);
+                }
+                return [2, Promise.resolve(contents)];
+        }
+    });
+}); };
+var deserializeAws_restJson1DeleteEventSourceMappingCommandError = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var parsedOutput, _a, response, errorCode, _b, parsedBody, $metadata, statusCode;
+    var _c;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_d) {
+        switch (_d.label) {
+            case 0:
+                _a = [(0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, output)];
+                _c = {};
+                return [4, parseBody(output.body, context)];
+            case 1:
+                parsedOutput = tslib__WEBPACK_IMPORTED_MODULE_2__.__assign.apply(void 0, _a.concat([(_c.body = _d.sent(), _c)]));
+                errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+                _b = errorCode;
+                switch (_b) {
+                    case "InvalidParameterValueException": return [3, 2];
+                    case "com.amazonaws.lambda#InvalidParameterValueException": return [3, 2];
+                    case "ResourceInUseException": return [3, 4];
+                    case "com.amazonaws.lambda#ResourceInUseException": return [3, 4];
+                    case "ResourceNotFoundException": return [3, 6];
+                    case "com.amazonaws.lambda#ResourceNotFoundException": return [3, 6];
+                    case "ServiceException": return [3, 8];
+                    case "com.amazonaws.lambda#ServiceException": return [3, 8];
+                    case "TooManyRequestsException": return [3, 10];
+                    case "com.amazonaws.lambda#TooManyRequestsException": return [3, 10];
+                }
+                return [3, 12];
+            case 2: return [4, deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)];
+            case 3: throw _d.sent();
+            case 4: return [4, deserializeAws_restJson1ResourceInUseExceptionResponse(parsedOutput, context)];
+            case 5: throw _d.sent();
+            case 6: return [4, deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)];
+            case 7: throw _d.sent();
+            case 8: return [4, deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)];
+            case 9: throw _d.sent();
+            case 10: return [4, deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)];
+            case 11: throw _d.sent();
+            case 12:
+                parsedBody = parsedOutput.body;
+                $metadata = deserializeMetadata(output);
+                statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+                response = new _models_LambdaServiceException__WEBPACK_IMPORTED_MODULE_3__.LambdaServiceException({
+                    name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+                    $fault: "client",
+                    $metadata: $metadata,
+                });
+                throw (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(response, parsedBody);
+        }
+    });
+}); };
+var deserializeAws_restJson1DeleteFunctionCommand = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                if (output.statusCode !== 204 && output.statusCode >= 300) {
+                    return [2, deserializeAws_restJson1DeleteFunctionCommandError(output, context)];
+                }
+                contents = {
+                    $metadata: deserializeMetadata(output),
+                };
+                return [4, collectBody(output.body, context)];
+            case 1:
+                _a.sent();
+                return [2, Promise.resolve(contents)];
+        }
+    });
+}); };
+var deserializeAws_restJson1DeleteFunctionCommandError = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var parsedOutput, _a, response, errorCode, _b, parsedBody, $metadata, statusCode;
+    var _c;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_d) {
+        switch (_d.label) {
+            case 0:
+                _a = [(0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, output)];
+                _c = {};
+                return [4, parseBody(output.body, context)];
+            case 1:
+                parsedOutput = tslib__WEBPACK_IMPORTED_MODULE_2__.__assign.apply(void 0, _a.concat([(_c.body = _d.sent(), _c)]));
+                errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+                _b = errorCode;
+                switch (_b) {
+                    case "InvalidParameterValueException": return [3, 2];
+                    case "com.amazonaws.lambda#InvalidParameterValueException": return [3, 2];
+                    case "ResourceConflictException": return [3, 4];
+                    case "com.amazonaws.lambda#ResourceConflictException": return [3, 4];
+                    case "ResourceNotFoundException": return [3, 6];
+                    case "com.amazonaws.lambda#ResourceNotFoundException": return [3, 6];
+                    case "ServiceException": return [3, 8];
+                    case "com.amazonaws.lambda#ServiceException": return [3, 8];
+                    case "TooManyRequestsException": return [3, 10];
+                    case "com.amazonaws.lambda#TooManyRequestsException": return [3, 10];
+                }
+                return [3, 12];
+            case 2: return [4, deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)];
+            case 3: throw _d.sent();
+            case 4: return [4, deserializeAws_restJson1ResourceConflictExceptionResponse(parsedOutput, context)];
+            case 5: throw _d.sent();
+            case 6: return [4, deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)];
+            case 7: throw _d.sent();
+            case 8: return [4, deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)];
+            case 9: throw _d.sent();
+            case 10: return [4, deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)];
+            case 11: throw _d.sent();
+            case 12:
+                parsedBody = parsedOutput.body;
+                $metadata = deserializeMetadata(output);
+                statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+                response = new _models_LambdaServiceException__WEBPACK_IMPORTED_MODULE_3__.LambdaServiceException({
+                    name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+                    $fault: "client",
+                    $metadata: $metadata,
+                });
+                throw (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(response, parsedBody);
+        }
+    });
+}); };
+var deserializeAws_restJson1DeleteFunctionCodeSigningConfigCommand = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                if (output.statusCode !== 204 && output.statusCode >= 300) {
+                    return [2, deserializeAws_restJson1DeleteFunctionCodeSigningConfigCommandError(output, context)];
+                }
+                contents = {
+                    $metadata: deserializeMetadata(output),
+                };
+                return [4, collectBody(output.body, context)];
+            case 1:
+                _a.sent();
+                return [2, Promise.resolve(contents)];
+        }
+    });
+}); };
+var deserializeAws_restJson1DeleteFunctionCodeSigningConfigCommandError = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var parsedOutput, _a, response, errorCode, _b, parsedBody, $metadata, statusCode;
+    var _c;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_d) {
+        switch (_d.label) {
+            case 0:
+                _a = [(0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, output)];
+                _c = {};
+                return [4, parseBody(output.body, context)];
+            case 1:
+                parsedOutput = tslib__WEBPACK_IMPORTED_MODULE_2__.__assign.apply(void 0, _a.concat([(_c.body = _d.sent(), _c)]));
+                errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+                _b = errorCode;
+                switch (_b) {
+                    case "CodeSigningConfigNotFoundException": return [3, 2];
+                    case "com.amazonaws.lambda#CodeSigningConfigNotFoundException": return [3, 2];
+                    case "InvalidParameterValueException": return [3, 4];
+                    case "com.amazonaws.lambda#InvalidParameterValueException": return [3, 4];
+                    case "ResourceConflictException": return [3, 6];
+                    case "com.amazonaws.lambda#ResourceConflictException": return [3, 6];
+                    case "ResourceNotFoundException": return [3, 8];
+                    case "com.amazonaws.lambda#ResourceNotFoundException": return [3, 8];
+                    case "ServiceException": return [3, 10];
+                    case "com.amazonaws.lambda#ServiceException": return [3, 10];
+                    case "TooManyRequestsException": return [3, 12];
+                    case "com.amazonaws.lambda#TooManyRequestsException": return [3, 12];
+                }
+                return [3, 14];
+            case 2: return [4, deserializeAws_restJson1CodeSigningConfigNotFoundExceptionResponse(parsedOutput, context)];
+            case 3: throw _d.sent();
+            case 4: return [4, deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)];
+            case 5: throw _d.sent();
+            case 6: return [4, deserializeAws_restJson1ResourceConflictExceptionResponse(parsedOutput, context)];
+            case 7: throw _d.sent();
+            case 8: return [4, deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)];
+            case 9: throw _d.sent();
+            case 10: return [4, deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)];
+            case 11: throw _d.sent();
+            case 12: return [4, deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)];
+            case 13: throw _d.sent();
+            case 14:
+                parsedBody = parsedOutput.body;
+                $metadata = deserializeMetadata(output);
+                statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+                response = new _models_LambdaServiceException__WEBPACK_IMPORTED_MODULE_3__.LambdaServiceException({
+                    name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+                    $fault: "client",
+                    $metadata: $metadata,
+                });
+                throw (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(response, parsedBody);
+        }
+    });
+}); };
+var deserializeAws_restJson1DeleteFunctionConcurrencyCommand = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                if (output.statusCode !== 204 && output.statusCode >= 300) {
+                    return [2, deserializeAws_restJson1DeleteFunctionConcurrencyCommandError(output, context)];
+                }
+                contents = {
+                    $metadata: deserializeMetadata(output),
+                };
+                return [4, collectBody(output.body, context)];
+            case 1:
+                _a.sent();
+                return [2, Promise.resolve(contents)];
+        }
+    });
+}); };
+var deserializeAws_restJson1DeleteFunctionConcurrencyCommandError = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var parsedOutput, _a, response, errorCode, _b, parsedBody, $metadata, statusCode;
+    var _c;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_d) {
+        switch (_d.label) {
+            case 0:
+                _a = [(0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, output)];
+                _c = {};
+                return [4, parseBody(output.body, context)];
+            case 1:
+                parsedOutput = tslib__WEBPACK_IMPORTED_MODULE_2__.__assign.apply(void 0, _a.concat([(_c.body = _d.sent(), _c)]));
+                errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+                _b = errorCode;
+                switch (_b) {
+                    case "InvalidParameterValueException": return [3, 2];
+                    case "com.amazonaws.lambda#InvalidParameterValueException": return [3, 2];
+                    case "ResourceConflictException": return [3, 4];
+                    case "com.amazonaws.lambda#ResourceConflictException": return [3, 4];
+                    case "ResourceNotFoundException": return [3, 6];
+                    case "com.amazonaws.lambda#ResourceNotFoundException": return [3, 6];
+                    case "ServiceException": return [3, 8];
+                    case "com.amazonaws.lambda#ServiceException": return [3, 8];
+                    case "TooManyRequestsException": return [3, 10];
+                    case "com.amazonaws.lambda#TooManyRequestsException": return [3, 10];
+                }
+                return [3, 12];
+            case 2: return [4, deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)];
+            case 3: throw _d.sent();
+            case 4: return [4, deserializeAws_restJson1ResourceConflictExceptionResponse(parsedOutput, context)];
+            case 5: throw _d.sent();
+            case 6: return [4, deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)];
+            case 7: throw _d.sent();
+            case 8: return [4, deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)];
+            case 9: throw _d.sent();
+            case 10: return [4, deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)];
+            case 11: throw _d.sent();
+            case 12:
+                parsedBody = parsedOutput.body;
+                $metadata = deserializeMetadata(output);
+                statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+                response = new _models_LambdaServiceException__WEBPACK_IMPORTED_MODULE_3__.LambdaServiceException({
+                    name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+                    $fault: "client",
+                    $metadata: $metadata,
+                });
+                throw (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(response, parsedBody);
+        }
+    });
+}); };
+var deserializeAws_restJson1DeleteFunctionEventInvokeConfigCommand = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                if (output.statusCode !== 204 && output.statusCode >= 300) {
+                    return [2, deserializeAws_restJson1DeleteFunctionEventInvokeConfigCommandError(output, context)];
+                }
+                contents = {
+                    $metadata: deserializeMetadata(output),
+                };
+                return [4, collectBody(output.body, context)];
+            case 1:
+                _a.sent();
+                return [2, Promise.resolve(contents)];
+        }
+    });
+}); };
+var deserializeAws_restJson1DeleteFunctionEventInvokeConfigCommandError = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var parsedOutput, _a, response, errorCode, _b, parsedBody, $metadata, statusCode;
+    var _c;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_d) {
+        switch (_d.label) {
+            case 0:
+                _a = [(0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, output)];
+                _c = {};
+                return [4, parseBody(output.body, context)];
+            case 1:
+                parsedOutput = tslib__WEBPACK_IMPORTED_MODULE_2__.__assign.apply(void 0, _a.concat([(_c.body = _d.sent(), _c)]));
+                errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+                _b = errorCode;
+                switch (_b) {
+                    case "InvalidParameterValueException": return [3, 2];
+                    case "com.amazonaws.lambda#InvalidParameterValueException": return [3, 2];
+                    case "ResourceConflictException": return [3, 4];
+                    case "com.amazonaws.lambda#ResourceConflictException": return [3, 4];
+                    case "ResourceNotFoundException": return [3, 6];
+                    case "com.amazonaws.lambda#ResourceNotFoundException": return [3, 6];
+                    case "ServiceException": return [3, 8];
+                    case "com.amazonaws.lambda#ServiceException": return [3, 8];
+                    case "TooManyRequestsException": return [3, 10];
+                    case "com.amazonaws.lambda#TooManyRequestsException": return [3, 10];
+                }
+                return [3, 12];
+            case 2: return [4, deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)];
+            case 3: throw _d.sent();
+            case 4: return [4, deserializeAws_restJson1ResourceConflictExceptionResponse(parsedOutput, context)];
+            case 5: throw _d.sent();
+            case 6: return [4, deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)];
+            case 7: throw _d.sent();
+            case 8: return [4, deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)];
+            case 9: throw _d.sent();
+            case 10: return [4, deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)];
+            case 11: throw _d.sent();
+            case 12:
+                parsedBody = parsedOutput.body;
+                $metadata = deserializeMetadata(output);
+                statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+                response = new _models_LambdaServiceException__WEBPACK_IMPORTED_MODULE_3__.LambdaServiceException({
+                    name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+                    $fault: "client",
+                    $metadata: $metadata,
+                });
+                throw (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(response, parsedBody);
+        }
+    });
+}); };
+var deserializeAws_restJson1DeleteFunctionUrlConfigCommand = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                if (output.statusCode !== 204 && output.statusCode >= 300) {
+                    return [2, deserializeAws_restJson1DeleteFunctionUrlConfigCommandError(output, context)];
+                }
+                contents = {
+                    $metadata: deserializeMetadata(output),
+                };
+                return [4, collectBody(output.body, context)];
+            case 1:
+                _a.sent();
+                return [2, Promise.resolve(contents)];
+        }
+    });
+}); };
+var deserializeAws_restJson1DeleteFunctionUrlConfigCommandError = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var parsedOutput, _a, response, errorCode, _b, parsedBody, $metadata, statusCode;
+    var _c;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_d) {
+        switch (_d.label) {
+            case 0:
+                _a = [(0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, output)];
+                _c = {};
+                return [4, parseBody(output.body, context)];
+            case 1:
+                parsedOutput = tslib__WEBPACK_IMPORTED_MODULE_2__.__assign.apply(void 0, _a.concat([(_c.body = _d.sent(), _c)]));
+                errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+                _b = errorCode;
+                switch (_b) {
+                    case "ResourceConflictException": return [3, 2];
+                    case "com.amazonaws.lambda#ResourceConflictException": return [3, 2];
+                    case "ResourceNotFoundException": return [3, 4];
+                    case "com.amazonaws.lambda#ResourceNotFoundException": return [3, 4];
+                    case "ServiceException": return [3, 6];
+                    case "com.amazonaws.lambda#ServiceException": return [3, 6];
+                    case "TooManyRequestsException": return [3, 8];
+                    case "com.amazonaws.lambda#TooManyRequestsException": return [3, 8];
+                }
+                return [3, 10];
+            case 2: return [4, deserializeAws_restJson1ResourceConflictExceptionResponse(parsedOutput, context)];
+            case 3: throw _d.sent();
+            case 4: return [4, deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)];
+            case 5: throw _d.sent();
+            case 6: return [4, deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)];
+            case 7: throw _d.sent();
+            case 8: return [4, deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)];
+            case 9: throw _d.sent();
+            case 10:
+                parsedBody = parsedOutput.body;
+                $metadata = deserializeMetadata(output);
+                statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+                response = new _models_LambdaServiceException__WEBPACK_IMPORTED_MODULE_3__.LambdaServiceException({
+                    name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+                    $fault: "client",
+                    $metadata: $metadata,
+                });
+                throw (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(response, parsedBody);
+        }
+    });
+}); };
+var deserializeAws_restJson1DeleteLayerVersionCommand = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                if (output.statusCode !== 204 && output.statusCode >= 300) {
+                    return [2, deserializeAws_restJson1DeleteLayerVersionCommandError(output, context)];
+                }
+                contents = {
+                    $metadata: deserializeMetadata(output),
+                };
+                return [4, collectBody(output.body, context)];
+            case 1:
+                _a.sent();
+                return [2, Promise.resolve(contents)];
+        }
+    });
+}); };
+var deserializeAws_restJson1DeleteLayerVersionCommandError = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var parsedOutput, _a, response, errorCode, _b, parsedBody, $metadata, statusCode;
+    var _c;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_d) {
+        switch (_d.label) {
+            case 0:
+                _a = [(0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, output)];
+                _c = {};
+                return [4, parseBody(output.body, context)];
+            case 1:
+                parsedOutput = tslib__WEBPACK_IMPORTED_MODULE_2__.__assign.apply(void 0, _a.concat([(_c.body = _d.sent(), _c)]));
+                errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+                _b = errorCode;
+                switch (_b) {
+                    case "ServiceException": return [3, 2];
+                    case "com.amazonaws.lambda#ServiceException": return [3, 2];
+                    case "TooManyRequestsException": return [3, 4];
+                    case "com.amazonaws.lambda#TooManyRequestsException": return [3, 4];
+                }
+                return [3, 6];
+            case 2: return [4, deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)];
+            case 3: throw _d.sent();
+            case 4: return [4, deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)];
+            case 5: throw _d.sent();
+            case 6:
+                parsedBody = parsedOutput.body;
+                $metadata = deserializeMetadata(output);
+                statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+                response = new _models_LambdaServiceException__WEBPACK_IMPORTED_MODULE_3__.LambdaServiceException({
+                    name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+                    $fault: "client",
+                    $metadata: $metadata,
+                });
+                throw (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(response, parsedBody);
+        }
+    });
+}); };
+var deserializeAws_restJson1DeleteProvisionedConcurrencyConfigCommand = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                if (output.statusCode !== 204 && output.statusCode >= 300) {
+                    return [2, deserializeAws_restJson1DeleteProvisionedConcurrencyConfigCommandError(output, context)];
+                }
+                contents = {
+                    $metadata: deserializeMetadata(output),
+                };
+                return [4, collectBody(output.body, context)];
+            case 1:
+                _a.sent();
+                return [2, Promise.resolve(contents)];
+        }
+    });
+}); };
+var deserializeAws_restJson1DeleteProvisionedConcurrencyConfigCommandError = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var parsedOutput, _a, response, errorCode, _b, parsedBody, $metadata, statusCode;
+    var _c;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_d) {
+        switch (_d.label) {
+            case 0:
+                _a = [(0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, output)];
+                _c = {};
+                return [4, parseBody(output.body, context)];
+            case 1:
+                parsedOutput = tslib__WEBPACK_IMPORTED_MODULE_2__.__assign.apply(void 0, _a.concat([(_c.body = _d.sent(), _c)]));
+                errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+                _b = errorCode;
+                switch (_b) {
+                    case "InvalidParameterValueException": return [3, 2];
+                    case "com.amazonaws.lambda#InvalidParameterValueException": return [3, 2];
+                    case "ResourceConflictException": return [3, 4];
+                    case "com.amazonaws.lambda#ResourceConflictException": return [3, 4];
+                    case "ResourceNotFoundException": return [3, 6];
+                    case "com.amazonaws.lambda#ResourceNotFoundException": return [3, 6];
+                    case "ServiceException": return [3, 8];
+                    case "com.amazonaws.lambda#ServiceException": return [3, 8];
+                    case "TooManyRequestsException": return [3, 10];
+                    case "com.amazonaws.lambda#TooManyRequestsException": return [3, 10];
+                }
+                return [3, 12];
+            case 2: return [4, deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)];
+            case 3: throw _d.sent();
+            case 4: return [4, deserializeAws_restJson1ResourceConflictExceptionResponse(parsedOutput, context)];
+            case 5: throw _d.sent();
+            case 6: return [4, deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)];
+            case 7: throw _d.sent();
+            case 8: return [4, deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)];
+            case 9: throw _d.sent();
+            case 10: return [4, deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)];
+            case 11: throw _d.sent();
+            case 12:
+                parsedBody = parsedOutput.body;
+                $metadata = deserializeMetadata(output);
+                statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+                response = new _models_LambdaServiceException__WEBPACK_IMPORTED_MODULE_3__.LambdaServiceException({
+                    name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+                    $fault: "client",
+                    $metadata: $metadata,
+                });
+                throw (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(response, parsedBody);
+        }
+    });
+}); };
+var deserializeAws_restJson1GetAccountSettingsCommand = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, _a, _b;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0:
+                if (output.statusCode !== 200 && output.statusCode >= 300) {
+                    return [2, deserializeAws_restJson1GetAccountSettingsCommandError(output, context)];
+                }
+                contents = {
+                    $metadata: deserializeMetadata(output),
+                    AccountLimit: undefined,
+                    AccountUsage: undefined,
+                };
+                _a = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectNonNull;
+                _b = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectObject;
+                return [4, parseBody(output.body, context)];
+            case 1:
+                data = _a.apply(void 0, [_b.apply(void 0, [_c.sent()]), "body"]);
+                if (data.AccountLimit !== undefined && data.AccountLimit !== null) {
+                    contents.AccountLimit = deserializeAws_restJson1AccountLimit(data.AccountLimit, context);
+                }
+                if (data.AccountUsage !== undefined && data.AccountUsage !== null) {
+                    contents.AccountUsage = deserializeAws_restJson1AccountUsage(data.AccountUsage, context);
+                }
+                return [2, Promise.resolve(contents)];
+        }
+    });
+}); };
+var deserializeAws_restJson1GetAccountSettingsCommandError = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var parsedOutput, _a, response, errorCode, _b, parsedBody, $metadata, statusCode;
+    var _c;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_d) {
+        switch (_d.label) {
+            case 0:
+                _a = [(0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, output)];
+                _c = {};
+                return [4, parseBody(output.body, context)];
+            case 1:
+                parsedOutput = tslib__WEBPACK_IMPORTED_MODULE_2__.__assign.apply(void 0, _a.concat([(_c.body = _d.sent(), _c)]));
+                errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+                _b = errorCode;
+                switch (_b) {
+                    case "ServiceException": return [3, 2];
+                    case "com.amazonaws.lambda#ServiceException": return [3, 2];
+                    case "TooManyRequestsException": return [3, 4];
+                    case "com.amazonaws.lambda#TooManyRequestsException": return [3, 4];
+                }
+                return [3, 6];
+            case 2: return [4, deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)];
+            case 3: throw _d.sent();
+            case 4: return [4, deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)];
+            case 5: throw _d.sent();
+            case 6:
+                parsedBody = parsedOutput.body;
+                $metadata = deserializeMetadata(output);
+                statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+                response = new _models_LambdaServiceException__WEBPACK_IMPORTED_MODULE_3__.LambdaServiceException({
+                    name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+                    $fault: "client",
+                    $metadata: $metadata,
+                });
+                throw (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(response, parsedBody);
+        }
+    });
+}); };
+var deserializeAws_restJson1GetAliasCommand = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, _a, _b;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0:
+                if (output.statusCode !== 200 && output.statusCode >= 300) {
+                    return [2, deserializeAws_restJson1GetAliasCommandError(output, context)];
+                }
+                contents = {
+                    $metadata: deserializeMetadata(output),
+                    AliasArn: undefined,
+                    Description: undefined,
+                    FunctionVersion: undefined,
+                    Name: undefined,
+                    RevisionId: undefined,
+                    RoutingConfig: undefined,
+                };
+                _a = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectNonNull;
+                _b = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectObject;
+                return [4, parseBody(output.body, context)];
+            case 1:
+                data = _a.apply(void 0, [_b.apply(void 0, [_c.sent()]), "body"]);
+                if (data.AliasArn !== undefined && data.AliasArn !== null) {
+                    contents.AliasArn = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.AliasArn);
+                }
+                if (data.Description !== undefined && data.Description !== null) {
+                    contents.Description = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Description);
+                }
+                if (data.FunctionVersion !== undefined && data.FunctionVersion !== null) {
+                    contents.FunctionVersion = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.FunctionVersion);
+                }
+                if (data.Name !== undefined && data.Name !== null) {
+                    contents.Name = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Name);
+                }
+                if (data.RevisionId !== undefined && data.RevisionId !== null) {
+                    contents.RevisionId = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.RevisionId);
+                }
+                if (data.RoutingConfig !== undefined && data.RoutingConfig !== null) {
+                    contents.RoutingConfig = deserializeAws_restJson1AliasRoutingConfiguration(data.RoutingConfig, context);
+                }
+                return [2, Promise.resolve(contents)];
+        }
+    });
+}); };
+var deserializeAws_restJson1GetAliasCommandError = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var parsedOutput, _a, response, errorCode, _b, parsedBody, $metadata, statusCode;
+    var _c;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_d) {
+        switch (_d.label) {
+            case 0:
+                _a = [(0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, output)];
+                _c = {};
+                return [4, parseBody(output.body, context)];
+            case 1:
+                parsedOutput = tslib__WEBPACK_IMPORTED_MODULE_2__.__assign.apply(void 0, _a.concat([(_c.body = _d.sent(), _c)]));
+                errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+                _b = errorCode;
+                switch (_b) {
+                    case "InvalidParameterValueException": return [3, 2];
+                    case "com.amazonaws.lambda#InvalidParameterValueException": return [3, 2];
+                    case "ResourceNotFoundException": return [3, 4];
+                    case "com.amazonaws.lambda#ResourceNotFoundException": return [3, 4];
+                    case "ServiceException": return [3, 6];
+                    case "com.amazonaws.lambda#ServiceException": return [3, 6];
+                    case "TooManyRequestsException": return [3, 8];
+                    case "com.amazonaws.lambda#TooManyRequestsException": return [3, 8];
+                }
+                return [3, 10];
+            case 2: return [4, deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)];
+            case 3: throw _d.sent();
+            case 4: return [4, deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)];
+            case 5: throw _d.sent();
+            case 6: return [4, deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)];
+            case 7: throw _d.sent();
+            case 8: return [4, deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)];
+            case 9: throw _d.sent();
+            case 10:
+                parsedBody = parsedOutput.body;
+                $metadata = deserializeMetadata(output);
+                statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+                response = new _models_LambdaServiceException__WEBPACK_IMPORTED_MODULE_3__.LambdaServiceException({
+                    name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+                    $fault: "client",
+                    $metadata: $metadata,
+                });
+                throw (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(response, parsedBody);
+        }
+    });
+}); };
+var deserializeAws_restJson1GetCodeSigningConfigCommand = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, _a, _b;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0:
+                if (output.statusCode !== 200 && output.statusCode >= 300) {
+                    return [2, deserializeAws_restJson1GetCodeSigningConfigCommandError(output, context)];
+                }
+                contents = {
+                    $metadata: deserializeMetadata(output),
+                    CodeSigningConfig: undefined,
+                };
+                _a = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectNonNull;
+                _b = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectObject;
+                return [4, parseBody(output.body, context)];
+            case 1:
+                data = _a.apply(void 0, [_b.apply(void 0, [_c.sent()]), "body"]);
+                if (data.CodeSigningConfig !== undefined && data.CodeSigningConfig !== null) {
+                    contents.CodeSigningConfig = deserializeAws_restJson1CodeSigningConfig(data.CodeSigningConfig, context);
+                }
+                return [2, Promise.resolve(contents)];
+        }
+    });
+}); };
+var deserializeAws_restJson1GetCodeSigningConfigCommandError = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var parsedOutput, _a, response, errorCode, _b, parsedBody, $metadata, statusCode;
+    var _c;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_d) {
+        switch (_d.label) {
+            case 0:
+                _a = [(0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, output)];
+                _c = {};
+                return [4, parseBody(output.body, context)];
+            case 1:
+                parsedOutput = tslib__WEBPACK_IMPORTED_MODULE_2__.__assign.apply(void 0, _a.concat([(_c.body = _d.sent(), _c)]));
+                errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+                _b = errorCode;
+                switch (_b) {
+                    case "InvalidParameterValueException": return [3, 2];
+                    case "com.amazonaws.lambda#InvalidParameterValueException": return [3, 2];
+                    case "ResourceNotFoundException": return [3, 4];
+                    case "com.amazonaws.lambda#ResourceNotFoundException": return [3, 4];
+                    case "ServiceException": return [3, 6];
+                    case "com.amazonaws.lambda#ServiceException": return [3, 6];
+                }
+                return [3, 8];
+            case 2: return [4, deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)];
+            case 3: throw _d.sent();
+            case 4: return [4, deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)];
+            case 5: throw _d.sent();
+            case 6: return [4, deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)];
+            case 7: throw _d.sent();
+            case 8:
+                parsedBody = parsedOutput.body;
+                $metadata = deserializeMetadata(output);
+                statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+                response = new _models_LambdaServiceException__WEBPACK_IMPORTED_MODULE_3__.LambdaServiceException({
+                    name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+                    $fault: "client",
+                    $metadata: $metadata,
+                });
+                throw (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(response, parsedBody);
+        }
+    });
+}); };
+var deserializeAws_restJson1GetEventSourceMappingCommand = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, _a, _b;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0:
+                if (output.statusCode !== 200 && output.statusCode >= 300) {
+                    return [2, deserializeAws_restJson1GetEventSourceMappingCommandError(output, context)];
+                }
+                contents = {
+                    $metadata: deserializeMetadata(output),
+                    BatchSize: undefined,
+                    BisectBatchOnFunctionError: undefined,
+                    DestinationConfig: undefined,
+                    EventSourceArn: undefined,
+                    FilterCriteria: undefined,
+                    FunctionArn: undefined,
+                    FunctionResponseTypes: undefined,
+                    LastModified: undefined,
+                    LastProcessingResult: undefined,
+                    MaximumBatchingWindowInSeconds: undefined,
+                    MaximumRecordAgeInSeconds: undefined,
+                    MaximumRetryAttempts: undefined,
+                    ParallelizationFactor: undefined,
+                    Queues: undefined,
+                    SelfManagedEventSource: undefined,
+                    SourceAccessConfigurations: undefined,
+                    StartingPosition: undefined,
+                    StartingPositionTimestamp: undefined,
+                    State: undefined,
+                    StateTransitionReason: undefined,
+                    Topics: undefined,
+                    TumblingWindowInSeconds: undefined,
+                    UUID: undefined,
+                };
+                _a = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectNonNull;
+                _b = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectObject;
+                return [4, parseBody(output.body, context)];
+            case 1:
+                data = _a.apply(void 0, [_b.apply(void 0, [_c.sent()]), "body"]);
+                if (data.BatchSize !== undefined && data.BatchSize !== null) {
+                    contents.BatchSize = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectInt32)(data.BatchSize);
+                }
+                if (data.BisectBatchOnFunctionError !== undefined && data.BisectBatchOnFunctionError !== null) {
+                    contents.BisectBatchOnFunctionError = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectBoolean)(data.BisectBatchOnFunctionError);
+                }
+                if (data.DestinationConfig !== undefined && data.DestinationConfig !== null) {
+                    contents.DestinationConfig = deserializeAws_restJson1DestinationConfig(data.DestinationConfig, context);
+                }
+                if (data.EventSourceArn !== undefined && data.EventSourceArn !== null) {
+                    contents.EventSourceArn = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.EventSourceArn);
+                }
+                if (data.FilterCriteria !== undefined && data.FilterCriteria !== null) {
+                    contents.FilterCriteria = deserializeAws_restJson1FilterCriteria(data.FilterCriteria, context);
+                }
+                if (data.FunctionArn !== undefined && data.FunctionArn !== null) {
+                    contents.FunctionArn = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.FunctionArn);
+                }
+                if (data.FunctionResponseTypes !== undefined && data.FunctionResponseTypes !== null) {
+                    contents.FunctionResponseTypes = deserializeAws_restJson1FunctionResponseTypeList(data.FunctionResponseTypes, context);
+                }
+                if (data.LastModified !== undefined && data.LastModified !== null) {
+                    contents.LastModified = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectNonNull)((0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.parseEpochTimestamp)((0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectNumber)(data.LastModified)));
+                }
+                if (data.LastProcessingResult !== undefined && data.LastProcessingResult !== null) {
+                    contents.LastProcessingResult = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.LastProcessingResult);
+                }
+                if (data.MaximumBatchingWindowInSeconds !== undefined && data.MaximumBatchingWindowInSeconds !== null) {
+                    contents.MaximumBatchingWindowInSeconds = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectInt32)(data.MaximumBatchingWindowInSeconds);
+                }
+                if (data.MaximumRecordAgeInSeconds !== undefined && data.MaximumRecordAgeInSeconds !== null) {
+                    contents.MaximumRecordAgeInSeconds = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectInt32)(data.MaximumRecordAgeInSeconds);
+                }
+                if (data.MaximumRetryAttempts !== undefined && data.MaximumRetryAttempts !== null) {
+                    contents.MaximumRetryAttempts = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectInt32)(data.MaximumRetryAttempts);
+                }
+                if (data.ParallelizationFactor !== undefined && data.ParallelizationFactor !== null) {
+                    contents.ParallelizationFactor = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectInt32)(data.ParallelizationFactor);
+                }
+                if (data.Queues !== undefined && data.Queues !== null) {
+                    contents.Queues = deserializeAws_restJson1Queues(data.Queues, context);
+                }
+                if (data.SelfManagedEventSource !== undefined && data.SelfManagedEventSource !== null) {
+                    contents.SelfManagedEventSource = deserializeAws_restJson1SelfManagedEventSource(data.SelfManagedEventSource, context);
+                }
+                if (data.SourceAccessConfigurations !== undefined && data.SourceAccessConfigurations !== null) {
+                    contents.SourceAccessConfigurations = deserializeAws_restJson1SourceAccessConfigurations(data.SourceAccessConfigurations, context);
+                }
+                if (data.StartingPosition !== undefined && data.StartingPosition !== null) {
+                    contents.StartingPosition = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.StartingPosition);
+                }
+                if (data.StartingPositionTimestamp !== undefined && data.StartingPositionTimestamp !== null) {
+                    contents.StartingPositionTimestamp = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectNonNull)((0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.parseEpochTimestamp)((0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectNumber)(data.StartingPositionTimestamp)));
+                }
+                if (data.State !== undefined && data.State !== null) {
+                    contents.State = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.State);
+                }
+                if (data.StateTransitionReason !== undefined && data.StateTransitionReason !== null) {
+                    contents.StateTransitionReason = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.StateTransitionReason);
+                }
+                if (data.Topics !== undefined && data.Topics !== null) {
+                    contents.Topics = deserializeAws_restJson1Topics(data.Topics, context);
+                }
+                if (data.TumblingWindowInSeconds !== undefined && data.TumblingWindowInSeconds !== null) {
+                    contents.TumblingWindowInSeconds = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectInt32)(data.TumblingWindowInSeconds);
+                }
+                if (data.UUID !== undefined && data.UUID !== null) {
+                    contents.UUID = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.UUID);
+                }
+                return [2, Promise.resolve(contents)];
+        }
+    });
+}); };
+var deserializeAws_restJson1GetEventSourceMappingCommandError = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var parsedOutput, _a, response, errorCode, _b, parsedBody, $metadata, statusCode;
+    var _c;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_d) {
+        switch (_d.label) {
+            case 0:
+                _a = [(0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, output)];
+                _c = {};
+                return [4, parseBody(output.body, context)];
+            case 1:
+                parsedOutput = tslib__WEBPACK_IMPORTED_MODULE_2__.__assign.apply(void 0, _a.concat([(_c.body = _d.sent(), _c)]));
+                errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+                _b = errorCode;
+                switch (_b) {
+                    case "InvalidParameterValueException": return [3, 2];
+                    case "com.amazonaws.lambda#InvalidParameterValueException": return [3, 2];
+                    case "ResourceNotFoundException": return [3, 4];
+                    case "com.amazonaws.lambda#ResourceNotFoundException": return [3, 4];
+                    case "ServiceException": return [3, 6];
+                    case "com.amazonaws.lambda#ServiceException": return [3, 6];
+                    case "TooManyRequestsException": return [3, 8];
+                    case "com.amazonaws.lambda#TooManyRequestsException": return [3, 8];
+                }
+                return [3, 10];
+            case 2: return [4, deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)];
+            case 3: throw _d.sent();
+            case 4: return [4, deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)];
+            case 5: throw _d.sent();
+            case 6: return [4, deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)];
+            case 7: throw _d.sent();
+            case 8: return [4, deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)];
+            case 9: throw _d.sent();
+            case 10:
+                parsedBody = parsedOutput.body;
+                $metadata = deserializeMetadata(output);
+                statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+                response = new _models_LambdaServiceException__WEBPACK_IMPORTED_MODULE_3__.LambdaServiceException({
+                    name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+                    $fault: "client",
+                    $metadata: $metadata,
+                });
+                throw (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(response, parsedBody);
+        }
+    });
+}); };
+var deserializeAws_restJson1GetFunctionCommand = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, _a, _b;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0:
+                if (output.statusCode !== 200 && output.statusCode >= 300) {
+                    return [2, deserializeAws_restJson1GetFunctionCommandError(output, context)];
+                }
+                contents = {
+                    $metadata: deserializeMetadata(output),
+                    Code: undefined,
+                    Concurrency: undefined,
+                    Configuration: undefined,
+                    Tags: undefined,
+                };
+                _a = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectNonNull;
+                _b = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectObject;
+                return [4, parseBody(output.body, context)];
+            case 1:
+                data = _a.apply(void 0, [_b.apply(void 0, [_c.sent()]), "body"]);
+                if (data.Code !== undefined && data.Code !== null) {
+                    contents.Code = deserializeAws_restJson1FunctionCodeLocation(data.Code, context);
+                }
+                if (data.Concurrency !== undefined && data.Concurrency !== null) {
+                    contents.Concurrency = deserializeAws_restJson1Concurrency(data.Concurrency, context);
+                }
+                if (data.Configuration !== undefined && data.Configuration !== null) {
+                    contents.Configuration = deserializeAws_restJson1FunctionConfiguration(data.Configuration, context);
+                }
+                if (data.Tags !== undefined && data.Tags !== null) {
+                    contents.Tags = deserializeAws_restJson1Tags(data.Tags, context);
+                }
+                return [2, Promise.resolve(contents)];
+        }
+    });
+}); };
+var deserializeAws_restJson1GetFunctionCommandError = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var parsedOutput, _a, response, errorCode, _b, parsedBody, $metadata, statusCode;
+    var _c;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_d) {
+        switch (_d.label) {
+            case 0:
+                _a = [(0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, output)];
+                _c = {};
+                return [4, parseBody(output.body, context)];
+            case 1:
+                parsedOutput = tslib__WEBPACK_IMPORTED_MODULE_2__.__assign.apply(void 0, _a.concat([(_c.body = _d.sent(), _c)]));
+                errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+                _b = errorCode;
+                switch (_b) {
+                    case "InvalidParameterValueException": return [3, 2];
+                    case "com.amazonaws.lambda#InvalidParameterValueException": return [3, 2];
+                    case "ResourceNotFoundException": return [3, 4];
+                    case "com.amazonaws.lambda#ResourceNotFoundException": return [3, 4];
+                    case "ServiceException": return [3, 6];
+                    case "com.amazonaws.lambda#ServiceException": return [3, 6];
+                    case "TooManyRequestsException": return [3, 8];
+                    case "com.amazonaws.lambda#TooManyRequestsException": return [3, 8];
+                }
+                return [3, 10];
+            case 2: return [4, deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)];
+            case 3: throw _d.sent();
+            case 4: return [4, deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)];
+            case 5: throw _d.sent();
+            case 6: return [4, deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)];
+            case 7: throw _d.sent();
+            case 8: return [4, deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)];
+            case 9: throw _d.sent();
+            case 10:
+                parsedBody = parsedOutput.body;
+                $metadata = deserializeMetadata(output);
+                statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+                response = new _models_LambdaServiceException__WEBPACK_IMPORTED_MODULE_3__.LambdaServiceException({
+                    name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+                    $fault: "client",
+                    $metadata: $metadata,
+                });
+                throw (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(response, parsedBody);
+        }
+    });
+}); };
+var deserializeAws_restJson1GetFunctionCodeSigningConfigCommand = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, _a, _b;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0:
+                if (output.statusCode !== 200 && output.statusCode >= 300) {
+                    return [2, deserializeAws_restJson1GetFunctionCodeSigningConfigCommandError(output, context)];
+                }
+                contents = {
+                    $metadata: deserializeMetadata(output),
+                    CodeSigningConfigArn: undefined,
+                    FunctionName: undefined,
+                };
+                _a = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectNonNull;
+                _b = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectObject;
+                return [4, parseBody(output.body, context)];
+            case 1:
+                data = _a.apply(void 0, [_b.apply(void 0, [_c.sent()]), "body"]);
+                if (data.CodeSigningConfigArn !== undefined && data.CodeSigningConfigArn !== null) {
+                    contents.CodeSigningConfigArn = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.CodeSigningConfigArn);
+                }
+                if (data.FunctionName !== undefined && data.FunctionName !== null) {
+                    contents.FunctionName = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.FunctionName);
+                }
+                return [2, Promise.resolve(contents)];
+        }
+    });
+}); };
+var deserializeAws_restJson1GetFunctionCodeSigningConfigCommandError = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var parsedOutput, _a, response, errorCode, _b, parsedBody, $metadata, statusCode;
+    var _c;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_d) {
+        switch (_d.label) {
+            case 0:
+                _a = [(0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, output)];
+                _c = {};
+                return [4, parseBody(output.body, context)];
+            case 1:
+                parsedOutput = tslib__WEBPACK_IMPORTED_MODULE_2__.__assign.apply(void 0, _a.concat([(_c.body = _d.sent(), _c)]));
+                errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+                _b = errorCode;
+                switch (_b) {
+                    case "InvalidParameterValueException": return [3, 2];
+                    case "com.amazonaws.lambda#InvalidParameterValueException": return [3, 2];
+                    case "ResourceNotFoundException": return [3, 4];
+                    case "com.amazonaws.lambda#ResourceNotFoundException": return [3, 4];
+                    case "ServiceException": return [3, 6];
+                    case "com.amazonaws.lambda#ServiceException": return [3, 6];
+                    case "TooManyRequestsException": return [3, 8];
+                    case "com.amazonaws.lambda#TooManyRequestsException": return [3, 8];
+                }
+                return [3, 10];
+            case 2: return [4, deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)];
+            case 3: throw _d.sent();
+            case 4: return [4, deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)];
+            case 5: throw _d.sent();
+            case 6: return [4, deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)];
+            case 7: throw _d.sent();
+            case 8: return [4, deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)];
+            case 9: throw _d.sent();
+            case 10:
+                parsedBody = parsedOutput.body;
+                $metadata = deserializeMetadata(output);
+                statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+                response = new _models_LambdaServiceException__WEBPACK_IMPORTED_MODULE_3__.LambdaServiceException({
+                    name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+                    $fault: "client",
+                    $metadata: $metadata,
+                });
+                throw (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(response, parsedBody);
+        }
+    });
+}); };
+var deserializeAws_restJson1GetFunctionConcurrencyCommand = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, _a, _b;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0:
+                if (output.statusCode !== 200 && output.statusCode >= 300) {
+                    return [2, deserializeAws_restJson1GetFunctionConcurrencyCommandError(output, context)];
+                }
+                contents = {
+                    $metadata: deserializeMetadata(output),
+                    ReservedConcurrentExecutions: undefined,
+                };
+                _a = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectNonNull;
+                _b = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectObject;
+                return [4, parseBody(output.body, context)];
+            case 1:
+                data = _a.apply(void 0, [_b.apply(void 0, [_c.sent()]), "body"]);
+                if (data.ReservedConcurrentExecutions !== undefined && data.ReservedConcurrentExecutions !== null) {
+                    contents.ReservedConcurrentExecutions = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectInt32)(data.ReservedConcurrentExecutions);
+                }
+                return [2, Promise.resolve(contents)];
+        }
+    });
+}); };
+var deserializeAws_restJson1GetFunctionConcurrencyCommandError = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var parsedOutput, _a, response, errorCode, _b, parsedBody, $metadata, statusCode;
+    var _c;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_d) {
+        switch (_d.label) {
+            case 0:
+                _a = [(0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, output)];
+                _c = {};
+                return [4, parseBody(output.body, context)];
+            case 1:
+                parsedOutput = tslib__WEBPACK_IMPORTED_MODULE_2__.__assign.apply(void 0, _a.concat([(_c.body = _d.sent(), _c)]));
+                errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+                _b = errorCode;
+                switch (_b) {
+                    case "InvalidParameterValueException": return [3, 2];
+                    case "com.amazonaws.lambda#InvalidParameterValueException": return [3, 2];
+                    case "ResourceNotFoundException": return [3, 4];
+                    case "com.amazonaws.lambda#ResourceNotFoundException": return [3, 4];
+                    case "ServiceException": return [3, 6];
+                    case "com.amazonaws.lambda#ServiceException": return [3, 6];
+                    case "TooManyRequestsException": return [3, 8];
+                    case "com.amazonaws.lambda#TooManyRequestsException": return [3, 8];
+                }
+                return [3, 10];
+            case 2: return [4, deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)];
+            case 3: throw _d.sent();
+            case 4: return [4, deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)];
+            case 5: throw _d.sent();
+            case 6: return [4, deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)];
+            case 7: throw _d.sent();
+            case 8: return [4, deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)];
+            case 9: throw _d.sent();
+            case 10:
+                parsedBody = parsedOutput.body;
+                $metadata = deserializeMetadata(output);
+                statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+                response = new _models_LambdaServiceException__WEBPACK_IMPORTED_MODULE_3__.LambdaServiceException({
+                    name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+                    $fault: "client",
+                    $metadata: $metadata,
+                });
+                throw (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(response, parsedBody);
+        }
+    });
+}); };
+var deserializeAws_restJson1GetFunctionConfigurationCommand = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, _a, _b;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0:
+                if (output.statusCode !== 200 && output.statusCode >= 300) {
+                    return [2, deserializeAws_restJson1GetFunctionConfigurationCommandError(output, context)];
+                }
+                contents = {
+                    $metadata: deserializeMetadata(output),
+                    Architectures: undefined,
+                    CodeSha256: undefined,
+                    CodeSize: undefined,
+                    DeadLetterConfig: undefined,
+                    Description: undefined,
+                    Environment: undefined,
+                    EphemeralStorage: undefined,
+                    FileSystemConfigs: undefined,
+                    FunctionArn: undefined,
+                    FunctionName: undefined,
+                    Handler: undefined,
+                    ImageConfigResponse: undefined,
+                    KMSKeyArn: undefined,
+                    LastModified: undefined,
+                    LastUpdateStatus: undefined,
+                    LastUpdateStatusReason: undefined,
+                    LastUpdateStatusReasonCode: undefined,
+                    Layers: undefined,
+                    MasterArn: undefined,
+                    MemorySize: undefined,
+                    PackageType: undefined,
+                    RevisionId: undefined,
+                    Role: undefined,
+                    Runtime: undefined,
+                    SigningJobArn: undefined,
+                    SigningProfileVersionArn: undefined,
+                    State: undefined,
+                    StateReason: undefined,
+                    StateReasonCode: undefined,
+                    Timeout: undefined,
+                    TracingConfig: undefined,
+                    Version: undefined,
+                    VpcConfig: undefined,
+                };
+                _a = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectNonNull;
+                _b = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectObject;
+                return [4, parseBody(output.body, context)];
+            case 1:
+                data = _a.apply(void 0, [_b.apply(void 0, [_c.sent()]), "body"]);
+                if (data.Architectures !== undefined && data.Architectures !== null) {
+                    contents.Architectures = deserializeAws_restJson1ArchitecturesList(data.Architectures, context);
+                }
+                if (data.CodeSha256 !== undefined && data.CodeSha256 !== null) {
+                    contents.CodeSha256 = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.CodeSha256);
+                }
+                if (data.CodeSize !== undefined && data.CodeSize !== null) {
+                    contents.CodeSize = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectLong)(data.CodeSize);
+                }
+                if (data.DeadLetterConfig !== undefined && data.DeadLetterConfig !== null) {
+                    contents.DeadLetterConfig = deserializeAws_restJson1DeadLetterConfig(data.DeadLetterConfig, context);
+                }
+                if (data.Description !== undefined && data.Description !== null) {
+                    contents.Description = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Description);
+                }
+                if (data.Environment !== undefined && data.Environment !== null) {
+                    contents.Environment = deserializeAws_restJson1EnvironmentResponse(data.Environment, context);
+                }
+                if (data.EphemeralStorage !== undefined && data.EphemeralStorage !== null) {
+                    contents.EphemeralStorage = deserializeAws_restJson1EphemeralStorage(data.EphemeralStorage, context);
+                }
+                if (data.FileSystemConfigs !== undefined && data.FileSystemConfigs !== null) {
+                    contents.FileSystemConfigs = deserializeAws_restJson1FileSystemConfigList(data.FileSystemConfigs, context);
+                }
+                if (data.FunctionArn !== undefined && data.FunctionArn !== null) {
+                    contents.FunctionArn = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.FunctionArn);
+                }
+                if (data.FunctionName !== undefined && data.FunctionName !== null) {
+                    contents.FunctionName = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.FunctionName);
+                }
+                if (data.Handler !== undefined && data.Handler !== null) {
+                    contents.Handler = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Handler);
+                }
+                if (data.ImageConfigResponse !== undefined && data.ImageConfigResponse !== null) {
+                    contents.ImageConfigResponse = deserializeAws_restJson1ImageConfigResponse(data.ImageConfigResponse, context);
+                }
+                if (data.KMSKeyArn !== undefined && data.KMSKeyArn !== null) {
+                    contents.KMSKeyArn = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.KMSKeyArn);
+                }
+                if (data.LastModified !== undefined && data.LastModified !== null) {
+                    contents.LastModified = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.LastModified);
+                }
+                if (data.LastUpdateStatus !== undefined && data.LastUpdateStatus !== null) {
+                    contents.LastUpdateStatus = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.LastUpdateStatus);
+                }
+                if (data.LastUpdateStatusReason !== undefined && data.LastUpdateStatusReason !== null) {
+                    contents.LastUpdateStatusReason = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.LastUpdateStatusReason);
+                }
+                if (data.LastUpdateStatusReasonCode !== undefined && data.LastUpdateStatusReasonCode !== null) {
+                    contents.LastUpdateStatusReasonCode = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.LastUpdateStatusReasonCode);
+                }
+                if (data.Layers !== undefined && data.Layers !== null) {
+                    contents.Layers = deserializeAws_restJson1LayersReferenceList(data.Layers, context);
+                }
+                if (data.MasterArn !== undefined && data.MasterArn !== null) {
+                    contents.MasterArn = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.MasterArn);
+                }
+                if (data.MemorySize !== undefined && data.MemorySize !== null) {
+                    contents.MemorySize = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectInt32)(data.MemorySize);
+                }
+                if (data.PackageType !== undefined && data.PackageType !== null) {
+                    contents.PackageType = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.PackageType);
+                }
+                if (data.RevisionId !== undefined && data.RevisionId !== null) {
+                    contents.RevisionId = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.RevisionId);
+                }
+                if (data.Role !== undefined && data.Role !== null) {
+                    contents.Role = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Role);
+                }
+                if (data.Runtime !== undefined && data.Runtime !== null) {
+                    contents.Runtime = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Runtime);
+                }
+                if (data.SigningJobArn !== undefined && data.SigningJobArn !== null) {
+                    contents.SigningJobArn = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.SigningJobArn);
+                }
+                if (data.SigningProfileVersionArn !== undefined && data.SigningProfileVersionArn !== null) {
+                    contents.SigningProfileVersionArn = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.SigningProfileVersionArn);
+                }
+                if (data.State !== undefined && data.State !== null) {
+                    contents.State = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.State);
+                }
+                if (data.StateReason !== undefined && data.StateReason !== null) {
+                    contents.StateReason = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.StateReason);
+                }
+                if (data.StateReasonCode !== undefined && data.StateReasonCode !== null) {
+                    contents.StateReasonCode = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.StateReasonCode);
+                }
+                if (data.Timeout !== undefined && data.Timeout !== null) {
+                    contents.Timeout = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectInt32)(data.Timeout);
+                }
+                if (data.TracingConfig !== undefined && data.TracingConfig !== null) {
+                    contents.TracingConfig = deserializeAws_restJson1TracingConfigResponse(data.TracingConfig, context);
+                }
+                if (data.Version !== undefined && data.Version !== null) {
+                    contents.Version = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Version);
+                }
+                if (data.VpcConfig !== undefined && data.VpcConfig !== null) {
+                    contents.VpcConfig = deserializeAws_restJson1VpcConfigResponse(data.VpcConfig, context);
+                }
+                return [2, Promise.resolve(contents)];
+        }
+    });
+}); };
+var deserializeAws_restJson1GetFunctionConfigurationCommandError = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var parsedOutput, _a, response, errorCode, _b, parsedBody, $metadata, statusCode;
+    var _c;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_d) {
+        switch (_d.label) {
+            case 0:
+                _a = [(0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, output)];
+                _c = {};
+                return [4, parseBody(output.body, context)];
+            case 1:
+                parsedOutput = tslib__WEBPACK_IMPORTED_MODULE_2__.__assign.apply(void 0, _a.concat([(_c.body = _d.sent(), _c)]));
+                errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+                _b = errorCode;
+                switch (_b) {
+                    case "InvalidParameterValueException": return [3, 2];
+                    case "com.amazonaws.lambda#InvalidParameterValueException": return [3, 2];
+                    case "ResourceNotFoundException": return [3, 4];
+                    case "com.amazonaws.lambda#ResourceNotFoundException": return [3, 4];
+                    case "ServiceException": return [3, 6];
+                    case "com.amazonaws.lambda#ServiceException": return [3, 6];
+                    case "TooManyRequestsException": return [3, 8];
+                    case "com.amazonaws.lambda#TooManyRequestsException": return [3, 8];
+                }
+                return [3, 10];
+            case 2: return [4, deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)];
+            case 3: throw _d.sent();
+            case 4: return [4, deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)];
+            case 5: throw _d.sent();
+            case 6: return [4, deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)];
+            case 7: throw _d.sent();
+            case 8: return [4, deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)];
+            case 9: throw _d.sent();
+            case 10:
+                parsedBody = parsedOutput.body;
+                $metadata = deserializeMetadata(output);
+                statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+                response = new _models_LambdaServiceException__WEBPACK_IMPORTED_MODULE_3__.LambdaServiceException({
+                    name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+                    $fault: "client",
+                    $metadata: $metadata,
+                });
+                throw (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(response, parsedBody);
+        }
+    });
+}); };
+var deserializeAws_restJson1GetFunctionEventInvokeConfigCommand = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, _a, _b;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0:
+                if (output.statusCode !== 200 && output.statusCode >= 300) {
+                    return [2, deserializeAws_restJson1GetFunctionEventInvokeConfigCommandError(output, context)];
+                }
+                contents = {
+                    $metadata: deserializeMetadata(output),
+                    DestinationConfig: undefined,
+                    FunctionArn: undefined,
+                    LastModified: undefined,
+                    MaximumEventAgeInSeconds: undefined,
+                    MaximumRetryAttempts: undefined,
+                };
+                _a = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectNonNull;
+                _b = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectObject;
+                return [4, parseBody(output.body, context)];
+            case 1:
+                data = _a.apply(void 0, [_b.apply(void 0, [_c.sent()]), "body"]);
+                if (data.DestinationConfig !== undefined && data.DestinationConfig !== null) {
+                    contents.DestinationConfig = deserializeAws_restJson1DestinationConfig(data.DestinationConfig, context);
+                }
+                if (data.FunctionArn !== undefined && data.FunctionArn !== null) {
+                    contents.FunctionArn = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.FunctionArn);
+                }
+                if (data.LastModified !== undefined && data.LastModified !== null) {
+                    contents.LastModified = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectNonNull)((0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.parseEpochTimestamp)((0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectNumber)(data.LastModified)));
+                }
+                if (data.MaximumEventAgeInSeconds !== undefined && data.MaximumEventAgeInSeconds !== null) {
+                    contents.MaximumEventAgeInSeconds = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectInt32)(data.MaximumEventAgeInSeconds);
+                }
+                if (data.MaximumRetryAttempts !== undefined && data.MaximumRetryAttempts !== null) {
+                    contents.MaximumRetryAttempts = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectInt32)(data.MaximumRetryAttempts);
+                }
+                return [2, Promise.resolve(contents)];
+        }
+    });
+}); };
+var deserializeAws_restJson1GetFunctionEventInvokeConfigCommandError = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var parsedOutput, _a, response, errorCode, _b, parsedBody, $metadata, statusCode;
+    var _c;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_d) {
+        switch (_d.label) {
+            case 0:
+                _a = [(0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, output)];
+                _c = {};
+                return [4, parseBody(output.body, context)];
+            case 1:
+                parsedOutput = tslib__WEBPACK_IMPORTED_MODULE_2__.__assign.apply(void 0, _a.concat([(_c.body = _d.sent(), _c)]));
+                errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+                _b = errorCode;
+                switch (_b) {
+                    case "InvalidParameterValueException": return [3, 2];
+                    case "com.amazonaws.lambda#InvalidParameterValueException": return [3, 2];
+                    case "ResourceNotFoundException": return [3, 4];
+                    case "com.amazonaws.lambda#ResourceNotFoundException": return [3, 4];
+                    case "ServiceException": return [3, 6];
+                    case "com.amazonaws.lambda#ServiceException": return [3, 6];
+                    case "TooManyRequestsException": return [3, 8];
+                    case "com.amazonaws.lambda#TooManyRequestsException": return [3, 8];
+                }
+                return [3, 10];
+            case 2: return [4, deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)];
+            case 3: throw _d.sent();
+            case 4: return [4, deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)];
+            case 5: throw _d.sent();
+            case 6: return [4, deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)];
+            case 7: throw _d.sent();
+            case 8: return [4, deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)];
+            case 9: throw _d.sent();
+            case 10:
+                parsedBody = parsedOutput.body;
+                $metadata = deserializeMetadata(output);
+                statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+                response = new _models_LambdaServiceException__WEBPACK_IMPORTED_MODULE_3__.LambdaServiceException({
+                    name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+                    $fault: "client",
+                    $metadata: $metadata,
+                });
+                throw (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(response, parsedBody);
+        }
+    });
+}); };
+var deserializeAws_restJson1GetFunctionUrlConfigCommand = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, _a, _b;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0:
+                if (output.statusCode !== 200 && output.statusCode >= 300) {
+                    return [2, deserializeAws_restJson1GetFunctionUrlConfigCommandError(output, context)];
+                }
+                contents = {
+                    $metadata: deserializeMetadata(output),
+                    AuthType: undefined,
+                    Cors: undefined,
+                    CreationTime: undefined,
+                    FunctionArn: undefined,
+                    FunctionUrl: undefined,
+                    LastModifiedTime: undefined,
+                };
+                _a = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectNonNull;
+                _b = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectObject;
+                return [4, parseBody(output.body, context)];
+            case 1:
+                data = _a.apply(void 0, [_b.apply(void 0, [_c.sent()]), "body"]);
+                if (data.AuthType !== undefined && data.AuthType !== null) {
+                    contents.AuthType = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.AuthType);
+                }
+                if (data.Cors !== undefined && data.Cors !== null) {
+                    contents.Cors = deserializeAws_restJson1Cors(data.Cors, context);
+                }
+                if (data.CreationTime !== undefined && data.CreationTime !== null) {
+                    contents.CreationTime = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.CreationTime);
+                }
+                if (data.FunctionArn !== undefined && data.FunctionArn !== null) {
+                    contents.FunctionArn = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.FunctionArn);
+                }
+                if (data.FunctionUrl !== undefined && data.FunctionUrl !== null) {
+                    contents.FunctionUrl = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.FunctionUrl);
+                }
+                if (data.LastModifiedTime !== undefined && data.LastModifiedTime !== null) {
+                    contents.LastModifiedTime = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.LastModifiedTime);
+                }
+                return [2, Promise.resolve(contents)];
+        }
+    });
+}); };
+var deserializeAws_restJson1GetFunctionUrlConfigCommandError = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var parsedOutput, _a, response, errorCode, _b, parsedBody, $metadata, statusCode;
+    var _c;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_d) {
+        switch (_d.label) {
+            case 0:
+                _a = [(0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, output)];
+                _c = {};
+                return [4, parseBody(output.body, context)];
+            case 1:
+                parsedOutput = tslib__WEBPACK_IMPORTED_MODULE_2__.__assign.apply(void 0, _a.concat([(_c.body = _d.sent(), _c)]));
+                errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+                _b = errorCode;
+                switch (_b) {
+                    case "InvalidParameterValueException": return [3, 2];
+                    case "com.amazonaws.lambda#InvalidParameterValueException": return [3, 2];
+                    case "ResourceNotFoundException": return [3, 4];
+                    case "com.amazonaws.lambda#ResourceNotFoundException": return [3, 4];
+                    case "ServiceException": return [3, 6];
+                    case "com.amazonaws.lambda#ServiceException": return [3, 6];
+                    case "TooManyRequestsException": return [3, 8];
+                    case "com.amazonaws.lambda#TooManyRequestsException": return [3, 8];
+                }
+                return [3, 10];
+            case 2: return [4, deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)];
+            case 3: throw _d.sent();
+            case 4: return [4, deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)];
+            case 5: throw _d.sent();
+            case 6: return [4, deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)];
+            case 7: throw _d.sent();
+            case 8: return [4, deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)];
+            case 9: throw _d.sent();
+            case 10:
+                parsedBody = parsedOutput.body;
+                $metadata = deserializeMetadata(output);
+                statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+                response = new _models_LambdaServiceException__WEBPACK_IMPORTED_MODULE_3__.LambdaServiceException({
+                    name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+                    $fault: "client",
+                    $metadata: $metadata,
+                });
+                throw (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(response, parsedBody);
+        }
+    });
+}); };
+var deserializeAws_restJson1GetLayerVersionCommand = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, _a, _b;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0:
+                if (output.statusCode !== 200 && output.statusCode >= 300) {
+                    return [2, deserializeAws_restJson1GetLayerVersionCommandError(output, context)];
+                }
+                contents = {
+                    $metadata: deserializeMetadata(output),
+                    CompatibleArchitectures: undefined,
+                    CompatibleRuntimes: undefined,
+                    Content: undefined,
+                    CreatedDate: undefined,
+                    Description: undefined,
+                    LayerArn: undefined,
+                    LayerVersionArn: undefined,
+                    LicenseInfo: undefined,
+                    Version: undefined,
+                };
+                _a = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectNonNull;
+                _b = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectObject;
+                return [4, parseBody(output.body, context)];
+            case 1:
+                data = _a.apply(void 0, [_b.apply(void 0, [_c.sent()]), "body"]);
+                if (data.CompatibleArchitectures !== undefined && data.CompatibleArchitectures !== null) {
+                    contents.CompatibleArchitectures = deserializeAws_restJson1CompatibleArchitectures(data.CompatibleArchitectures, context);
+                }
+                if (data.CompatibleRuntimes !== undefined && data.CompatibleRuntimes !== null) {
+                    contents.CompatibleRuntimes = deserializeAws_restJson1CompatibleRuntimes(data.CompatibleRuntimes, context);
+                }
+                if (data.Content !== undefined && data.Content !== null) {
+                    contents.Content = deserializeAws_restJson1LayerVersionContentOutput(data.Content, context);
+                }
+                if (data.CreatedDate !== undefined && data.CreatedDate !== null) {
+                    contents.CreatedDate = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.CreatedDate);
+                }
+                if (data.Description !== undefined && data.Description !== null) {
+                    contents.Description = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Description);
+                }
+                if (data.LayerArn !== undefined && data.LayerArn !== null) {
+                    contents.LayerArn = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.LayerArn);
+                }
+                if (data.LayerVersionArn !== undefined && data.LayerVersionArn !== null) {
+                    contents.LayerVersionArn = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.LayerVersionArn);
+                }
+                if (data.LicenseInfo !== undefined && data.LicenseInfo !== null) {
+                    contents.LicenseInfo = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.LicenseInfo);
+                }
+                if (data.Version !== undefined && data.Version !== null) {
+                    contents.Version = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectLong)(data.Version);
+                }
+                return [2, Promise.resolve(contents)];
+        }
+    });
+}); };
+var deserializeAws_restJson1GetLayerVersionCommandError = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var parsedOutput, _a, response, errorCode, _b, parsedBody, $metadata, statusCode;
+    var _c;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_d) {
+        switch (_d.label) {
+            case 0:
+                _a = [(0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, output)];
+                _c = {};
+                return [4, parseBody(output.body, context)];
+            case 1:
+                parsedOutput = tslib__WEBPACK_IMPORTED_MODULE_2__.__assign.apply(void 0, _a.concat([(_c.body = _d.sent(), _c)]));
+                errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+                _b = errorCode;
+                switch (_b) {
+                    case "InvalidParameterValueException": return [3, 2];
+                    case "com.amazonaws.lambda#InvalidParameterValueException": return [3, 2];
+                    case "ResourceNotFoundException": return [3, 4];
+                    case "com.amazonaws.lambda#ResourceNotFoundException": return [3, 4];
+                    case "ServiceException": return [3, 6];
+                    case "com.amazonaws.lambda#ServiceException": return [3, 6];
+                    case "TooManyRequestsException": return [3, 8];
+                    case "com.amazonaws.lambda#TooManyRequestsException": return [3, 8];
+                }
+                return [3, 10];
+            case 2: return [4, deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)];
+            case 3: throw _d.sent();
+            case 4: return [4, deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)];
+            case 5: throw _d.sent();
+            case 6: return [4, deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)];
+            case 7: throw _d.sent();
+            case 8: return [4, deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)];
+            case 9: throw _d.sent();
+            case 10:
+                parsedBody = parsedOutput.body;
+                $metadata = deserializeMetadata(output);
+                statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+                response = new _models_LambdaServiceException__WEBPACK_IMPORTED_MODULE_3__.LambdaServiceException({
+                    name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+                    $fault: "client",
+                    $metadata: $metadata,
+                });
+                throw (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(response, parsedBody);
+        }
+    });
+}); };
+var deserializeAws_restJson1GetLayerVersionByArnCommand = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, _a, _b;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0:
+                if (output.statusCode !== 200 && output.statusCode >= 300) {
+                    return [2, deserializeAws_restJson1GetLayerVersionByArnCommandError(output, context)];
+                }
+                contents = {
+                    $metadata: deserializeMetadata(output),
+                    CompatibleArchitectures: undefined,
+                    CompatibleRuntimes: undefined,
+                    Content: undefined,
+                    CreatedDate: undefined,
+                    Description: undefined,
+                    LayerArn: undefined,
+                    LayerVersionArn: undefined,
+                    LicenseInfo: undefined,
+                    Version: undefined,
+                };
+                _a = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectNonNull;
+                _b = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectObject;
+                return [4, parseBody(output.body, context)];
+            case 1:
+                data = _a.apply(void 0, [_b.apply(void 0, [_c.sent()]), "body"]);
+                if (data.CompatibleArchitectures !== undefined && data.CompatibleArchitectures !== null) {
+                    contents.CompatibleArchitectures = deserializeAws_restJson1CompatibleArchitectures(data.CompatibleArchitectures, context);
+                }
+                if (data.CompatibleRuntimes !== undefined && data.CompatibleRuntimes !== null) {
+                    contents.CompatibleRuntimes = deserializeAws_restJson1CompatibleRuntimes(data.CompatibleRuntimes, context);
+                }
+                if (data.Content !== undefined && data.Content !== null) {
+                    contents.Content = deserializeAws_restJson1LayerVersionContentOutput(data.Content, context);
+                }
+                if (data.CreatedDate !== undefined && data.CreatedDate !== null) {
+                    contents.CreatedDate = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.CreatedDate);
+                }
+                if (data.Description !== undefined && data.Description !== null) {
+                    contents.Description = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Description);
+                }
+                if (data.LayerArn !== undefined && data.LayerArn !== null) {
+                    contents.LayerArn = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.LayerArn);
+                }
+                if (data.LayerVersionArn !== undefined && data.LayerVersionArn !== null) {
+                    contents.LayerVersionArn = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.LayerVersionArn);
+                }
+                if (data.LicenseInfo !== undefined && data.LicenseInfo !== null) {
+                    contents.LicenseInfo = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.LicenseInfo);
+                }
+                if (data.Version !== undefined && data.Version !== null) {
+                    contents.Version = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectLong)(data.Version);
+                }
+                return [2, Promise.resolve(contents)];
+        }
+    });
+}); };
+var deserializeAws_restJson1GetLayerVersionByArnCommandError = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var parsedOutput, _a, response, errorCode, _b, parsedBody, $metadata, statusCode;
+    var _c;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_d) {
+        switch (_d.label) {
+            case 0:
+                _a = [(0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, output)];
+                _c = {};
+                return [4, parseBody(output.body, context)];
+            case 1:
+                parsedOutput = tslib__WEBPACK_IMPORTED_MODULE_2__.__assign.apply(void 0, _a.concat([(_c.body = _d.sent(), _c)]));
+                errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+                _b = errorCode;
+                switch (_b) {
+                    case "InvalidParameterValueException": return [3, 2];
+                    case "com.amazonaws.lambda#InvalidParameterValueException": return [3, 2];
+                    case "ResourceNotFoundException": return [3, 4];
+                    case "com.amazonaws.lambda#ResourceNotFoundException": return [3, 4];
+                    case "ServiceException": return [3, 6];
+                    case "com.amazonaws.lambda#ServiceException": return [3, 6];
+                    case "TooManyRequestsException": return [3, 8];
+                    case "com.amazonaws.lambda#TooManyRequestsException": return [3, 8];
+                }
+                return [3, 10];
+            case 2: return [4, deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)];
+            case 3: throw _d.sent();
+            case 4: return [4, deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)];
+            case 5: throw _d.sent();
+            case 6: return [4, deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)];
+            case 7: throw _d.sent();
+            case 8: return [4, deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)];
+            case 9: throw _d.sent();
+            case 10:
+                parsedBody = parsedOutput.body;
+                $metadata = deserializeMetadata(output);
+                statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+                response = new _models_LambdaServiceException__WEBPACK_IMPORTED_MODULE_3__.LambdaServiceException({
+                    name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+                    $fault: "client",
+                    $metadata: $metadata,
+                });
+                throw (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(response, parsedBody);
+        }
+    });
+}); };
+var deserializeAws_restJson1GetLayerVersionPolicyCommand = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, _a, _b;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0:
+                if (output.statusCode !== 200 && output.statusCode >= 300) {
+                    return [2, deserializeAws_restJson1GetLayerVersionPolicyCommandError(output, context)];
+                }
+                contents = {
+                    $metadata: deserializeMetadata(output),
+                    Policy: undefined,
+                    RevisionId: undefined,
+                };
+                _a = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectNonNull;
+                _b = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectObject;
+                return [4, parseBody(output.body, context)];
+            case 1:
+                data = _a.apply(void 0, [_b.apply(void 0, [_c.sent()]), "body"]);
+                if (data.Policy !== undefined && data.Policy !== null) {
+                    contents.Policy = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Policy);
+                }
+                if (data.RevisionId !== undefined && data.RevisionId !== null) {
+                    contents.RevisionId = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.RevisionId);
+                }
+                return [2, Promise.resolve(contents)];
+        }
+    });
+}); };
+var deserializeAws_restJson1GetLayerVersionPolicyCommandError = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var parsedOutput, _a, response, errorCode, _b, parsedBody, $metadata, statusCode;
+    var _c;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_d) {
+        switch (_d.label) {
+            case 0:
+                _a = [(0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, output)];
+                _c = {};
+                return [4, parseBody(output.body, context)];
+            case 1:
+                parsedOutput = tslib__WEBPACK_IMPORTED_MODULE_2__.__assign.apply(void 0, _a.concat([(_c.body = _d.sent(), _c)]));
+                errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+                _b = errorCode;
+                switch (_b) {
+                    case "InvalidParameterValueException": return [3, 2];
+                    case "com.amazonaws.lambda#InvalidParameterValueException": return [3, 2];
+                    case "ResourceNotFoundException": return [3, 4];
+                    case "com.amazonaws.lambda#ResourceNotFoundException": return [3, 4];
+                    case "ServiceException": return [3, 6];
+                    case "com.amazonaws.lambda#ServiceException": return [3, 6];
+                    case "TooManyRequestsException": return [3, 8];
+                    case "com.amazonaws.lambda#TooManyRequestsException": return [3, 8];
+                }
+                return [3, 10];
+            case 2: return [4, deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)];
+            case 3: throw _d.sent();
+            case 4: return [4, deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)];
+            case 5: throw _d.sent();
+            case 6: return [4, deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)];
+            case 7: throw _d.sent();
+            case 8: return [4, deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)];
+            case 9: throw _d.sent();
+            case 10:
+                parsedBody = parsedOutput.body;
+                $metadata = deserializeMetadata(output);
+                statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+                response = new _models_LambdaServiceException__WEBPACK_IMPORTED_MODULE_3__.LambdaServiceException({
+                    name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+                    $fault: "client",
+                    $metadata: $metadata,
+                });
+                throw (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(response, parsedBody);
+        }
+    });
+}); };
+var deserializeAws_restJson1GetPolicyCommand = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, _a, _b;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0:
+                if (output.statusCode !== 200 && output.statusCode >= 300) {
+                    return [2, deserializeAws_restJson1GetPolicyCommandError(output, context)];
+                }
+                contents = {
+                    $metadata: deserializeMetadata(output),
+                    Policy: undefined,
+                    RevisionId: undefined,
+                };
+                _a = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectNonNull;
+                _b = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectObject;
+                return [4, parseBody(output.body, context)];
+            case 1:
+                data = _a.apply(void 0, [_b.apply(void 0, [_c.sent()]), "body"]);
+                if (data.Policy !== undefined && data.Policy !== null) {
+                    contents.Policy = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Policy);
+                }
+                if (data.RevisionId !== undefined && data.RevisionId !== null) {
+                    contents.RevisionId = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.RevisionId);
+                }
+                return [2, Promise.resolve(contents)];
+        }
+    });
+}); };
+var deserializeAws_restJson1GetPolicyCommandError = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var parsedOutput, _a, response, errorCode, _b, parsedBody, $metadata, statusCode;
+    var _c;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_d) {
+        switch (_d.label) {
+            case 0:
+                _a = [(0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, output)];
+                _c = {};
+                return [4, parseBody(output.body, context)];
+            case 1:
+                parsedOutput = tslib__WEBPACK_IMPORTED_MODULE_2__.__assign.apply(void 0, _a.concat([(_c.body = _d.sent(), _c)]));
+                errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+                _b = errorCode;
+                switch (_b) {
+                    case "InvalidParameterValueException": return [3, 2];
+                    case "com.amazonaws.lambda#InvalidParameterValueException": return [3, 2];
+                    case "ResourceNotFoundException": return [3, 4];
+                    case "com.amazonaws.lambda#ResourceNotFoundException": return [3, 4];
+                    case "ServiceException": return [3, 6];
+                    case "com.amazonaws.lambda#ServiceException": return [3, 6];
+                    case "TooManyRequestsException": return [3, 8];
+                    case "com.amazonaws.lambda#TooManyRequestsException": return [3, 8];
+                }
+                return [3, 10];
+            case 2: return [4, deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)];
+            case 3: throw _d.sent();
+            case 4: return [4, deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)];
+            case 5: throw _d.sent();
+            case 6: return [4, deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)];
+            case 7: throw _d.sent();
+            case 8: return [4, deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)];
+            case 9: throw _d.sent();
+            case 10:
+                parsedBody = parsedOutput.body;
+                $metadata = deserializeMetadata(output);
+                statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+                response = new _models_LambdaServiceException__WEBPACK_IMPORTED_MODULE_3__.LambdaServiceException({
+                    name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+                    $fault: "client",
+                    $metadata: $metadata,
+                });
+                throw (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(response, parsedBody);
+        }
+    });
+}); };
+var deserializeAws_restJson1GetProvisionedConcurrencyConfigCommand = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, _a, _b;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0:
+                if (output.statusCode !== 200 && output.statusCode >= 300) {
+                    return [2, deserializeAws_restJson1GetProvisionedConcurrencyConfigCommandError(output, context)];
+                }
+                contents = {
+                    $metadata: deserializeMetadata(output),
+                    AllocatedProvisionedConcurrentExecutions: undefined,
+                    AvailableProvisionedConcurrentExecutions: undefined,
+                    LastModified: undefined,
+                    RequestedProvisionedConcurrentExecutions: undefined,
+                    Status: undefined,
+                    StatusReason: undefined,
+                };
+                _a = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectNonNull;
+                _b = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectObject;
+                return [4, parseBody(output.body, context)];
+            case 1:
+                data = _a.apply(void 0, [_b.apply(void 0, [_c.sent()]), "body"]);
+                if (data.AllocatedProvisionedConcurrentExecutions !== undefined &&
+                    data.AllocatedProvisionedConcurrentExecutions !== null) {
+                    contents.AllocatedProvisionedConcurrentExecutions = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectInt32)(data.AllocatedProvisionedConcurrentExecutions);
+                }
+                if (data.AvailableProvisionedConcurrentExecutions !== undefined &&
+                    data.AvailableProvisionedConcurrentExecutions !== null) {
+                    contents.AvailableProvisionedConcurrentExecutions = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectInt32)(data.AvailableProvisionedConcurrentExecutions);
+                }
+                if (data.LastModified !== undefined && data.LastModified !== null) {
+                    contents.LastModified = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.LastModified);
+                }
+                if (data.RequestedProvisionedConcurrentExecutions !== undefined &&
+                    data.RequestedProvisionedConcurrentExecutions !== null) {
+                    contents.RequestedProvisionedConcurrentExecutions = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectInt32)(data.RequestedProvisionedConcurrentExecutions);
+                }
+                if (data.Status !== undefined && data.Status !== null) {
+                    contents.Status = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Status);
+                }
+                if (data.StatusReason !== undefined && data.StatusReason !== null) {
+                    contents.StatusReason = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.StatusReason);
+                }
+                return [2, Promise.resolve(contents)];
+        }
+    });
+}); };
+var deserializeAws_restJson1GetProvisionedConcurrencyConfigCommandError = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var parsedOutput, _a, response, errorCode, _b, parsedBody, $metadata, statusCode;
+    var _c;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_d) {
+        switch (_d.label) {
+            case 0:
+                _a = [(0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, output)];
+                _c = {};
+                return [4, parseBody(output.body, context)];
+            case 1:
+                parsedOutput = tslib__WEBPACK_IMPORTED_MODULE_2__.__assign.apply(void 0, _a.concat([(_c.body = _d.sent(), _c)]));
+                errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+                _b = errorCode;
+                switch (_b) {
+                    case "InvalidParameterValueException": return [3, 2];
+                    case "com.amazonaws.lambda#InvalidParameterValueException": return [3, 2];
+                    case "ProvisionedConcurrencyConfigNotFoundException": return [3, 4];
+                    case "com.amazonaws.lambda#ProvisionedConcurrencyConfigNotFoundException": return [3, 4];
+                    case "ResourceNotFoundException": return [3, 6];
+                    case "com.amazonaws.lambda#ResourceNotFoundException": return [3, 6];
+                    case "ServiceException": return [3, 8];
+                    case "com.amazonaws.lambda#ServiceException": return [3, 8];
+                    case "TooManyRequestsException": return [3, 10];
+                    case "com.amazonaws.lambda#TooManyRequestsException": return [3, 10];
+                }
+                return [3, 12];
+            case 2: return [4, deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)];
+            case 3: throw _d.sent();
+            case 4: return [4, deserializeAws_restJson1ProvisionedConcurrencyConfigNotFoundExceptionResponse(parsedOutput, context)];
+            case 5: throw _d.sent();
+            case 6: return [4, deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)];
+            case 7: throw _d.sent();
+            case 8: return [4, deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)];
+            case 9: throw _d.sent();
+            case 10: return [4, deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)];
+            case 11: throw _d.sent();
+            case 12:
+                parsedBody = parsedOutput.body;
+                $metadata = deserializeMetadata(output);
+                statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+                response = new _models_LambdaServiceException__WEBPACK_IMPORTED_MODULE_3__.LambdaServiceException({
+                    name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+                    $fault: "client",
+                    $metadata: $metadata,
+                });
+                throw (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(response, parsedBody);
+        }
+    });
+}); };
+var deserializeAws_restJson1InvokeCommand = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                if (output.statusCode !== 200 && output.statusCode >= 300) {
+                    return [2, deserializeAws_restJson1InvokeCommandError(output, context)];
+                }
+                contents = {
+                    $metadata: deserializeMetadata(output),
+                    ExecutedVersion: undefined,
+                    FunctionError: undefined,
+                    LogResult: undefined,
+                    Payload: undefined,
+                    StatusCode: undefined,
+                };
+                if (output.headers["x-amz-function-error"] !== undefined) {
+                    contents.FunctionError = output.headers["x-amz-function-error"];
+                }
+                if (output.headers["x-amz-log-result"] !== undefined) {
+                    contents.LogResult = output.headers["x-amz-log-result"];
+                }
+                if (output.headers["x-amz-executed-version"] !== undefined) {
+                    contents.ExecutedVersion = output.headers["x-amz-executed-version"];
+                }
+                return [4, collectBody(output.body, context)];
+            case 1:
+                data = _a.sent();
+                contents.Payload = data;
+                if (contents.StatusCode === undefined) {
+                    contents.StatusCode = output.statusCode;
+                }
+                return [2, Promise.resolve(contents)];
+        }
+    });
+}); };
+var deserializeAws_restJson1InvokeCommandError = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var parsedOutput, _a, response, errorCode, _b, parsedBody, $metadata, statusCode;
+    var _c;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_d) {
+        switch (_d.label) {
+            case 0:
+                _a = [(0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, output)];
+                _c = {};
+                return [4, parseBody(output.body, context)];
+            case 1:
+                parsedOutput = tslib__WEBPACK_IMPORTED_MODULE_2__.__assign.apply(void 0, _a.concat([(_c.body = _d.sent(), _c)]));
+                errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+                _b = errorCode;
+                switch (_b) {
+                    case "EC2AccessDeniedException": return [3, 2];
+                    case "com.amazonaws.lambda#EC2AccessDeniedException": return [3, 2];
+                    case "EC2ThrottledException": return [3, 4];
+                    case "com.amazonaws.lambda#EC2ThrottledException": return [3, 4];
+                    case "EC2UnexpectedException": return [3, 6];
+                    case "com.amazonaws.lambda#EC2UnexpectedException": return [3, 6];
+                    case "EFSIOException": return [3, 8];
+                    case "com.amazonaws.lambda#EFSIOException": return [3, 8];
+                    case "EFSMountConnectivityException": return [3, 10];
+                    case "com.amazonaws.lambda#EFSMountConnectivityException": return [3, 10];
+                    case "EFSMountFailureException": return [3, 12];
+                    case "com.amazonaws.lambda#EFSMountFailureException": return [3, 12];
+                    case "EFSMountTimeoutException": return [3, 14];
+                    case "com.amazonaws.lambda#EFSMountTimeoutException": return [3, 14];
+                    case "ENILimitReachedException": return [3, 16];
+                    case "com.amazonaws.lambda#ENILimitReachedException": return [3, 16];
+                    case "InvalidParameterValueException": return [3, 18];
+                    case "com.amazonaws.lambda#InvalidParameterValueException": return [3, 18];
+                    case "InvalidRequestContentException": return [3, 20];
+                    case "com.amazonaws.lambda#InvalidRequestContentException": return [3, 20];
+                    case "InvalidRuntimeException": return [3, 22];
+                    case "com.amazonaws.lambda#InvalidRuntimeException": return [3, 22];
+                    case "InvalidSecurityGroupIDException": return [3, 24];
+                    case "com.amazonaws.lambda#InvalidSecurityGroupIDException": return [3, 24];
+                    case "InvalidSubnetIDException": return [3, 26];
+                    case "com.amazonaws.lambda#InvalidSubnetIDException": return [3, 26];
+                    case "InvalidZipFileException": return [3, 28];
+                    case "com.amazonaws.lambda#InvalidZipFileException": return [3, 28];
+                    case "KMSAccessDeniedException": return [3, 30];
+                    case "com.amazonaws.lambda#KMSAccessDeniedException": return [3, 30];
+                    case "KMSDisabledException": return [3, 32];
+                    case "com.amazonaws.lambda#KMSDisabledException": return [3, 32];
+                    case "KMSInvalidStateException": return [3, 34];
+                    case "com.amazonaws.lambda#KMSInvalidStateException": return [3, 34];
+                    case "KMSNotFoundException": return [3, 36];
+                    case "com.amazonaws.lambda#KMSNotFoundException": return [3, 36];
+                    case "RequestTooLargeException": return [3, 38];
+                    case "com.amazonaws.lambda#RequestTooLargeException": return [3, 38];
+                    case "ResourceConflictException": return [3, 40];
+                    case "com.amazonaws.lambda#ResourceConflictException": return [3, 40];
+                    case "ResourceNotFoundException": return [3, 42];
+                    case "com.amazonaws.lambda#ResourceNotFoundException": return [3, 42];
+                    case "ResourceNotReadyException": return [3, 44];
+                    case "com.amazonaws.lambda#ResourceNotReadyException": return [3, 44];
+                    case "ServiceException": return [3, 46];
+                    case "com.amazonaws.lambda#ServiceException": return [3, 46];
+                    case "SubnetIPAddressLimitReachedException": return [3, 48];
+                    case "com.amazonaws.lambda#SubnetIPAddressLimitReachedException": return [3, 48];
+                    case "TooManyRequestsException": return [3, 50];
+                    case "com.amazonaws.lambda#TooManyRequestsException": return [3, 50];
+                    case "UnsupportedMediaTypeException": return [3, 52];
+                    case "com.amazonaws.lambda#UnsupportedMediaTypeException": return [3, 52];
+                }
+                return [3, 54];
+            case 2: return [4, deserializeAws_restJson1EC2AccessDeniedExceptionResponse(parsedOutput, context)];
+            case 3: throw _d.sent();
+            case 4: return [4, deserializeAws_restJson1EC2ThrottledExceptionResponse(parsedOutput, context)];
+            case 5: throw _d.sent();
+            case 6: return [4, deserializeAws_restJson1EC2UnexpectedExceptionResponse(parsedOutput, context)];
+            case 7: throw _d.sent();
+            case 8: return [4, deserializeAws_restJson1EFSIOExceptionResponse(parsedOutput, context)];
+            case 9: throw _d.sent();
+            case 10: return [4, deserializeAws_restJson1EFSMountConnectivityExceptionResponse(parsedOutput, context)];
+            case 11: throw _d.sent();
+            case 12: return [4, deserializeAws_restJson1EFSMountFailureExceptionResponse(parsedOutput, context)];
+            case 13: throw _d.sent();
+            case 14: return [4, deserializeAws_restJson1EFSMountTimeoutExceptionResponse(parsedOutput, context)];
+            case 15: throw _d.sent();
+            case 16: return [4, deserializeAws_restJson1ENILimitReachedExceptionResponse(parsedOutput, context)];
+            case 17: throw _d.sent();
+            case 18: return [4, deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)];
+            case 19: throw _d.sent();
+            case 20: return [4, deserializeAws_restJson1InvalidRequestContentExceptionResponse(parsedOutput, context)];
+            case 21: throw _d.sent();
+            case 22: return [4, deserializeAws_restJson1InvalidRuntimeExceptionResponse(parsedOutput, context)];
+            case 23: throw _d.sent();
+            case 24: return [4, deserializeAws_restJson1InvalidSecurityGroupIDExceptionResponse(parsedOutput, context)];
+            case 25: throw _d.sent();
+            case 26: return [4, deserializeAws_restJson1InvalidSubnetIDExceptionResponse(parsedOutput, context)];
+            case 27: throw _d.sent();
+            case 28: return [4, deserializeAws_restJson1InvalidZipFileExceptionResponse(parsedOutput, context)];
+            case 29: throw _d.sent();
+            case 30: return [4, deserializeAws_restJson1KMSAccessDeniedExceptionResponse(parsedOutput, context)];
+            case 31: throw _d.sent();
+            case 32: return [4, deserializeAws_restJson1KMSDisabledExceptionResponse(parsedOutput, context)];
+            case 33: throw _d.sent();
+            case 34: return [4, deserializeAws_restJson1KMSInvalidStateExceptionResponse(parsedOutput, context)];
+            case 35: throw _d.sent();
+            case 36: return [4, deserializeAws_restJson1KMSNotFoundExceptionResponse(parsedOutput, context)];
+            case 37: throw _d.sent();
+            case 38: return [4, deserializeAws_restJson1RequestTooLargeExceptionResponse(parsedOutput, context)];
+            case 39: throw _d.sent();
+            case 40: return [4, deserializeAws_restJson1ResourceConflictExceptionResponse(parsedOutput, context)];
+            case 41: throw _d.sent();
+            case 42: return [4, deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)];
+            case 43: throw _d.sent();
+            case 44: return [4, deserializeAws_restJson1ResourceNotReadyExceptionResponse(parsedOutput, context)];
+            case 45: throw _d.sent();
+            case 46: return [4, deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)];
+            case 47: throw _d.sent();
+            case 48: return [4, deserializeAws_restJson1SubnetIPAddressLimitReachedExceptionResponse(parsedOutput, context)];
+            case 49: throw _d.sent();
+            case 50: return [4, deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)];
+            case 51: throw _d.sent();
+            case 52: return [4, deserializeAws_restJson1UnsupportedMediaTypeExceptionResponse(parsedOutput, context)];
+            case 53: throw _d.sent();
+            case 54:
+                parsedBody = parsedOutput.body;
+                $metadata = deserializeMetadata(output);
+                statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+                response = new _models_LambdaServiceException__WEBPACK_IMPORTED_MODULE_3__.LambdaServiceException({
+                    name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+                    $fault: "client",
+                    $metadata: $metadata,
+                });
+                throw (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(response, parsedBody);
+        }
+    });
+}); };
+var deserializeAws_restJson1InvokeAsyncCommand = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                if (output.statusCode !== 202 && output.statusCode >= 300) {
+                    return [2, deserializeAws_restJson1InvokeAsyncCommandError(output, context)];
+                }
+                contents = {
+                    $metadata: deserializeMetadata(output),
+                    Status: undefined,
+                };
+                if (contents.Status === undefined) {
+                    contents.Status = output.statusCode;
+                }
+                return [4, collectBody(output.body, context)];
+            case 1:
+                _a.sent();
+                return [2, Promise.resolve(contents)];
+        }
+    });
+}); };
+var deserializeAws_restJson1InvokeAsyncCommandError = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var parsedOutput, _a, response, errorCode, _b, parsedBody, $metadata, statusCode;
+    var _c;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_d) {
+        switch (_d.label) {
+            case 0:
+                _a = [(0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, output)];
+                _c = {};
+                return [4, parseBody(output.body, context)];
+            case 1:
+                parsedOutput = tslib__WEBPACK_IMPORTED_MODULE_2__.__assign.apply(void 0, _a.concat([(_c.body = _d.sent(), _c)]));
+                errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+                _b = errorCode;
+                switch (_b) {
+                    case "InvalidRequestContentException": return [3, 2];
+                    case "com.amazonaws.lambda#InvalidRequestContentException": return [3, 2];
+                    case "InvalidRuntimeException": return [3, 4];
+                    case "com.amazonaws.lambda#InvalidRuntimeException": return [3, 4];
+                    case "ResourceConflictException": return [3, 6];
+                    case "com.amazonaws.lambda#ResourceConflictException": return [3, 6];
+                    case "ResourceNotFoundException": return [3, 8];
+                    case "com.amazonaws.lambda#ResourceNotFoundException": return [3, 8];
+                    case "ServiceException": return [3, 10];
+                    case "com.amazonaws.lambda#ServiceException": return [3, 10];
+                }
+                return [3, 12];
+            case 2: return [4, deserializeAws_restJson1InvalidRequestContentExceptionResponse(parsedOutput, context)];
+            case 3: throw _d.sent();
+            case 4: return [4, deserializeAws_restJson1InvalidRuntimeExceptionResponse(parsedOutput, context)];
+            case 5: throw _d.sent();
+            case 6: return [4, deserializeAws_restJson1ResourceConflictExceptionResponse(parsedOutput, context)];
+            case 7: throw _d.sent();
+            case 8: return [4, deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)];
+            case 9: throw _d.sent();
+            case 10: return [4, deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)];
+            case 11: throw _d.sent();
+            case 12:
+                parsedBody = parsedOutput.body;
+                $metadata = deserializeMetadata(output);
+                statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+                response = new _models_LambdaServiceException__WEBPACK_IMPORTED_MODULE_3__.LambdaServiceException({
+                    name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+                    $fault: "client",
+                    $metadata: $metadata,
+                });
+                throw (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(response, parsedBody);
+        }
+    });
+}); };
+var deserializeAws_restJson1ListAliasesCommand = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, _a, _b;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0:
+                if (output.statusCode !== 200 && output.statusCode >= 300) {
+                    return [2, deserializeAws_restJson1ListAliasesCommandError(output, context)];
+                }
+                contents = {
+                    $metadata: deserializeMetadata(output),
+                    Aliases: undefined,
+                    NextMarker: undefined,
+                };
+                _a = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectNonNull;
+                _b = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectObject;
+                return [4, parseBody(output.body, context)];
+            case 1:
+                data = _a.apply(void 0, [_b.apply(void 0, [_c.sent()]), "body"]);
+                if (data.Aliases !== undefined && data.Aliases !== null) {
+                    contents.Aliases = deserializeAws_restJson1AliasList(data.Aliases, context);
+                }
+                if (data.NextMarker !== undefined && data.NextMarker !== null) {
+                    contents.NextMarker = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.NextMarker);
+                }
+                return [2, Promise.resolve(contents)];
+        }
+    });
+}); };
+var deserializeAws_restJson1ListAliasesCommandError = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var parsedOutput, _a, response, errorCode, _b, parsedBody, $metadata, statusCode;
+    var _c;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_d) {
+        switch (_d.label) {
+            case 0:
+                _a = [(0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, output)];
+                _c = {};
+                return [4, parseBody(output.body, context)];
+            case 1:
+                parsedOutput = tslib__WEBPACK_IMPORTED_MODULE_2__.__assign.apply(void 0, _a.concat([(_c.body = _d.sent(), _c)]));
+                errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+                _b = errorCode;
+                switch (_b) {
+                    case "InvalidParameterValueException": return [3, 2];
+                    case "com.amazonaws.lambda#InvalidParameterValueException": return [3, 2];
+                    case "ResourceNotFoundException": return [3, 4];
+                    case "com.amazonaws.lambda#ResourceNotFoundException": return [3, 4];
+                    case "ServiceException": return [3, 6];
+                    case "com.amazonaws.lambda#ServiceException": return [3, 6];
+                    case "TooManyRequestsException": return [3, 8];
+                    case "com.amazonaws.lambda#TooManyRequestsException": return [3, 8];
+                }
+                return [3, 10];
+            case 2: return [4, deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)];
+            case 3: throw _d.sent();
+            case 4: return [4, deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)];
+            case 5: throw _d.sent();
+            case 6: return [4, deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)];
+            case 7: throw _d.sent();
+            case 8: return [4, deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)];
+            case 9: throw _d.sent();
+            case 10:
+                parsedBody = parsedOutput.body;
+                $metadata = deserializeMetadata(output);
+                statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+                response = new _models_LambdaServiceException__WEBPACK_IMPORTED_MODULE_3__.LambdaServiceException({
+                    name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+                    $fault: "client",
+                    $metadata: $metadata,
+                });
+                throw (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(response, parsedBody);
+        }
+    });
+}); };
+var deserializeAws_restJson1ListCodeSigningConfigsCommand = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, _a, _b;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0:
+                if (output.statusCode !== 200 && output.statusCode >= 300) {
+                    return [2, deserializeAws_restJson1ListCodeSigningConfigsCommandError(output, context)];
+                }
+                contents = {
+                    $metadata: deserializeMetadata(output),
+                    CodeSigningConfigs: undefined,
+                    NextMarker: undefined,
+                };
+                _a = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectNonNull;
+                _b = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectObject;
+                return [4, parseBody(output.body, context)];
+            case 1:
+                data = _a.apply(void 0, [_b.apply(void 0, [_c.sent()]), "body"]);
+                if (data.CodeSigningConfigs !== undefined && data.CodeSigningConfigs !== null) {
+                    contents.CodeSigningConfigs = deserializeAws_restJson1CodeSigningConfigList(data.CodeSigningConfigs, context);
+                }
+                if (data.NextMarker !== undefined && data.NextMarker !== null) {
+                    contents.NextMarker = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.NextMarker);
+                }
+                return [2, Promise.resolve(contents)];
+        }
+    });
+}); };
+var deserializeAws_restJson1ListCodeSigningConfigsCommandError = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var parsedOutput, _a, response, errorCode, _b, parsedBody, $metadata, statusCode;
+    var _c;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_d) {
+        switch (_d.label) {
+            case 0:
+                _a = [(0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, output)];
+                _c = {};
+                return [4, parseBody(output.body, context)];
+            case 1:
+                parsedOutput = tslib__WEBPACK_IMPORTED_MODULE_2__.__assign.apply(void 0, _a.concat([(_c.body = _d.sent(), _c)]));
+                errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+                _b = errorCode;
+                switch (_b) {
+                    case "InvalidParameterValueException": return [3, 2];
+                    case "com.amazonaws.lambda#InvalidParameterValueException": return [3, 2];
+                    case "ServiceException": return [3, 4];
+                    case "com.amazonaws.lambda#ServiceException": return [3, 4];
+                }
+                return [3, 6];
+            case 2: return [4, deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)];
+            case 3: throw _d.sent();
+            case 4: return [4, deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)];
+            case 5: throw _d.sent();
+            case 6:
+                parsedBody = parsedOutput.body;
+                $metadata = deserializeMetadata(output);
+                statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+                response = new _models_LambdaServiceException__WEBPACK_IMPORTED_MODULE_3__.LambdaServiceException({
+                    name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+                    $fault: "client",
+                    $metadata: $metadata,
+                });
+                throw (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(response, parsedBody);
+        }
+    });
+}); };
+var deserializeAws_restJson1ListEventSourceMappingsCommand = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, _a, _b;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0:
+                if (output.statusCode !== 200 && output.statusCode >= 300) {
+                    return [2, deserializeAws_restJson1ListEventSourceMappingsCommandError(output, context)];
+                }
+                contents = {
+                    $metadata: deserializeMetadata(output),
+                    EventSourceMappings: undefined,
+                    NextMarker: undefined,
+                };
+                _a = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectNonNull;
+                _b = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectObject;
+                return [4, parseBody(output.body, context)];
+            case 1:
+                data = _a.apply(void 0, [_b.apply(void 0, [_c.sent()]), "body"]);
+                if (data.EventSourceMappings !== undefined && data.EventSourceMappings !== null) {
+                    contents.EventSourceMappings = deserializeAws_restJson1EventSourceMappingsList(data.EventSourceMappings, context);
+                }
+                if (data.NextMarker !== undefined && data.NextMarker !== null) {
+                    contents.NextMarker = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.NextMarker);
+                }
+                return [2, Promise.resolve(contents)];
+        }
+    });
+}); };
+var deserializeAws_restJson1ListEventSourceMappingsCommandError = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var parsedOutput, _a, response, errorCode, _b, parsedBody, $metadata, statusCode;
+    var _c;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_d) {
+        switch (_d.label) {
+            case 0:
+                _a = [(0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, output)];
+                _c = {};
+                return [4, parseBody(output.body, context)];
+            case 1:
+                parsedOutput = tslib__WEBPACK_IMPORTED_MODULE_2__.__assign.apply(void 0, _a.concat([(_c.body = _d.sent(), _c)]));
+                errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+                _b = errorCode;
+                switch (_b) {
+                    case "InvalidParameterValueException": return [3, 2];
+                    case "com.amazonaws.lambda#InvalidParameterValueException": return [3, 2];
+                    case "ResourceNotFoundException": return [3, 4];
+                    case "com.amazonaws.lambda#ResourceNotFoundException": return [3, 4];
+                    case "ServiceException": return [3, 6];
+                    case "com.amazonaws.lambda#ServiceException": return [3, 6];
+                    case "TooManyRequestsException": return [3, 8];
+                    case "com.amazonaws.lambda#TooManyRequestsException": return [3, 8];
+                }
+                return [3, 10];
+            case 2: return [4, deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)];
+            case 3: throw _d.sent();
+            case 4: return [4, deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)];
+            case 5: throw _d.sent();
+            case 6: return [4, deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)];
+            case 7: throw _d.sent();
+            case 8: return [4, deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)];
+            case 9: throw _d.sent();
+            case 10:
+                parsedBody = parsedOutput.body;
+                $metadata = deserializeMetadata(output);
+                statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+                response = new _models_LambdaServiceException__WEBPACK_IMPORTED_MODULE_3__.LambdaServiceException({
+                    name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+                    $fault: "client",
+                    $metadata: $metadata,
+                });
+                throw (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(response, parsedBody);
+        }
+    });
+}); };
+var deserializeAws_restJson1ListFunctionEventInvokeConfigsCommand = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, _a, _b;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0:
+                if (output.statusCode !== 200 && output.statusCode >= 300) {
+                    return [2, deserializeAws_restJson1ListFunctionEventInvokeConfigsCommandError(output, context)];
+                }
+                contents = {
+                    $metadata: deserializeMetadata(output),
+                    FunctionEventInvokeConfigs: undefined,
+                    NextMarker: undefined,
+                };
+                _a = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectNonNull;
+                _b = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectObject;
+                return [4, parseBody(output.body, context)];
+            case 1:
+                data = _a.apply(void 0, [_b.apply(void 0, [_c.sent()]), "body"]);
+                if (data.FunctionEventInvokeConfigs !== undefined && data.FunctionEventInvokeConfigs !== null) {
+                    contents.FunctionEventInvokeConfigs = deserializeAws_restJson1FunctionEventInvokeConfigList(data.FunctionEventInvokeConfigs, context);
+                }
+                if (data.NextMarker !== undefined && data.NextMarker !== null) {
+                    contents.NextMarker = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.NextMarker);
+                }
+                return [2, Promise.resolve(contents)];
+        }
+    });
+}); };
+var deserializeAws_restJson1ListFunctionEventInvokeConfigsCommandError = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var parsedOutput, _a, response, errorCode, _b, parsedBody, $metadata, statusCode;
+    var _c;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_d) {
+        switch (_d.label) {
+            case 0:
+                _a = [(0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, output)];
+                _c = {};
+                return [4, parseBody(output.body, context)];
+            case 1:
+                parsedOutput = tslib__WEBPACK_IMPORTED_MODULE_2__.__assign.apply(void 0, _a.concat([(_c.body = _d.sent(), _c)]));
+                errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+                _b = errorCode;
+                switch (_b) {
+                    case "InvalidParameterValueException": return [3, 2];
+                    case "com.amazonaws.lambda#InvalidParameterValueException": return [3, 2];
+                    case "ResourceNotFoundException": return [3, 4];
+                    case "com.amazonaws.lambda#ResourceNotFoundException": return [3, 4];
+                    case "ServiceException": return [3, 6];
+                    case "com.amazonaws.lambda#ServiceException": return [3, 6];
+                    case "TooManyRequestsException": return [3, 8];
+                    case "com.amazonaws.lambda#TooManyRequestsException": return [3, 8];
+                }
+                return [3, 10];
+            case 2: return [4, deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)];
+            case 3: throw _d.sent();
+            case 4: return [4, deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)];
+            case 5: throw _d.sent();
+            case 6: return [4, deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)];
+            case 7: throw _d.sent();
+            case 8: return [4, deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)];
+            case 9: throw _d.sent();
+            case 10:
+                parsedBody = parsedOutput.body;
+                $metadata = deserializeMetadata(output);
+                statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+                response = new _models_LambdaServiceException__WEBPACK_IMPORTED_MODULE_3__.LambdaServiceException({
+                    name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+                    $fault: "client",
+                    $metadata: $metadata,
+                });
+                throw (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(response, parsedBody);
+        }
+    });
+}); };
+var deserializeAws_restJson1ListFunctionsCommand = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, _a, _b;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0:
+                if (output.statusCode !== 200 && output.statusCode >= 300) {
+                    return [2, deserializeAws_restJson1ListFunctionsCommandError(output, context)];
+                }
+                contents = {
+                    $metadata: deserializeMetadata(output),
+                    Functions: undefined,
+                    NextMarker: undefined,
+                };
+                _a = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectNonNull;
+                _b = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectObject;
+                return [4, parseBody(output.body, context)];
+            case 1:
+                data = _a.apply(void 0, [_b.apply(void 0, [_c.sent()]), "body"]);
+                if (data.Functions !== undefined && data.Functions !== null) {
+                    contents.Functions = deserializeAws_restJson1FunctionList(data.Functions, context);
+                }
+                if (data.NextMarker !== undefined && data.NextMarker !== null) {
+                    contents.NextMarker = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.NextMarker);
+                }
+                return [2, Promise.resolve(contents)];
+        }
+    });
+}); };
+var deserializeAws_restJson1ListFunctionsCommandError = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var parsedOutput, _a, response, errorCode, _b, parsedBody, $metadata, statusCode;
+    var _c;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_d) {
+        switch (_d.label) {
+            case 0:
+                _a = [(0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, output)];
+                _c = {};
+                return [4, parseBody(output.body, context)];
+            case 1:
+                parsedOutput = tslib__WEBPACK_IMPORTED_MODULE_2__.__assign.apply(void 0, _a.concat([(_c.body = _d.sent(), _c)]));
+                errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+                _b = errorCode;
+                switch (_b) {
+                    case "InvalidParameterValueException": return [3, 2];
+                    case "com.amazonaws.lambda#InvalidParameterValueException": return [3, 2];
+                    case "ServiceException": return [3, 4];
+                    case "com.amazonaws.lambda#ServiceException": return [3, 4];
+                    case "TooManyRequestsException": return [3, 6];
+                    case "com.amazonaws.lambda#TooManyRequestsException": return [3, 6];
+                }
+                return [3, 8];
+            case 2: return [4, deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)];
+            case 3: throw _d.sent();
+            case 4: return [4, deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)];
+            case 5: throw _d.sent();
+            case 6: return [4, deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)];
+            case 7: throw _d.sent();
+            case 8:
+                parsedBody = parsedOutput.body;
+                $metadata = deserializeMetadata(output);
+                statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+                response = new _models_LambdaServiceException__WEBPACK_IMPORTED_MODULE_3__.LambdaServiceException({
+                    name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+                    $fault: "client",
+                    $metadata: $metadata,
+                });
+                throw (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(response, parsedBody);
+        }
+    });
+}); };
+var deserializeAws_restJson1ListFunctionsByCodeSigningConfigCommand = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, _a, _b;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0:
+                if (output.statusCode !== 200 && output.statusCode >= 300) {
+                    return [2, deserializeAws_restJson1ListFunctionsByCodeSigningConfigCommandError(output, context)];
+                }
+                contents = {
+                    $metadata: deserializeMetadata(output),
+                    FunctionArns: undefined,
+                    NextMarker: undefined,
+                };
+                _a = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectNonNull;
+                _b = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectObject;
+                return [4, parseBody(output.body, context)];
+            case 1:
+                data = _a.apply(void 0, [_b.apply(void 0, [_c.sent()]), "body"]);
+                if (data.FunctionArns !== undefined && data.FunctionArns !== null) {
+                    contents.FunctionArns = deserializeAws_restJson1FunctionArnList(data.FunctionArns, context);
+                }
+                if (data.NextMarker !== undefined && data.NextMarker !== null) {
+                    contents.NextMarker = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.NextMarker);
+                }
+                return [2, Promise.resolve(contents)];
+        }
+    });
+}); };
+var deserializeAws_restJson1ListFunctionsByCodeSigningConfigCommandError = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var parsedOutput, _a, response, errorCode, _b, parsedBody, $metadata, statusCode;
+    var _c;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_d) {
+        switch (_d.label) {
+            case 0:
+                _a = [(0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, output)];
+                _c = {};
+                return [4, parseBody(output.body, context)];
+            case 1:
+                parsedOutput = tslib__WEBPACK_IMPORTED_MODULE_2__.__assign.apply(void 0, _a.concat([(_c.body = _d.sent(), _c)]));
+                errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+                _b = errorCode;
+                switch (_b) {
+                    case "InvalidParameterValueException": return [3, 2];
+                    case "com.amazonaws.lambda#InvalidParameterValueException": return [3, 2];
+                    case "ResourceNotFoundException": return [3, 4];
+                    case "com.amazonaws.lambda#ResourceNotFoundException": return [3, 4];
+                    case "ServiceException": return [3, 6];
+                    case "com.amazonaws.lambda#ServiceException": return [3, 6];
+                }
+                return [3, 8];
+            case 2: return [4, deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)];
+            case 3: throw _d.sent();
+            case 4: return [4, deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)];
+            case 5: throw _d.sent();
+            case 6: return [4, deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)];
+            case 7: throw _d.sent();
+            case 8:
+                parsedBody = parsedOutput.body;
+                $metadata = deserializeMetadata(output);
+                statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+                response = new _models_LambdaServiceException__WEBPACK_IMPORTED_MODULE_3__.LambdaServiceException({
+                    name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+                    $fault: "client",
+                    $metadata: $metadata,
+                });
+                throw (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(response, parsedBody);
+        }
+    });
+}); };
+var deserializeAws_restJson1ListFunctionUrlConfigsCommand = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, _a, _b;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0:
+                if (output.statusCode !== 200 && output.statusCode >= 300) {
+                    return [2, deserializeAws_restJson1ListFunctionUrlConfigsCommandError(output, context)];
+                }
+                contents = {
+                    $metadata: deserializeMetadata(output),
+                    FunctionUrlConfigs: undefined,
+                    NextMarker: undefined,
+                };
+                _a = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectNonNull;
+                _b = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectObject;
+                return [4, parseBody(output.body, context)];
+            case 1:
+                data = _a.apply(void 0, [_b.apply(void 0, [_c.sent()]), "body"]);
+                if (data.FunctionUrlConfigs !== undefined && data.FunctionUrlConfigs !== null) {
+                    contents.FunctionUrlConfigs = deserializeAws_restJson1FunctionUrlConfigList(data.FunctionUrlConfigs, context);
+                }
+                if (data.NextMarker !== undefined && data.NextMarker !== null) {
+                    contents.NextMarker = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.NextMarker);
+                }
+                return [2, Promise.resolve(contents)];
+        }
+    });
+}); };
+var deserializeAws_restJson1ListFunctionUrlConfigsCommandError = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var parsedOutput, _a, response, errorCode, _b, parsedBody, $metadata, statusCode;
+    var _c;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_d) {
+        switch (_d.label) {
+            case 0:
+                _a = [(0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, output)];
+                _c = {};
+                return [4, parseBody(output.body, context)];
+            case 1:
+                parsedOutput = tslib__WEBPACK_IMPORTED_MODULE_2__.__assign.apply(void 0, _a.concat([(_c.body = _d.sent(), _c)]));
+                errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+                _b = errorCode;
+                switch (_b) {
+                    case "InvalidParameterValueException": return [3, 2];
+                    case "com.amazonaws.lambda#InvalidParameterValueException": return [3, 2];
+                    case "ResourceNotFoundException": return [3, 4];
+                    case "com.amazonaws.lambda#ResourceNotFoundException": return [3, 4];
+                    case "ServiceException": return [3, 6];
+                    case "com.amazonaws.lambda#ServiceException": return [3, 6];
+                    case "TooManyRequestsException": return [3, 8];
+                    case "com.amazonaws.lambda#TooManyRequestsException": return [3, 8];
+                }
+                return [3, 10];
+            case 2: return [4, deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)];
+            case 3: throw _d.sent();
+            case 4: return [4, deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)];
+            case 5: throw _d.sent();
+            case 6: return [4, deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)];
+            case 7: throw _d.sent();
+            case 8: return [4, deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)];
+            case 9: throw _d.sent();
+            case 10:
+                parsedBody = parsedOutput.body;
+                $metadata = deserializeMetadata(output);
+                statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+                response = new _models_LambdaServiceException__WEBPACK_IMPORTED_MODULE_3__.LambdaServiceException({
+                    name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+                    $fault: "client",
+                    $metadata: $metadata,
+                });
+                throw (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(response, parsedBody);
+        }
+    });
+}); };
+var deserializeAws_restJson1ListLayersCommand = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, _a, _b;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0:
+                if (output.statusCode !== 200 && output.statusCode >= 300) {
+                    return [2, deserializeAws_restJson1ListLayersCommandError(output, context)];
+                }
+                contents = {
+                    $metadata: deserializeMetadata(output),
+                    Layers: undefined,
+                    NextMarker: undefined,
+                };
+                _a = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectNonNull;
+                _b = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectObject;
+                return [4, parseBody(output.body, context)];
+            case 1:
+                data = _a.apply(void 0, [_b.apply(void 0, [_c.sent()]), "body"]);
+                if (data.Layers !== undefined && data.Layers !== null) {
+                    contents.Layers = deserializeAws_restJson1LayersList(data.Layers, context);
+                }
+                if (data.NextMarker !== undefined && data.NextMarker !== null) {
+                    contents.NextMarker = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.NextMarker);
+                }
+                return [2, Promise.resolve(contents)];
+        }
+    });
+}); };
+var deserializeAws_restJson1ListLayersCommandError = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var parsedOutput, _a, response, errorCode, _b, parsedBody, $metadata, statusCode;
+    var _c;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_d) {
+        switch (_d.label) {
+            case 0:
+                _a = [(0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, output)];
+                _c = {};
+                return [4, parseBody(output.body, context)];
+            case 1:
+                parsedOutput = tslib__WEBPACK_IMPORTED_MODULE_2__.__assign.apply(void 0, _a.concat([(_c.body = _d.sent(), _c)]));
+                errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+                _b = errorCode;
+                switch (_b) {
+                    case "InvalidParameterValueException": return [3, 2];
+                    case "com.amazonaws.lambda#InvalidParameterValueException": return [3, 2];
+                    case "ServiceException": return [3, 4];
+                    case "com.amazonaws.lambda#ServiceException": return [3, 4];
+                    case "TooManyRequestsException": return [3, 6];
+                    case "com.amazonaws.lambda#TooManyRequestsException": return [3, 6];
+                }
+                return [3, 8];
+            case 2: return [4, deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)];
+            case 3: throw _d.sent();
+            case 4: return [4, deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)];
+            case 5: throw _d.sent();
+            case 6: return [4, deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)];
+            case 7: throw _d.sent();
+            case 8:
+                parsedBody = parsedOutput.body;
+                $metadata = deserializeMetadata(output);
+                statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+                response = new _models_LambdaServiceException__WEBPACK_IMPORTED_MODULE_3__.LambdaServiceException({
+                    name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+                    $fault: "client",
+                    $metadata: $metadata,
+                });
+                throw (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(response, parsedBody);
+        }
+    });
+}); };
+var deserializeAws_restJson1ListLayerVersionsCommand = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, _a, _b;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0:
+                if (output.statusCode !== 200 && output.statusCode >= 300) {
+                    return [2, deserializeAws_restJson1ListLayerVersionsCommandError(output, context)];
+                }
+                contents = {
+                    $metadata: deserializeMetadata(output),
+                    LayerVersions: undefined,
+                    NextMarker: undefined,
+                };
+                _a = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectNonNull;
+                _b = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectObject;
+                return [4, parseBody(output.body, context)];
+            case 1:
+                data = _a.apply(void 0, [_b.apply(void 0, [_c.sent()]), "body"]);
+                if (data.LayerVersions !== undefined && data.LayerVersions !== null) {
+                    contents.LayerVersions = deserializeAws_restJson1LayerVersionsList(data.LayerVersions, context);
+                }
+                if (data.NextMarker !== undefined && data.NextMarker !== null) {
+                    contents.NextMarker = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.NextMarker);
+                }
+                return [2, Promise.resolve(contents)];
+        }
+    });
+}); };
+var deserializeAws_restJson1ListLayerVersionsCommandError = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var parsedOutput, _a, response, errorCode, _b, parsedBody, $metadata, statusCode;
+    var _c;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_d) {
+        switch (_d.label) {
+            case 0:
+                _a = [(0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, output)];
+                _c = {};
+                return [4, parseBody(output.body, context)];
+            case 1:
+                parsedOutput = tslib__WEBPACK_IMPORTED_MODULE_2__.__assign.apply(void 0, _a.concat([(_c.body = _d.sent(), _c)]));
+                errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+                _b = errorCode;
+                switch (_b) {
+                    case "InvalidParameterValueException": return [3, 2];
+                    case "com.amazonaws.lambda#InvalidParameterValueException": return [3, 2];
+                    case "ResourceNotFoundException": return [3, 4];
+                    case "com.amazonaws.lambda#ResourceNotFoundException": return [3, 4];
+                    case "ServiceException": return [3, 6];
+                    case "com.amazonaws.lambda#ServiceException": return [3, 6];
+                    case "TooManyRequestsException": return [3, 8];
+                    case "com.amazonaws.lambda#TooManyRequestsException": return [3, 8];
+                }
+                return [3, 10];
+            case 2: return [4, deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)];
+            case 3: throw _d.sent();
+            case 4: return [4, deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)];
+            case 5: throw _d.sent();
+            case 6: return [4, deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)];
+            case 7: throw _d.sent();
+            case 8: return [4, deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)];
+            case 9: throw _d.sent();
+            case 10:
+                parsedBody = parsedOutput.body;
+                $metadata = deserializeMetadata(output);
+                statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+                response = new _models_LambdaServiceException__WEBPACK_IMPORTED_MODULE_3__.LambdaServiceException({
+                    name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+                    $fault: "client",
+                    $metadata: $metadata,
+                });
+                throw (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(response, parsedBody);
+        }
+    });
+}); };
+var deserializeAws_restJson1ListProvisionedConcurrencyConfigsCommand = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, _a, _b;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0:
+                if (output.statusCode !== 200 && output.statusCode >= 300) {
+                    return [2, deserializeAws_restJson1ListProvisionedConcurrencyConfigsCommandError(output, context)];
+                }
+                contents = {
+                    $metadata: deserializeMetadata(output),
+                    NextMarker: undefined,
+                    ProvisionedConcurrencyConfigs: undefined,
+                };
+                _a = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectNonNull;
+                _b = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectObject;
+                return [4, parseBody(output.body, context)];
+            case 1:
+                data = _a.apply(void 0, [_b.apply(void 0, [_c.sent()]), "body"]);
+                if (data.NextMarker !== undefined && data.NextMarker !== null) {
+                    contents.NextMarker = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.NextMarker);
+                }
+                if (data.ProvisionedConcurrencyConfigs !== undefined && data.ProvisionedConcurrencyConfigs !== null) {
+                    contents.ProvisionedConcurrencyConfigs = deserializeAws_restJson1ProvisionedConcurrencyConfigList(data.ProvisionedConcurrencyConfigs, context);
+                }
+                return [2, Promise.resolve(contents)];
+        }
+    });
+}); };
+var deserializeAws_restJson1ListProvisionedConcurrencyConfigsCommandError = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var parsedOutput, _a, response, errorCode, _b, parsedBody, $metadata, statusCode;
+    var _c;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_d) {
+        switch (_d.label) {
+            case 0:
+                _a = [(0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, output)];
+                _c = {};
+                return [4, parseBody(output.body, context)];
+            case 1:
+                parsedOutput = tslib__WEBPACK_IMPORTED_MODULE_2__.__assign.apply(void 0, _a.concat([(_c.body = _d.sent(), _c)]));
+                errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+                _b = errorCode;
+                switch (_b) {
+                    case "InvalidParameterValueException": return [3, 2];
+                    case "com.amazonaws.lambda#InvalidParameterValueException": return [3, 2];
+                    case "ResourceNotFoundException": return [3, 4];
+                    case "com.amazonaws.lambda#ResourceNotFoundException": return [3, 4];
+                    case "ServiceException": return [3, 6];
+                    case "com.amazonaws.lambda#ServiceException": return [3, 6];
+                    case "TooManyRequestsException": return [3, 8];
+                    case "com.amazonaws.lambda#TooManyRequestsException": return [3, 8];
+                }
+                return [3, 10];
+            case 2: return [4, deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)];
+            case 3: throw _d.sent();
+            case 4: return [4, deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)];
+            case 5: throw _d.sent();
+            case 6: return [4, deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)];
+            case 7: throw _d.sent();
+            case 8: return [4, deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)];
+            case 9: throw _d.sent();
+            case 10:
+                parsedBody = parsedOutput.body;
+                $metadata = deserializeMetadata(output);
+                statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+                response = new _models_LambdaServiceException__WEBPACK_IMPORTED_MODULE_3__.LambdaServiceException({
+                    name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+                    $fault: "client",
+                    $metadata: $metadata,
+                });
+                throw (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(response, parsedBody);
+        }
+    });
+}); };
+var deserializeAws_restJson1ListTagsCommand = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, _a, _b;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0:
+                if (output.statusCode !== 200 && output.statusCode >= 300) {
+                    return [2, deserializeAws_restJson1ListTagsCommandError(output, context)];
+                }
+                contents = {
+                    $metadata: deserializeMetadata(output),
+                    Tags: undefined,
+                };
+                _a = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectNonNull;
+                _b = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectObject;
+                return [4, parseBody(output.body, context)];
+            case 1:
+                data = _a.apply(void 0, [_b.apply(void 0, [_c.sent()]), "body"]);
+                if (data.Tags !== undefined && data.Tags !== null) {
+                    contents.Tags = deserializeAws_restJson1Tags(data.Tags, context);
+                }
+                return [2, Promise.resolve(contents)];
+        }
+    });
+}); };
+var deserializeAws_restJson1ListTagsCommandError = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var parsedOutput, _a, response, errorCode, _b, parsedBody, $metadata, statusCode;
+    var _c;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_d) {
+        switch (_d.label) {
+            case 0:
+                _a = [(0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, output)];
+                _c = {};
+                return [4, parseBody(output.body, context)];
+            case 1:
+                parsedOutput = tslib__WEBPACK_IMPORTED_MODULE_2__.__assign.apply(void 0, _a.concat([(_c.body = _d.sent(), _c)]));
+                errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+                _b = errorCode;
+                switch (_b) {
+                    case "InvalidParameterValueException": return [3, 2];
+                    case "com.amazonaws.lambda#InvalidParameterValueException": return [3, 2];
+                    case "ResourceNotFoundException": return [3, 4];
+                    case "com.amazonaws.lambda#ResourceNotFoundException": return [3, 4];
+                    case "ServiceException": return [3, 6];
+                    case "com.amazonaws.lambda#ServiceException": return [3, 6];
+                    case "TooManyRequestsException": return [3, 8];
+                    case "com.amazonaws.lambda#TooManyRequestsException": return [3, 8];
+                }
+                return [3, 10];
+            case 2: return [4, deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)];
+            case 3: throw _d.sent();
+            case 4: return [4, deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)];
+            case 5: throw _d.sent();
+            case 6: return [4, deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)];
+            case 7: throw _d.sent();
+            case 8: return [4, deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)];
+            case 9: throw _d.sent();
+            case 10:
+                parsedBody = parsedOutput.body;
+                $metadata = deserializeMetadata(output);
+                statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+                response = new _models_LambdaServiceException__WEBPACK_IMPORTED_MODULE_3__.LambdaServiceException({
+                    name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+                    $fault: "client",
+                    $metadata: $metadata,
+                });
+                throw (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(response, parsedBody);
+        }
+    });
+}); };
+var deserializeAws_restJson1ListVersionsByFunctionCommand = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, _a, _b;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0:
+                if (output.statusCode !== 200 && output.statusCode >= 300) {
+                    return [2, deserializeAws_restJson1ListVersionsByFunctionCommandError(output, context)];
+                }
+                contents = {
+                    $metadata: deserializeMetadata(output),
+                    NextMarker: undefined,
+                    Versions: undefined,
+                };
+                _a = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectNonNull;
+                _b = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectObject;
+                return [4, parseBody(output.body, context)];
+            case 1:
+                data = _a.apply(void 0, [_b.apply(void 0, [_c.sent()]), "body"]);
+                if (data.NextMarker !== undefined && data.NextMarker !== null) {
+                    contents.NextMarker = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.NextMarker);
+                }
+                if (data.Versions !== undefined && data.Versions !== null) {
+                    contents.Versions = deserializeAws_restJson1FunctionList(data.Versions, context);
+                }
+                return [2, Promise.resolve(contents)];
+        }
+    });
+}); };
+var deserializeAws_restJson1ListVersionsByFunctionCommandError = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var parsedOutput, _a, response, errorCode, _b, parsedBody, $metadata, statusCode;
+    var _c;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_d) {
+        switch (_d.label) {
+            case 0:
+                _a = [(0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, output)];
+                _c = {};
+                return [4, parseBody(output.body, context)];
+            case 1:
+                parsedOutput = tslib__WEBPACK_IMPORTED_MODULE_2__.__assign.apply(void 0, _a.concat([(_c.body = _d.sent(), _c)]));
+                errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+                _b = errorCode;
+                switch (_b) {
+                    case "InvalidParameterValueException": return [3, 2];
+                    case "com.amazonaws.lambda#InvalidParameterValueException": return [3, 2];
+                    case "ResourceNotFoundException": return [3, 4];
+                    case "com.amazonaws.lambda#ResourceNotFoundException": return [3, 4];
+                    case "ServiceException": return [3, 6];
+                    case "com.amazonaws.lambda#ServiceException": return [3, 6];
+                    case "TooManyRequestsException": return [3, 8];
+                    case "com.amazonaws.lambda#TooManyRequestsException": return [3, 8];
+                }
+                return [3, 10];
+            case 2: return [4, deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)];
+            case 3: throw _d.sent();
+            case 4: return [4, deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)];
+            case 5: throw _d.sent();
+            case 6: return [4, deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)];
+            case 7: throw _d.sent();
+            case 8: return [4, deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)];
+            case 9: throw _d.sent();
+            case 10:
+                parsedBody = parsedOutput.body;
+                $metadata = deserializeMetadata(output);
+                statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+                response = new _models_LambdaServiceException__WEBPACK_IMPORTED_MODULE_3__.LambdaServiceException({
+                    name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+                    $fault: "client",
+                    $metadata: $metadata,
+                });
+                throw (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(response, parsedBody);
+        }
+    });
+}); };
+var deserializeAws_restJson1PublishLayerVersionCommand = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, _a, _b;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0:
+                if (output.statusCode !== 201 && output.statusCode >= 300) {
+                    return [2, deserializeAws_restJson1PublishLayerVersionCommandError(output, context)];
+                }
+                contents = {
+                    $metadata: deserializeMetadata(output),
+                    CompatibleArchitectures: undefined,
+                    CompatibleRuntimes: undefined,
+                    Content: undefined,
+                    CreatedDate: undefined,
+                    Description: undefined,
+                    LayerArn: undefined,
+                    LayerVersionArn: undefined,
+                    LicenseInfo: undefined,
+                    Version: undefined,
+                };
+                _a = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectNonNull;
+                _b = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectObject;
+                return [4, parseBody(output.body, context)];
+            case 1:
+                data = _a.apply(void 0, [_b.apply(void 0, [_c.sent()]), "body"]);
+                if (data.CompatibleArchitectures !== undefined && data.CompatibleArchitectures !== null) {
+                    contents.CompatibleArchitectures = deserializeAws_restJson1CompatibleArchitectures(data.CompatibleArchitectures, context);
+                }
+                if (data.CompatibleRuntimes !== undefined && data.CompatibleRuntimes !== null) {
+                    contents.CompatibleRuntimes = deserializeAws_restJson1CompatibleRuntimes(data.CompatibleRuntimes, context);
+                }
+                if (data.Content !== undefined && data.Content !== null) {
+                    contents.Content = deserializeAws_restJson1LayerVersionContentOutput(data.Content, context);
+                }
+                if (data.CreatedDate !== undefined && data.CreatedDate !== null) {
+                    contents.CreatedDate = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.CreatedDate);
+                }
+                if (data.Description !== undefined && data.Description !== null) {
+                    contents.Description = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Description);
+                }
+                if (data.LayerArn !== undefined && data.LayerArn !== null) {
+                    contents.LayerArn = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.LayerArn);
+                }
+                if (data.LayerVersionArn !== undefined && data.LayerVersionArn !== null) {
+                    contents.LayerVersionArn = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.LayerVersionArn);
+                }
+                if (data.LicenseInfo !== undefined && data.LicenseInfo !== null) {
+                    contents.LicenseInfo = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.LicenseInfo);
+                }
+                if (data.Version !== undefined && data.Version !== null) {
+                    contents.Version = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectLong)(data.Version);
+                }
+                return [2, Promise.resolve(contents)];
+        }
+    });
+}); };
+var deserializeAws_restJson1PublishLayerVersionCommandError = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var parsedOutput, _a, response, errorCode, _b, parsedBody, $metadata, statusCode;
+    var _c;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_d) {
+        switch (_d.label) {
+            case 0:
+                _a = [(0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, output)];
+                _c = {};
+                return [4, parseBody(output.body, context)];
+            case 1:
+                parsedOutput = tslib__WEBPACK_IMPORTED_MODULE_2__.__assign.apply(void 0, _a.concat([(_c.body = _d.sent(), _c)]));
+                errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+                _b = errorCode;
+                switch (_b) {
+                    case "CodeStorageExceededException": return [3, 2];
+                    case "com.amazonaws.lambda#CodeStorageExceededException": return [3, 2];
+                    case "InvalidParameterValueException": return [3, 4];
+                    case "com.amazonaws.lambda#InvalidParameterValueException": return [3, 4];
+                    case "ResourceNotFoundException": return [3, 6];
+                    case "com.amazonaws.lambda#ResourceNotFoundException": return [3, 6];
+                    case "ServiceException": return [3, 8];
+                    case "com.amazonaws.lambda#ServiceException": return [3, 8];
+                    case "TooManyRequestsException": return [3, 10];
+                    case "com.amazonaws.lambda#TooManyRequestsException": return [3, 10];
+                }
+                return [3, 12];
+            case 2: return [4, deserializeAws_restJson1CodeStorageExceededExceptionResponse(parsedOutput, context)];
+            case 3: throw _d.sent();
+            case 4: return [4, deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)];
+            case 5: throw _d.sent();
+            case 6: return [4, deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)];
+            case 7: throw _d.sent();
+            case 8: return [4, deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)];
+            case 9: throw _d.sent();
+            case 10: return [4, deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)];
+            case 11: throw _d.sent();
+            case 12:
+                parsedBody = parsedOutput.body;
+                $metadata = deserializeMetadata(output);
+                statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+                response = new _models_LambdaServiceException__WEBPACK_IMPORTED_MODULE_3__.LambdaServiceException({
+                    name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+                    $fault: "client",
+                    $metadata: $metadata,
+                });
+                throw (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(response, parsedBody);
+        }
+    });
+}); };
+var deserializeAws_restJson1PublishVersionCommand = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, _a, _b;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0:
+                if (output.statusCode !== 201 && output.statusCode >= 300) {
+                    return [2, deserializeAws_restJson1PublishVersionCommandError(output, context)];
+                }
+                contents = {
+                    $metadata: deserializeMetadata(output),
+                    Architectures: undefined,
+                    CodeSha256: undefined,
+                    CodeSize: undefined,
+                    DeadLetterConfig: undefined,
+                    Description: undefined,
+                    Environment: undefined,
+                    EphemeralStorage: undefined,
+                    FileSystemConfigs: undefined,
+                    FunctionArn: undefined,
+                    FunctionName: undefined,
+                    Handler: undefined,
+                    ImageConfigResponse: undefined,
+                    KMSKeyArn: undefined,
+                    LastModified: undefined,
+                    LastUpdateStatus: undefined,
+                    LastUpdateStatusReason: undefined,
+                    LastUpdateStatusReasonCode: undefined,
+                    Layers: undefined,
+                    MasterArn: undefined,
+                    MemorySize: undefined,
+                    PackageType: undefined,
+                    RevisionId: undefined,
+                    Role: undefined,
+                    Runtime: undefined,
+                    SigningJobArn: undefined,
+                    SigningProfileVersionArn: undefined,
+                    State: undefined,
+                    StateReason: undefined,
+                    StateReasonCode: undefined,
+                    Timeout: undefined,
+                    TracingConfig: undefined,
+                    Version: undefined,
+                    VpcConfig: undefined,
+                };
+                _a = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectNonNull;
+                _b = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectObject;
+                return [4, parseBody(output.body, context)];
+            case 1:
+                data = _a.apply(void 0, [_b.apply(void 0, [_c.sent()]), "body"]);
+                if (data.Architectures !== undefined && data.Architectures !== null) {
+                    contents.Architectures = deserializeAws_restJson1ArchitecturesList(data.Architectures, context);
+                }
+                if (data.CodeSha256 !== undefined && data.CodeSha256 !== null) {
+                    contents.CodeSha256 = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.CodeSha256);
+                }
+                if (data.CodeSize !== undefined && data.CodeSize !== null) {
+                    contents.CodeSize = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectLong)(data.CodeSize);
+                }
+                if (data.DeadLetterConfig !== undefined && data.DeadLetterConfig !== null) {
+                    contents.DeadLetterConfig = deserializeAws_restJson1DeadLetterConfig(data.DeadLetterConfig, context);
+                }
+                if (data.Description !== undefined && data.Description !== null) {
+                    contents.Description = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Description);
+                }
+                if (data.Environment !== undefined && data.Environment !== null) {
+                    contents.Environment = deserializeAws_restJson1EnvironmentResponse(data.Environment, context);
+                }
+                if (data.EphemeralStorage !== undefined && data.EphemeralStorage !== null) {
+                    contents.EphemeralStorage = deserializeAws_restJson1EphemeralStorage(data.EphemeralStorage, context);
+                }
+                if (data.FileSystemConfigs !== undefined && data.FileSystemConfigs !== null) {
+                    contents.FileSystemConfigs = deserializeAws_restJson1FileSystemConfigList(data.FileSystemConfigs, context);
+                }
+                if (data.FunctionArn !== undefined && data.FunctionArn !== null) {
+                    contents.FunctionArn = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.FunctionArn);
+                }
+                if (data.FunctionName !== undefined && data.FunctionName !== null) {
+                    contents.FunctionName = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.FunctionName);
+                }
+                if (data.Handler !== undefined && data.Handler !== null) {
+                    contents.Handler = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Handler);
+                }
+                if (data.ImageConfigResponse !== undefined && data.ImageConfigResponse !== null) {
+                    contents.ImageConfigResponse = deserializeAws_restJson1ImageConfigResponse(data.ImageConfigResponse, context);
+                }
+                if (data.KMSKeyArn !== undefined && data.KMSKeyArn !== null) {
+                    contents.KMSKeyArn = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.KMSKeyArn);
+                }
+                if (data.LastModified !== undefined && data.LastModified !== null) {
+                    contents.LastModified = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.LastModified);
+                }
+                if (data.LastUpdateStatus !== undefined && data.LastUpdateStatus !== null) {
+                    contents.LastUpdateStatus = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.LastUpdateStatus);
+                }
+                if (data.LastUpdateStatusReason !== undefined && data.LastUpdateStatusReason !== null) {
+                    contents.LastUpdateStatusReason = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.LastUpdateStatusReason);
+                }
+                if (data.LastUpdateStatusReasonCode !== undefined && data.LastUpdateStatusReasonCode !== null) {
+                    contents.LastUpdateStatusReasonCode = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.LastUpdateStatusReasonCode);
+                }
+                if (data.Layers !== undefined && data.Layers !== null) {
+                    contents.Layers = deserializeAws_restJson1LayersReferenceList(data.Layers, context);
+                }
+                if (data.MasterArn !== undefined && data.MasterArn !== null) {
+                    contents.MasterArn = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.MasterArn);
+                }
+                if (data.MemorySize !== undefined && data.MemorySize !== null) {
+                    contents.MemorySize = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectInt32)(data.MemorySize);
+                }
+                if (data.PackageType !== undefined && data.PackageType !== null) {
+                    contents.PackageType = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.PackageType);
+                }
+                if (data.RevisionId !== undefined && data.RevisionId !== null) {
+                    contents.RevisionId = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.RevisionId);
+                }
+                if (data.Role !== undefined && data.Role !== null) {
+                    contents.Role = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Role);
+                }
+                if (data.Runtime !== undefined && data.Runtime !== null) {
+                    contents.Runtime = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Runtime);
+                }
+                if (data.SigningJobArn !== undefined && data.SigningJobArn !== null) {
+                    contents.SigningJobArn = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.SigningJobArn);
+                }
+                if (data.SigningProfileVersionArn !== undefined && data.SigningProfileVersionArn !== null) {
+                    contents.SigningProfileVersionArn = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.SigningProfileVersionArn);
+                }
+                if (data.State !== undefined && data.State !== null) {
+                    contents.State = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.State);
+                }
+                if (data.StateReason !== undefined && data.StateReason !== null) {
+                    contents.StateReason = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.StateReason);
+                }
+                if (data.StateReasonCode !== undefined && data.StateReasonCode !== null) {
+                    contents.StateReasonCode = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.StateReasonCode);
+                }
+                if (data.Timeout !== undefined && data.Timeout !== null) {
+                    contents.Timeout = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectInt32)(data.Timeout);
+                }
+                if (data.TracingConfig !== undefined && data.TracingConfig !== null) {
+                    contents.TracingConfig = deserializeAws_restJson1TracingConfigResponse(data.TracingConfig, context);
+                }
+                if (data.Version !== undefined && data.Version !== null) {
+                    contents.Version = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Version);
+                }
+                if (data.VpcConfig !== undefined && data.VpcConfig !== null) {
+                    contents.VpcConfig = deserializeAws_restJson1VpcConfigResponse(data.VpcConfig, context);
+                }
+                return [2, Promise.resolve(contents)];
+        }
+    });
+}); };
+var deserializeAws_restJson1PublishVersionCommandError = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var parsedOutput, _a, response, errorCode, _b, parsedBody, $metadata, statusCode;
+    var _c;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_d) {
+        switch (_d.label) {
+            case 0:
+                _a = [(0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, output)];
+                _c = {};
+                return [4, parseBody(output.body, context)];
+            case 1:
+                parsedOutput = tslib__WEBPACK_IMPORTED_MODULE_2__.__assign.apply(void 0, _a.concat([(_c.body = _d.sent(), _c)]));
+                errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+                _b = errorCode;
+                switch (_b) {
+                    case "CodeStorageExceededException": return [3, 2];
+                    case "com.amazonaws.lambda#CodeStorageExceededException": return [3, 2];
+                    case "InvalidParameterValueException": return [3, 4];
+                    case "com.amazonaws.lambda#InvalidParameterValueException": return [3, 4];
+                    case "PreconditionFailedException": return [3, 6];
+                    case "com.amazonaws.lambda#PreconditionFailedException": return [3, 6];
+                    case "ResourceConflictException": return [3, 8];
+                    case "com.amazonaws.lambda#ResourceConflictException": return [3, 8];
+                    case "ResourceNotFoundException": return [3, 10];
+                    case "com.amazonaws.lambda#ResourceNotFoundException": return [3, 10];
+                    case "ServiceException": return [3, 12];
+                    case "com.amazonaws.lambda#ServiceException": return [3, 12];
+                    case "TooManyRequestsException": return [3, 14];
+                    case "com.amazonaws.lambda#TooManyRequestsException": return [3, 14];
+                }
+                return [3, 16];
+            case 2: return [4, deserializeAws_restJson1CodeStorageExceededExceptionResponse(parsedOutput, context)];
+            case 3: throw _d.sent();
+            case 4: return [4, deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)];
+            case 5: throw _d.sent();
+            case 6: return [4, deserializeAws_restJson1PreconditionFailedExceptionResponse(parsedOutput, context)];
+            case 7: throw _d.sent();
+            case 8: return [4, deserializeAws_restJson1ResourceConflictExceptionResponse(parsedOutput, context)];
+            case 9: throw _d.sent();
+            case 10: return [4, deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)];
+            case 11: throw _d.sent();
+            case 12: return [4, deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)];
+            case 13: throw _d.sent();
+            case 14: return [4, deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)];
+            case 15: throw _d.sent();
+            case 16:
+                parsedBody = parsedOutput.body;
+                $metadata = deserializeMetadata(output);
+                statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+                response = new _models_LambdaServiceException__WEBPACK_IMPORTED_MODULE_3__.LambdaServiceException({
+                    name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+                    $fault: "client",
+                    $metadata: $metadata,
+                });
+                throw (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(response, parsedBody);
+        }
+    });
+}); };
+var deserializeAws_restJson1PutFunctionCodeSigningConfigCommand = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, _a, _b;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0:
+                if (output.statusCode !== 200 && output.statusCode >= 300) {
+                    return [2, deserializeAws_restJson1PutFunctionCodeSigningConfigCommandError(output, context)];
+                }
+                contents = {
+                    $metadata: deserializeMetadata(output),
+                    CodeSigningConfigArn: undefined,
+                    FunctionName: undefined,
+                };
+                _a = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectNonNull;
+                _b = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectObject;
+                return [4, parseBody(output.body, context)];
+            case 1:
+                data = _a.apply(void 0, [_b.apply(void 0, [_c.sent()]), "body"]);
+                if (data.CodeSigningConfigArn !== undefined && data.CodeSigningConfigArn !== null) {
+                    contents.CodeSigningConfigArn = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.CodeSigningConfigArn);
+                }
+                if (data.FunctionName !== undefined && data.FunctionName !== null) {
+                    contents.FunctionName = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.FunctionName);
+                }
+                return [2, Promise.resolve(contents)];
+        }
+    });
+}); };
+var deserializeAws_restJson1PutFunctionCodeSigningConfigCommandError = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var parsedOutput, _a, response, errorCode, _b, parsedBody, $metadata, statusCode;
+    var _c;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_d) {
+        switch (_d.label) {
+            case 0:
+                _a = [(0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, output)];
+                _c = {};
+                return [4, parseBody(output.body, context)];
+            case 1:
+                parsedOutput = tslib__WEBPACK_IMPORTED_MODULE_2__.__assign.apply(void 0, _a.concat([(_c.body = _d.sent(), _c)]));
+                errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+                _b = errorCode;
+                switch (_b) {
+                    case "CodeSigningConfigNotFoundException": return [3, 2];
+                    case "com.amazonaws.lambda#CodeSigningConfigNotFoundException": return [3, 2];
+                    case "InvalidParameterValueException": return [3, 4];
+                    case "com.amazonaws.lambda#InvalidParameterValueException": return [3, 4];
+                    case "ResourceConflictException": return [3, 6];
+                    case "com.amazonaws.lambda#ResourceConflictException": return [3, 6];
+                    case "ResourceNotFoundException": return [3, 8];
+                    case "com.amazonaws.lambda#ResourceNotFoundException": return [3, 8];
+                    case "ServiceException": return [3, 10];
+                    case "com.amazonaws.lambda#ServiceException": return [3, 10];
+                    case "TooManyRequestsException": return [3, 12];
+                    case "com.amazonaws.lambda#TooManyRequestsException": return [3, 12];
+                }
+                return [3, 14];
+            case 2: return [4, deserializeAws_restJson1CodeSigningConfigNotFoundExceptionResponse(parsedOutput, context)];
+            case 3: throw _d.sent();
+            case 4: return [4, deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)];
+            case 5: throw _d.sent();
+            case 6: return [4, deserializeAws_restJson1ResourceConflictExceptionResponse(parsedOutput, context)];
+            case 7: throw _d.sent();
+            case 8: return [4, deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)];
+            case 9: throw _d.sent();
+            case 10: return [4, deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)];
+            case 11: throw _d.sent();
+            case 12: return [4, deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)];
+            case 13: throw _d.sent();
+            case 14:
+                parsedBody = parsedOutput.body;
+                $metadata = deserializeMetadata(output);
+                statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+                response = new _models_LambdaServiceException__WEBPACK_IMPORTED_MODULE_3__.LambdaServiceException({
+                    name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+                    $fault: "client",
+                    $metadata: $metadata,
+                });
+                throw (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(response, parsedBody);
+        }
+    });
+}); };
+var deserializeAws_restJson1PutFunctionConcurrencyCommand = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, _a, _b;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0:
+                if (output.statusCode !== 200 && output.statusCode >= 300) {
+                    return [2, deserializeAws_restJson1PutFunctionConcurrencyCommandError(output, context)];
+                }
+                contents = {
+                    $metadata: deserializeMetadata(output),
+                    ReservedConcurrentExecutions: undefined,
+                };
+                _a = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectNonNull;
+                _b = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectObject;
+                return [4, parseBody(output.body, context)];
+            case 1:
+                data = _a.apply(void 0, [_b.apply(void 0, [_c.sent()]), "body"]);
+                if (data.ReservedConcurrentExecutions !== undefined && data.ReservedConcurrentExecutions !== null) {
+                    contents.ReservedConcurrentExecutions = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectInt32)(data.ReservedConcurrentExecutions);
+                }
+                return [2, Promise.resolve(contents)];
+        }
+    });
+}); };
+var deserializeAws_restJson1PutFunctionConcurrencyCommandError = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var parsedOutput, _a, response, errorCode, _b, parsedBody, $metadata, statusCode;
+    var _c;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_d) {
+        switch (_d.label) {
+            case 0:
+                _a = [(0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, output)];
+                _c = {};
+                return [4, parseBody(output.body, context)];
+            case 1:
+                parsedOutput = tslib__WEBPACK_IMPORTED_MODULE_2__.__assign.apply(void 0, _a.concat([(_c.body = _d.sent(), _c)]));
+                errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+                _b = errorCode;
+                switch (_b) {
+                    case "InvalidParameterValueException": return [3, 2];
+                    case "com.amazonaws.lambda#InvalidParameterValueException": return [3, 2];
+                    case "ResourceConflictException": return [3, 4];
+                    case "com.amazonaws.lambda#ResourceConflictException": return [3, 4];
+                    case "ResourceNotFoundException": return [3, 6];
+                    case "com.amazonaws.lambda#ResourceNotFoundException": return [3, 6];
+                    case "ServiceException": return [3, 8];
+                    case "com.amazonaws.lambda#ServiceException": return [3, 8];
+                    case "TooManyRequestsException": return [3, 10];
+                    case "com.amazonaws.lambda#TooManyRequestsException": return [3, 10];
+                }
+                return [3, 12];
+            case 2: return [4, deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)];
+            case 3: throw _d.sent();
+            case 4: return [4, deserializeAws_restJson1ResourceConflictExceptionResponse(parsedOutput, context)];
+            case 5: throw _d.sent();
+            case 6: return [4, deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)];
+            case 7: throw _d.sent();
+            case 8: return [4, deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)];
+            case 9: throw _d.sent();
+            case 10: return [4, deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)];
+            case 11: throw _d.sent();
+            case 12:
+                parsedBody = parsedOutput.body;
+                $metadata = deserializeMetadata(output);
+                statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+                response = new _models_LambdaServiceException__WEBPACK_IMPORTED_MODULE_3__.LambdaServiceException({
+                    name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+                    $fault: "client",
+                    $metadata: $metadata,
+                });
+                throw (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(response, parsedBody);
+        }
+    });
+}); };
+var deserializeAws_restJson1PutFunctionEventInvokeConfigCommand = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, _a, _b;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0:
+                if (output.statusCode !== 200 && output.statusCode >= 300) {
+                    return [2, deserializeAws_restJson1PutFunctionEventInvokeConfigCommandError(output, context)];
+                }
+                contents = {
+                    $metadata: deserializeMetadata(output),
+                    DestinationConfig: undefined,
+                    FunctionArn: undefined,
+                    LastModified: undefined,
+                    MaximumEventAgeInSeconds: undefined,
+                    MaximumRetryAttempts: undefined,
+                };
+                _a = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectNonNull;
+                _b = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectObject;
+                return [4, parseBody(output.body, context)];
+            case 1:
+                data = _a.apply(void 0, [_b.apply(void 0, [_c.sent()]), "body"]);
+                if (data.DestinationConfig !== undefined && data.DestinationConfig !== null) {
+                    contents.DestinationConfig = deserializeAws_restJson1DestinationConfig(data.DestinationConfig, context);
+                }
+                if (data.FunctionArn !== undefined && data.FunctionArn !== null) {
+                    contents.FunctionArn = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.FunctionArn);
+                }
+                if (data.LastModified !== undefined && data.LastModified !== null) {
+                    contents.LastModified = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectNonNull)((0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.parseEpochTimestamp)((0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectNumber)(data.LastModified)));
+                }
+                if (data.MaximumEventAgeInSeconds !== undefined && data.MaximumEventAgeInSeconds !== null) {
+                    contents.MaximumEventAgeInSeconds = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectInt32)(data.MaximumEventAgeInSeconds);
+                }
+                if (data.MaximumRetryAttempts !== undefined && data.MaximumRetryAttempts !== null) {
+                    contents.MaximumRetryAttempts = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectInt32)(data.MaximumRetryAttempts);
+                }
+                return [2, Promise.resolve(contents)];
+        }
+    });
+}); };
+var deserializeAws_restJson1PutFunctionEventInvokeConfigCommandError = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var parsedOutput, _a, response, errorCode, _b, parsedBody, $metadata, statusCode;
+    var _c;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_d) {
+        switch (_d.label) {
+            case 0:
+                _a = [(0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, output)];
+                _c = {};
+                return [4, parseBody(output.body, context)];
+            case 1:
+                parsedOutput = tslib__WEBPACK_IMPORTED_MODULE_2__.__assign.apply(void 0, _a.concat([(_c.body = _d.sent(), _c)]));
+                errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+                _b = errorCode;
+                switch (_b) {
+                    case "InvalidParameterValueException": return [3, 2];
+                    case "com.amazonaws.lambda#InvalidParameterValueException": return [3, 2];
+                    case "ResourceConflictException": return [3, 4];
+                    case "com.amazonaws.lambda#ResourceConflictException": return [3, 4];
+                    case "ResourceNotFoundException": return [3, 6];
+                    case "com.amazonaws.lambda#ResourceNotFoundException": return [3, 6];
+                    case "ServiceException": return [3, 8];
+                    case "com.amazonaws.lambda#ServiceException": return [3, 8];
+                    case "TooManyRequestsException": return [3, 10];
+                    case "com.amazonaws.lambda#TooManyRequestsException": return [3, 10];
+                }
+                return [3, 12];
+            case 2: return [4, deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)];
+            case 3: throw _d.sent();
+            case 4: return [4, deserializeAws_restJson1ResourceConflictExceptionResponse(parsedOutput, context)];
+            case 5: throw _d.sent();
+            case 6: return [4, deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)];
+            case 7: throw _d.sent();
+            case 8: return [4, deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)];
+            case 9: throw _d.sent();
+            case 10: return [4, deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)];
+            case 11: throw _d.sent();
+            case 12:
+                parsedBody = parsedOutput.body;
+                $metadata = deserializeMetadata(output);
+                statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+                response = new _models_LambdaServiceException__WEBPACK_IMPORTED_MODULE_3__.LambdaServiceException({
+                    name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+                    $fault: "client",
+                    $metadata: $metadata,
+                });
+                throw (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(response, parsedBody);
+        }
+    });
+}); };
+var deserializeAws_restJson1PutProvisionedConcurrencyConfigCommand = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, _a, _b;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0:
+                if (output.statusCode !== 202 && output.statusCode >= 300) {
+                    return [2, deserializeAws_restJson1PutProvisionedConcurrencyConfigCommandError(output, context)];
+                }
+                contents = {
+                    $metadata: deserializeMetadata(output),
+                    AllocatedProvisionedConcurrentExecutions: undefined,
+                    AvailableProvisionedConcurrentExecutions: undefined,
+                    LastModified: undefined,
+                    RequestedProvisionedConcurrentExecutions: undefined,
+                    Status: undefined,
+                    StatusReason: undefined,
+                };
+                _a = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectNonNull;
+                _b = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectObject;
+                return [4, parseBody(output.body, context)];
+            case 1:
+                data = _a.apply(void 0, [_b.apply(void 0, [_c.sent()]), "body"]);
+                if (data.AllocatedProvisionedConcurrentExecutions !== undefined &&
+                    data.AllocatedProvisionedConcurrentExecutions !== null) {
+                    contents.AllocatedProvisionedConcurrentExecutions = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectInt32)(data.AllocatedProvisionedConcurrentExecutions);
+                }
+                if (data.AvailableProvisionedConcurrentExecutions !== undefined &&
+                    data.AvailableProvisionedConcurrentExecutions !== null) {
+                    contents.AvailableProvisionedConcurrentExecutions = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectInt32)(data.AvailableProvisionedConcurrentExecutions);
+                }
+                if (data.LastModified !== undefined && data.LastModified !== null) {
+                    contents.LastModified = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.LastModified);
+                }
+                if (data.RequestedProvisionedConcurrentExecutions !== undefined &&
+                    data.RequestedProvisionedConcurrentExecutions !== null) {
+                    contents.RequestedProvisionedConcurrentExecutions = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectInt32)(data.RequestedProvisionedConcurrentExecutions);
+                }
+                if (data.Status !== undefined && data.Status !== null) {
+                    contents.Status = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Status);
+                }
+                if (data.StatusReason !== undefined && data.StatusReason !== null) {
+                    contents.StatusReason = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.StatusReason);
+                }
+                return [2, Promise.resolve(contents)];
+        }
+    });
+}); };
+var deserializeAws_restJson1PutProvisionedConcurrencyConfigCommandError = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var parsedOutput, _a, response, errorCode, _b, parsedBody, $metadata, statusCode;
+    var _c;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_d) {
+        switch (_d.label) {
+            case 0:
+                _a = [(0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, output)];
+                _c = {};
+                return [4, parseBody(output.body, context)];
+            case 1:
+                parsedOutput = tslib__WEBPACK_IMPORTED_MODULE_2__.__assign.apply(void 0, _a.concat([(_c.body = _d.sent(), _c)]));
+                errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+                _b = errorCode;
+                switch (_b) {
+                    case "InvalidParameterValueException": return [3, 2];
+                    case "com.amazonaws.lambda#InvalidParameterValueException": return [3, 2];
+                    case "ResourceConflictException": return [3, 4];
+                    case "com.amazonaws.lambda#ResourceConflictException": return [3, 4];
+                    case "ResourceNotFoundException": return [3, 6];
+                    case "com.amazonaws.lambda#ResourceNotFoundException": return [3, 6];
+                    case "ServiceException": return [3, 8];
+                    case "com.amazonaws.lambda#ServiceException": return [3, 8];
+                    case "TooManyRequestsException": return [3, 10];
+                    case "com.amazonaws.lambda#TooManyRequestsException": return [3, 10];
+                }
+                return [3, 12];
+            case 2: return [4, deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)];
+            case 3: throw _d.sent();
+            case 4: return [4, deserializeAws_restJson1ResourceConflictExceptionResponse(parsedOutput, context)];
+            case 5: throw _d.sent();
+            case 6: return [4, deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)];
+            case 7: throw _d.sent();
+            case 8: return [4, deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)];
+            case 9: throw _d.sent();
+            case 10: return [4, deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)];
+            case 11: throw _d.sent();
+            case 12:
+                parsedBody = parsedOutput.body;
+                $metadata = deserializeMetadata(output);
+                statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+                response = new _models_LambdaServiceException__WEBPACK_IMPORTED_MODULE_3__.LambdaServiceException({
+                    name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+                    $fault: "client",
+                    $metadata: $metadata,
+                });
+                throw (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(response, parsedBody);
+        }
+    });
+}); };
+var deserializeAws_restJson1RemoveLayerVersionPermissionCommand = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                if (output.statusCode !== 204 && output.statusCode >= 300) {
+                    return [2, deserializeAws_restJson1RemoveLayerVersionPermissionCommandError(output, context)];
+                }
+                contents = {
+                    $metadata: deserializeMetadata(output),
+                };
+                return [4, collectBody(output.body, context)];
+            case 1:
+                _a.sent();
+                return [2, Promise.resolve(contents)];
+        }
+    });
+}); };
+var deserializeAws_restJson1RemoveLayerVersionPermissionCommandError = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var parsedOutput, _a, response, errorCode, _b, parsedBody, $metadata, statusCode;
+    var _c;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_d) {
+        switch (_d.label) {
+            case 0:
+                _a = [(0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, output)];
+                _c = {};
+                return [4, parseBody(output.body, context)];
+            case 1:
+                parsedOutput = tslib__WEBPACK_IMPORTED_MODULE_2__.__assign.apply(void 0, _a.concat([(_c.body = _d.sent(), _c)]));
+                errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+                _b = errorCode;
+                switch (_b) {
+                    case "InvalidParameterValueException": return [3, 2];
+                    case "com.amazonaws.lambda#InvalidParameterValueException": return [3, 2];
+                    case "PreconditionFailedException": return [3, 4];
+                    case "com.amazonaws.lambda#PreconditionFailedException": return [3, 4];
+                    case "ResourceNotFoundException": return [3, 6];
+                    case "com.amazonaws.lambda#ResourceNotFoundException": return [3, 6];
+                    case "ServiceException": return [3, 8];
+                    case "com.amazonaws.lambda#ServiceException": return [3, 8];
+                    case "TooManyRequestsException": return [3, 10];
+                    case "com.amazonaws.lambda#TooManyRequestsException": return [3, 10];
+                }
+                return [3, 12];
+            case 2: return [4, deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)];
+            case 3: throw _d.sent();
+            case 4: return [4, deserializeAws_restJson1PreconditionFailedExceptionResponse(parsedOutput, context)];
+            case 5: throw _d.sent();
+            case 6: return [4, deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)];
+            case 7: throw _d.sent();
+            case 8: return [4, deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)];
+            case 9: throw _d.sent();
+            case 10: return [4, deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)];
+            case 11: throw _d.sent();
+            case 12:
+                parsedBody = parsedOutput.body;
+                $metadata = deserializeMetadata(output);
+                statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+                response = new _models_LambdaServiceException__WEBPACK_IMPORTED_MODULE_3__.LambdaServiceException({
+                    name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+                    $fault: "client",
+                    $metadata: $metadata,
+                });
+                throw (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(response, parsedBody);
+        }
+    });
+}); };
+var deserializeAws_restJson1RemovePermissionCommand = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                if (output.statusCode !== 204 && output.statusCode >= 300) {
+                    return [2, deserializeAws_restJson1RemovePermissionCommandError(output, context)];
+                }
+                contents = {
+                    $metadata: deserializeMetadata(output),
+                };
+                return [4, collectBody(output.body, context)];
+            case 1:
+                _a.sent();
+                return [2, Promise.resolve(contents)];
+        }
+    });
+}); };
+var deserializeAws_restJson1RemovePermissionCommandError = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var parsedOutput, _a, response, errorCode, _b, parsedBody, $metadata, statusCode;
+    var _c;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_d) {
+        switch (_d.label) {
+            case 0:
+                _a = [(0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, output)];
+                _c = {};
+                return [4, parseBody(output.body, context)];
+            case 1:
+                parsedOutput = tslib__WEBPACK_IMPORTED_MODULE_2__.__assign.apply(void 0, _a.concat([(_c.body = _d.sent(), _c)]));
+                errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+                _b = errorCode;
+                switch (_b) {
+                    case "InvalidParameterValueException": return [3, 2];
+                    case "com.amazonaws.lambda#InvalidParameterValueException": return [3, 2];
+                    case "PreconditionFailedException": return [3, 4];
+                    case "com.amazonaws.lambda#PreconditionFailedException": return [3, 4];
+                    case "ResourceNotFoundException": return [3, 6];
+                    case "com.amazonaws.lambda#ResourceNotFoundException": return [3, 6];
+                    case "ServiceException": return [3, 8];
+                    case "com.amazonaws.lambda#ServiceException": return [3, 8];
+                    case "TooManyRequestsException": return [3, 10];
+                    case "com.amazonaws.lambda#TooManyRequestsException": return [3, 10];
+                }
+                return [3, 12];
+            case 2: return [4, deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)];
+            case 3: throw _d.sent();
+            case 4: return [4, deserializeAws_restJson1PreconditionFailedExceptionResponse(parsedOutput, context)];
+            case 5: throw _d.sent();
+            case 6: return [4, deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)];
+            case 7: throw _d.sent();
+            case 8: return [4, deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)];
+            case 9: throw _d.sent();
+            case 10: return [4, deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)];
+            case 11: throw _d.sent();
+            case 12:
+                parsedBody = parsedOutput.body;
+                $metadata = deserializeMetadata(output);
+                statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+                response = new _models_LambdaServiceException__WEBPACK_IMPORTED_MODULE_3__.LambdaServiceException({
+                    name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+                    $fault: "client",
+                    $metadata: $metadata,
+                });
+                throw (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(response, parsedBody);
+        }
+    });
+}); };
+var deserializeAws_restJson1TagResourceCommand = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                if (output.statusCode !== 204 && output.statusCode >= 300) {
+                    return [2, deserializeAws_restJson1TagResourceCommandError(output, context)];
+                }
+                contents = {
+                    $metadata: deserializeMetadata(output),
+                };
+                return [4, collectBody(output.body, context)];
+            case 1:
+                _a.sent();
+                return [2, Promise.resolve(contents)];
+        }
+    });
+}); };
+var deserializeAws_restJson1TagResourceCommandError = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var parsedOutput, _a, response, errorCode, _b, parsedBody, $metadata, statusCode;
+    var _c;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_d) {
+        switch (_d.label) {
+            case 0:
+                _a = [(0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, output)];
+                _c = {};
+                return [4, parseBody(output.body, context)];
+            case 1:
+                parsedOutput = tslib__WEBPACK_IMPORTED_MODULE_2__.__assign.apply(void 0, _a.concat([(_c.body = _d.sent(), _c)]));
+                errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+                _b = errorCode;
+                switch (_b) {
+                    case "InvalidParameterValueException": return [3, 2];
+                    case "com.amazonaws.lambda#InvalidParameterValueException": return [3, 2];
+                    case "ResourceConflictException": return [3, 4];
+                    case "com.amazonaws.lambda#ResourceConflictException": return [3, 4];
+                    case "ResourceNotFoundException": return [3, 6];
+                    case "com.amazonaws.lambda#ResourceNotFoundException": return [3, 6];
+                    case "ServiceException": return [3, 8];
+                    case "com.amazonaws.lambda#ServiceException": return [3, 8];
+                    case "TooManyRequestsException": return [3, 10];
+                    case "com.amazonaws.lambda#TooManyRequestsException": return [3, 10];
+                }
+                return [3, 12];
+            case 2: return [4, deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)];
+            case 3: throw _d.sent();
+            case 4: return [4, deserializeAws_restJson1ResourceConflictExceptionResponse(parsedOutput, context)];
+            case 5: throw _d.sent();
+            case 6: return [4, deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)];
+            case 7: throw _d.sent();
+            case 8: return [4, deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)];
+            case 9: throw _d.sent();
+            case 10: return [4, deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)];
+            case 11: throw _d.sent();
+            case 12:
+                parsedBody = parsedOutput.body;
+                $metadata = deserializeMetadata(output);
+                statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+                response = new _models_LambdaServiceException__WEBPACK_IMPORTED_MODULE_3__.LambdaServiceException({
+                    name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+                    $fault: "client",
+                    $metadata: $metadata,
+                });
+                throw (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(response, parsedBody);
+        }
+    });
+}); };
+var deserializeAws_restJson1UntagResourceCommand = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                if (output.statusCode !== 204 && output.statusCode >= 300) {
+                    return [2, deserializeAws_restJson1UntagResourceCommandError(output, context)];
+                }
+                contents = {
+                    $metadata: deserializeMetadata(output),
+                };
+                return [4, collectBody(output.body, context)];
+            case 1:
+                _a.sent();
+                return [2, Promise.resolve(contents)];
+        }
+    });
+}); };
+var deserializeAws_restJson1UntagResourceCommandError = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var parsedOutput, _a, response, errorCode, _b, parsedBody, $metadata, statusCode;
+    var _c;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_d) {
+        switch (_d.label) {
+            case 0:
+                _a = [(0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, output)];
+                _c = {};
+                return [4, parseBody(output.body, context)];
+            case 1:
+                parsedOutput = tslib__WEBPACK_IMPORTED_MODULE_2__.__assign.apply(void 0, _a.concat([(_c.body = _d.sent(), _c)]));
+                errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+                _b = errorCode;
+                switch (_b) {
+                    case "InvalidParameterValueException": return [3, 2];
+                    case "com.amazonaws.lambda#InvalidParameterValueException": return [3, 2];
+                    case "ResourceConflictException": return [3, 4];
+                    case "com.amazonaws.lambda#ResourceConflictException": return [3, 4];
+                    case "ResourceNotFoundException": return [3, 6];
+                    case "com.amazonaws.lambda#ResourceNotFoundException": return [3, 6];
+                    case "ServiceException": return [3, 8];
+                    case "com.amazonaws.lambda#ServiceException": return [3, 8];
+                    case "TooManyRequestsException": return [3, 10];
+                    case "com.amazonaws.lambda#TooManyRequestsException": return [3, 10];
+                }
+                return [3, 12];
+            case 2: return [4, deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)];
+            case 3: throw _d.sent();
+            case 4: return [4, deserializeAws_restJson1ResourceConflictExceptionResponse(parsedOutput, context)];
+            case 5: throw _d.sent();
+            case 6: return [4, deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)];
+            case 7: throw _d.sent();
+            case 8: return [4, deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)];
+            case 9: throw _d.sent();
+            case 10: return [4, deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)];
+            case 11: throw _d.sent();
+            case 12:
+                parsedBody = parsedOutput.body;
+                $metadata = deserializeMetadata(output);
+                statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+                response = new _models_LambdaServiceException__WEBPACK_IMPORTED_MODULE_3__.LambdaServiceException({
+                    name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+                    $fault: "client",
+                    $metadata: $metadata,
+                });
+                throw (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(response, parsedBody);
+        }
+    });
+}); };
+var deserializeAws_restJson1UpdateAliasCommand = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, _a, _b;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0:
+                if (output.statusCode !== 200 && output.statusCode >= 300) {
+                    return [2, deserializeAws_restJson1UpdateAliasCommandError(output, context)];
+                }
+                contents = {
+                    $metadata: deserializeMetadata(output),
+                    AliasArn: undefined,
+                    Description: undefined,
+                    FunctionVersion: undefined,
+                    Name: undefined,
+                    RevisionId: undefined,
+                    RoutingConfig: undefined,
+                };
+                _a = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectNonNull;
+                _b = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectObject;
+                return [4, parseBody(output.body, context)];
+            case 1:
+                data = _a.apply(void 0, [_b.apply(void 0, [_c.sent()]), "body"]);
+                if (data.AliasArn !== undefined && data.AliasArn !== null) {
+                    contents.AliasArn = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.AliasArn);
+                }
+                if (data.Description !== undefined && data.Description !== null) {
+                    contents.Description = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Description);
+                }
+                if (data.FunctionVersion !== undefined && data.FunctionVersion !== null) {
+                    contents.FunctionVersion = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.FunctionVersion);
+                }
+                if (data.Name !== undefined && data.Name !== null) {
+                    contents.Name = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Name);
+                }
+                if (data.RevisionId !== undefined && data.RevisionId !== null) {
+                    contents.RevisionId = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.RevisionId);
+                }
+                if (data.RoutingConfig !== undefined && data.RoutingConfig !== null) {
+                    contents.RoutingConfig = deserializeAws_restJson1AliasRoutingConfiguration(data.RoutingConfig, context);
+                }
+                return [2, Promise.resolve(contents)];
+        }
+    });
+}); };
+var deserializeAws_restJson1UpdateAliasCommandError = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var parsedOutput, _a, response, errorCode, _b, parsedBody, $metadata, statusCode;
+    var _c;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_d) {
+        switch (_d.label) {
+            case 0:
+                _a = [(0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, output)];
+                _c = {};
+                return [4, parseBody(output.body, context)];
+            case 1:
+                parsedOutput = tslib__WEBPACK_IMPORTED_MODULE_2__.__assign.apply(void 0, _a.concat([(_c.body = _d.sent(), _c)]));
+                errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+                _b = errorCode;
+                switch (_b) {
+                    case "InvalidParameterValueException": return [3, 2];
+                    case "com.amazonaws.lambda#InvalidParameterValueException": return [3, 2];
+                    case "PreconditionFailedException": return [3, 4];
+                    case "com.amazonaws.lambda#PreconditionFailedException": return [3, 4];
+                    case "ResourceConflictException": return [3, 6];
+                    case "com.amazonaws.lambda#ResourceConflictException": return [3, 6];
+                    case "ResourceNotFoundException": return [3, 8];
+                    case "com.amazonaws.lambda#ResourceNotFoundException": return [3, 8];
+                    case "ServiceException": return [3, 10];
+                    case "com.amazonaws.lambda#ServiceException": return [3, 10];
+                    case "TooManyRequestsException": return [3, 12];
+                    case "com.amazonaws.lambda#TooManyRequestsException": return [3, 12];
+                }
+                return [3, 14];
+            case 2: return [4, deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)];
+            case 3: throw _d.sent();
+            case 4: return [4, deserializeAws_restJson1PreconditionFailedExceptionResponse(parsedOutput, context)];
+            case 5: throw _d.sent();
+            case 6: return [4, deserializeAws_restJson1ResourceConflictExceptionResponse(parsedOutput, context)];
+            case 7: throw _d.sent();
+            case 8: return [4, deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)];
+            case 9: throw _d.sent();
+            case 10: return [4, deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)];
+            case 11: throw _d.sent();
+            case 12: return [4, deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)];
+            case 13: throw _d.sent();
+            case 14:
+                parsedBody = parsedOutput.body;
+                $metadata = deserializeMetadata(output);
+                statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+                response = new _models_LambdaServiceException__WEBPACK_IMPORTED_MODULE_3__.LambdaServiceException({
+                    name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+                    $fault: "client",
+                    $metadata: $metadata,
+                });
+                throw (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(response, parsedBody);
+        }
+    });
+}); };
+var deserializeAws_restJson1UpdateCodeSigningConfigCommand = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, _a, _b;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0:
+                if (output.statusCode !== 200 && output.statusCode >= 300) {
+                    return [2, deserializeAws_restJson1UpdateCodeSigningConfigCommandError(output, context)];
+                }
+                contents = {
+                    $metadata: deserializeMetadata(output),
+                    CodeSigningConfig: undefined,
+                };
+                _a = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectNonNull;
+                _b = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectObject;
+                return [4, parseBody(output.body, context)];
+            case 1:
+                data = _a.apply(void 0, [_b.apply(void 0, [_c.sent()]), "body"]);
+                if (data.CodeSigningConfig !== undefined && data.CodeSigningConfig !== null) {
+                    contents.CodeSigningConfig = deserializeAws_restJson1CodeSigningConfig(data.CodeSigningConfig, context);
+                }
+                return [2, Promise.resolve(contents)];
+        }
+    });
+}); };
+var deserializeAws_restJson1UpdateCodeSigningConfigCommandError = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var parsedOutput, _a, response, errorCode, _b, parsedBody, $metadata, statusCode;
+    var _c;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_d) {
+        switch (_d.label) {
+            case 0:
+                _a = [(0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, output)];
+                _c = {};
+                return [4, parseBody(output.body, context)];
+            case 1:
+                parsedOutput = tslib__WEBPACK_IMPORTED_MODULE_2__.__assign.apply(void 0, _a.concat([(_c.body = _d.sent(), _c)]));
+                errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+                _b = errorCode;
+                switch (_b) {
+                    case "InvalidParameterValueException": return [3, 2];
+                    case "com.amazonaws.lambda#InvalidParameterValueException": return [3, 2];
+                    case "ResourceNotFoundException": return [3, 4];
+                    case "com.amazonaws.lambda#ResourceNotFoundException": return [3, 4];
+                    case "ServiceException": return [3, 6];
+                    case "com.amazonaws.lambda#ServiceException": return [3, 6];
+                }
+                return [3, 8];
+            case 2: return [4, deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)];
+            case 3: throw _d.sent();
+            case 4: return [4, deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)];
+            case 5: throw _d.sent();
+            case 6: return [4, deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)];
+            case 7: throw _d.sent();
+            case 8:
+                parsedBody = parsedOutput.body;
+                $metadata = deserializeMetadata(output);
+                statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+                response = new _models_LambdaServiceException__WEBPACK_IMPORTED_MODULE_3__.LambdaServiceException({
+                    name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+                    $fault: "client",
+                    $metadata: $metadata,
+                });
+                throw (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(response, parsedBody);
+        }
+    });
+}); };
+var deserializeAws_restJson1UpdateEventSourceMappingCommand = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, _a, _b;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0:
+                if (output.statusCode !== 202 && output.statusCode >= 300) {
+                    return [2, deserializeAws_restJson1UpdateEventSourceMappingCommandError(output, context)];
+                }
+                contents = {
+                    $metadata: deserializeMetadata(output),
+                    BatchSize: undefined,
+                    BisectBatchOnFunctionError: undefined,
+                    DestinationConfig: undefined,
+                    EventSourceArn: undefined,
+                    FilterCriteria: undefined,
+                    FunctionArn: undefined,
+                    FunctionResponseTypes: undefined,
+                    LastModified: undefined,
+                    LastProcessingResult: undefined,
+                    MaximumBatchingWindowInSeconds: undefined,
+                    MaximumRecordAgeInSeconds: undefined,
+                    MaximumRetryAttempts: undefined,
+                    ParallelizationFactor: undefined,
+                    Queues: undefined,
+                    SelfManagedEventSource: undefined,
+                    SourceAccessConfigurations: undefined,
+                    StartingPosition: undefined,
+                    StartingPositionTimestamp: undefined,
+                    State: undefined,
+                    StateTransitionReason: undefined,
+                    Topics: undefined,
+                    TumblingWindowInSeconds: undefined,
+                    UUID: undefined,
+                };
+                _a = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectNonNull;
+                _b = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectObject;
+                return [4, parseBody(output.body, context)];
+            case 1:
+                data = _a.apply(void 0, [_b.apply(void 0, [_c.sent()]), "body"]);
+                if (data.BatchSize !== undefined && data.BatchSize !== null) {
+                    contents.BatchSize = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectInt32)(data.BatchSize);
+                }
+                if (data.BisectBatchOnFunctionError !== undefined && data.BisectBatchOnFunctionError !== null) {
+                    contents.BisectBatchOnFunctionError = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectBoolean)(data.BisectBatchOnFunctionError);
+                }
+                if (data.DestinationConfig !== undefined && data.DestinationConfig !== null) {
+                    contents.DestinationConfig = deserializeAws_restJson1DestinationConfig(data.DestinationConfig, context);
+                }
+                if (data.EventSourceArn !== undefined && data.EventSourceArn !== null) {
+                    contents.EventSourceArn = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.EventSourceArn);
+                }
+                if (data.FilterCriteria !== undefined && data.FilterCriteria !== null) {
+                    contents.FilterCriteria = deserializeAws_restJson1FilterCriteria(data.FilterCriteria, context);
+                }
+                if (data.FunctionArn !== undefined && data.FunctionArn !== null) {
+                    contents.FunctionArn = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.FunctionArn);
+                }
+                if (data.FunctionResponseTypes !== undefined && data.FunctionResponseTypes !== null) {
+                    contents.FunctionResponseTypes = deserializeAws_restJson1FunctionResponseTypeList(data.FunctionResponseTypes, context);
+                }
+                if (data.LastModified !== undefined && data.LastModified !== null) {
+                    contents.LastModified = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectNonNull)((0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.parseEpochTimestamp)((0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectNumber)(data.LastModified)));
+                }
+                if (data.LastProcessingResult !== undefined && data.LastProcessingResult !== null) {
+                    contents.LastProcessingResult = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.LastProcessingResult);
+                }
+                if (data.MaximumBatchingWindowInSeconds !== undefined && data.MaximumBatchingWindowInSeconds !== null) {
+                    contents.MaximumBatchingWindowInSeconds = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectInt32)(data.MaximumBatchingWindowInSeconds);
+                }
+                if (data.MaximumRecordAgeInSeconds !== undefined && data.MaximumRecordAgeInSeconds !== null) {
+                    contents.MaximumRecordAgeInSeconds = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectInt32)(data.MaximumRecordAgeInSeconds);
+                }
+                if (data.MaximumRetryAttempts !== undefined && data.MaximumRetryAttempts !== null) {
+                    contents.MaximumRetryAttempts = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectInt32)(data.MaximumRetryAttempts);
+                }
+                if (data.ParallelizationFactor !== undefined && data.ParallelizationFactor !== null) {
+                    contents.ParallelizationFactor = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectInt32)(data.ParallelizationFactor);
+                }
+                if (data.Queues !== undefined && data.Queues !== null) {
+                    contents.Queues = deserializeAws_restJson1Queues(data.Queues, context);
+                }
+                if (data.SelfManagedEventSource !== undefined && data.SelfManagedEventSource !== null) {
+                    contents.SelfManagedEventSource = deserializeAws_restJson1SelfManagedEventSource(data.SelfManagedEventSource, context);
+                }
+                if (data.SourceAccessConfigurations !== undefined && data.SourceAccessConfigurations !== null) {
+                    contents.SourceAccessConfigurations = deserializeAws_restJson1SourceAccessConfigurations(data.SourceAccessConfigurations, context);
+                }
+                if (data.StartingPosition !== undefined && data.StartingPosition !== null) {
+                    contents.StartingPosition = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.StartingPosition);
+                }
+                if (data.StartingPositionTimestamp !== undefined && data.StartingPositionTimestamp !== null) {
+                    contents.StartingPositionTimestamp = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectNonNull)((0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.parseEpochTimestamp)((0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectNumber)(data.StartingPositionTimestamp)));
+                }
+                if (data.State !== undefined && data.State !== null) {
+                    contents.State = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.State);
+                }
+                if (data.StateTransitionReason !== undefined && data.StateTransitionReason !== null) {
+                    contents.StateTransitionReason = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.StateTransitionReason);
+                }
+                if (data.Topics !== undefined && data.Topics !== null) {
+                    contents.Topics = deserializeAws_restJson1Topics(data.Topics, context);
+                }
+                if (data.TumblingWindowInSeconds !== undefined && data.TumblingWindowInSeconds !== null) {
+                    contents.TumblingWindowInSeconds = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectInt32)(data.TumblingWindowInSeconds);
+                }
+                if (data.UUID !== undefined && data.UUID !== null) {
+                    contents.UUID = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.UUID);
+                }
+                return [2, Promise.resolve(contents)];
+        }
+    });
+}); };
+var deserializeAws_restJson1UpdateEventSourceMappingCommandError = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var parsedOutput, _a, response, errorCode, _b, parsedBody, $metadata, statusCode;
+    var _c;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_d) {
+        switch (_d.label) {
+            case 0:
+                _a = [(0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, output)];
+                _c = {};
+                return [4, parseBody(output.body, context)];
+            case 1:
+                parsedOutput = tslib__WEBPACK_IMPORTED_MODULE_2__.__assign.apply(void 0, _a.concat([(_c.body = _d.sent(), _c)]));
+                errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+                _b = errorCode;
+                switch (_b) {
+                    case "InvalidParameterValueException": return [3, 2];
+                    case "com.amazonaws.lambda#InvalidParameterValueException": return [3, 2];
+                    case "ResourceConflictException": return [3, 4];
+                    case "com.amazonaws.lambda#ResourceConflictException": return [3, 4];
+                    case "ResourceInUseException": return [3, 6];
+                    case "com.amazonaws.lambda#ResourceInUseException": return [3, 6];
+                    case "ResourceNotFoundException": return [3, 8];
+                    case "com.amazonaws.lambda#ResourceNotFoundException": return [3, 8];
+                    case "ServiceException": return [3, 10];
+                    case "com.amazonaws.lambda#ServiceException": return [3, 10];
+                    case "TooManyRequestsException": return [3, 12];
+                    case "com.amazonaws.lambda#TooManyRequestsException": return [3, 12];
+                }
+                return [3, 14];
+            case 2: return [4, deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)];
+            case 3: throw _d.sent();
+            case 4: return [4, deserializeAws_restJson1ResourceConflictExceptionResponse(parsedOutput, context)];
+            case 5: throw _d.sent();
+            case 6: return [4, deserializeAws_restJson1ResourceInUseExceptionResponse(parsedOutput, context)];
+            case 7: throw _d.sent();
+            case 8: return [4, deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)];
+            case 9: throw _d.sent();
+            case 10: return [4, deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)];
+            case 11: throw _d.sent();
+            case 12: return [4, deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)];
+            case 13: throw _d.sent();
+            case 14:
+                parsedBody = parsedOutput.body;
+                $metadata = deserializeMetadata(output);
+                statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+                response = new _models_LambdaServiceException__WEBPACK_IMPORTED_MODULE_3__.LambdaServiceException({
+                    name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+                    $fault: "client",
+                    $metadata: $metadata,
+                });
+                throw (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(response, parsedBody);
+        }
+    });
+}); };
+var deserializeAws_restJson1UpdateFunctionCodeCommand = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, _a, _b;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0:
+                if (output.statusCode !== 200 && output.statusCode >= 300) {
+                    return [2, deserializeAws_restJson1UpdateFunctionCodeCommandError(output, context)];
+                }
+                contents = {
+                    $metadata: deserializeMetadata(output),
+                    Architectures: undefined,
+                    CodeSha256: undefined,
+                    CodeSize: undefined,
+                    DeadLetterConfig: undefined,
+                    Description: undefined,
+                    Environment: undefined,
+                    EphemeralStorage: undefined,
+                    FileSystemConfigs: undefined,
+                    FunctionArn: undefined,
+                    FunctionName: undefined,
+                    Handler: undefined,
+                    ImageConfigResponse: undefined,
+                    KMSKeyArn: undefined,
+                    LastModified: undefined,
+                    LastUpdateStatus: undefined,
+                    LastUpdateStatusReason: undefined,
+                    LastUpdateStatusReasonCode: undefined,
+                    Layers: undefined,
+                    MasterArn: undefined,
+                    MemorySize: undefined,
+                    PackageType: undefined,
+                    RevisionId: undefined,
+                    Role: undefined,
+                    Runtime: undefined,
+                    SigningJobArn: undefined,
+                    SigningProfileVersionArn: undefined,
+                    State: undefined,
+                    StateReason: undefined,
+                    StateReasonCode: undefined,
+                    Timeout: undefined,
+                    TracingConfig: undefined,
+                    Version: undefined,
+                    VpcConfig: undefined,
+                };
+                _a = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectNonNull;
+                _b = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectObject;
+                return [4, parseBody(output.body, context)];
+            case 1:
+                data = _a.apply(void 0, [_b.apply(void 0, [_c.sent()]), "body"]);
+                if (data.Architectures !== undefined && data.Architectures !== null) {
+                    contents.Architectures = deserializeAws_restJson1ArchitecturesList(data.Architectures, context);
+                }
+                if (data.CodeSha256 !== undefined && data.CodeSha256 !== null) {
+                    contents.CodeSha256 = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.CodeSha256);
+                }
+                if (data.CodeSize !== undefined && data.CodeSize !== null) {
+                    contents.CodeSize = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectLong)(data.CodeSize);
+                }
+                if (data.DeadLetterConfig !== undefined && data.DeadLetterConfig !== null) {
+                    contents.DeadLetterConfig = deserializeAws_restJson1DeadLetterConfig(data.DeadLetterConfig, context);
+                }
+                if (data.Description !== undefined && data.Description !== null) {
+                    contents.Description = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Description);
+                }
+                if (data.Environment !== undefined && data.Environment !== null) {
+                    contents.Environment = deserializeAws_restJson1EnvironmentResponse(data.Environment, context);
+                }
+                if (data.EphemeralStorage !== undefined && data.EphemeralStorage !== null) {
+                    contents.EphemeralStorage = deserializeAws_restJson1EphemeralStorage(data.EphemeralStorage, context);
+                }
+                if (data.FileSystemConfigs !== undefined && data.FileSystemConfigs !== null) {
+                    contents.FileSystemConfigs = deserializeAws_restJson1FileSystemConfigList(data.FileSystemConfigs, context);
+                }
+                if (data.FunctionArn !== undefined && data.FunctionArn !== null) {
+                    contents.FunctionArn = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.FunctionArn);
+                }
+                if (data.FunctionName !== undefined && data.FunctionName !== null) {
+                    contents.FunctionName = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.FunctionName);
+                }
+                if (data.Handler !== undefined && data.Handler !== null) {
+                    contents.Handler = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Handler);
+                }
+                if (data.ImageConfigResponse !== undefined && data.ImageConfigResponse !== null) {
+                    contents.ImageConfigResponse = deserializeAws_restJson1ImageConfigResponse(data.ImageConfigResponse, context);
+                }
+                if (data.KMSKeyArn !== undefined && data.KMSKeyArn !== null) {
+                    contents.KMSKeyArn = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.KMSKeyArn);
+                }
+                if (data.LastModified !== undefined && data.LastModified !== null) {
+                    contents.LastModified = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.LastModified);
+                }
+                if (data.LastUpdateStatus !== undefined && data.LastUpdateStatus !== null) {
+                    contents.LastUpdateStatus = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.LastUpdateStatus);
+                }
+                if (data.LastUpdateStatusReason !== undefined && data.LastUpdateStatusReason !== null) {
+                    contents.LastUpdateStatusReason = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.LastUpdateStatusReason);
+                }
+                if (data.LastUpdateStatusReasonCode !== undefined && data.LastUpdateStatusReasonCode !== null) {
+                    contents.LastUpdateStatusReasonCode = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.LastUpdateStatusReasonCode);
+                }
+                if (data.Layers !== undefined && data.Layers !== null) {
+                    contents.Layers = deserializeAws_restJson1LayersReferenceList(data.Layers, context);
+                }
+                if (data.MasterArn !== undefined && data.MasterArn !== null) {
+                    contents.MasterArn = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.MasterArn);
+                }
+                if (data.MemorySize !== undefined && data.MemorySize !== null) {
+                    contents.MemorySize = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectInt32)(data.MemorySize);
+                }
+                if (data.PackageType !== undefined && data.PackageType !== null) {
+                    contents.PackageType = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.PackageType);
+                }
+                if (data.RevisionId !== undefined && data.RevisionId !== null) {
+                    contents.RevisionId = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.RevisionId);
+                }
+                if (data.Role !== undefined && data.Role !== null) {
+                    contents.Role = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Role);
+                }
+                if (data.Runtime !== undefined && data.Runtime !== null) {
+                    contents.Runtime = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Runtime);
+                }
+                if (data.SigningJobArn !== undefined && data.SigningJobArn !== null) {
+                    contents.SigningJobArn = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.SigningJobArn);
+                }
+                if (data.SigningProfileVersionArn !== undefined && data.SigningProfileVersionArn !== null) {
+                    contents.SigningProfileVersionArn = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.SigningProfileVersionArn);
+                }
+                if (data.State !== undefined && data.State !== null) {
+                    contents.State = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.State);
+                }
+                if (data.StateReason !== undefined && data.StateReason !== null) {
+                    contents.StateReason = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.StateReason);
+                }
+                if (data.StateReasonCode !== undefined && data.StateReasonCode !== null) {
+                    contents.StateReasonCode = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.StateReasonCode);
+                }
+                if (data.Timeout !== undefined && data.Timeout !== null) {
+                    contents.Timeout = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectInt32)(data.Timeout);
+                }
+                if (data.TracingConfig !== undefined && data.TracingConfig !== null) {
+                    contents.TracingConfig = deserializeAws_restJson1TracingConfigResponse(data.TracingConfig, context);
+                }
+                if (data.Version !== undefined && data.Version !== null) {
+                    contents.Version = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Version);
+                }
+                if (data.VpcConfig !== undefined && data.VpcConfig !== null) {
+                    contents.VpcConfig = deserializeAws_restJson1VpcConfigResponse(data.VpcConfig, context);
+                }
+                return [2, Promise.resolve(contents)];
+        }
+    });
+}); };
+var deserializeAws_restJson1UpdateFunctionCodeCommandError = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var parsedOutput, _a, response, errorCode, _b, parsedBody, $metadata, statusCode;
+    var _c;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_d) {
+        switch (_d.label) {
+            case 0:
+                _a = [(0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, output)];
+                _c = {};
+                return [4, parseBody(output.body, context)];
+            case 1:
+                parsedOutput = tslib__WEBPACK_IMPORTED_MODULE_2__.__assign.apply(void 0, _a.concat([(_c.body = _d.sent(), _c)]));
+                errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+                _b = errorCode;
+                switch (_b) {
+                    case "CodeSigningConfigNotFoundException": return [3, 2];
+                    case "com.amazonaws.lambda#CodeSigningConfigNotFoundException": return [3, 2];
+                    case "CodeStorageExceededException": return [3, 4];
+                    case "com.amazonaws.lambda#CodeStorageExceededException": return [3, 4];
+                    case "CodeVerificationFailedException": return [3, 6];
+                    case "com.amazonaws.lambda#CodeVerificationFailedException": return [3, 6];
+                    case "InvalidCodeSignatureException": return [3, 8];
+                    case "com.amazonaws.lambda#InvalidCodeSignatureException": return [3, 8];
+                    case "InvalidParameterValueException": return [3, 10];
+                    case "com.amazonaws.lambda#InvalidParameterValueException": return [3, 10];
+                    case "PreconditionFailedException": return [3, 12];
+                    case "com.amazonaws.lambda#PreconditionFailedException": return [3, 12];
+                    case "ResourceConflictException": return [3, 14];
+                    case "com.amazonaws.lambda#ResourceConflictException": return [3, 14];
+                    case "ResourceNotFoundException": return [3, 16];
+                    case "com.amazonaws.lambda#ResourceNotFoundException": return [3, 16];
+                    case "ServiceException": return [3, 18];
+                    case "com.amazonaws.lambda#ServiceException": return [3, 18];
+                    case "TooManyRequestsException": return [3, 20];
+                    case "com.amazonaws.lambda#TooManyRequestsException": return [3, 20];
+                }
+                return [3, 22];
+            case 2: return [4, deserializeAws_restJson1CodeSigningConfigNotFoundExceptionResponse(parsedOutput, context)];
+            case 3: throw _d.sent();
+            case 4: return [4, deserializeAws_restJson1CodeStorageExceededExceptionResponse(parsedOutput, context)];
+            case 5: throw _d.sent();
+            case 6: return [4, deserializeAws_restJson1CodeVerificationFailedExceptionResponse(parsedOutput, context)];
+            case 7: throw _d.sent();
+            case 8: return [4, deserializeAws_restJson1InvalidCodeSignatureExceptionResponse(parsedOutput, context)];
+            case 9: throw _d.sent();
+            case 10: return [4, deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)];
+            case 11: throw _d.sent();
+            case 12: return [4, deserializeAws_restJson1PreconditionFailedExceptionResponse(parsedOutput, context)];
+            case 13: throw _d.sent();
+            case 14: return [4, deserializeAws_restJson1ResourceConflictExceptionResponse(parsedOutput, context)];
+            case 15: throw _d.sent();
+            case 16: return [4, deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)];
+            case 17: throw _d.sent();
+            case 18: return [4, deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)];
+            case 19: throw _d.sent();
+            case 20: return [4, deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)];
+            case 21: throw _d.sent();
+            case 22:
+                parsedBody = parsedOutput.body;
+                $metadata = deserializeMetadata(output);
+                statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+                response = new _models_LambdaServiceException__WEBPACK_IMPORTED_MODULE_3__.LambdaServiceException({
+                    name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+                    $fault: "client",
+                    $metadata: $metadata,
+                });
+                throw (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(response, parsedBody);
+        }
+    });
+}); };
+var deserializeAws_restJson1UpdateFunctionConfigurationCommand = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, _a, _b;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0:
+                if (output.statusCode !== 200 && output.statusCode >= 300) {
+                    return [2, deserializeAws_restJson1UpdateFunctionConfigurationCommandError(output, context)];
+                }
+                contents = {
+                    $metadata: deserializeMetadata(output),
+                    Architectures: undefined,
+                    CodeSha256: undefined,
+                    CodeSize: undefined,
+                    DeadLetterConfig: undefined,
+                    Description: undefined,
+                    Environment: undefined,
+                    EphemeralStorage: undefined,
+                    FileSystemConfigs: undefined,
+                    FunctionArn: undefined,
+                    FunctionName: undefined,
+                    Handler: undefined,
+                    ImageConfigResponse: undefined,
+                    KMSKeyArn: undefined,
+                    LastModified: undefined,
+                    LastUpdateStatus: undefined,
+                    LastUpdateStatusReason: undefined,
+                    LastUpdateStatusReasonCode: undefined,
+                    Layers: undefined,
+                    MasterArn: undefined,
+                    MemorySize: undefined,
+                    PackageType: undefined,
+                    RevisionId: undefined,
+                    Role: undefined,
+                    Runtime: undefined,
+                    SigningJobArn: undefined,
+                    SigningProfileVersionArn: undefined,
+                    State: undefined,
+                    StateReason: undefined,
+                    StateReasonCode: undefined,
+                    Timeout: undefined,
+                    TracingConfig: undefined,
+                    Version: undefined,
+                    VpcConfig: undefined,
+                };
+                _a = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectNonNull;
+                _b = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectObject;
+                return [4, parseBody(output.body, context)];
+            case 1:
+                data = _a.apply(void 0, [_b.apply(void 0, [_c.sent()]), "body"]);
+                if (data.Architectures !== undefined && data.Architectures !== null) {
+                    contents.Architectures = deserializeAws_restJson1ArchitecturesList(data.Architectures, context);
+                }
+                if (data.CodeSha256 !== undefined && data.CodeSha256 !== null) {
+                    contents.CodeSha256 = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.CodeSha256);
+                }
+                if (data.CodeSize !== undefined && data.CodeSize !== null) {
+                    contents.CodeSize = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectLong)(data.CodeSize);
+                }
+                if (data.DeadLetterConfig !== undefined && data.DeadLetterConfig !== null) {
+                    contents.DeadLetterConfig = deserializeAws_restJson1DeadLetterConfig(data.DeadLetterConfig, context);
+                }
+                if (data.Description !== undefined && data.Description !== null) {
+                    contents.Description = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Description);
+                }
+                if (data.Environment !== undefined && data.Environment !== null) {
+                    contents.Environment = deserializeAws_restJson1EnvironmentResponse(data.Environment, context);
+                }
+                if (data.EphemeralStorage !== undefined && data.EphemeralStorage !== null) {
+                    contents.EphemeralStorage = deserializeAws_restJson1EphemeralStorage(data.EphemeralStorage, context);
+                }
+                if (data.FileSystemConfigs !== undefined && data.FileSystemConfigs !== null) {
+                    contents.FileSystemConfigs = deserializeAws_restJson1FileSystemConfigList(data.FileSystemConfigs, context);
+                }
+                if (data.FunctionArn !== undefined && data.FunctionArn !== null) {
+                    contents.FunctionArn = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.FunctionArn);
+                }
+                if (data.FunctionName !== undefined && data.FunctionName !== null) {
+                    contents.FunctionName = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.FunctionName);
+                }
+                if (data.Handler !== undefined && data.Handler !== null) {
+                    contents.Handler = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Handler);
+                }
+                if (data.ImageConfigResponse !== undefined && data.ImageConfigResponse !== null) {
+                    contents.ImageConfigResponse = deserializeAws_restJson1ImageConfigResponse(data.ImageConfigResponse, context);
+                }
+                if (data.KMSKeyArn !== undefined && data.KMSKeyArn !== null) {
+                    contents.KMSKeyArn = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.KMSKeyArn);
+                }
+                if (data.LastModified !== undefined && data.LastModified !== null) {
+                    contents.LastModified = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.LastModified);
+                }
+                if (data.LastUpdateStatus !== undefined && data.LastUpdateStatus !== null) {
+                    contents.LastUpdateStatus = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.LastUpdateStatus);
+                }
+                if (data.LastUpdateStatusReason !== undefined && data.LastUpdateStatusReason !== null) {
+                    contents.LastUpdateStatusReason = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.LastUpdateStatusReason);
+                }
+                if (data.LastUpdateStatusReasonCode !== undefined && data.LastUpdateStatusReasonCode !== null) {
+                    contents.LastUpdateStatusReasonCode = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.LastUpdateStatusReasonCode);
+                }
+                if (data.Layers !== undefined && data.Layers !== null) {
+                    contents.Layers = deserializeAws_restJson1LayersReferenceList(data.Layers, context);
+                }
+                if (data.MasterArn !== undefined && data.MasterArn !== null) {
+                    contents.MasterArn = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.MasterArn);
+                }
+                if (data.MemorySize !== undefined && data.MemorySize !== null) {
+                    contents.MemorySize = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectInt32)(data.MemorySize);
+                }
+                if (data.PackageType !== undefined && data.PackageType !== null) {
+                    contents.PackageType = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.PackageType);
+                }
+                if (data.RevisionId !== undefined && data.RevisionId !== null) {
+                    contents.RevisionId = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.RevisionId);
+                }
+                if (data.Role !== undefined && data.Role !== null) {
+                    contents.Role = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Role);
+                }
+                if (data.Runtime !== undefined && data.Runtime !== null) {
+                    contents.Runtime = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Runtime);
+                }
+                if (data.SigningJobArn !== undefined && data.SigningJobArn !== null) {
+                    contents.SigningJobArn = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.SigningJobArn);
+                }
+                if (data.SigningProfileVersionArn !== undefined && data.SigningProfileVersionArn !== null) {
+                    contents.SigningProfileVersionArn = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.SigningProfileVersionArn);
+                }
+                if (data.State !== undefined && data.State !== null) {
+                    contents.State = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.State);
+                }
+                if (data.StateReason !== undefined && data.StateReason !== null) {
+                    contents.StateReason = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.StateReason);
+                }
+                if (data.StateReasonCode !== undefined && data.StateReasonCode !== null) {
+                    contents.StateReasonCode = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.StateReasonCode);
+                }
+                if (data.Timeout !== undefined && data.Timeout !== null) {
+                    contents.Timeout = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectInt32)(data.Timeout);
+                }
+                if (data.TracingConfig !== undefined && data.TracingConfig !== null) {
+                    contents.TracingConfig = deserializeAws_restJson1TracingConfigResponse(data.TracingConfig, context);
+                }
+                if (data.Version !== undefined && data.Version !== null) {
+                    contents.Version = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Version);
+                }
+                if (data.VpcConfig !== undefined && data.VpcConfig !== null) {
+                    contents.VpcConfig = deserializeAws_restJson1VpcConfigResponse(data.VpcConfig, context);
+                }
+                return [2, Promise.resolve(contents)];
+        }
+    });
+}); };
+var deserializeAws_restJson1UpdateFunctionConfigurationCommandError = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var parsedOutput, _a, response, errorCode, _b, parsedBody, $metadata, statusCode;
+    var _c;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_d) {
+        switch (_d.label) {
+            case 0:
+                _a = [(0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, output)];
+                _c = {};
+                return [4, parseBody(output.body, context)];
+            case 1:
+                parsedOutput = tslib__WEBPACK_IMPORTED_MODULE_2__.__assign.apply(void 0, _a.concat([(_c.body = _d.sent(), _c)]));
+                errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+                _b = errorCode;
+                switch (_b) {
+                    case "CodeSigningConfigNotFoundException": return [3, 2];
+                    case "com.amazonaws.lambda#CodeSigningConfigNotFoundException": return [3, 2];
+                    case "CodeVerificationFailedException": return [3, 4];
+                    case "com.amazonaws.lambda#CodeVerificationFailedException": return [3, 4];
+                    case "InvalidCodeSignatureException": return [3, 6];
+                    case "com.amazonaws.lambda#InvalidCodeSignatureException": return [3, 6];
+                    case "InvalidParameterValueException": return [3, 8];
+                    case "com.amazonaws.lambda#InvalidParameterValueException": return [3, 8];
+                    case "PreconditionFailedException": return [3, 10];
+                    case "com.amazonaws.lambda#PreconditionFailedException": return [3, 10];
+                    case "ResourceConflictException": return [3, 12];
+                    case "com.amazonaws.lambda#ResourceConflictException": return [3, 12];
+                    case "ResourceNotFoundException": return [3, 14];
+                    case "com.amazonaws.lambda#ResourceNotFoundException": return [3, 14];
+                    case "ServiceException": return [3, 16];
+                    case "com.amazonaws.lambda#ServiceException": return [3, 16];
+                    case "TooManyRequestsException": return [3, 18];
+                    case "com.amazonaws.lambda#TooManyRequestsException": return [3, 18];
+                }
+                return [3, 20];
+            case 2: return [4, deserializeAws_restJson1CodeSigningConfigNotFoundExceptionResponse(parsedOutput, context)];
+            case 3: throw _d.sent();
+            case 4: return [4, deserializeAws_restJson1CodeVerificationFailedExceptionResponse(parsedOutput, context)];
+            case 5: throw _d.sent();
+            case 6: return [4, deserializeAws_restJson1InvalidCodeSignatureExceptionResponse(parsedOutput, context)];
+            case 7: throw _d.sent();
+            case 8: return [4, deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)];
+            case 9: throw _d.sent();
+            case 10: return [4, deserializeAws_restJson1PreconditionFailedExceptionResponse(parsedOutput, context)];
+            case 11: throw _d.sent();
+            case 12: return [4, deserializeAws_restJson1ResourceConflictExceptionResponse(parsedOutput, context)];
+            case 13: throw _d.sent();
+            case 14: return [4, deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)];
+            case 15: throw _d.sent();
+            case 16: return [4, deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)];
+            case 17: throw _d.sent();
+            case 18: return [4, deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)];
+            case 19: throw _d.sent();
+            case 20:
+                parsedBody = parsedOutput.body;
+                $metadata = deserializeMetadata(output);
+                statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+                response = new _models_LambdaServiceException__WEBPACK_IMPORTED_MODULE_3__.LambdaServiceException({
+                    name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+                    $fault: "client",
+                    $metadata: $metadata,
+                });
+                throw (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(response, parsedBody);
+        }
+    });
+}); };
+var deserializeAws_restJson1UpdateFunctionEventInvokeConfigCommand = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, _a, _b;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0:
+                if (output.statusCode !== 200 && output.statusCode >= 300) {
+                    return [2, deserializeAws_restJson1UpdateFunctionEventInvokeConfigCommandError(output, context)];
+                }
+                contents = {
+                    $metadata: deserializeMetadata(output),
+                    DestinationConfig: undefined,
+                    FunctionArn: undefined,
+                    LastModified: undefined,
+                    MaximumEventAgeInSeconds: undefined,
+                    MaximumRetryAttempts: undefined,
+                };
+                _a = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectNonNull;
+                _b = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectObject;
+                return [4, parseBody(output.body, context)];
+            case 1:
+                data = _a.apply(void 0, [_b.apply(void 0, [_c.sent()]), "body"]);
+                if (data.DestinationConfig !== undefined && data.DestinationConfig !== null) {
+                    contents.DestinationConfig = deserializeAws_restJson1DestinationConfig(data.DestinationConfig, context);
+                }
+                if (data.FunctionArn !== undefined && data.FunctionArn !== null) {
+                    contents.FunctionArn = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.FunctionArn);
+                }
+                if (data.LastModified !== undefined && data.LastModified !== null) {
+                    contents.LastModified = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectNonNull)((0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.parseEpochTimestamp)((0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectNumber)(data.LastModified)));
+                }
+                if (data.MaximumEventAgeInSeconds !== undefined && data.MaximumEventAgeInSeconds !== null) {
+                    contents.MaximumEventAgeInSeconds = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectInt32)(data.MaximumEventAgeInSeconds);
+                }
+                if (data.MaximumRetryAttempts !== undefined && data.MaximumRetryAttempts !== null) {
+                    contents.MaximumRetryAttempts = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectInt32)(data.MaximumRetryAttempts);
+                }
+                return [2, Promise.resolve(contents)];
+        }
+    });
+}); };
+var deserializeAws_restJson1UpdateFunctionEventInvokeConfigCommandError = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var parsedOutput, _a, response, errorCode, _b, parsedBody, $metadata, statusCode;
+    var _c;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_d) {
+        switch (_d.label) {
+            case 0:
+                _a = [(0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, output)];
+                _c = {};
+                return [4, parseBody(output.body, context)];
+            case 1:
+                parsedOutput = tslib__WEBPACK_IMPORTED_MODULE_2__.__assign.apply(void 0, _a.concat([(_c.body = _d.sent(), _c)]));
+                errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+                _b = errorCode;
+                switch (_b) {
+                    case "InvalidParameterValueException": return [3, 2];
+                    case "com.amazonaws.lambda#InvalidParameterValueException": return [3, 2];
+                    case "ResourceConflictException": return [3, 4];
+                    case "com.amazonaws.lambda#ResourceConflictException": return [3, 4];
+                    case "ResourceNotFoundException": return [3, 6];
+                    case "com.amazonaws.lambda#ResourceNotFoundException": return [3, 6];
+                    case "ServiceException": return [3, 8];
+                    case "com.amazonaws.lambda#ServiceException": return [3, 8];
+                    case "TooManyRequestsException": return [3, 10];
+                    case "com.amazonaws.lambda#TooManyRequestsException": return [3, 10];
+                }
+                return [3, 12];
+            case 2: return [4, deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)];
+            case 3: throw _d.sent();
+            case 4: return [4, deserializeAws_restJson1ResourceConflictExceptionResponse(parsedOutput, context)];
+            case 5: throw _d.sent();
+            case 6: return [4, deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)];
+            case 7: throw _d.sent();
+            case 8: return [4, deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)];
+            case 9: throw _d.sent();
+            case 10: return [4, deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)];
+            case 11: throw _d.sent();
+            case 12:
+                parsedBody = parsedOutput.body;
+                $metadata = deserializeMetadata(output);
+                statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+                response = new _models_LambdaServiceException__WEBPACK_IMPORTED_MODULE_3__.LambdaServiceException({
+                    name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+                    $fault: "client",
+                    $metadata: $metadata,
+                });
+                throw (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(response, parsedBody);
+        }
+    });
+}); };
+var deserializeAws_restJson1UpdateFunctionUrlConfigCommand = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, _a, _b;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0:
+                if (output.statusCode !== 200 && output.statusCode >= 300) {
+                    return [2, deserializeAws_restJson1UpdateFunctionUrlConfigCommandError(output, context)];
+                }
+                contents = {
+                    $metadata: deserializeMetadata(output),
+                    AuthType: undefined,
+                    Cors: undefined,
+                    CreationTime: undefined,
+                    FunctionArn: undefined,
+                    FunctionUrl: undefined,
+                    LastModifiedTime: undefined,
+                };
+                _a = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectNonNull;
+                _b = _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectObject;
+                return [4, parseBody(output.body, context)];
+            case 1:
+                data = _a.apply(void 0, [_b.apply(void 0, [_c.sent()]), "body"]);
+                if (data.AuthType !== undefined && data.AuthType !== null) {
+                    contents.AuthType = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.AuthType);
+                }
+                if (data.Cors !== undefined && data.Cors !== null) {
+                    contents.Cors = deserializeAws_restJson1Cors(data.Cors, context);
+                }
+                if (data.CreationTime !== undefined && data.CreationTime !== null) {
+                    contents.CreationTime = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.CreationTime);
+                }
+                if (data.FunctionArn !== undefined && data.FunctionArn !== null) {
+                    contents.FunctionArn = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.FunctionArn);
+                }
+                if (data.FunctionUrl !== undefined && data.FunctionUrl !== null) {
+                    contents.FunctionUrl = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.FunctionUrl);
+                }
+                if (data.LastModifiedTime !== undefined && data.LastModifiedTime !== null) {
+                    contents.LastModifiedTime = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.LastModifiedTime);
+                }
+                return [2, Promise.resolve(contents)];
+        }
+    });
+}); };
+var deserializeAws_restJson1UpdateFunctionUrlConfigCommandError = function (output, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var parsedOutput, _a, response, errorCode, _b, parsedBody, $metadata, statusCode;
+    var _c;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_d) {
+        switch (_d.label) {
+            case 0:
+                _a = [(0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, output)];
+                _c = {};
+                return [4, parseBody(output.body, context)];
+            case 1:
+                parsedOutput = tslib__WEBPACK_IMPORTED_MODULE_2__.__assign.apply(void 0, _a.concat([(_c.body = _d.sent(), _c)]));
+                errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+                _b = errorCode;
+                switch (_b) {
+                    case "InvalidParameterValueException": return [3, 2];
+                    case "com.amazonaws.lambda#InvalidParameterValueException": return [3, 2];
+                    case "ResourceConflictException": return [3, 4];
+                    case "com.amazonaws.lambda#ResourceConflictException": return [3, 4];
+                    case "ResourceNotFoundException": return [3, 6];
+                    case "com.amazonaws.lambda#ResourceNotFoundException": return [3, 6];
+                    case "ServiceException": return [3, 8];
+                    case "com.amazonaws.lambda#ServiceException": return [3, 8];
+                    case "TooManyRequestsException": return [3, 10];
+                    case "com.amazonaws.lambda#TooManyRequestsException": return [3, 10];
+                }
+                return [3, 12];
+            case 2: return [4, deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)];
+            case 3: throw _d.sent();
+            case 4: return [4, deserializeAws_restJson1ResourceConflictExceptionResponse(parsedOutput, context)];
+            case 5: throw _d.sent();
+            case 6: return [4, deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)];
+            case 7: throw _d.sent();
+            case 8: return [4, deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)];
+            case 9: throw _d.sent();
+            case 10: return [4, deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)];
+            case 11: throw _d.sent();
+            case 12:
+                parsedBody = parsedOutput.body;
+                $metadata = deserializeMetadata(output);
+                statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+                response = new _models_LambdaServiceException__WEBPACK_IMPORTED_MODULE_3__.LambdaServiceException({
+                    name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+                    $fault: "client",
+                    $metadata: $metadata,
+                });
+                throw (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(response, parsedBody);
+        }
+    });
+}); };
+var deserializeAws_restJson1CodeSigningConfigNotFoundExceptionResponse = function (parsedOutput, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, exception;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_a) {
+        contents = {};
+        data = parsedOutput.body;
+        if (data.Message !== undefined && data.Message !== null) {
+            contents.Message = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Message);
+        }
+        if (data.Type !== undefined && data.Type !== null) {
+            contents.Type = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Type);
+        }
+        exception = new _models_models_0__WEBPACK_IMPORTED_MODULE_4__.CodeSigningConfigNotFoundException((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({ $metadata: deserializeMetadata(parsedOutput) }, contents));
+        return [2, (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(exception, parsedOutput.body)];
+    });
+}); };
+var deserializeAws_restJson1CodeStorageExceededExceptionResponse = function (parsedOutput, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, exception;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_a) {
+        contents = {};
+        data = parsedOutput.body;
+        if (data.Type !== undefined && data.Type !== null) {
+            contents.Type = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Type);
+        }
+        if (data.message !== undefined && data.message !== null) {
+            contents.message = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.message);
+        }
+        exception = new _models_models_0__WEBPACK_IMPORTED_MODULE_4__.CodeStorageExceededException((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({ $metadata: deserializeMetadata(parsedOutput) }, contents));
+        return [2, (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(exception, parsedOutput.body)];
+    });
+}); };
+var deserializeAws_restJson1CodeVerificationFailedExceptionResponse = function (parsedOutput, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, exception;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_a) {
+        contents = {};
+        data = parsedOutput.body;
+        if (data.Message !== undefined && data.Message !== null) {
+            contents.Message = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Message);
+        }
+        if (data.Type !== undefined && data.Type !== null) {
+            contents.Type = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Type);
+        }
+        exception = new _models_models_0__WEBPACK_IMPORTED_MODULE_4__.CodeVerificationFailedException((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({ $metadata: deserializeMetadata(parsedOutput) }, contents));
+        return [2, (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(exception, parsedOutput.body)];
+    });
+}); };
+var deserializeAws_restJson1EC2AccessDeniedExceptionResponse = function (parsedOutput, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, exception;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_a) {
+        contents = {};
+        data = parsedOutput.body;
+        if (data.Message !== undefined && data.Message !== null) {
+            contents.Message = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Message);
+        }
+        if (data.Type !== undefined && data.Type !== null) {
+            contents.Type = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Type);
+        }
+        exception = new _models_models_0__WEBPACK_IMPORTED_MODULE_4__.EC2AccessDeniedException((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({ $metadata: deserializeMetadata(parsedOutput) }, contents));
+        return [2, (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(exception, parsedOutput.body)];
+    });
+}); };
+var deserializeAws_restJson1EC2ThrottledExceptionResponse = function (parsedOutput, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, exception;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_a) {
+        contents = {};
+        data = parsedOutput.body;
+        if (data.Message !== undefined && data.Message !== null) {
+            contents.Message = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Message);
+        }
+        if (data.Type !== undefined && data.Type !== null) {
+            contents.Type = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Type);
+        }
+        exception = new _models_models_0__WEBPACK_IMPORTED_MODULE_4__.EC2ThrottledException((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({ $metadata: deserializeMetadata(parsedOutput) }, contents));
+        return [2, (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(exception, parsedOutput.body)];
+    });
+}); };
+var deserializeAws_restJson1EC2UnexpectedExceptionResponse = function (parsedOutput, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, exception;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_a) {
+        contents = {};
+        data = parsedOutput.body;
+        if (data.EC2ErrorCode !== undefined && data.EC2ErrorCode !== null) {
+            contents.EC2ErrorCode = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.EC2ErrorCode);
+        }
+        if (data.Message !== undefined && data.Message !== null) {
+            contents.Message = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Message);
+        }
+        if (data.Type !== undefined && data.Type !== null) {
+            contents.Type = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Type);
+        }
+        exception = new _models_models_0__WEBPACK_IMPORTED_MODULE_4__.EC2UnexpectedException((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({ $metadata: deserializeMetadata(parsedOutput) }, contents));
+        return [2, (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(exception, parsedOutput.body)];
+    });
+}); };
+var deserializeAws_restJson1EFSIOExceptionResponse = function (parsedOutput, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, exception;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_a) {
+        contents = {};
+        data = parsedOutput.body;
+        if (data.Message !== undefined && data.Message !== null) {
+            contents.Message = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Message);
+        }
+        if (data.Type !== undefined && data.Type !== null) {
+            contents.Type = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Type);
+        }
+        exception = new _models_models_0__WEBPACK_IMPORTED_MODULE_4__.EFSIOException((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({ $metadata: deserializeMetadata(parsedOutput) }, contents));
+        return [2, (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(exception, parsedOutput.body)];
+    });
+}); };
+var deserializeAws_restJson1EFSMountConnectivityExceptionResponse = function (parsedOutput, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, exception;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_a) {
+        contents = {};
+        data = parsedOutput.body;
+        if (data.Message !== undefined && data.Message !== null) {
+            contents.Message = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Message);
+        }
+        if (data.Type !== undefined && data.Type !== null) {
+            contents.Type = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Type);
+        }
+        exception = new _models_models_0__WEBPACK_IMPORTED_MODULE_4__.EFSMountConnectivityException((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({ $metadata: deserializeMetadata(parsedOutput) }, contents));
+        return [2, (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(exception, parsedOutput.body)];
+    });
+}); };
+var deserializeAws_restJson1EFSMountFailureExceptionResponse = function (parsedOutput, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, exception;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_a) {
+        contents = {};
+        data = parsedOutput.body;
+        if (data.Message !== undefined && data.Message !== null) {
+            contents.Message = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Message);
+        }
+        if (data.Type !== undefined && data.Type !== null) {
+            contents.Type = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Type);
+        }
+        exception = new _models_models_0__WEBPACK_IMPORTED_MODULE_4__.EFSMountFailureException((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({ $metadata: deserializeMetadata(parsedOutput) }, contents));
+        return [2, (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(exception, parsedOutput.body)];
+    });
+}); };
+var deserializeAws_restJson1EFSMountTimeoutExceptionResponse = function (parsedOutput, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, exception;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_a) {
+        contents = {};
+        data = parsedOutput.body;
+        if (data.Message !== undefined && data.Message !== null) {
+            contents.Message = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Message);
+        }
+        if (data.Type !== undefined && data.Type !== null) {
+            contents.Type = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Type);
+        }
+        exception = new _models_models_0__WEBPACK_IMPORTED_MODULE_4__.EFSMountTimeoutException((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({ $metadata: deserializeMetadata(parsedOutput) }, contents));
+        return [2, (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(exception, parsedOutput.body)];
+    });
+}); };
+var deserializeAws_restJson1ENILimitReachedExceptionResponse = function (parsedOutput, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, exception;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_a) {
+        contents = {};
+        data = parsedOutput.body;
+        if (data.Message !== undefined && data.Message !== null) {
+            contents.Message = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Message);
+        }
+        if (data.Type !== undefined && data.Type !== null) {
+            contents.Type = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Type);
+        }
+        exception = new _models_models_0__WEBPACK_IMPORTED_MODULE_4__.ENILimitReachedException((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({ $metadata: deserializeMetadata(parsedOutput) }, contents));
+        return [2, (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(exception, parsedOutput.body)];
+    });
+}); };
+var deserializeAws_restJson1InvalidCodeSignatureExceptionResponse = function (parsedOutput, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, exception;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_a) {
+        contents = {};
+        data = parsedOutput.body;
+        if (data.Message !== undefined && data.Message !== null) {
+            contents.Message = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Message);
+        }
+        if (data.Type !== undefined && data.Type !== null) {
+            contents.Type = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Type);
+        }
+        exception = new _models_models_0__WEBPACK_IMPORTED_MODULE_4__.InvalidCodeSignatureException((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({ $metadata: deserializeMetadata(parsedOutput) }, contents));
+        return [2, (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(exception, parsedOutput.body)];
+    });
+}); };
+var deserializeAws_restJson1InvalidParameterValueExceptionResponse = function (parsedOutput, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, exception;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_a) {
+        contents = {};
+        data = parsedOutput.body;
+        if (data.Type !== undefined && data.Type !== null) {
+            contents.Type = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Type);
+        }
+        if (data.message !== undefined && data.message !== null) {
+            contents.message = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.message);
+        }
+        exception = new _models_models_0__WEBPACK_IMPORTED_MODULE_4__.InvalidParameterValueException((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({ $metadata: deserializeMetadata(parsedOutput) }, contents));
+        return [2, (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(exception, parsedOutput.body)];
+    });
+}); };
+var deserializeAws_restJson1InvalidRequestContentExceptionResponse = function (parsedOutput, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, exception;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_a) {
+        contents = {};
+        data = parsedOutput.body;
+        if (data.Type !== undefined && data.Type !== null) {
+            contents.Type = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Type);
+        }
+        if (data.message !== undefined && data.message !== null) {
+            contents.message = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.message);
+        }
+        exception = new _models_models_0__WEBPACK_IMPORTED_MODULE_4__.InvalidRequestContentException((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({ $metadata: deserializeMetadata(parsedOutput) }, contents));
+        return [2, (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(exception, parsedOutput.body)];
+    });
+}); };
+var deserializeAws_restJson1InvalidRuntimeExceptionResponse = function (parsedOutput, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, exception;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_a) {
+        contents = {};
+        data = parsedOutput.body;
+        if (data.Message !== undefined && data.Message !== null) {
+            contents.Message = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Message);
+        }
+        if (data.Type !== undefined && data.Type !== null) {
+            contents.Type = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Type);
+        }
+        exception = new _models_models_0__WEBPACK_IMPORTED_MODULE_4__.InvalidRuntimeException((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({ $metadata: deserializeMetadata(parsedOutput) }, contents));
+        return [2, (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(exception, parsedOutput.body)];
+    });
+}); };
+var deserializeAws_restJson1InvalidSecurityGroupIDExceptionResponse = function (parsedOutput, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, exception;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_a) {
+        contents = {};
+        data = parsedOutput.body;
+        if (data.Message !== undefined && data.Message !== null) {
+            contents.Message = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Message);
+        }
+        if (data.Type !== undefined && data.Type !== null) {
+            contents.Type = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Type);
+        }
+        exception = new _models_models_0__WEBPACK_IMPORTED_MODULE_4__.InvalidSecurityGroupIDException((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({ $metadata: deserializeMetadata(parsedOutput) }, contents));
+        return [2, (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(exception, parsedOutput.body)];
+    });
+}); };
+var deserializeAws_restJson1InvalidSubnetIDExceptionResponse = function (parsedOutput, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, exception;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_a) {
+        contents = {};
+        data = parsedOutput.body;
+        if (data.Message !== undefined && data.Message !== null) {
+            contents.Message = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Message);
+        }
+        if (data.Type !== undefined && data.Type !== null) {
+            contents.Type = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Type);
+        }
+        exception = new _models_models_0__WEBPACK_IMPORTED_MODULE_4__.InvalidSubnetIDException((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({ $metadata: deserializeMetadata(parsedOutput) }, contents));
+        return [2, (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(exception, parsedOutput.body)];
+    });
+}); };
+var deserializeAws_restJson1InvalidZipFileExceptionResponse = function (parsedOutput, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, exception;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_a) {
+        contents = {};
+        data = parsedOutput.body;
+        if (data.Message !== undefined && data.Message !== null) {
+            contents.Message = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Message);
+        }
+        if (data.Type !== undefined && data.Type !== null) {
+            contents.Type = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Type);
+        }
+        exception = new _models_models_0__WEBPACK_IMPORTED_MODULE_4__.InvalidZipFileException((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({ $metadata: deserializeMetadata(parsedOutput) }, contents));
+        return [2, (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(exception, parsedOutput.body)];
+    });
+}); };
+var deserializeAws_restJson1KMSAccessDeniedExceptionResponse = function (parsedOutput, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, exception;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_a) {
+        contents = {};
+        data = parsedOutput.body;
+        if (data.Message !== undefined && data.Message !== null) {
+            contents.Message = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Message);
+        }
+        if (data.Type !== undefined && data.Type !== null) {
+            contents.Type = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Type);
+        }
+        exception = new _models_models_0__WEBPACK_IMPORTED_MODULE_4__.KMSAccessDeniedException((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({ $metadata: deserializeMetadata(parsedOutput) }, contents));
+        return [2, (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(exception, parsedOutput.body)];
+    });
+}); };
+var deserializeAws_restJson1KMSDisabledExceptionResponse = function (parsedOutput, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, exception;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_a) {
+        contents = {};
+        data = parsedOutput.body;
+        if (data.Message !== undefined && data.Message !== null) {
+            contents.Message = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Message);
+        }
+        if (data.Type !== undefined && data.Type !== null) {
+            contents.Type = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Type);
+        }
+        exception = new _models_models_0__WEBPACK_IMPORTED_MODULE_4__.KMSDisabledException((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({ $metadata: deserializeMetadata(parsedOutput) }, contents));
+        return [2, (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(exception, parsedOutput.body)];
+    });
+}); };
+var deserializeAws_restJson1KMSInvalidStateExceptionResponse = function (parsedOutput, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, exception;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_a) {
+        contents = {};
+        data = parsedOutput.body;
+        if (data.Message !== undefined && data.Message !== null) {
+            contents.Message = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Message);
+        }
+        if (data.Type !== undefined && data.Type !== null) {
+            contents.Type = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Type);
+        }
+        exception = new _models_models_0__WEBPACK_IMPORTED_MODULE_4__.KMSInvalidStateException((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({ $metadata: deserializeMetadata(parsedOutput) }, contents));
+        return [2, (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(exception, parsedOutput.body)];
+    });
+}); };
+var deserializeAws_restJson1KMSNotFoundExceptionResponse = function (parsedOutput, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, exception;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_a) {
+        contents = {};
+        data = parsedOutput.body;
+        if (data.Message !== undefined && data.Message !== null) {
+            contents.Message = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Message);
+        }
+        if (data.Type !== undefined && data.Type !== null) {
+            contents.Type = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Type);
+        }
+        exception = new _models_models_0__WEBPACK_IMPORTED_MODULE_4__.KMSNotFoundException((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({ $metadata: deserializeMetadata(parsedOutput) }, contents));
+        return [2, (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(exception, parsedOutput.body)];
+    });
+}); };
+var deserializeAws_restJson1PolicyLengthExceededExceptionResponse = function (parsedOutput, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, exception;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_a) {
+        contents = {};
+        data = parsedOutput.body;
+        if (data.Type !== undefined && data.Type !== null) {
+            contents.Type = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Type);
+        }
+        if (data.message !== undefined && data.message !== null) {
+            contents.message = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.message);
+        }
+        exception = new _models_models_0__WEBPACK_IMPORTED_MODULE_4__.PolicyLengthExceededException((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({ $metadata: deserializeMetadata(parsedOutput) }, contents));
+        return [2, (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(exception, parsedOutput.body)];
+    });
+}); };
+var deserializeAws_restJson1PreconditionFailedExceptionResponse = function (parsedOutput, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, exception;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_a) {
+        contents = {};
+        data = parsedOutput.body;
+        if (data.Type !== undefined && data.Type !== null) {
+            contents.Type = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Type);
+        }
+        if (data.message !== undefined && data.message !== null) {
+            contents.message = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.message);
+        }
+        exception = new _models_models_0__WEBPACK_IMPORTED_MODULE_4__.PreconditionFailedException((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({ $metadata: deserializeMetadata(parsedOutput) }, contents));
+        return [2, (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(exception, parsedOutput.body)];
+    });
+}); };
+var deserializeAws_restJson1ProvisionedConcurrencyConfigNotFoundExceptionResponse = function (parsedOutput, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, exception;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_a) {
+        contents = {};
+        data = parsedOutput.body;
+        if (data.Type !== undefined && data.Type !== null) {
+            contents.Type = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Type);
+        }
+        if (data.message !== undefined && data.message !== null) {
+            contents.message = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.message);
+        }
+        exception = new _models_models_0__WEBPACK_IMPORTED_MODULE_4__.ProvisionedConcurrencyConfigNotFoundException((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({ $metadata: deserializeMetadata(parsedOutput) }, contents));
+        return [2, (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(exception, parsedOutput.body)];
+    });
+}); };
+var deserializeAws_restJson1RequestTooLargeExceptionResponse = function (parsedOutput, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, exception;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_a) {
+        contents = {};
+        data = parsedOutput.body;
+        if (data.Type !== undefined && data.Type !== null) {
+            contents.Type = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Type);
+        }
+        if (data.message !== undefined && data.message !== null) {
+            contents.message = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.message);
+        }
+        exception = new _models_models_0__WEBPACK_IMPORTED_MODULE_4__.RequestTooLargeException((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({ $metadata: deserializeMetadata(parsedOutput) }, contents));
+        return [2, (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(exception, parsedOutput.body)];
+    });
+}); };
+var deserializeAws_restJson1ResourceConflictExceptionResponse = function (parsedOutput, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, exception;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_a) {
+        contents = {};
+        data = parsedOutput.body;
+        if (data.Type !== undefined && data.Type !== null) {
+            contents.Type = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Type);
+        }
+        if (data.message !== undefined && data.message !== null) {
+            contents.message = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.message);
+        }
+        exception = new _models_models_0__WEBPACK_IMPORTED_MODULE_4__.ResourceConflictException((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({ $metadata: deserializeMetadata(parsedOutput) }, contents));
+        return [2, (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(exception, parsedOutput.body)];
+    });
+}); };
+var deserializeAws_restJson1ResourceInUseExceptionResponse = function (parsedOutput, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, exception;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_a) {
+        contents = {};
+        data = parsedOutput.body;
+        if (data.Message !== undefined && data.Message !== null) {
+            contents.Message = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Message);
+        }
+        if (data.Type !== undefined && data.Type !== null) {
+            contents.Type = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Type);
+        }
+        exception = new _models_models_0__WEBPACK_IMPORTED_MODULE_4__.ResourceInUseException((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({ $metadata: deserializeMetadata(parsedOutput) }, contents));
+        return [2, (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(exception, parsedOutput.body)];
+    });
+}); };
+var deserializeAws_restJson1ResourceNotFoundExceptionResponse = function (parsedOutput, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, exception;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_a) {
+        contents = {};
+        data = parsedOutput.body;
+        if (data.Message !== undefined && data.Message !== null) {
+            contents.Message = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Message);
+        }
+        if (data.Type !== undefined && data.Type !== null) {
+            contents.Type = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Type);
+        }
+        exception = new _models_models_0__WEBPACK_IMPORTED_MODULE_4__.ResourceNotFoundException((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({ $metadata: deserializeMetadata(parsedOutput) }, contents));
+        return [2, (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(exception, parsedOutput.body)];
+    });
+}); };
+var deserializeAws_restJson1ResourceNotReadyExceptionResponse = function (parsedOutput, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, exception;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_a) {
+        contents = {};
+        data = parsedOutput.body;
+        if (data.Type !== undefined && data.Type !== null) {
+            contents.Type = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Type);
+        }
+        if (data.message !== undefined && data.message !== null) {
+            contents.message = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.message);
+        }
+        exception = new _models_models_0__WEBPACK_IMPORTED_MODULE_4__.ResourceNotReadyException((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({ $metadata: deserializeMetadata(parsedOutput) }, contents));
+        return [2, (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(exception, parsedOutput.body)];
+    });
+}); };
+var deserializeAws_restJson1ServiceExceptionResponse = function (parsedOutput, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, exception;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_a) {
+        contents = {};
+        data = parsedOutput.body;
+        if (data.Message !== undefined && data.Message !== null) {
+            contents.Message = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Message);
+        }
+        if (data.Type !== undefined && data.Type !== null) {
+            contents.Type = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Type);
+        }
+        exception = new _models_models_0__WEBPACK_IMPORTED_MODULE_4__.ServiceException((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({ $metadata: deserializeMetadata(parsedOutput) }, contents));
+        return [2, (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(exception, parsedOutput.body)];
+    });
+}); };
+var deserializeAws_restJson1SubnetIPAddressLimitReachedExceptionResponse = function (parsedOutput, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, exception;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_a) {
+        contents = {};
+        data = parsedOutput.body;
+        if (data.Message !== undefined && data.Message !== null) {
+            contents.Message = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Message);
+        }
+        if (data.Type !== undefined && data.Type !== null) {
+            contents.Type = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Type);
+        }
+        exception = new _models_models_0__WEBPACK_IMPORTED_MODULE_4__.SubnetIPAddressLimitReachedException((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({ $metadata: deserializeMetadata(parsedOutput) }, contents));
+        return [2, (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(exception, parsedOutput.body)];
+    });
+}); };
+var deserializeAws_restJson1TooManyRequestsExceptionResponse = function (parsedOutput, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, exception;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_a) {
+        contents = {};
+        if (parsedOutput.headers["retry-after"] !== undefined) {
+            contents.retryAfterSeconds = parsedOutput.headers["retry-after"];
+        }
+        data = parsedOutput.body;
+        if (data.Reason !== undefined && data.Reason !== null) {
+            contents.Reason = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Reason);
+        }
+        if (data.Type !== undefined && data.Type !== null) {
+            contents.Type = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Type);
+        }
+        if (data.message !== undefined && data.message !== null) {
+            contents.message = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.message);
+        }
+        exception = new _models_models_0__WEBPACK_IMPORTED_MODULE_4__.TooManyRequestsException((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({ $metadata: deserializeMetadata(parsedOutput) }, contents));
+        return [2, (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(exception, parsedOutput.body)];
+    });
+}); };
+var deserializeAws_restJson1UnsupportedMediaTypeExceptionResponse = function (parsedOutput, context) { return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(void 0, void 0, void 0, function () {
+    var contents, data, exception;
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__generator)(this, function (_a) {
+        contents = {};
+        data = parsedOutput.body;
+        if (data.Type !== undefined && data.Type !== null) {
+            contents.Type = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.Type);
+        }
+        if (data.message !== undefined && data.message !== null) {
+            contents.message = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(data.message);
+        }
+        exception = new _models_models_0__WEBPACK_IMPORTED_MODULE_4__.UnsupportedMediaTypeException((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({ $metadata: deserializeMetadata(parsedOutput) }, contents));
+        return [2, (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.decorateServiceException)(exception, parsedOutput.body)];
+    });
+}); };
+var serializeAws_restJson1AdditionalVersionWeights = function (input, context) {
+    return Object.entries(input).reduce(function (acc, _a) {
+        var _b;
+        var _c = (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__read)(_a, 2), key = _c[0], value = _c[1];
+        if (value === null) {
+            return acc;
+        }
+        return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, acc), (_b = {}, _b[key] = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.serializeFloat)(value), _b));
+    }, {});
+};
+var serializeAws_restJson1AliasRoutingConfiguration = function (input, context) {
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, (input.AdditionalVersionWeights != null && {
+        AdditionalVersionWeights: serializeAws_restJson1AdditionalVersionWeights(input.AdditionalVersionWeights, context),
+    }));
+};
+var serializeAws_restJson1AllowedPublishers = function (input, context) {
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, (input.SigningProfileVersionArns != null && {
+        SigningProfileVersionArns: serializeAws_restJson1SigningProfileVersionArns(input.SigningProfileVersionArns, context),
+    }));
+};
+var serializeAws_restJson1AllowMethodsList = function (input, context) {
+    return input
+        .filter(function (e) { return e != null; })
+        .map(function (entry) {
+        if (entry === null) {
+            return null;
+        }
+        return entry;
+    });
+};
+var serializeAws_restJson1AllowOriginsList = function (input, context) {
+    return input
+        .filter(function (e) { return e != null; })
+        .map(function (entry) {
+        if (entry === null) {
+            return null;
+        }
+        return entry;
+    });
+};
+var serializeAws_restJson1ArchitecturesList = function (input, context) {
+    return input
+        .filter(function (e) { return e != null; })
+        .map(function (entry) {
+        if (entry === null) {
+            return null;
+        }
+        return entry;
+    });
+};
+var serializeAws_restJson1CodeSigningPolicies = function (input, context) {
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, (input.UntrustedArtifactOnDeployment != null && {
+        UntrustedArtifactOnDeployment: input.UntrustedArtifactOnDeployment,
+    }));
+};
+var serializeAws_restJson1CompatibleArchitectures = function (input, context) {
+    return input
+        .filter(function (e) { return e != null; })
+        .map(function (entry) {
+        if (entry === null) {
+            return null;
+        }
+        return entry;
+    });
+};
+var serializeAws_restJson1CompatibleRuntimes = function (input, context) {
+    return input
+        .filter(function (e) { return e != null; })
+        .map(function (entry) {
+        if (entry === null) {
+            return null;
+        }
+        return entry;
+    });
+};
+var serializeAws_restJson1Cors = function (input, context) {
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, (input.AllowCredentials != null && { AllowCredentials: input.AllowCredentials })), (input.AllowHeaders != null && { AllowHeaders: serializeAws_restJson1HeadersList(input.AllowHeaders, context) })), (input.AllowMethods != null && {
+        AllowMethods: serializeAws_restJson1AllowMethodsList(input.AllowMethods, context),
+    })), (input.AllowOrigins != null && {
+        AllowOrigins: serializeAws_restJson1AllowOriginsList(input.AllowOrigins, context),
+    })), (input.ExposeHeaders != null && {
+        ExposeHeaders: serializeAws_restJson1HeadersList(input.ExposeHeaders, context),
+    })), (input.MaxAge != null && { MaxAge: input.MaxAge }));
+};
+var serializeAws_restJson1DeadLetterConfig = function (input, context) {
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, (input.TargetArn != null && { TargetArn: input.TargetArn }));
+};
+var serializeAws_restJson1DestinationConfig = function (input, context) {
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, (input.OnFailure != null && { OnFailure: serializeAws_restJson1OnFailure(input.OnFailure, context) })), (input.OnSuccess != null && { OnSuccess: serializeAws_restJson1OnSuccess(input.OnSuccess, context) }));
+};
+var serializeAws_restJson1EndpointLists = function (input, context) {
+    return input
+        .filter(function (e) { return e != null; })
+        .map(function (entry) {
+        if (entry === null) {
+            return null;
+        }
+        return entry;
+    });
+};
+var serializeAws_restJson1Endpoints = function (input, context) {
+    return Object.entries(input).reduce(function (acc, _a) {
+        var _b;
+        var _c = (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__read)(_a, 2), key = _c[0], value = _c[1];
+        if (value === null) {
+            return acc;
+        }
+        return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, acc), (_b = {}, _b[key] = serializeAws_restJson1EndpointLists(value, context), _b));
+    }, {});
+};
+var serializeAws_restJson1Environment = function (input, context) {
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, (input.Variables != null && { Variables: serializeAws_restJson1EnvironmentVariables(input.Variables, context) }));
+};
+var serializeAws_restJson1EnvironmentVariables = function (input, context) {
+    return Object.entries(input).reduce(function (acc, _a) {
+        var _b;
+        var _c = (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__read)(_a, 2), key = _c[0], value = _c[1];
+        if (value === null) {
+            return acc;
+        }
+        return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, acc), (_b = {}, _b[key] = value, _b));
+    }, {});
+};
+var serializeAws_restJson1EphemeralStorage = function (input, context) {
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, (input.Size != null && { Size: input.Size }));
+};
+var serializeAws_restJson1FileSystemConfig = function (input, context) {
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, (input.Arn != null && { Arn: input.Arn })), (input.LocalMountPath != null && { LocalMountPath: input.LocalMountPath }));
+};
+var serializeAws_restJson1FileSystemConfigList = function (input, context) {
+    return input
+        .filter(function (e) { return e != null; })
+        .map(function (entry) {
+        if (entry === null) {
+            return null;
+        }
+        return serializeAws_restJson1FileSystemConfig(entry, context);
+    });
+};
+var serializeAws_restJson1Filter = function (input, context) {
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, (input.Pattern != null && { Pattern: input.Pattern }));
+};
+var serializeAws_restJson1FilterCriteria = function (input, context) {
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, (input.Filters != null && { Filters: serializeAws_restJson1FilterList(input.Filters, context) }));
+};
+var serializeAws_restJson1FilterList = function (input, context) {
+    return input
+        .filter(function (e) { return e != null; })
+        .map(function (entry) {
+        if (entry === null) {
+            return null;
+        }
+        return serializeAws_restJson1Filter(entry, context);
+    });
+};
+var serializeAws_restJson1FunctionCode = function (input, context) {
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, (input.ImageUri != null && { ImageUri: input.ImageUri })), (input.S3Bucket != null && { S3Bucket: input.S3Bucket })), (input.S3Key != null && { S3Key: input.S3Key })), (input.S3ObjectVersion != null && { S3ObjectVersion: input.S3ObjectVersion })), (input.ZipFile != null && { ZipFile: context.base64Encoder(input.ZipFile) }));
+};
+var serializeAws_restJson1FunctionResponseTypeList = function (input, context) {
+    return input
+        .filter(function (e) { return e != null; })
+        .map(function (entry) {
+        if (entry === null) {
+            return null;
+        }
+        return entry;
+    });
+};
+var serializeAws_restJson1HeadersList = function (input, context) {
+    return input
+        .filter(function (e) { return e != null; })
+        .map(function (entry) {
+        if (entry === null) {
+            return null;
+        }
+        return entry;
+    });
+};
+var serializeAws_restJson1ImageConfig = function (input, context) {
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, (input.Command != null && { Command: serializeAws_restJson1StringList(input.Command, context) })), (input.EntryPoint != null && { EntryPoint: serializeAws_restJson1StringList(input.EntryPoint, context) })), (input.WorkingDirectory != null && { WorkingDirectory: input.WorkingDirectory }));
+};
+var serializeAws_restJson1LayerList = function (input, context) {
+    return input
+        .filter(function (e) { return e != null; })
+        .map(function (entry) {
+        if (entry === null) {
+            return null;
+        }
+        return entry;
+    });
+};
+var serializeAws_restJson1LayerVersionContentInput = function (input, context) {
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, (input.S3Bucket != null && { S3Bucket: input.S3Bucket })), (input.S3Key != null && { S3Key: input.S3Key })), (input.S3ObjectVersion != null && { S3ObjectVersion: input.S3ObjectVersion })), (input.ZipFile != null && { ZipFile: context.base64Encoder(input.ZipFile) }));
+};
+var serializeAws_restJson1OnFailure = function (input, context) {
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, (input.Destination != null && { Destination: input.Destination }));
+};
+var serializeAws_restJson1OnSuccess = function (input, context) {
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, (input.Destination != null && { Destination: input.Destination }));
+};
+var serializeAws_restJson1Queues = function (input, context) {
+    return input
+        .filter(function (e) { return e != null; })
+        .map(function (entry) {
+        if (entry === null) {
+            return null;
+        }
+        return entry;
+    });
+};
+var serializeAws_restJson1SecurityGroupIds = function (input, context) {
+    return input
+        .filter(function (e) { return e != null; })
+        .map(function (entry) {
+        if (entry === null) {
+            return null;
+        }
+        return entry;
+    });
+};
+var serializeAws_restJson1SelfManagedEventSource = function (input, context) {
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, (input.Endpoints != null && { Endpoints: serializeAws_restJson1Endpoints(input.Endpoints, context) }));
+};
+var serializeAws_restJson1SigningProfileVersionArns = function (input, context) {
+    return input
+        .filter(function (e) { return e != null; })
+        .map(function (entry) {
+        if (entry === null) {
+            return null;
+        }
+        return entry;
+    });
+};
+var serializeAws_restJson1SourceAccessConfiguration = function (input, context) {
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, (input.Type != null && { Type: input.Type })), (input.URI != null && { URI: input.URI }));
+};
+var serializeAws_restJson1SourceAccessConfigurations = function (input, context) {
+    return input
+        .filter(function (e) { return e != null; })
+        .map(function (entry) {
+        if (entry === null) {
+            return null;
+        }
+        return serializeAws_restJson1SourceAccessConfiguration(entry, context);
+    });
+};
+var serializeAws_restJson1StringList = function (input, context) {
+    return input
+        .filter(function (e) { return e != null; })
+        .map(function (entry) {
+        if (entry === null) {
+            return null;
+        }
+        return entry;
+    });
+};
+var serializeAws_restJson1SubnetIds = function (input, context) {
+    return input
+        .filter(function (e) { return e != null; })
+        .map(function (entry) {
+        if (entry === null) {
+            return null;
+        }
+        return entry;
+    });
+};
+var serializeAws_restJson1Tags = function (input, context) {
+    return Object.entries(input).reduce(function (acc, _a) {
+        var _b;
+        var _c = (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__read)(_a, 2), key = _c[0], value = _c[1];
+        if (value === null) {
+            return acc;
+        }
+        return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, acc), (_b = {}, _b[key] = value, _b));
+    }, {});
+};
+var serializeAws_restJson1Topics = function (input, context) {
+    return input
+        .filter(function (e) { return e != null; })
+        .map(function (entry) {
+        if (entry === null) {
+            return null;
+        }
+        return entry;
+    });
+};
+var serializeAws_restJson1TracingConfig = function (input, context) {
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, (input.Mode != null && { Mode: input.Mode }));
+};
+var serializeAws_restJson1VpcConfig = function (input, context) {
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, (input.SecurityGroupIds != null && {
+        SecurityGroupIds: serializeAws_restJson1SecurityGroupIds(input.SecurityGroupIds, context),
+    })), (input.SubnetIds != null && { SubnetIds: serializeAws_restJson1SubnetIds(input.SubnetIds, context) }));
+};
+var deserializeAws_restJson1AccountLimit = function (output, context) {
+    return {
+        CodeSizeUnzipped: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectLong)(output.CodeSizeUnzipped),
+        CodeSizeZipped: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectLong)(output.CodeSizeZipped),
+        ConcurrentExecutions: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectInt32)(output.ConcurrentExecutions),
+        TotalCodeSize: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectLong)(output.TotalCodeSize),
+        UnreservedConcurrentExecutions: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectInt32)(output.UnreservedConcurrentExecutions),
+    };
+};
+var deserializeAws_restJson1AccountUsage = function (output, context) {
+    return {
+        FunctionCount: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectLong)(output.FunctionCount),
+        TotalCodeSize: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectLong)(output.TotalCodeSize),
+    };
+};
+var deserializeAws_restJson1AdditionalVersionWeights = function (output, context) {
+    return Object.entries(output).reduce(function (acc, _a) {
+        var _b;
+        var _c = (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__read)(_a, 2), key = _c[0], value = _c[1];
+        if (value === null) {
+            return acc;
+        }
+        return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, acc), (_b = {}, _b[key] = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.limitedParseDouble)(value), _b));
+    }, {});
+};
+var deserializeAws_restJson1AliasConfiguration = function (output, context) {
+    return {
+        AliasArn: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.AliasArn),
+        Description: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.Description),
+        FunctionVersion: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.FunctionVersion),
+        Name: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.Name),
+        RevisionId: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.RevisionId),
+        RoutingConfig: output.RoutingConfig != null
+            ? deserializeAws_restJson1AliasRoutingConfiguration(output.RoutingConfig, context)
+            : undefined,
+    };
+};
+var deserializeAws_restJson1AliasList = function (output, context) {
+    var retVal = (output || [])
+        .filter(function (e) { return e != null; })
+        .map(function (entry) {
+        if (entry === null) {
+            return null;
+        }
+        return deserializeAws_restJson1AliasConfiguration(entry, context);
+    });
+    return retVal;
+};
+var deserializeAws_restJson1AliasRoutingConfiguration = function (output, context) {
+    return {
+        AdditionalVersionWeights: output.AdditionalVersionWeights != null
+            ? deserializeAws_restJson1AdditionalVersionWeights(output.AdditionalVersionWeights, context)
+            : undefined,
+    };
+};
+var deserializeAws_restJson1AllowedPublishers = function (output, context) {
+    return {
+        SigningProfileVersionArns: output.SigningProfileVersionArns != null
+            ? deserializeAws_restJson1SigningProfileVersionArns(output.SigningProfileVersionArns, context)
+            : undefined,
+    };
+};
+var deserializeAws_restJson1AllowMethodsList = function (output, context) {
+    var retVal = (output || [])
+        .filter(function (e) { return e != null; })
+        .map(function (entry) {
+        if (entry === null) {
+            return null;
+        }
+        return (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(entry);
+    });
+    return retVal;
+};
+var deserializeAws_restJson1AllowOriginsList = function (output, context) {
+    var retVal = (output || [])
+        .filter(function (e) { return e != null; })
+        .map(function (entry) {
+        if (entry === null) {
+            return null;
+        }
+        return (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(entry);
+    });
+    return retVal;
+};
+var deserializeAws_restJson1ArchitecturesList = function (output, context) {
+    var retVal = (output || [])
+        .filter(function (e) { return e != null; })
+        .map(function (entry) {
+        if (entry === null) {
+            return null;
+        }
+        return (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(entry);
+    });
+    return retVal;
+};
+var deserializeAws_restJson1CodeSigningConfig = function (output, context) {
+    return {
+        AllowedPublishers: output.AllowedPublishers != null
+            ? deserializeAws_restJson1AllowedPublishers(output.AllowedPublishers, context)
+            : undefined,
+        CodeSigningConfigArn: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.CodeSigningConfigArn),
+        CodeSigningConfigId: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.CodeSigningConfigId),
+        CodeSigningPolicies: output.CodeSigningPolicies != null
+            ? deserializeAws_restJson1CodeSigningPolicies(output.CodeSigningPolicies, context)
+            : undefined,
+        Description: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.Description),
+        LastModified: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.LastModified),
+    };
+};
+var deserializeAws_restJson1CodeSigningConfigList = function (output, context) {
+    var retVal = (output || [])
+        .filter(function (e) { return e != null; })
+        .map(function (entry) {
+        if (entry === null) {
+            return null;
+        }
+        return deserializeAws_restJson1CodeSigningConfig(entry, context);
+    });
+    return retVal;
+};
+var deserializeAws_restJson1CodeSigningPolicies = function (output, context) {
+    return {
+        UntrustedArtifactOnDeployment: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.UntrustedArtifactOnDeployment),
+    };
+};
+var deserializeAws_restJson1CompatibleArchitectures = function (output, context) {
+    var retVal = (output || [])
+        .filter(function (e) { return e != null; })
+        .map(function (entry) {
+        if (entry === null) {
+            return null;
+        }
+        return (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(entry);
+    });
+    return retVal;
+};
+var deserializeAws_restJson1CompatibleRuntimes = function (output, context) {
+    var retVal = (output || [])
+        .filter(function (e) { return e != null; })
+        .map(function (entry) {
+        if (entry === null) {
+            return null;
+        }
+        return (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(entry);
+    });
+    return retVal;
+};
+var deserializeAws_restJson1Concurrency = function (output, context) {
+    return {
+        ReservedConcurrentExecutions: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectInt32)(output.ReservedConcurrentExecutions),
+    };
+};
+var deserializeAws_restJson1Cors = function (output, context) {
+    return {
+        AllowCredentials: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectBoolean)(output.AllowCredentials),
+        AllowHeaders: output.AllowHeaders != null ? deserializeAws_restJson1HeadersList(output.AllowHeaders, context) : undefined,
+        AllowMethods: output.AllowMethods != null ? deserializeAws_restJson1AllowMethodsList(output.AllowMethods, context) : undefined,
+        AllowOrigins: output.AllowOrigins != null ? deserializeAws_restJson1AllowOriginsList(output.AllowOrigins, context) : undefined,
+        ExposeHeaders: output.ExposeHeaders != null ? deserializeAws_restJson1HeadersList(output.ExposeHeaders, context) : undefined,
+        MaxAge: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectInt32)(output.MaxAge),
+    };
+};
+var deserializeAws_restJson1DeadLetterConfig = function (output, context) {
+    return {
+        TargetArn: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.TargetArn),
+    };
+};
+var deserializeAws_restJson1DestinationConfig = function (output, context) {
+    return {
+        OnFailure: output.OnFailure != null ? deserializeAws_restJson1OnFailure(output.OnFailure, context) : undefined,
+        OnSuccess: output.OnSuccess != null ? deserializeAws_restJson1OnSuccess(output.OnSuccess, context) : undefined,
+    };
+};
+var deserializeAws_restJson1EndpointLists = function (output, context) {
+    var retVal = (output || [])
+        .filter(function (e) { return e != null; })
+        .map(function (entry) {
+        if (entry === null) {
+            return null;
+        }
+        return (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(entry);
+    });
+    return retVal;
+};
+var deserializeAws_restJson1Endpoints = function (output, context) {
+    return Object.entries(output).reduce(function (acc, _a) {
+        var _b;
+        var _c = (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__read)(_a, 2), key = _c[0], value = _c[1];
+        if (value === null) {
+            return acc;
+        }
+        return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, acc), (_b = {}, _b[key] = deserializeAws_restJson1EndpointLists(value, context), _b));
+    }, {});
+};
+var deserializeAws_restJson1EnvironmentError = function (output, context) {
+    return {
+        ErrorCode: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.ErrorCode),
+        Message: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.Message),
+    };
+};
+var deserializeAws_restJson1EnvironmentResponse = function (output, context) {
+    return {
+        Error: output.Error != null ? deserializeAws_restJson1EnvironmentError(output.Error, context) : undefined,
+        Variables: output.Variables != null ? deserializeAws_restJson1EnvironmentVariables(output.Variables, context) : undefined,
+    };
+};
+var deserializeAws_restJson1EnvironmentVariables = function (output, context) {
+    return Object.entries(output).reduce(function (acc, _a) {
+        var _b;
+        var _c = (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__read)(_a, 2), key = _c[0], value = _c[1];
+        if (value === null) {
+            return acc;
+        }
+        return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, acc), (_b = {}, _b[key] = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(value), _b));
+    }, {});
+};
+var deserializeAws_restJson1EphemeralStorage = function (output, context) {
+    return {
+        Size: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectInt32)(output.Size),
+    };
+};
+var deserializeAws_restJson1EventSourceMappingConfiguration = function (output, context) {
+    return {
+        BatchSize: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectInt32)(output.BatchSize),
+        BisectBatchOnFunctionError: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectBoolean)(output.BisectBatchOnFunctionError),
+        DestinationConfig: output.DestinationConfig != null
+            ? deserializeAws_restJson1DestinationConfig(output.DestinationConfig, context)
+            : undefined,
+        EventSourceArn: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.EventSourceArn),
+        FilterCriteria: output.FilterCriteria != null
+            ? deserializeAws_restJson1FilterCriteria(output.FilterCriteria, context)
+            : undefined,
+        FunctionArn: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.FunctionArn),
+        FunctionResponseTypes: output.FunctionResponseTypes != null
+            ? deserializeAws_restJson1FunctionResponseTypeList(output.FunctionResponseTypes, context)
+            : undefined,
+        LastModified: output.LastModified != null
+            ? (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectNonNull)((0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.parseEpochTimestamp)((0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectNumber)(output.LastModified)))
+            : undefined,
+        LastProcessingResult: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.LastProcessingResult),
+        MaximumBatchingWindowInSeconds: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectInt32)(output.MaximumBatchingWindowInSeconds),
+        MaximumRecordAgeInSeconds: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectInt32)(output.MaximumRecordAgeInSeconds),
+        MaximumRetryAttempts: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectInt32)(output.MaximumRetryAttempts),
+        ParallelizationFactor: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectInt32)(output.ParallelizationFactor),
+        Queues: output.Queues != null ? deserializeAws_restJson1Queues(output.Queues, context) : undefined,
+        SelfManagedEventSource: output.SelfManagedEventSource != null
+            ? deserializeAws_restJson1SelfManagedEventSource(output.SelfManagedEventSource, context)
+            : undefined,
+        SourceAccessConfigurations: output.SourceAccessConfigurations != null
+            ? deserializeAws_restJson1SourceAccessConfigurations(output.SourceAccessConfigurations, context)
+            : undefined,
+        StartingPosition: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.StartingPosition),
+        StartingPositionTimestamp: output.StartingPositionTimestamp != null
+            ? (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectNonNull)((0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.parseEpochTimestamp)((0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectNumber)(output.StartingPositionTimestamp)))
+            : undefined,
+        State: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.State),
+        StateTransitionReason: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.StateTransitionReason),
+        Topics: output.Topics != null ? deserializeAws_restJson1Topics(output.Topics, context) : undefined,
+        TumblingWindowInSeconds: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectInt32)(output.TumblingWindowInSeconds),
+        UUID: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.UUID),
+    };
+};
+var deserializeAws_restJson1EventSourceMappingsList = function (output, context) {
+    var retVal = (output || [])
+        .filter(function (e) { return e != null; })
+        .map(function (entry) {
+        if (entry === null) {
+            return null;
+        }
+        return deserializeAws_restJson1EventSourceMappingConfiguration(entry, context);
+    });
+    return retVal;
+};
+var deserializeAws_restJson1FileSystemConfig = function (output, context) {
+    return {
+        Arn: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.Arn),
+        LocalMountPath: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.LocalMountPath),
+    };
+};
+var deserializeAws_restJson1FileSystemConfigList = function (output, context) {
+    var retVal = (output || [])
+        .filter(function (e) { return e != null; })
+        .map(function (entry) {
+        if (entry === null) {
+            return null;
+        }
+        return deserializeAws_restJson1FileSystemConfig(entry, context);
+    });
+    return retVal;
+};
+var deserializeAws_restJson1Filter = function (output, context) {
+    return {
+        Pattern: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.Pattern),
+    };
+};
+var deserializeAws_restJson1FilterCriteria = function (output, context) {
+    return {
+        Filters: output.Filters != null ? deserializeAws_restJson1FilterList(output.Filters, context) : undefined,
+    };
+};
+var deserializeAws_restJson1FilterList = function (output, context) {
+    var retVal = (output || [])
+        .filter(function (e) { return e != null; })
+        .map(function (entry) {
+        if (entry === null) {
+            return null;
+        }
+        return deserializeAws_restJson1Filter(entry, context);
+    });
+    return retVal;
+};
+var deserializeAws_restJson1FunctionArnList = function (output, context) {
+    var retVal = (output || [])
+        .filter(function (e) { return e != null; })
+        .map(function (entry) {
+        if (entry === null) {
+            return null;
+        }
+        return (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(entry);
+    });
+    return retVal;
+};
+var deserializeAws_restJson1FunctionCodeLocation = function (output, context) {
+    return {
+        ImageUri: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.ImageUri),
+        Location: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.Location),
+        RepositoryType: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.RepositoryType),
+        ResolvedImageUri: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.ResolvedImageUri),
+    };
+};
+var deserializeAws_restJson1FunctionConfiguration = function (output, context) {
+    return {
+        Architectures: output.Architectures != null
+            ? deserializeAws_restJson1ArchitecturesList(output.Architectures, context)
+            : undefined,
+        CodeSha256: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.CodeSha256),
+        CodeSize: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectLong)(output.CodeSize),
+        DeadLetterConfig: output.DeadLetterConfig != null
+            ? deserializeAws_restJson1DeadLetterConfig(output.DeadLetterConfig, context)
+            : undefined,
+        Description: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.Description),
+        Environment: output.Environment != null ? deserializeAws_restJson1EnvironmentResponse(output.Environment, context) : undefined,
+        EphemeralStorage: output.EphemeralStorage != null
+            ? deserializeAws_restJson1EphemeralStorage(output.EphemeralStorage, context)
+            : undefined,
+        FileSystemConfigs: output.FileSystemConfigs != null
+            ? deserializeAws_restJson1FileSystemConfigList(output.FileSystemConfigs, context)
+            : undefined,
+        FunctionArn: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.FunctionArn),
+        FunctionName: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.FunctionName),
+        Handler: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.Handler),
+        ImageConfigResponse: output.ImageConfigResponse != null
+            ? deserializeAws_restJson1ImageConfigResponse(output.ImageConfigResponse, context)
+            : undefined,
+        KMSKeyArn: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.KMSKeyArn),
+        LastModified: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.LastModified),
+        LastUpdateStatus: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.LastUpdateStatus),
+        LastUpdateStatusReason: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.LastUpdateStatusReason),
+        LastUpdateStatusReasonCode: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.LastUpdateStatusReasonCode),
+        Layers: output.Layers != null ? deserializeAws_restJson1LayersReferenceList(output.Layers, context) : undefined,
+        MasterArn: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.MasterArn),
+        MemorySize: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectInt32)(output.MemorySize),
+        PackageType: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.PackageType),
+        RevisionId: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.RevisionId),
+        Role: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.Role),
+        Runtime: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.Runtime),
+        SigningJobArn: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.SigningJobArn),
+        SigningProfileVersionArn: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.SigningProfileVersionArn),
+        State: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.State),
+        StateReason: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.StateReason),
+        StateReasonCode: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.StateReasonCode),
+        Timeout: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectInt32)(output.Timeout),
+        TracingConfig: output.TracingConfig != null
+            ? deserializeAws_restJson1TracingConfigResponse(output.TracingConfig, context)
+            : undefined,
+        Version: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.Version),
+        VpcConfig: output.VpcConfig != null ? deserializeAws_restJson1VpcConfigResponse(output.VpcConfig, context) : undefined,
+    };
+};
+var deserializeAws_restJson1FunctionEventInvokeConfig = function (output, context) {
+    return {
+        DestinationConfig: output.DestinationConfig != null
+            ? deserializeAws_restJson1DestinationConfig(output.DestinationConfig, context)
+            : undefined,
+        FunctionArn: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.FunctionArn),
+        LastModified: output.LastModified != null
+            ? (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectNonNull)((0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.parseEpochTimestamp)((0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectNumber)(output.LastModified)))
+            : undefined,
+        MaximumEventAgeInSeconds: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectInt32)(output.MaximumEventAgeInSeconds),
+        MaximumRetryAttempts: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectInt32)(output.MaximumRetryAttempts),
+    };
+};
+var deserializeAws_restJson1FunctionEventInvokeConfigList = function (output, context) {
+    var retVal = (output || [])
+        .filter(function (e) { return e != null; })
+        .map(function (entry) {
+        if (entry === null) {
+            return null;
+        }
+        return deserializeAws_restJson1FunctionEventInvokeConfig(entry, context);
+    });
+    return retVal;
+};
+var deserializeAws_restJson1FunctionList = function (output, context) {
+    var retVal = (output || [])
+        .filter(function (e) { return e != null; })
+        .map(function (entry) {
+        if (entry === null) {
+            return null;
+        }
+        return deserializeAws_restJson1FunctionConfiguration(entry, context);
+    });
+    return retVal;
+};
+var deserializeAws_restJson1FunctionResponseTypeList = function (output, context) {
+    var retVal = (output || [])
+        .filter(function (e) { return e != null; })
+        .map(function (entry) {
+        if (entry === null) {
+            return null;
+        }
+        return (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(entry);
+    });
+    return retVal;
+};
+var deserializeAws_restJson1FunctionUrlConfig = function (output, context) {
+    return {
+        AuthType: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.AuthType),
+        Cors: output.Cors != null ? deserializeAws_restJson1Cors(output.Cors, context) : undefined,
+        CreationTime: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.CreationTime),
+        FunctionArn: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.FunctionArn),
+        FunctionUrl: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.FunctionUrl),
+        LastModifiedTime: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.LastModifiedTime),
+    };
+};
+var deserializeAws_restJson1FunctionUrlConfigList = function (output, context) {
+    var retVal = (output || [])
+        .filter(function (e) { return e != null; })
+        .map(function (entry) {
+        if (entry === null) {
+            return null;
+        }
+        return deserializeAws_restJson1FunctionUrlConfig(entry, context);
+    });
+    return retVal;
+};
+var deserializeAws_restJson1HeadersList = function (output, context) {
+    var retVal = (output || [])
+        .filter(function (e) { return e != null; })
+        .map(function (entry) {
+        if (entry === null) {
+            return null;
+        }
+        return (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(entry);
+    });
+    return retVal;
+};
+var deserializeAws_restJson1ImageConfig = function (output, context) {
+    return {
+        Command: output.Command != null ? deserializeAws_restJson1StringList(output.Command, context) : undefined,
+        EntryPoint: output.EntryPoint != null ? deserializeAws_restJson1StringList(output.EntryPoint, context) : undefined,
+        WorkingDirectory: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.WorkingDirectory),
+    };
+};
+var deserializeAws_restJson1ImageConfigError = function (output, context) {
+    return {
+        ErrorCode: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.ErrorCode),
+        Message: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.Message),
+    };
+};
+var deserializeAws_restJson1ImageConfigResponse = function (output, context) {
+    return {
+        Error: output.Error != null ? deserializeAws_restJson1ImageConfigError(output.Error, context) : undefined,
+        ImageConfig: output.ImageConfig != null ? deserializeAws_restJson1ImageConfig(output.ImageConfig, context) : undefined,
+    };
+};
+var deserializeAws_restJson1Layer = function (output, context) {
+    return {
+        Arn: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.Arn),
+        CodeSize: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectLong)(output.CodeSize),
+        SigningJobArn: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.SigningJobArn),
+        SigningProfileVersionArn: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.SigningProfileVersionArn),
+    };
+};
+var deserializeAws_restJson1LayersList = function (output, context) {
+    var retVal = (output || [])
+        .filter(function (e) { return e != null; })
+        .map(function (entry) {
+        if (entry === null) {
+            return null;
+        }
+        return deserializeAws_restJson1LayersListItem(entry, context);
+    });
+    return retVal;
+};
+var deserializeAws_restJson1LayersListItem = function (output, context) {
+    return {
+        LatestMatchingVersion: output.LatestMatchingVersion != null
+            ? deserializeAws_restJson1LayerVersionsListItem(output.LatestMatchingVersion, context)
+            : undefined,
+        LayerArn: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.LayerArn),
+        LayerName: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.LayerName),
+    };
+};
+var deserializeAws_restJson1LayersReferenceList = function (output, context) {
+    var retVal = (output || [])
+        .filter(function (e) { return e != null; })
+        .map(function (entry) {
+        if (entry === null) {
+            return null;
+        }
+        return deserializeAws_restJson1Layer(entry, context);
+    });
+    return retVal;
+};
+var deserializeAws_restJson1LayerVersionContentOutput = function (output, context) {
+    return {
+        CodeSha256: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.CodeSha256),
+        CodeSize: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectLong)(output.CodeSize),
+        Location: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.Location),
+        SigningJobArn: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.SigningJobArn),
+        SigningProfileVersionArn: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.SigningProfileVersionArn),
+    };
+};
+var deserializeAws_restJson1LayerVersionsList = function (output, context) {
+    var retVal = (output || [])
+        .filter(function (e) { return e != null; })
+        .map(function (entry) {
+        if (entry === null) {
+            return null;
+        }
+        return deserializeAws_restJson1LayerVersionsListItem(entry, context);
+    });
+    return retVal;
+};
+var deserializeAws_restJson1LayerVersionsListItem = function (output, context) {
+    return {
+        CompatibleArchitectures: output.CompatibleArchitectures != null
+            ? deserializeAws_restJson1CompatibleArchitectures(output.CompatibleArchitectures, context)
+            : undefined,
+        CompatibleRuntimes: output.CompatibleRuntimes != null
+            ? deserializeAws_restJson1CompatibleRuntimes(output.CompatibleRuntimes, context)
+            : undefined,
+        CreatedDate: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.CreatedDate),
+        Description: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.Description),
+        LayerVersionArn: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.LayerVersionArn),
+        LicenseInfo: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.LicenseInfo),
+        Version: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectLong)(output.Version),
+    };
+};
+var deserializeAws_restJson1OnFailure = function (output, context) {
+    return {
+        Destination: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.Destination),
+    };
+};
+var deserializeAws_restJson1OnSuccess = function (output, context) {
+    return {
+        Destination: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.Destination),
+    };
+};
+var deserializeAws_restJson1ProvisionedConcurrencyConfigList = function (output, context) {
+    var retVal = (output || [])
+        .filter(function (e) { return e != null; })
+        .map(function (entry) {
+        if (entry === null) {
+            return null;
+        }
+        return deserializeAws_restJson1ProvisionedConcurrencyConfigListItem(entry, context);
+    });
+    return retVal;
+};
+var deserializeAws_restJson1ProvisionedConcurrencyConfigListItem = function (output, context) {
+    return {
+        AllocatedProvisionedConcurrentExecutions: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectInt32)(output.AllocatedProvisionedConcurrentExecutions),
+        AvailableProvisionedConcurrentExecutions: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectInt32)(output.AvailableProvisionedConcurrentExecutions),
+        FunctionArn: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.FunctionArn),
+        LastModified: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.LastModified),
+        RequestedProvisionedConcurrentExecutions: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectInt32)(output.RequestedProvisionedConcurrentExecutions),
+        Status: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.Status),
+        StatusReason: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.StatusReason),
+    };
+};
+var deserializeAws_restJson1Queues = function (output, context) {
+    var retVal = (output || [])
+        .filter(function (e) { return e != null; })
+        .map(function (entry) {
+        if (entry === null) {
+            return null;
+        }
+        return (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(entry);
+    });
+    return retVal;
+};
+var deserializeAws_restJson1SecurityGroupIds = function (output, context) {
+    var retVal = (output || [])
+        .filter(function (e) { return e != null; })
+        .map(function (entry) {
+        if (entry === null) {
+            return null;
+        }
+        return (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(entry);
+    });
+    return retVal;
+};
+var deserializeAws_restJson1SelfManagedEventSource = function (output, context) {
+    return {
+        Endpoints: output.Endpoints != null ? deserializeAws_restJson1Endpoints(output.Endpoints, context) : undefined,
+    };
+};
+var deserializeAws_restJson1SigningProfileVersionArns = function (output, context) {
+    var retVal = (output || [])
+        .filter(function (e) { return e != null; })
+        .map(function (entry) {
+        if (entry === null) {
+            return null;
+        }
+        return (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(entry);
+    });
+    return retVal;
+};
+var deserializeAws_restJson1SourceAccessConfiguration = function (output, context) {
+    return {
+        Type: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.Type),
+        URI: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.URI),
+    };
+};
+var deserializeAws_restJson1SourceAccessConfigurations = function (output, context) {
+    var retVal = (output || [])
+        .filter(function (e) { return e != null; })
+        .map(function (entry) {
+        if (entry === null) {
+            return null;
+        }
+        return deserializeAws_restJson1SourceAccessConfiguration(entry, context);
+    });
+    return retVal;
+};
+var deserializeAws_restJson1StringList = function (output, context) {
+    var retVal = (output || [])
+        .filter(function (e) { return e != null; })
+        .map(function (entry) {
+        if (entry === null) {
+            return null;
+        }
+        return (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(entry);
+    });
+    return retVal;
+};
+var deserializeAws_restJson1SubnetIds = function (output, context) {
+    var retVal = (output || [])
+        .filter(function (e) { return e != null; })
+        .map(function (entry) {
+        if (entry === null) {
+            return null;
+        }
+        return (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(entry);
+    });
+    return retVal;
+};
+var deserializeAws_restJson1Tags = function (output, context) {
+    return Object.entries(output).reduce(function (acc, _a) {
+        var _b;
+        var _c = (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__read)(_a, 2), key = _c[0], value = _c[1];
+        if (value === null) {
+            return acc;
+        }
+        return (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_2__.__assign)({}, acc), (_b = {}, _b[key] = (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(value), _b));
+    }, {});
+};
+var deserializeAws_restJson1Topics = function (output, context) {
+    var retVal = (output || [])
+        .filter(function (e) { return e != null; })
+        .map(function (entry) {
+        if (entry === null) {
+            return null;
+        }
+        return (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(entry);
+    });
+    return retVal;
+};
+var deserializeAws_restJson1TracingConfigResponse = function (output, context) {
+    return {
+        Mode: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.Mode),
+    };
+};
+var deserializeAws_restJson1VpcConfigResponse = function (output, context) {
+    return {
+        SecurityGroupIds: output.SecurityGroupIds != null
+            ? deserializeAws_restJson1SecurityGroupIds(output.SecurityGroupIds, context)
+            : undefined,
+        SubnetIds: output.SubnetIds != null ? deserializeAws_restJson1SubnetIds(output.SubnetIds, context) : undefined,
+        VpcId: (0,_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_1__.expectString)(output.VpcId),
+    };
+};
+var deserializeMetadata = function (output) {
+    var _a;
+    return ({
+        httpStatusCode: output.statusCode,
+        requestId: (_a = output.headers["x-amzn-requestid"]) !== null && _a !== void 0 ? _a : output.headers["x-amzn-request-id"],
+        extendedRequestId: output.headers["x-amz-id-2"],
+        cfId: output.headers["x-amz-cf-id"],
+    });
+};
+var collectBody = function (streamBody, context) {
+    if (streamBody === void 0) { streamBody = new Uint8Array(); }
+    if (streamBody instanceof Uint8Array) {
+        return Promise.resolve(streamBody);
+    }
+    return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
+};
+var collectBodyString = function (streamBody, context) {
+    return collectBody(streamBody, context).then(function (body) { return context.utf8Encoder(body); });
+};
+var isSerializableHeaderValue = function (value) {
+    return value !== undefined &&
+        value !== null &&
+        value !== "" &&
+        (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
+        (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+};
+var parseBody = function (streamBody, context) {
+    return collectBodyString(streamBody, context).then(function (encoded) {
+        if (encoded.length) {
+            return JSON.parse(encoded);
+        }
+        return {};
+    });
+};
+var loadRestJsonErrorCode = function (output, data) {
+    var findKey = function (object, key) { return Object.keys(object).find(function (k) { return k.toLowerCase() === key.toLowerCase(); }); };
+    var sanitizeErrorCode = function (rawValue) {
+        var cleanValue = rawValue;
+        if (typeof cleanValue === "number") {
+            cleanValue = cleanValue.toString();
+        }
+        if (cleanValue.indexOf(":") >= 0) {
+            cleanValue = cleanValue.split(":")[0];
+        }
+        if (cleanValue.indexOf("#") >= 0) {
+            cleanValue = cleanValue.split("#")[1];
+        }
+        return cleanValue;
+    };
+    var headerKey = findKey(output.headers, "x-amzn-errortype");
+    if (headerKey !== undefined) {
+        return sanitizeErrorCode(output.headers[headerKey]);
+    }
+    if (data.code !== undefined) {
+        return sanitizeErrorCode(data.code);
+    }
+    if (data["__type"] !== undefined) {
+        return sanitizeErrorCode(data["__type"]);
+    }
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/@aws-sdk/client-lambda/dist-es/runtimeConfig.browser.js":
+/*!******************************************************************************!*\
+  !*** ./node_modules/@aws-sdk/client-lambda/dist-es/runtimeConfig.browser.js ***!
+  \******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "getRuntimeConfig": () => (/* binding */ getRuntimeConfig)
+/* harmony export */ });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _package_json__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../package.json */ "./node_modules/@aws-sdk/client-lambda/package.json");
+/* harmony import */ var _aws_crypto_sha256_browser__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @aws-crypto/sha256-browser */ "./node_modules/@aws-crypto/sha256-browser/build/index.js");
+/* harmony import */ var _aws_crypto_sha256_browser__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_aws_crypto_sha256_browser__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _aws_sdk_config_resolver__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @aws-sdk/config-resolver */ "./node_modules/@aws-sdk/config-resolver/dist-es/index.js");
+/* harmony import */ var _aws_sdk_fetch_http_handler__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @aws-sdk/fetch-http-handler */ "./node_modules/@aws-sdk/fetch-http-handler/dist-es/index.js");
+/* harmony import */ var _aws_sdk_invalid_dependency__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @aws-sdk/invalid-dependency */ "./node_modules/@aws-sdk/invalid-dependency/dist-es/index.js");
+/* harmony import */ var _aws_sdk_middleware_retry__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @aws-sdk/middleware-retry */ "./node_modules/@aws-sdk/middleware-retry/dist-es/index.js");
+/* harmony import */ var _aws_sdk_util_base64_browser__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @aws-sdk/util-base64-browser */ "./node_modules/@aws-sdk/util-base64-browser/dist-es/index.js");
+/* harmony import */ var _aws_sdk_util_body_length_browser__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @aws-sdk/util-body-length-browser */ "./node_modules/@aws-sdk/util-body-length-browser/dist-es/index.js");
+/* harmony import */ var _aws_sdk_util_user_agent_browser__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @aws-sdk/util-user-agent-browser */ "./node_modules/@aws-sdk/util-user-agent-browser/dist-es/index.js");
+/* harmony import */ var _aws_sdk_util_utf8_browser__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @aws-sdk/util-utf8-browser */ "./node_modules/@aws-sdk/util-utf8-browser/dist-es/index.js");
+/* harmony import */ var _runtimeConfig_shared__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./runtimeConfig.shared */ "./node_modules/@aws-sdk/client-lambda/dist-es/runtimeConfig.shared.js");
+/* harmony import */ var _aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @aws-sdk/smithy-client */ "./node_modules/@aws-sdk/client-lambda/node_modules/@aws-sdk/smithy-client/dist-es/index.js");
+/* harmony import */ var _aws_sdk_util_defaults_mode_browser__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @aws-sdk/util-defaults-mode-browser */ "./node_modules/@aws-sdk/client-lambda/node_modules/@aws-sdk/util-defaults-mode-browser/dist-es/index.js");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var getRuntimeConfig = function (config) {
+    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q;
+    var defaultsMode = (0,_aws_sdk_util_defaults_mode_browser__WEBPACK_IMPORTED_MODULE_10__.resolveDefaultsModeConfig)(config);
+    var defaultConfigProvider = function () { return defaultsMode().then(_aws_sdk_smithy_client__WEBPACK_IMPORTED_MODULE_9__.loadConfigsForDefaultMode); };
+    var clientSharedValues = (0,_runtimeConfig_shared__WEBPACK_IMPORTED_MODULE_11__.getRuntimeConfig)(config);
+    return (0,tslib__WEBPACK_IMPORTED_MODULE_12__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_12__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_12__.__assign)({}, clientSharedValues), config), { runtime: "browser", defaultsMode: defaultsMode, base64Decoder: (_a = config === null || config === void 0 ? void 0 : config.base64Decoder) !== null && _a !== void 0 ? _a : _aws_sdk_util_base64_browser__WEBPACK_IMPORTED_MODULE_5__.fromBase64, base64Encoder: (_b = config === null || config === void 0 ? void 0 : config.base64Encoder) !== null && _b !== void 0 ? _b : _aws_sdk_util_base64_browser__WEBPACK_IMPORTED_MODULE_5__.toBase64, bodyLengthChecker: (_c = config === null || config === void 0 ? void 0 : config.bodyLengthChecker) !== null && _c !== void 0 ? _c : _aws_sdk_util_body_length_browser__WEBPACK_IMPORTED_MODULE_6__.calculateBodyLength, credentialDefaultProvider: (_d = config === null || config === void 0 ? void 0 : config.credentialDefaultProvider) !== null && _d !== void 0 ? _d : (function (_) { return function () { return Promise.reject(new Error("Credential is missing")); }; }), defaultUserAgentProvider: (_e = config === null || config === void 0 ? void 0 : config.defaultUserAgentProvider) !== null && _e !== void 0 ? _e : (0,_aws_sdk_util_user_agent_browser__WEBPACK_IMPORTED_MODULE_7__.defaultUserAgent)({ serviceId: clientSharedValues.serviceId, clientVersion: _package_json__WEBPACK_IMPORTED_MODULE_13__.version }), maxAttempts: (_f = config === null || config === void 0 ? void 0 : config.maxAttempts) !== null && _f !== void 0 ? _f : _aws_sdk_middleware_retry__WEBPACK_IMPORTED_MODULE_4__.DEFAULT_MAX_ATTEMPTS, region: (_g = config === null || config === void 0 ? void 0 : config.region) !== null && _g !== void 0 ? _g : (0,_aws_sdk_invalid_dependency__WEBPACK_IMPORTED_MODULE_3__.invalidProvider)("Region is missing"), requestHandler: (_h = config === null || config === void 0 ? void 0 : config.requestHandler) !== null && _h !== void 0 ? _h : new _aws_sdk_fetch_http_handler__WEBPACK_IMPORTED_MODULE_2__.FetchHttpHandler(defaultConfigProvider), retryMode: (_j = config === null || config === void 0 ? void 0 : config.retryMode) !== null && _j !== void 0 ? _j : (function () { return (0,tslib__WEBPACK_IMPORTED_MODULE_12__.__awaiter)(void 0, void 0, void 0, function () { return (0,tslib__WEBPACK_IMPORTED_MODULE_12__.__generator)(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4, defaultConfigProvider()];
+                case 1: return [2, (_a.sent()).retryMode || _aws_sdk_middleware_retry__WEBPACK_IMPORTED_MODULE_4__.DEFAULT_RETRY_MODE];
+            }
+        }); }); }), sha256: (_k = config === null || config === void 0 ? void 0 : config.sha256) !== null && _k !== void 0 ? _k : _aws_crypto_sha256_browser__WEBPACK_IMPORTED_MODULE_0__.Sha256, streamCollector: (_l = config === null || config === void 0 ? void 0 : config.streamCollector) !== null && _l !== void 0 ? _l : _aws_sdk_fetch_http_handler__WEBPACK_IMPORTED_MODULE_2__.streamCollector, useDualstackEndpoint: (_m = config === null || config === void 0 ? void 0 : config.useDualstackEndpoint) !== null && _m !== void 0 ? _m : (function () { return Promise.resolve(_aws_sdk_config_resolver__WEBPACK_IMPORTED_MODULE_1__.DEFAULT_USE_DUALSTACK_ENDPOINT); }), useFipsEndpoint: (_o = config === null || config === void 0 ? void 0 : config.useFipsEndpoint) !== null && _o !== void 0 ? _o : (function () { return Promise.resolve(_aws_sdk_config_resolver__WEBPACK_IMPORTED_MODULE_1__.DEFAULT_USE_FIPS_ENDPOINT); }), utf8Decoder: (_p = config === null || config === void 0 ? void 0 : config.utf8Decoder) !== null && _p !== void 0 ? _p : _aws_sdk_util_utf8_browser__WEBPACK_IMPORTED_MODULE_8__.fromUtf8, utf8Encoder: (_q = config === null || config === void 0 ? void 0 : config.utf8Encoder) !== null && _q !== void 0 ? _q : _aws_sdk_util_utf8_browser__WEBPACK_IMPORTED_MODULE_8__.toUtf8 });
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/@aws-sdk/client-lambda/dist-es/runtimeConfig.shared.js":
+/*!*****************************************************************************!*\
+  !*** ./node_modules/@aws-sdk/client-lambda/dist-es/runtimeConfig.shared.js ***!
+  \*****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "getRuntimeConfig": () => (/* binding */ getRuntimeConfig)
+/* harmony export */ });
+/* harmony import */ var _aws_sdk_url_parser__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @aws-sdk/url-parser */ "./node_modules/@aws-sdk/url-parser/dist-es/index.js");
+/* harmony import */ var _endpoints__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./endpoints */ "./node_modules/@aws-sdk/client-lambda/dist-es/endpoints.js");
+
+
+var getRuntimeConfig = function (config) {
+    var _a, _b, _c, _d, _e;
+    return ({
+        apiVersion: "2015-03-31",
+        disableHostPrefix: (_a = config === null || config === void 0 ? void 0 : config.disableHostPrefix) !== null && _a !== void 0 ? _a : false,
+        logger: (_b = config === null || config === void 0 ? void 0 : config.logger) !== null && _b !== void 0 ? _b : {},
+        regionInfoProvider: (_c = config === null || config === void 0 ? void 0 : config.regionInfoProvider) !== null && _c !== void 0 ? _c : _endpoints__WEBPACK_IMPORTED_MODULE_1__.defaultRegionInfoProvider,
+        serviceId: (_d = config === null || config === void 0 ? void 0 : config.serviceId) !== null && _d !== void 0 ? _d : "Lambda",
+        urlParser: (_e = config === null || config === void 0 ? void 0 : config.urlParser) !== null && _e !== void 0 ? _e : _aws_sdk_url_parser__WEBPACK_IMPORTED_MODULE_0__.parseUrl,
+    });
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/@aws-sdk/client-lambda/node_modules/@aws-sdk/smithy-client/dist-es/client.js":
+/*!***************************************************************************************************!*\
+  !*** ./node_modules/@aws-sdk/client-lambda/node_modules/@aws-sdk/smithy-client/dist-es/client.js ***!
+  \***************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Client": () => (/* binding */ Client)
+/* harmony export */ });
+/* harmony import */ var _aws_sdk_middleware_stack__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @aws-sdk/middleware-stack */ "./node_modules/@aws-sdk/middleware-stack/dist-es/index.js");
+
+var Client = (function () {
+    function Client(config) {
+        this.middlewareStack = (0,_aws_sdk_middleware_stack__WEBPACK_IMPORTED_MODULE_0__.constructStack)();
+        this.config = config;
+    }
+    Client.prototype.send = function (command, optionsOrCb, cb) {
+        var options = typeof optionsOrCb !== "function" ? optionsOrCb : undefined;
+        var callback = typeof optionsOrCb === "function" ? optionsOrCb : cb;
+        var handler = command.resolveMiddleware(this.middlewareStack, this.config, options);
+        if (callback) {
+            handler(command)
+                .then(function (result) { return callback(null, result.output); }, function (err) { return callback(err); })
+                .catch(function () { });
+        }
+        else {
+            return handler(command).then(function (result) { return result.output; });
+        }
+    };
+    Client.prototype.destroy = function () {
+        if (this.config.requestHandler.destroy)
+            this.config.requestHandler.destroy();
+    };
+    return Client;
+}());
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@aws-sdk/client-lambda/node_modules/@aws-sdk/smithy-client/dist-es/command.js":
+/*!****************************************************************************************************!*\
+  !*** ./node_modules/@aws-sdk/client-lambda/node_modules/@aws-sdk/smithy-client/dist-es/command.js ***!
+  \****************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Command": () => (/* binding */ Command)
+/* harmony export */ });
+/* harmony import */ var _aws_sdk_middleware_stack__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @aws-sdk/middleware-stack */ "./node_modules/@aws-sdk/middleware-stack/dist-es/index.js");
+
+var Command = (function () {
+    function Command() {
+        this.middlewareStack = (0,_aws_sdk_middleware_stack__WEBPACK_IMPORTED_MODULE_0__.constructStack)();
+    }
+    return Command;
+}());
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@aws-sdk/client-lambda/node_modules/@aws-sdk/smithy-client/dist-es/constants.js":
+/*!******************************************************************************************************!*\
+  !*** ./node_modules/@aws-sdk/client-lambda/node_modules/@aws-sdk/smithy-client/dist-es/constants.js ***!
+  \******************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "SENSITIVE_STRING": () => (/* binding */ SENSITIVE_STRING)
+/* harmony export */ });
+var SENSITIVE_STRING = "***SensitiveInformation***";
+
+
+/***/ }),
+
+/***/ "./node_modules/@aws-sdk/client-lambda/node_modules/@aws-sdk/smithy-client/dist-es/date-utils.js":
+/*!*******************************************************************************************************!*\
+  !*** ./node_modules/@aws-sdk/client-lambda/node_modules/@aws-sdk/smithy-client/dist-es/date-utils.js ***!
+  \*******************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "dateToUtcString": () => (/* binding */ dateToUtcString),
+/* harmony export */   "parseEpochTimestamp": () => (/* binding */ parseEpochTimestamp),
+/* harmony export */   "parseRfc3339DateTime": () => (/* binding */ parseRfc3339DateTime),
+/* harmony export */   "parseRfc7231DateTime": () => (/* binding */ parseRfc7231DateTime)
+/* harmony export */ });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _parse_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./parse-utils */ "./node_modules/@aws-sdk/client-lambda/node_modules/@aws-sdk/smithy-client/dist-es/parse-utils.js");
+
+
+var DAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+var MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+function dateToUtcString(date) {
+    var year = date.getUTCFullYear();
+    var month = date.getUTCMonth();
+    var dayOfWeek = date.getUTCDay();
+    var dayOfMonthInt = date.getUTCDate();
+    var hoursInt = date.getUTCHours();
+    var minutesInt = date.getUTCMinutes();
+    var secondsInt = date.getUTCSeconds();
+    var dayOfMonthString = dayOfMonthInt < 10 ? "0".concat(dayOfMonthInt) : "".concat(dayOfMonthInt);
+    var hoursString = hoursInt < 10 ? "0".concat(hoursInt) : "".concat(hoursInt);
+    var minutesString = minutesInt < 10 ? "0".concat(minutesInt) : "".concat(minutesInt);
+    var secondsString = secondsInt < 10 ? "0".concat(secondsInt) : "".concat(secondsInt);
+    return "".concat(DAYS[dayOfWeek], ", ").concat(dayOfMonthString, " ").concat(MONTHS[month], " ").concat(year, " ").concat(hoursString, ":").concat(minutesString, ":").concat(secondsString, " GMT");
+}
+var RFC3339 = new RegExp(/^(\d{4})-(\d{2})-(\d{2})[tT](\d{2}):(\d{2}):(\d{2})(?:\.(\d+))?[zZ]$/);
+var parseRfc3339DateTime = function (value) {
+    if (value === null || value === undefined) {
+        return undefined;
+    }
+    if (typeof value !== "string") {
+        throw new TypeError("RFC-3339 date-times must be expressed as strings");
+    }
+    var match = RFC3339.exec(value);
+    if (!match) {
+        throw new TypeError("Invalid RFC-3339 date-time value");
+    }
+    var _a = (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__read)(match, 8), _ = _a[0], yearStr = _a[1], monthStr = _a[2], dayStr = _a[3], hours = _a[4], minutes = _a[5], seconds = _a[6], fractionalMilliseconds = _a[7];
+    var year = (0,_parse_utils__WEBPACK_IMPORTED_MODULE_0__.strictParseShort)(stripLeadingZeroes(yearStr));
+    var month = parseDateValue(monthStr, "month", 1, 12);
+    var day = parseDateValue(dayStr, "day", 1, 31);
+    return buildDate(year, month, day, { hours: hours, minutes: minutes, seconds: seconds, fractionalMilliseconds: fractionalMilliseconds });
+};
+var IMF_FIXDATE = new RegExp(/^(?:Mon|Tue|Wed|Thu|Fri|Sat|Sun), (\d{2}) (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) (\d{4}) (\d{1,2}):(\d{2}):(\d{2})(?:\.(\d+))? GMT$/);
+var RFC_850_DATE = new RegExp(/^(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday), (\d{2})-(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)-(\d{2}) (\d{1,2}):(\d{2}):(\d{2})(?:\.(\d+))? GMT$/);
+var ASC_TIME = new RegExp(/^(?:Mon|Tue|Wed|Thu|Fri|Sat|Sun) (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) ( [1-9]|\d{2}) (\d{1,2}):(\d{2}):(\d{2})(?:\.(\d+))? (\d{4})$/);
+var parseRfc7231DateTime = function (value) {
+    if (value === null || value === undefined) {
+        return undefined;
+    }
+    if (typeof value !== "string") {
+        throw new TypeError("RFC-7231 date-times must be expressed as strings");
+    }
+    var match = IMF_FIXDATE.exec(value);
+    if (match) {
+        var _a = (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__read)(match, 8), _1 = _a[0], dayStr = _a[1], monthStr = _a[2], yearStr = _a[3], hours = _a[4], minutes = _a[5], seconds = _a[6], fractionalMilliseconds = _a[7];
+        return buildDate((0,_parse_utils__WEBPACK_IMPORTED_MODULE_0__.strictParseShort)(stripLeadingZeroes(yearStr)), parseMonthByShortName(monthStr), parseDateValue(dayStr, "day", 1, 31), { hours: hours, minutes: minutes, seconds: seconds, fractionalMilliseconds: fractionalMilliseconds });
+    }
+    match = RFC_850_DATE.exec(value);
+    if (match) {
+        var _b = (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__read)(match, 8), _2 = _b[0], dayStr = _b[1], monthStr = _b[2], yearStr = _b[3], hours = _b[4], minutes = _b[5], seconds = _b[6], fractionalMilliseconds = _b[7];
+        return adjustRfc850Year(buildDate(parseTwoDigitYear(yearStr), parseMonthByShortName(monthStr), parseDateValue(dayStr, "day", 1, 31), {
+            hours: hours,
+            minutes: minutes,
+            seconds: seconds,
+            fractionalMilliseconds: fractionalMilliseconds,
+        }));
+    }
+    match = ASC_TIME.exec(value);
+    if (match) {
+        var _c = (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__read)(match, 8), _3 = _c[0], monthStr = _c[1], dayStr = _c[2], hours = _c[3], minutes = _c[4], seconds = _c[5], fractionalMilliseconds = _c[6], yearStr = _c[7];
+        return buildDate((0,_parse_utils__WEBPACK_IMPORTED_MODULE_0__.strictParseShort)(stripLeadingZeroes(yearStr)), parseMonthByShortName(monthStr), parseDateValue(dayStr.trimLeft(), "day", 1, 31), { hours: hours, minutes: minutes, seconds: seconds, fractionalMilliseconds: fractionalMilliseconds });
+    }
+    throw new TypeError("Invalid RFC-7231 date-time value");
+};
+var parseEpochTimestamp = function (value) {
+    if (value === null || value === undefined) {
+        return undefined;
+    }
+    var valueAsDouble;
+    if (typeof value === "number") {
+        valueAsDouble = value;
+    }
+    else if (typeof value === "string") {
+        valueAsDouble = (0,_parse_utils__WEBPACK_IMPORTED_MODULE_0__.strictParseDouble)(value);
+    }
+    else {
+        throw new TypeError("Epoch timestamps must be expressed as floating point numbers or their string representation");
+    }
+    if (Number.isNaN(valueAsDouble) || valueAsDouble === Infinity || valueAsDouble === -Infinity) {
+        throw new TypeError("Epoch timestamps must be valid, non-Infinite, non-NaN numerics");
+    }
+    return new Date(Math.round(valueAsDouble * 1000));
+};
+var buildDate = function (year, month, day, time) {
+    var adjustedMonth = month - 1;
+    validateDayOfMonth(year, adjustedMonth, day);
+    return new Date(Date.UTC(year, adjustedMonth, day, parseDateValue(time.hours, "hour", 0, 23), parseDateValue(time.minutes, "minute", 0, 59), parseDateValue(time.seconds, "seconds", 0, 60), parseMilliseconds(time.fractionalMilliseconds)));
+};
+var parseTwoDigitYear = function (value) {
+    var thisYear = new Date().getUTCFullYear();
+    var valueInThisCentury = Math.floor(thisYear / 100) * 100 + (0,_parse_utils__WEBPACK_IMPORTED_MODULE_0__.strictParseShort)(stripLeadingZeroes(value));
+    if (valueInThisCentury < thisYear) {
+        return valueInThisCentury + 100;
+    }
+    return valueInThisCentury;
+};
+var FIFTY_YEARS_IN_MILLIS = 50 * 365 * 24 * 60 * 60 * 1000;
+var adjustRfc850Year = function (input) {
+    if (input.getTime() - new Date().getTime() > FIFTY_YEARS_IN_MILLIS) {
+        return new Date(Date.UTC(input.getUTCFullYear() - 100, input.getUTCMonth(), input.getUTCDate(), input.getUTCHours(), input.getUTCMinutes(), input.getUTCSeconds(), input.getUTCMilliseconds()));
+    }
+    return input;
+};
+var parseMonthByShortName = function (value) {
+    var monthIdx = MONTHS.indexOf(value);
+    if (monthIdx < 0) {
+        throw new TypeError("Invalid month: ".concat(value));
+    }
+    return monthIdx + 1;
+};
+var DAYS_IN_MONTH = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+var validateDayOfMonth = function (year, month, day) {
+    var maxDays = DAYS_IN_MONTH[month];
+    if (month === 1 && isLeapYear(year)) {
+        maxDays = 29;
+    }
+    if (day > maxDays) {
+        throw new TypeError("Invalid day for ".concat(MONTHS[month], " in ").concat(year, ": ").concat(day));
+    }
+};
+var isLeapYear = function (year) {
+    return year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0);
+};
+var parseDateValue = function (value, type, lower, upper) {
+    var dateVal = (0,_parse_utils__WEBPACK_IMPORTED_MODULE_0__.strictParseByte)(stripLeadingZeroes(value));
+    if (dateVal < lower || dateVal > upper) {
+        throw new TypeError("".concat(type, " must be between ").concat(lower, " and ").concat(upper, ", inclusive"));
+    }
+    return dateVal;
+};
+var parseMilliseconds = function (value) {
+    if (value === null || value === undefined) {
+        return 0;
+    }
+    return (0,_parse_utils__WEBPACK_IMPORTED_MODULE_0__.strictParseFloat32)("0." + value) * 1000;
+};
+var stripLeadingZeroes = function (value) {
+    var idx = 0;
+    while (idx < value.length - 1 && value.charAt(idx) === "0") {
+        idx++;
+    }
+    if (idx === 0) {
+        return value;
+    }
+    return value.slice(idx);
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/@aws-sdk/client-lambda/node_modules/@aws-sdk/smithy-client/dist-es/defaults-mode.js":
+/*!**********************************************************************************************************!*\
+  !*** ./node_modules/@aws-sdk/client-lambda/node_modules/@aws-sdk/smithy-client/dist-es/defaults-mode.js ***!
+  \**********************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "loadConfigsForDefaultMode": () => (/* binding */ loadConfigsForDefaultMode)
+/* harmony export */ });
+var loadConfigsForDefaultMode = function (mode) {
+    switch (mode) {
+        case "standard":
+            return {
+                retryMode: "standard",
+                connectionTimeout: 3100,
+            };
+        case "in-region":
+            return {
+                retryMode: "standard",
+                connectionTimeout: 1100,
+            };
+        case "cross-region":
+            return {
+                retryMode: "standard",
+                connectionTimeout: 3100,
+            };
+        case "mobile":
+            return {
+                retryMode: "standard",
+                connectionTimeout: 30000,
+            };
+        default:
+            return {};
+    }
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/@aws-sdk/client-lambda/node_modules/@aws-sdk/smithy-client/dist-es/emitWarningIfUnsupportedVersion.js":
+/*!****************************************************************************************************************************!*\
+  !*** ./node_modules/@aws-sdk/client-lambda/node_modules/@aws-sdk/smithy-client/dist-es/emitWarningIfUnsupportedVersion.js ***!
+  \****************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "emitWarningIfUnsupportedVersion": () => (/* binding */ emitWarningIfUnsupportedVersion)
+/* harmony export */ });
+var warningEmitted = false;
+var emitWarningIfUnsupportedVersion = function (version) {
+    if (version && !warningEmitted && parseInt(version.substring(1, version.indexOf("."))) < 14) {
+        warningEmitted = true;
+        process.emitWarning("The AWS SDK for JavaScript (v3) will\n" +
+            "no longer support Node.js ".concat(version, " on November 1, 2022.\n\n") +
+            "To continue receiving updates to AWS services, bug fixes, and security\n" +
+            "updates please upgrade to Node.js 14.x or later.\n\n" +
+            "For details, please refer our blog post: https://a.co/48dbdYz", "NodeDeprecationWarning");
+    }
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/@aws-sdk/client-lambda/node_modules/@aws-sdk/smithy-client/dist-es/exceptions.js":
+/*!*******************************************************************************************************!*\
+  !*** ./node_modules/@aws-sdk/client-lambda/node_modules/@aws-sdk/smithy-client/dist-es/exceptions.js ***!
+  \*******************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "ServiceException": () => (/* binding */ ServiceException),
+/* harmony export */   "decorateServiceException": () => (/* binding */ decorateServiceException)
+/* harmony export */ });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+
+var ServiceException = (function (_super) {
+    (0,tslib__WEBPACK_IMPORTED_MODULE_0__.__extends)(ServiceException, _super);
+    function ServiceException(options) {
+        var _this = _super.call(this, options.message) || this;
+        Object.setPrototypeOf(_this, ServiceException.prototype);
+        _this.name = options.name;
+        _this.$fault = options.$fault;
+        _this.$metadata = options.$metadata;
+        return _this;
+    }
+    return ServiceException;
+}(Error));
+
+var decorateServiceException = function (exception, additions) {
+    if (additions === void 0) { additions = {}; }
+    Object.entries(additions)
+        .filter(function (_a) {
+        var _b = (0,tslib__WEBPACK_IMPORTED_MODULE_0__.__read)(_a, 2), v = _b[1];
+        return v !== undefined;
+    })
+        .forEach(function (_a) {
+        var _b = (0,tslib__WEBPACK_IMPORTED_MODULE_0__.__read)(_a, 2), k = _b[0], v = _b[1];
+        if (exception[k] == undefined || exception[k] === "") {
+            exception[k] = v;
+        }
+    });
+    var message = exception.message || exception.Message || "UnknownError";
+    exception.message = message;
+    delete exception.Message;
+    return exception;
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/@aws-sdk/client-lambda/node_modules/@aws-sdk/smithy-client/dist-es/extended-encode-uri-component.js":
+/*!**************************************************************************************************************************!*\
+  !*** ./node_modules/@aws-sdk/client-lambda/node_modules/@aws-sdk/smithy-client/dist-es/extended-encode-uri-component.js ***!
+  \**************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "extendedEncodeURIComponent": () => (/* binding */ extendedEncodeURIComponent)
+/* harmony export */ });
+function extendedEncodeURIComponent(str) {
+    return encodeURIComponent(str).replace(/[!'()*]/g, function (c) {
+        return "%" + c.charCodeAt(0).toString(16).toUpperCase();
+    });
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/@aws-sdk/client-lambda/node_modules/@aws-sdk/smithy-client/dist-es/get-array-if-single-item.js":
+/*!*********************************************************************************************************************!*\
+  !*** ./node_modules/@aws-sdk/client-lambda/node_modules/@aws-sdk/smithy-client/dist-es/get-array-if-single-item.js ***!
+  \*********************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "getArrayIfSingleItem": () => (/* binding */ getArrayIfSingleItem)
+/* harmony export */ });
+var getArrayIfSingleItem = function (mayBeArray) {
+    return Array.isArray(mayBeArray) ? mayBeArray : [mayBeArray];
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/@aws-sdk/client-lambda/node_modules/@aws-sdk/smithy-client/dist-es/get-value-from-text-node.js":
+/*!*********************************************************************************************************************!*\
+  !*** ./node_modules/@aws-sdk/client-lambda/node_modules/@aws-sdk/smithy-client/dist-es/get-value-from-text-node.js ***!
+  \*********************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "getValueFromTextNode": () => (/* binding */ getValueFromTextNode)
+/* harmony export */ });
+var getValueFromTextNode = function (obj) {
+    var textNodeName = "#text";
+    for (var key in obj) {
+        if (obj.hasOwnProperty(key) && obj[key][textNodeName] !== undefined) {
+            obj[key] = obj[key][textNodeName];
+        }
+        else if (typeof obj[key] === "object" && obj[key] !== null) {
+            obj[key] = getValueFromTextNode(obj[key]);
+        }
+    }
+    return obj;
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/@aws-sdk/client-lambda/node_modules/@aws-sdk/smithy-client/dist-es/index.js":
+/*!**************************************************************************************************!*\
+  !*** ./node_modules/@aws-sdk/client-lambda/node_modules/@aws-sdk/smithy-client/dist-es/index.js ***!
+  \**************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Client": () => (/* reexport safe */ _client__WEBPACK_IMPORTED_MODULE_0__.Client),
+/* harmony export */   "Command": () => (/* reexport safe */ _command__WEBPACK_IMPORTED_MODULE_1__.Command),
+/* harmony export */   "LazyJsonString": () => (/* reexport safe */ _lazy_json__WEBPACK_IMPORTED_MODULE_10__.LazyJsonString),
+/* harmony export */   "SENSITIVE_STRING": () => (/* reexport safe */ _constants__WEBPACK_IMPORTED_MODULE_2__.SENSITIVE_STRING),
+/* harmony export */   "ServiceException": () => (/* reexport safe */ _exceptions__WEBPACK_IMPORTED_MODULE_6__.ServiceException),
+/* harmony export */   "StringWrapper": () => (/* reexport safe */ _lazy_json__WEBPACK_IMPORTED_MODULE_10__.StringWrapper),
+/* harmony export */   "dateToUtcString": () => (/* reexport safe */ _date_utils__WEBPACK_IMPORTED_MODULE_3__.dateToUtcString),
+/* harmony export */   "decorateServiceException": () => (/* reexport safe */ _exceptions__WEBPACK_IMPORTED_MODULE_6__.decorateServiceException),
+/* harmony export */   "emitWarningIfUnsupportedVersion": () => (/* reexport safe */ _emitWarningIfUnsupportedVersion__WEBPACK_IMPORTED_MODULE_5__.emitWarningIfUnsupportedVersion),
+/* harmony export */   "expectBoolean": () => (/* reexport safe */ _parse_utils__WEBPACK_IMPORTED_MODULE_11__.expectBoolean),
+/* harmony export */   "expectByte": () => (/* reexport safe */ _parse_utils__WEBPACK_IMPORTED_MODULE_11__.expectByte),
+/* harmony export */   "expectFloat32": () => (/* reexport safe */ _parse_utils__WEBPACK_IMPORTED_MODULE_11__.expectFloat32),
+/* harmony export */   "expectInt": () => (/* reexport safe */ _parse_utils__WEBPACK_IMPORTED_MODULE_11__.expectInt),
+/* harmony export */   "expectInt32": () => (/* reexport safe */ _parse_utils__WEBPACK_IMPORTED_MODULE_11__.expectInt32),
+/* harmony export */   "expectLong": () => (/* reexport safe */ _parse_utils__WEBPACK_IMPORTED_MODULE_11__.expectLong),
+/* harmony export */   "expectNonNull": () => (/* reexport safe */ _parse_utils__WEBPACK_IMPORTED_MODULE_11__.expectNonNull),
+/* harmony export */   "expectNumber": () => (/* reexport safe */ _parse_utils__WEBPACK_IMPORTED_MODULE_11__.expectNumber),
+/* harmony export */   "expectObject": () => (/* reexport safe */ _parse_utils__WEBPACK_IMPORTED_MODULE_11__.expectObject),
+/* harmony export */   "expectShort": () => (/* reexport safe */ _parse_utils__WEBPACK_IMPORTED_MODULE_11__.expectShort),
+/* harmony export */   "expectString": () => (/* reexport safe */ _parse_utils__WEBPACK_IMPORTED_MODULE_11__.expectString),
+/* harmony export */   "expectUnion": () => (/* reexport safe */ _parse_utils__WEBPACK_IMPORTED_MODULE_11__.expectUnion),
+/* harmony export */   "extendedEncodeURIComponent": () => (/* reexport safe */ _extended_encode_uri_component__WEBPACK_IMPORTED_MODULE_7__.extendedEncodeURIComponent),
+/* harmony export */   "getArrayIfSingleItem": () => (/* reexport safe */ _get_array_if_single_item__WEBPACK_IMPORTED_MODULE_8__.getArrayIfSingleItem),
+/* harmony export */   "getValueFromTextNode": () => (/* reexport safe */ _get_value_from_text_node__WEBPACK_IMPORTED_MODULE_9__.getValueFromTextNode),
+/* harmony export */   "handleFloat": () => (/* reexport safe */ _parse_utils__WEBPACK_IMPORTED_MODULE_11__.handleFloat),
+/* harmony export */   "limitedParseDouble": () => (/* reexport safe */ _parse_utils__WEBPACK_IMPORTED_MODULE_11__.limitedParseDouble),
+/* harmony export */   "limitedParseFloat": () => (/* reexport safe */ _parse_utils__WEBPACK_IMPORTED_MODULE_11__.limitedParseFloat),
+/* harmony export */   "limitedParseFloat32": () => (/* reexport safe */ _parse_utils__WEBPACK_IMPORTED_MODULE_11__.limitedParseFloat32),
+/* harmony export */   "loadConfigsForDefaultMode": () => (/* reexport safe */ _defaults_mode__WEBPACK_IMPORTED_MODULE_4__.loadConfigsForDefaultMode),
+/* harmony export */   "parseBoolean": () => (/* reexport safe */ _parse_utils__WEBPACK_IMPORTED_MODULE_11__.parseBoolean),
+/* harmony export */   "parseEpochTimestamp": () => (/* reexport safe */ _date_utils__WEBPACK_IMPORTED_MODULE_3__.parseEpochTimestamp),
+/* harmony export */   "parseRfc3339DateTime": () => (/* reexport safe */ _date_utils__WEBPACK_IMPORTED_MODULE_3__.parseRfc3339DateTime),
+/* harmony export */   "parseRfc7231DateTime": () => (/* reexport safe */ _date_utils__WEBPACK_IMPORTED_MODULE_3__.parseRfc7231DateTime),
+/* harmony export */   "serializeFloat": () => (/* reexport safe */ _ser_utils__WEBPACK_IMPORTED_MODULE_12__.serializeFloat),
+/* harmony export */   "splitEvery": () => (/* reexport safe */ _split_every__WEBPACK_IMPORTED_MODULE_13__.splitEvery),
+/* harmony export */   "strictParseByte": () => (/* reexport safe */ _parse_utils__WEBPACK_IMPORTED_MODULE_11__.strictParseByte),
+/* harmony export */   "strictParseDouble": () => (/* reexport safe */ _parse_utils__WEBPACK_IMPORTED_MODULE_11__.strictParseDouble),
+/* harmony export */   "strictParseFloat": () => (/* reexport safe */ _parse_utils__WEBPACK_IMPORTED_MODULE_11__.strictParseFloat),
+/* harmony export */   "strictParseFloat32": () => (/* reexport safe */ _parse_utils__WEBPACK_IMPORTED_MODULE_11__.strictParseFloat32),
+/* harmony export */   "strictParseInt": () => (/* reexport safe */ _parse_utils__WEBPACK_IMPORTED_MODULE_11__.strictParseInt),
+/* harmony export */   "strictParseInt32": () => (/* reexport safe */ _parse_utils__WEBPACK_IMPORTED_MODULE_11__.strictParseInt32),
+/* harmony export */   "strictParseLong": () => (/* reexport safe */ _parse_utils__WEBPACK_IMPORTED_MODULE_11__.strictParseLong),
+/* harmony export */   "strictParseShort": () => (/* reexport safe */ _parse_utils__WEBPACK_IMPORTED_MODULE_11__.strictParseShort)
+/* harmony export */ });
+/* harmony import */ var _client__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./client */ "./node_modules/@aws-sdk/client-lambda/node_modules/@aws-sdk/smithy-client/dist-es/client.js");
+/* harmony import */ var _command__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./command */ "./node_modules/@aws-sdk/client-lambda/node_modules/@aws-sdk/smithy-client/dist-es/command.js");
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./constants */ "./node_modules/@aws-sdk/client-lambda/node_modules/@aws-sdk/smithy-client/dist-es/constants.js");
+/* harmony import */ var _date_utils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./date-utils */ "./node_modules/@aws-sdk/client-lambda/node_modules/@aws-sdk/smithy-client/dist-es/date-utils.js");
+/* harmony import */ var _defaults_mode__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./defaults-mode */ "./node_modules/@aws-sdk/client-lambda/node_modules/@aws-sdk/smithy-client/dist-es/defaults-mode.js");
+/* harmony import */ var _emitWarningIfUnsupportedVersion__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./emitWarningIfUnsupportedVersion */ "./node_modules/@aws-sdk/client-lambda/node_modules/@aws-sdk/smithy-client/dist-es/emitWarningIfUnsupportedVersion.js");
+/* harmony import */ var _exceptions__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./exceptions */ "./node_modules/@aws-sdk/client-lambda/node_modules/@aws-sdk/smithy-client/dist-es/exceptions.js");
+/* harmony import */ var _extended_encode_uri_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./extended-encode-uri-component */ "./node_modules/@aws-sdk/client-lambda/node_modules/@aws-sdk/smithy-client/dist-es/extended-encode-uri-component.js");
+/* harmony import */ var _get_array_if_single_item__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./get-array-if-single-item */ "./node_modules/@aws-sdk/client-lambda/node_modules/@aws-sdk/smithy-client/dist-es/get-array-if-single-item.js");
+/* harmony import */ var _get_value_from_text_node__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./get-value-from-text-node */ "./node_modules/@aws-sdk/client-lambda/node_modules/@aws-sdk/smithy-client/dist-es/get-value-from-text-node.js");
+/* harmony import */ var _lazy_json__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./lazy-json */ "./node_modules/@aws-sdk/client-lambda/node_modules/@aws-sdk/smithy-client/dist-es/lazy-json.js");
+/* harmony import */ var _parse_utils__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./parse-utils */ "./node_modules/@aws-sdk/client-lambda/node_modules/@aws-sdk/smithy-client/dist-es/parse-utils.js");
+/* harmony import */ var _ser_utils__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./ser-utils */ "./node_modules/@aws-sdk/client-lambda/node_modules/@aws-sdk/smithy-client/dist-es/ser-utils.js");
+/* harmony import */ var _split_every__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./split-every */ "./node_modules/@aws-sdk/client-lambda/node_modules/@aws-sdk/smithy-client/dist-es/split-every.js");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@aws-sdk/client-lambda/node_modules/@aws-sdk/smithy-client/dist-es/lazy-json.js":
+/*!******************************************************************************************************!*\
+  !*** ./node_modules/@aws-sdk/client-lambda/node_modules/@aws-sdk/smithy-client/dist-es/lazy-json.js ***!
+  \******************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "LazyJsonString": () => (/* binding */ LazyJsonString),
+/* harmony export */   "StringWrapper": () => (/* binding */ StringWrapper)
+/* harmony export */ });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+
+var StringWrapper = function () {
+    var Class = Object.getPrototypeOf(this).constructor;
+    var Constructor = Function.bind.apply(String, (0,tslib__WEBPACK_IMPORTED_MODULE_0__.__spreadArray)([null], (0,tslib__WEBPACK_IMPORTED_MODULE_0__.__read)(arguments), false));
+    var instance = new Constructor();
+    Object.setPrototypeOf(instance, Class.prototype);
+    return instance;
+};
+StringWrapper.prototype = Object.create(String.prototype, {
+    constructor: {
+        value: StringWrapper,
+        enumerable: false,
+        writable: true,
+        configurable: true,
+    },
+});
+Object.setPrototypeOf(StringWrapper, String);
+var LazyJsonString = (function (_super) {
+    (0,tslib__WEBPACK_IMPORTED_MODULE_0__.__extends)(LazyJsonString, _super);
+    function LazyJsonString() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    LazyJsonString.prototype.deserializeJSON = function () {
+        return JSON.parse(_super.prototype.toString.call(this));
+    };
+    LazyJsonString.prototype.toJSON = function () {
+        return _super.prototype.toString.call(this);
+    };
+    LazyJsonString.fromObject = function (object) {
+        if (object instanceof LazyJsonString) {
+            return object;
+        }
+        else if (object instanceof String || typeof object === "string") {
+            return new LazyJsonString(object);
+        }
+        return new LazyJsonString(JSON.stringify(object));
+    };
+    return LazyJsonString;
+}(StringWrapper));
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@aws-sdk/client-lambda/node_modules/@aws-sdk/smithy-client/dist-es/parse-utils.js":
+/*!********************************************************************************************************!*\
+  !*** ./node_modules/@aws-sdk/client-lambda/node_modules/@aws-sdk/smithy-client/dist-es/parse-utils.js ***!
+  \********************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "expectBoolean": () => (/* binding */ expectBoolean),
+/* harmony export */   "expectByte": () => (/* binding */ expectByte),
+/* harmony export */   "expectFloat32": () => (/* binding */ expectFloat32),
+/* harmony export */   "expectInt": () => (/* binding */ expectInt),
+/* harmony export */   "expectInt32": () => (/* binding */ expectInt32),
+/* harmony export */   "expectLong": () => (/* binding */ expectLong),
+/* harmony export */   "expectNonNull": () => (/* binding */ expectNonNull),
+/* harmony export */   "expectNumber": () => (/* binding */ expectNumber),
+/* harmony export */   "expectObject": () => (/* binding */ expectObject),
+/* harmony export */   "expectShort": () => (/* binding */ expectShort),
+/* harmony export */   "expectString": () => (/* binding */ expectString),
+/* harmony export */   "expectUnion": () => (/* binding */ expectUnion),
+/* harmony export */   "handleFloat": () => (/* binding */ handleFloat),
+/* harmony export */   "limitedParseDouble": () => (/* binding */ limitedParseDouble),
+/* harmony export */   "limitedParseFloat": () => (/* binding */ limitedParseFloat),
+/* harmony export */   "limitedParseFloat32": () => (/* binding */ limitedParseFloat32),
+/* harmony export */   "parseBoolean": () => (/* binding */ parseBoolean),
+/* harmony export */   "strictParseByte": () => (/* binding */ strictParseByte),
+/* harmony export */   "strictParseDouble": () => (/* binding */ strictParseDouble),
+/* harmony export */   "strictParseFloat": () => (/* binding */ strictParseFloat),
+/* harmony export */   "strictParseFloat32": () => (/* binding */ strictParseFloat32),
+/* harmony export */   "strictParseInt": () => (/* binding */ strictParseInt),
+/* harmony export */   "strictParseInt32": () => (/* binding */ strictParseInt32),
+/* harmony export */   "strictParseLong": () => (/* binding */ strictParseLong),
+/* harmony export */   "strictParseShort": () => (/* binding */ strictParseShort)
+/* harmony export */ });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+
+var parseBoolean = function (value) {
+    switch (value) {
+        case "true":
+            return true;
+        case "false":
+            return false;
+        default:
+            throw new Error("Unable to parse boolean value \"".concat(value, "\""));
+    }
+};
+var expectBoolean = function (value) {
+    if (value === null || value === undefined) {
+        return undefined;
+    }
+    if (typeof value === "boolean") {
+        return value;
+    }
+    throw new TypeError("Expected boolean, got ".concat(typeof value));
+};
+var expectNumber = function (value) {
+    if (value === null || value === undefined) {
+        return undefined;
+    }
+    if (typeof value === "number") {
+        return value;
+    }
+    throw new TypeError("Expected number, got ".concat(typeof value));
+};
+var MAX_FLOAT = Math.ceil(Math.pow(2, 127) * (2 - Math.pow(2, -23)));
+var expectFloat32 = function (value) {
+    var expected = expectNumber(value);
+    if (expected !== undefined && !Number.isNaN(expected) && expected !== Infinity && expected !== -Infinity) {
+        if (Math.abs(expected) > MAX_FLOAT) {
+            throw new TypeError("Expected 32-bit float, got ".concat(value));
+        }
+    }
+    return expected;
+};
+var expectLong = function (value) {
+    if (value === null || value === undefined) {
+        return undefined;
+    }
+    if (Number.isInteger(value) && !Number.isNaN(value)) {
+        return value;
+    }
+    throw new TypeError("Expected integer, got ".concat(typeof value));
+};
+var expectInt = expectLong;
+var expectInt32 = function (value) { return expectSizedInt(value, 32); };
+var expectShort = function (value) { return expectSizedInt(value, 16); };
+var expectByte = function (value) { return expectSizedInt(value, 8); };
+var expectSizedInt = function (value, size) {
+    var expected = expectLong(value);
+    if (expected !== undefined && castInt(expected, size) !== expected) {
+        throw new TypeError("Expected ".concat(size, "-bit integer, got ").concat(value));
+    }
+    return expected;
+};
+var castInt = function (value, size) {
+    switch (size) {
+        case 32:
+            return Int32Array.of(value)[0];
+        case 16:
+            return Int16Array.of(value)[0];
+        case 8:
+            return Int8Array.of(value)[0];
+    }
+};
+var expectNonNull = function (value, location) {
+    if (value === null || value === undefined) {
+        if (location) {
+            throw new TypeError("Expected a non-null value for ".concat(location));
+        }
+        throw new TypeError("Expected a non-null value");
+    }
+    return value;
+};
+var expectObject = function (value) {
+    if (value === null || value === undefined) {
+        return undefined;
+    }
+    if (typeof value === "object" && !Array.isArray(value)) {
+        return value;
+    }
+    throw new TypeError("Expected object, got ".concat(typeof value));
+};
+var expectString = function (value) {
+    if (value === null || value === undefined) {
+        return undefined;
+    }
+    if (typeof value === "string") {
+        return value;
+    }
+    throw new TypeError("Expected string, got ".concat(typeof value));
+};
+var expectUnion = function (value) {
+    if (value === null || value === undefined) {
+        return undefined;
+    }
+    var asObject = expectObject(value);
+    var setKeys = Object.entries(asObject)
+        .filter(function (_a) {
+        var _b = (0,tslib__WEBPACK_IMPORTED_MODULE_0__.__read)(_a, 2), _ = _b[0], v = _b[1];
+        return v !== null && v !== undefined;
+    })
+        .map(function (_a) {
+        var _b = (0,tslib__WEBPACK_IMPORTED_MODULE_0__.__read)(_a, 2), k = _b[0], _ = _b[1];
+        return k;
+    });
+    if (setKeys.length === 0) {
+        throw new TypeError("Unions must have exactly one non-null member");
+    }
+    if (setKeys.length > 1) {
+        throw new TypeError("Unions must have exactly one non-null member. Keys ".concat(setKeys, " were not null."));
+    }
+    return asObject;
+};
+var strictParseDouble = function (value) {
+    if (typeof value == "string") {
+        return expectNumber(parseNumber(value));
+    }
+    return expectNumber(value);
+};
+var strictParseFloat = strictParseDouble;
+var strictParseFloat32 = function (value) {
+    if (typeof value == "string") {
+        return expectFloat32(parseNumber(value));
+    }
+    return expectFloat32(value);
+};
+var NUMBER_REGEX = /(-?(?:0|[1-9]\d*)(?:\.\d+)?(?:[eE][+-]?\d+)?)|(-?Infinity)|(NaN)/g;
+var parseNumber = function (value) {
+    var matches = value.match(NUMBER_REGEX);
+    if (matches === null || matches[0].length !== value.length) {
+        throw new TypeError("Expected real number, got implicit NaN");
+    }
+    return parseFloat(value);
+};
+var limitedParseDouble = function (value) {
+    if (typeof value == "string") {
+        return parseFloatString(value);
+    }
+    return expectNumber(value);
+};
+var handleFloat = limitedParseDouble;
+var limitedParseFloat = limitedParseDouble;
+var limitedParseFloat32 = function (value) {
+    if (typeof value == "string") {
+        return parseFloatString(value);
+    }
+    return expectFloat32(value);
+};
+var parseFloatString = function (value) {
+    switch (value) {
+        case "NaN":
+            return NaN;
+        case "Infinity":
+            return Infinity;
+        case "-Infinity":
+            return -Infinity;
+        default:
+            throw new Error("Unable to parse float value: ".concat(value));
+    }
+};
+var strictParseLong = function (value) {
+    if (typeof value === "string") {
+        return expectLong(parseNumber(value));
+    }
+    return expectLong(value);
+};
+var strictParseInt = strictParseLong;
+var strictParseInt32 = function (value) {
+    if (typeof value === "string") {
+        return expectInt32(parseNumber(value));
+    }
+    return expectInt32(value);
+};
+var strictParseShort = function (value) {
+    if (typeof value === "string") {
+        return expectShort(parseNumber(value));
+    }
+    return expectShort(value);
+};
+var strictParseByte = function (value) {
+    if (typeof value === "string") {
+        return expectByte(parseNumber(value));
+    }
+    return expectByte(value);
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/@aws-sdk/client-lambda/node_modules/@aws-sdk/smithy-client/dist-es/ser-utils.js":
+/*!******************************************************************************************************!*\
+  !*** ./node_modules/@aws-sdk/client-lambda/node_modules/@aws-sdk/smithy-client/dist-es/ser-utils.js ***!
+  \******************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "serializeFloat": () => (/* binding */ serializeFloat)
+/* harmony export */ });
+var serializeFloat = function (value) {
+    if (value !== value) {
+        return "NaN";
+    }
+    switch (value) {
+        case Infinity:
+            return "Infinity";
+        case -Infinity:
+            return "-Infinity";
+        default:
+            return value;
+    }
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/@aws-sdk/client-lambda/node_modules/@aws-sdk/smithy-client/dist-es/split-every.js":
+/*!********************************************************************************************************!*\
+  !*** ./node_modules/@aws-sdk/client-lambda/node_modules/@aws-sdk/smithy-client/dist-es/split-every.js ***!
+  \********************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "splitEvery": () => (/* binding */ splitEvery)
+/* harmony export */ });
+function splitEvery(value, delimiter, numDelimiters) {
+    if (numDelimiters <= 0 || !Number.isInteger(numDelimiters)) {
+        throw new Error("Invalid number of delimiters (" + numDelimiters + ") for splitEvery.");
+    }
+    var segments = value.split(delimiter);
+    if (numDelimiters === 1) {
+        return segments;
+    }
+    var compoundSegments = [];
+    var currentSegment = "";
+    for (var i = 0; i < segments.length; i++) {
+        if (currentSegment === "") {
+            currentSegment = segments[i];
+        }
+        else {
+            currentSegment += delimiter + segments[i];
+        }
+        if ((i + 1) % numDelimiters === 0) {
+            compoundSegments.push(currentSegment);
+            currentSegment = "";
+        }
+    }
+    if (currentSegment !== "") {
+        compoundSegments.push(currentSegment);
+    }
+    return compoundSegments;
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/@aws-sdk/client-lambda/node_modules/@aws-sdk/util-defaults-mode-browser/dist-es/constants.js":
+/*!*******************************************************************************************************************!*\
+  !*** ./node_modules/@aws-sdk/client-lambda/node_modules/@aws-sdk/util-defaults-mode-browser/dist-es/constants.js ***!
+  \*******************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "DEFAULTS_MODE_OPTIONS": () => (/* binding */ DEFAULTS_MODE_OPTIONS)
+/* harmony export */ });
+var DEFAULTS_MODE_OPTIONS = ["in-region", "cross-region", "mobile", "standard", "legacy"];
+
+
+/***/ }),
+
+/***/ "./node_modules/@aws-sdk/client-lambda/node_modules/@aws-sdk/util-defaults-mode-browser/dist-es/index.js":
+/*!***************************************************************************************************************!*\
+  !*** ./node_modules/@aws-sdk/client-lambda/node_modules/@aws-sdk/util-defaults-mode-browser/dist-es/index.js ***!
+  \***************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "resolveDefaultsModeConfig": () => (/* reexport safe */ _resolveDefaultsModeConfig__WEBPACK_IMPORTED_MODULE_0__.resolveDefaultsModeConfig)
+/* harmony export */ });
+/* harmony import */ var _resolveDefaultsModeConfig__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./resolveDefaultsModeConfig */ "./node_modules/@aws-sdk/client-lambda/node_modules/@aws-sdk/util-defaults-mode-browser/dist-es/resolveDefaultsModeConfig.js");
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@aws-sdk/client-lambda/node_modules/@aws-sdk/util-defaults-mode-browser/dist-es/resolveDefaultsModeConfig.js":
+/*!***********************************************************************************************************************************!*\
+  !*** ./node_modules/@aws-sdk/client-lambda/node_modules/@aws-sdk/util-defaults-mode-browser/dist-es/resolveDefaultsModeConfig.js ***!
+  \***********************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "resolveDefaultsModeConfig": () => (/* binding */ resolveDefaultsModeConfig)
+/* harmony export */ });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _aws_sdk_property_provider__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @aws-sdk/property-provider */ "./node_modules/@aws-sdk/property-provider/dist-es/index.js");
+/* harmony import */ var bowser__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! bowser */ "./node_modules/bowser/es5.js");
+/* harmony import */ var bowser__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(bowser__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./constants */ "./node_modules/@aws-sdk/client-lambda/node_modules/@aws-sdk/util-defaults-mode-browser/dist-es/constants.js");
+
+
+
+
+var resolveDefaultsModeConfig = function (_a) {
+    var _b = _a === void 0 ? {} : _a, defaultsMode = _b.defaultsMode;
+    return (0,_aws_sdk_property_provider__WEBPACK_IMPORTED_MODULE_0__.memoize)(function () { return (0,tslib__WEBPACK_IMPORTED_MODULE_3__.__awaiter)(void 0, void 0, void 0, function () {
+        var mode, _a;
+        return (0,tslib__WEBPACK_IMPORTED_MODULE_3__.__generator)(this, function (_b) {
+            switch (_b.label) {
+                case 0:
+                    if (!(typeof defaultsMode === "function")) return [3, 2];
+                    return [4, defaultsMode()];
+                case 1:
+                    _a = _b.sent();
+                    return [3, 3];
+                case 2:
+                    _a = defaultsMode;
+                    _b.label = 3;
+                case 3:
+                    mode = _a;
+                    switch (mode === null || mode === void 0 ? void 0 : mode.toLowerCase()) {
+                        case "auto":
+                            return [2, Promise.resolve(isMobileBrowser() ? "mobile" : "standard")];
+                        case "mobile":
+                        case "in-region":
+                        case "cross-region":
+                        case "standard":
+                        case "legacy":
+                            return [2, Promise.resolve(mode === null || mode === void 0 ? void 0 : mode.toLocaleLowerCase())];
+                        case undefined:
+                            return [2, Promise.resolve("legacy")];
+                        default:
+                            throw new Error("Invalid parameter for \"defaultsMode\", expect ".concat(_constants__WEBPACK_IMPORTED_MODULE_2__.DEFAULTS_MODE_OPTIONS.join(", "), ", got ").concat(mode));
+                    }
+                    return [2];
+            }
+        });
+    }); });
+};
+var isMobileBrowser = function () {
+    var _a, _b;
+    var parsedUA = typeof window !== "undefined" && ((_a = window === null || window === void 0 ? void 0 : window.navigator) === null || _a === void 0 ? void 0 : _a.userAgent)
+        ? bowser__WEBPACK_IMPORTED_MODULE_1___default().parse(window.navigator.userAgent)
+        : undefined;
+    var platform = (_b = parsedUA === null || parsedUA === void 0 ? void 0 : parsedUA.platform) === null || _b === void 0 ? void 0 : _b.type;
+    return platform === "tablet" || platform === "mobile";
+};
+
+
+/***/ }),
+
 /***/ "./node_modules/@aws-sdk/config-resolver/dist-es/endpointsConfig/NodeUseDualstackEndpointConfigOptions.js":
 /*!****************************************************************************************************************!*\
   !*** ./node_modules/@aws-sdk/config-resolver/dist-es/endpointsConfig/NodeUseDualstackEndpointConfigOptions.js ***!
@@ -18183,6 +30572,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _js_helpers_handleInput_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./js/helpers/handleInput.js */ "./src/js/helpers/handleInput.js");
 /* harmony import */ var _js_helpers_handleNavbar_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./js/helpers/handleNavbar.js */ "./src/js/helpers/handleNavbar.js");
 /* harmony import */ var _js_helpers_handleSettings_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./js/helpers/handleSettings.js */ "./src/js/helpers/handleSettings.js");
+/* harmony import */ var _js_helpers_handleAccountInfo__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./js/helpers/handleAccountInfo */ "./src/js/helpers/handleAccountInfo.js");
+/* harmony import */ var _js_userConfig__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./js/userConfig */ "./src/js/userConfig.js");
+/* harmony import */ var _js_db_db_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./js/db/db.js */ "./src/js/db/db.js");
+
+
+
 
 
 
@@ -18214,7 +30609,10 @@ function setupGame() {
     localStorage.setItem("settings2048++", JSON.stringify(defaultSettings));
   }
 
-  (0,_js_helpers_handleSettings_js__WEBPACK_IMPORTED_MODULE_7__.applySettings)(); // Destroy all exisitng cells and tiles
+  if (!(0,_js_userConfig__WEBPACK_IMPORTED_MODULE_9__.getLoggedIn)()) {
+    (0,_js_helpers_handleSettings_js__WEBPACK_IMPORTED_MODULE_7__.applyLSSettings)();
+  } // Destroy all exisitng cells and tiles
+
 
   var existingCells = document.querySelectorAll(".cell");
   var existingTiles = document.querySelectorAll(".tile");
@@ -18240,12 +30638,14 @@ function setupGame() {
   } // Fetch best score from localStorage
 
 
-  var bestScoreContainer = document.querySelector(".best-container");
-  var bestScoreLocal = window.localStorage.getItem("bestScore2048++");
+  if (!(0,_js_userConfig__WEBPACK_IMPORTED_MODULE_9__.getLoggedIn)()) {
+    var bestScoreContainer = document.querySelector(".best-container");
+    var bestScoreLocal = window.localStorage.getItem("bestScore2048++");
 
-  if (bestScoreLocal) {
-    bestScoreContainer.dataset.bestScore = bestScoreLocal;
-    bestScoreContainer.textContent = bestScoreLocal;
+    if (bestScoreLocal) {
+      bestScoreContainer.dataset.bestScore = bestScoreLocal;
+      bestScoreContainer.textContent = bestScoreLocal;
+    }
   } // Elements:
 
 
@@ -18279,11 +30679,28 @@ function setupGame() {
 
 var btnRestart = document.getElementById("btn--restart");
 btnRestart.addEventListener("click", function () {
+  (0,_js_helpers_handleAccountInfo__WEBPACK_IMPORTED_MODULE_8__.incrementGameCount)();
   var lossModal = document.getElementById("modal--loss");
   var gameBoard = document.getElementById("game-board");
   lossModal.style.opacity = 0;
   gameBoard.style.opacity = 1;
   setupGame();
+});
+window.addEventListener("beforeunload", function () {
+  if ((0,_js_userConfig__WEBPACK_IMPORTED_MODULE_9__.getLoggedIn)()) {
+    var accountObj = {
+      email: (0,_js_userConfig__WEBPACK_IMPORTED_MODULE_9__.getEmail)(),
+      password: (0,_js_userConfig__WEBPACK_IMPORTED_MODULE_9__.getPassword)(),
+      bestScore: (0,_js_userConfig__WEBPACK_IMPORTED_MODULE_9__.getBestScore)(),
+      settings: {
+        darkMode: (0,_js_config_js__WEBPACK_IMPORTED_MODULE_3__.getDarkMode)(),
+        colorTheme: (0,_js_config_js__WEBPACK_IMPORTED_MODULE_3__.getColorTheme)(),
+        gridSize: (0,_js_config_js__WEBPACK_IMPORTED_MODULE_3__.getGridSize)()
+      },
+      gamesPlayed: (0,_js_userConfig__WEBPACK_IMPORTED_MODULE_9__.getGamesPlayed)()
+    };
+    (0,_js_db_db_js__WEBPACK_IMPORTED_MODULE_10__.updateAccount)(accountObj);
+  }
 });
 
 /***/ }),
@@ -18885,11 +31302,13 @@ var textColorDictDefault = {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "getColorTheme": () => (/* binding */ getColorTheme),
+/* harmony export */   "getDarkMode": () => (/* binding */ getDarkMode),
 /* harmony export */   "getGridSize": () => (/* binding */ getGridSize),
 /* harmony export */   "getMusic": () => (/* binding */ getMusic),
 /* harmony export */   "getPercentVHMain": () => (/* binding */ getPercentVHMain),
 /* harmony export */   "getSounds": () => (/* binding */ getSounds),
 /* harmony export */   "setColorTheme": () => (/* binding */ setColorTheme),
+/* harmony export */   "setDarkMode": () => (/* binding */ setDarkMode),
 /* harmony export */   "setGridSize": () => (/* binding */ setGridSize),
 /* harmony export */   "setMusic": () => (/* binding */ setMusic),
 /* harmony export */   "setPercentVHMain": () => (/* binding */ setPercentVHMain),
@@ -18898,6 +31317,7 @@ __webpack_require__.r(__webpack_exports__);
 var GRID_SIZE = 4;
 var PERCENT_VH_MAIN = 80;
 var COLOR_THEME = "original";
+var DARK_MODE = "light-theme";
 var SOUNDS = false;
 var MUSIC = false;
 var getGridSize = function getGridSize() {
@@ -18908,6 +31328,9 @@ var getPercentVHMain = function getPercentVHMain() {
 };
 var getColorTheme = function getColorTheme() {
   return COLOR_THEME;
+};
+var getDarkMode = function getDarkMode() {
+  return DARK_MODE;
 };
 var getSounds = function getSounds() {
   return SOUNDS;
@@ -18923,6 +31346,9 @@ var setPercentVHMain = function setPercentVHMain(val) {
 };
 var setColorTheme = function setColorTheme(val) {
   return COLOR_THEME = val;
+};
+var setDarkMode = function setDarkMode(val) {
+  return DARK_MODE = val;
 };
 var setSounds = function setSounds(val) {
   return SOUNDS = val;
@@ -18949,6 +31375,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _aws_sdk_client_dynamodb__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @aws-sdk/client-dynamodb */ "./node_modules/@aws-sdk/client-dynamodb/dist-es/DynamoDBClient.js");
 /* harmony import */ var _aws_sdk_client_dynamodb__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @aws-sdk/client-dynamodb */ "./node_modules/@aws-sdk/client-dynamodb/dist-es/commands/GetItemCommand.js");
 /* harmony import */ var _aws_sdk_client_dynamodb__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @aws-sdk/client-dynamodb */ "./node_modules/@aws-sdk/client-dynamodb/dist-es/commands/PutItemCommand.js");
+/* harmony import */ var _aws_sdk_client_lambda__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @aws-sdk/client-lambda */ "./node_modules/@aws-sdk/client-lambda/dist-es/LambdaClient.js");
+/* harmony import */ var _aws_sdk_client_lambda__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @aws-sdk/client-lambda */ "./node_modules/@aws-sdk/client-lambda/dist-es/commands/InvokeCommand.js");
 /* harmony import */ var _aws_sdk_util_dynamodb__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @aws-sdk/util-dynamodb */ "./node_modules/@aws-sdk/util-dynamodb/dist-es/index.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
@@ -18960,7 +31388,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 
+
 var ddbClient;
+var lambdaClient;
 var credentials = {
   accessKeyId: "AKIATIH5SGOU3U2FTWEP",
   secretAccessKey: "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"
@@ -19075,55 +31505,58 @@ var createAccount = /*#__PURE__*/function () {
                 settings: settingsLocal
               })
             };
-            _context3.prev = 3;
-            _context3.next = 6;
+            console.log(params);
+            _context3.prev = 4;
+            _context3.next = 7;
             return connectToDDB();
 
-          case 6:
-            _context3.next = 8;
+          case 7:
+            _context3.next = 9;
             return ddbClient.send(new _aws_sdk_client_dynamodb__WEBPACK_IMPORTED_MODULE_3__.PutItemCommand(params));
 
-          case 8:
+          case 9:
             res = _context3.sent;
-            _context3.next = 15;
+            _context3.next = 16;
             break;
 
-          case 11:
-            _context3.prev = 11;
-            _context3.t0 = _context3["catch"](3);
+          case 12:
+            _context3.prev = 12;
+            _context3.t0 = _context3["catch"](4);
             console.log(_context3.t0);
             throw _context3.t0;
 
-          case 15:
+          case 16:
           case "end":
             return _context3.stop();
         }
       }
-    }, _callee3, null, [[3, 11]]);
+    }, _callee3, null, [[4, 12]]);
   }));
 
   return function createAccount(_x2, _x3, _x4) {
     return _ref3.apply(this, arguments);
   };
-}(); // TODO: For both changing passwords and updating new best score.
+}(); // Asynchronously invokes an AWS Lambda to update DynamoDB
 
-var updateAccount = /*#__PURE__*/function () {
-  var _ref4 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee4(userName, email, password) {
-    return _regeneratorRuntime().wrap(function _callee4$(_context4) {
-      while (1) {
-        switch (_context4.prev = _context4.next) {
-          case 0:
-          case "end":
-            return _context4.stop();
-        }
-      }
-    }, _callee4);
-  }));
-
-  return function updateAccount(_x5, _x6, _x7) {
-    return _ref4.apply(this, arguments);
+var invokeAsyncLambda = function invokeAsyncLambda(payload) {
+  var funcName = "".concat("update2048DDB");
+  lambdaClient = new _aws_sdk_client_lambda__WEBPACK_IMPORTED_MODULE_4__.LambdaClient({
+    credentials: credentials,
+    egion: "us-east-1"
+  });
+  var params = {
+    FunctionName: funcName,
+    InvocationType: "Event",
+    Payload: payload
   };
-}();
+  lambdaClient.send(new _aws_sdk_client_lambda__WEBPACK_IMPORTED_MODULE_5__.InvokeCommand(params));
+};
+
+var updateAccount = function updateAccount(accountObj) {
+  var payload = JSON.stringify(accountObj);
+  invokeAsyncLambda(payload);
+}; //////////////////////////////////////////////////////////
+
 /* DYNAMODB TABLE FORMAT */
 
 /*
@@ -19289,6 +31722,67 @@ function canMoveRight(grid) {
 
 /***/ }),
 
+/***/ "./src/js/helpers/handleAccountInfo.js":
+/*!*********************************************!*\
+  !*** ./src/js/helpers/handleAccountInfo.js ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "incrementGameCount": () => (/* binding */ incrementGameCount),
+/* harmony export */   "updateUserBestScore": () => (/* binding */ updateUserBestScore)
+/* harmony export */ });
+/* harmony import */ var _userConfig__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../userConfig */ "./src/js/userConfig.js");
+/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../config */ "./src/js/config.js");
+
+ // Called upon loss or game restart
+
+var incrementGameCount = function incrementGameCount() {
+  // Only count games when logged in
+  if (!(0,_userConfig__WEBPACK_IMPORTED_MODULE_0__.getLoggedIn)()) return; // Only count a game if number if present tiles is greater than 2
+
+  var gameBoard = document.getElementById("game-board");
+  var tiles = gameBoard.querySelectorAll(".tile");
+  if (tiles.length <= 2) return;
+  var gridSize = (0,_config__WEBPACK_IMPORTED_MODULE_1__.getGridSize)();
+  var gamesPlayedObj = (0,_userConfig__WEBPACK_IMPORTED_MODULE_0__.getGamesPlayed)();
+  var gamesPlayedContainer;
+  var newGamesPlayedCount;
+
+  if (gridSize == 4) {
+    gamesPlayedObj["4x4"] += 1;
+    newGamesPlayedCount = gamesPlayedObj["4x4"];
+    gamesPlayedContainer = document.getElementById("games-played--4x4");
+  } else if (gridSize == 5) {
+    gamesPlayedObj["5x5"] += 1;
+    newGamesPlayedCount = gamesPlayedObj["5x5"];
+    gamesPlayedContainer = document.getElementById("games-played--5x5");
+  } else if (gridSize == 6) {
+    gamesPlayedObj["6x6"] += 1;
+    newGamesPlayedCount = gamesPlayedObj["6x6"];
+    gamesPlayedContainer = document.getElementById("games-played--6x6");
+  }
+
+  (0,_userConfig__WEBPACK_IMPORTED_MODULE_0__.setGamesPlayed)(gamesPlayedObj); // Update account modal
+
+  gamesPlayedContainer.textContent = newGamesPlayedCount;
+};
+var updateUserBestScore = function updateUserBestScore(curScore) {
+  if (!(0,_userConfig__WEBPACK_IMPORTED_MODULE_0__.getLoggedIn)()) return;
+  var bestScore = (0,_userConfig__WEBPACK_IMPORTED_MODULE_0__.getBestScore)();
+
+  if (curScore > bestScore) {
+    (0,_userConfig__WEBPACK_IMPORTED_MODULE_0__.setBestScore)(curScore); // Update account modal
+
+    var bestScoreContainer = document.getElementById("best-score-data");
+    bestScoreContainer.textContent = curScore;
+  }
+};
+
+/***/ }),
+
 /***/ "./src/js/helpers/handleAlert.js":
 /*!***************************************!*\
   !*** ./src/js/helpers/handleAlert.js ***!
@@ -19350,6 +31844,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _handleSettings_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./handleSettings.js */ "./src/js/helpers/handleSettings.js");
 /* harmony import */ var _gameState_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../gameState.js */ "./src/js/gameState.js");
 /* harmony import */ var _classes_Tile_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../classes/Tile.js */ "./src/js/classes/Tile.js");
+/* harmony import */ var _handleAccountInfo_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./handleAccountInfo.js */ "./src/js/helpers/handleAccountInfo.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return exports; }; var exports = {}, Op = Object.prototype, hasOwn = Op.hasOwnProperty, $Symbol = "function" == typeof Symbol ? Symbol : {}, iteratorSymbol = $Symbol.iterator || "@@iterator", asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator", toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag"; function define(obj, key, value) { return Object.defineProperty(obj, key, { value: value, enumerable: !0, configurable: !0, writable: !0 }), obj[key]; } try { define({}, ""); } catch (err) { define = function define(obj, key, value) { return obj[key] = value; }; } function wrap(innerFn, outerFn, self, tryLocsList) { var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator, generator = Object.create(protoGenerator.prototype), context = new Context(tryLocsList || []); return generator._invoke = function (innerFn, self, context) { var state = "suspendedStart"; return function (method, arg) { if ("executing" === state) throw new Error("Generator is already running"); if ("completed" === state) { if ("throw" === method) throw arg; return doneResult(); } for (context.method = method, context.arg = arg;;) { var delegate = context.delegate; if (delegate) { var delegateResult = maybeInvokeDelegate(delegate, context); if (delegateResult) { if (delegateResult === ContinueSentinel) continue; return delegateResult; } } if ("next" === context.method) context.sent = context._sent = context.arg;else if ("throw" === context.method) { if ("suspendedStart" === state) throw state = "completed", context.arg; context.dispatchException(context.arg); } else "return" === context.method && context.abrupt("return", context.arg); state = "executing"; var record = tryCatch(innerFn, self, context); if ("normal" === record.type) { if (state = context.done ? "completed" : "suspendedYield", record.arg === ContinueSentinel) continue; return { value: record.arg, done: context.done }; } "throw" === record.type && (state = "completed", context.method = "throw", context.arg = record.arg); } }; }(innerFn, self, context), generator; } function tryCatch(fn, obj, arg) { try { return { type: "normal", arg: fn.call(obj, arg) }; } catch (err) { return { type: "throw", arg: err }; } } exports.wrap = wrap; var ContinueSentinel = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var IteratorPrototype = {}; define(IteratorPrototype, iteratorSymbol, function () { return this; }); var getProto = Object.getPrototypeOf, NativeIteratorPrototype = getProto && getProto(getProto(values([]))); NativeIteratorPrototype && NativeIteratorPrototype !== Op && hasOwn.call(NativeIteratorPrototype, iteratorSymbol) && (IteratorPrototype = NativeIteratorPrototype); var Gp = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(IteratorPrototype); function defineIteratorMethods(prototype) { ["next", "throw", "return"].forEach(function (method) { define(prototype, method, function (arg) { return this._invoke(method, arg); }); }); } function AsyncIterator(generator, PromiseImpl) { function invoke(method, arg, resolve, reject) { var record = tryCatch(generator[method], generator, arg); if ("throw" !== record.type) { var result = record.arg, value = result.value; return value && "object" == _typeof(value) && hasOwn.call(value, "__await") ? PromiseImpl.resolve(value.__await).then(function (value) { invoke("next", value, resolve, reject); }, function (err) { invoke("throw", err, resolve, reject); }) : PromiseImpl.resolve(value).then(function (unwrapped) { result.value = unwrapped, resolve(result); }, function (error) { return invoke("throw", error, resolve, reject); }); } reject(record.arg); } var previousPromise; this._invoke = function (method, arg) { function callInvokeWithMethodAndArg() { return new PromiseImpl(function (resolve, reject) { invoke(method, arg, resolve, reject); }); } return previousPromise = previousPromise ? previousPromise.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); }; } function maybeInvokeDelegate(delegate, context) { var method = delegate.iterator[context.method]; if (undefined === method) { if (context.delegate = null, "throw" === context.method) { if (delegate.iterator["return"] && (context.method = "return", context.arg = undefined, maybeInvokeDelegate(delegate, context), "throw" === context.method)) return ContinueSentinel; context.method = "throw", context.arg = new TypeError("The iterator does not provide a 'throw' method"); } return ContinueSentinel; } var record = tryCatch(method, delegate.iterator, context.arg); if ("throw" === record.type) return context.method = "throw", context.arg = record.arg, context.delegate = null, ContinueSentinel; var info = record.arg; return info ? info.done ? (context[delegate.resultName] = info.value, context.next = delegate.nextLoc, "return" !== context.method && (context.method = "next", context.arg = undefined), context.delegate = null, ContinueSentinel) : info : (context.method = "throw", context.arg = new TypeError("iterator result is not an object"), context.delegate = null, ContinueSentinel); } function pushTryEntry(locs) { var entry = { tryLoc: locs[0] }; 1 in locs && (entry.catchLoc = locs[1]), 2 in locs && (entry.finallyLoc = locs[2], entry.afterLoc = locs[3]), this.tryEntries.push(entry); } function resetTryEntry(entry) { var record = entry.completion || {}; record.type = "normal", delete record.arg, entry.completion = record; } function Context(tryLocsList) { this.tryEntries = [{ tryLoc: "root" }], tryLocsList.forEach(pushTryEntry, this), this.reset(!0); } function values(iterable) { if (iterable) { var iteratorMethod = iterable[iteratorSymbol]; if (iteratorMethod) return iteratorMethod.call(iterable); if ("function" == typeof iterable.next) return iterable; if (!isNaN(iterable.length)) { var i = -1, next = function next() { for (; ++i < iterable.length;) { if (hasOwn.call(iterable, i)) return next.value = iterable[i], next.done = !1, next; } return next.value = undefined, next.done = !0, next; }; return next.next = next; } } return { next: doneResult }; } function doneResult() { return { value: undefined, done: !0 }; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, define(Gp, "constructor", GeneratorFunctionPrototype), define(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, toStringTagSymbol, "GeneratorFunction"), exports.isGeneratorFunction = function (genFun) { var ctor = "function" == typeof genFun && genFun.constructor; return !!ctor && (ctor === GeneratorFunction || "GeneratorFunction" === (ctor.displayName || ctor.name)); }, exports.mark = function (genFun) { return Object.setPrototypeOf ? Object.setPrototypeOf(genFun, GeneratorFunctionPrototype) : (genFun.__proto__ = GeneratorFunctionPrototype, define(genFun, toStringTagSymbol, "GeneratorFunction")), genFun.prototype = Object.create(Gp), genFun; }, exports.awrap = function (arg) { return { __await: arg }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, asyncIteratorSymbol, function () { return this; }), exports.AsyncIterator = AsyncIterator, exports.async = function (innerFn, outerFn, self, tryLocsList, PromiseImpl) { void 0 === PromiseImpl && (PromiseImpl = Promise); var iter = new AsyncIterator(wrap(innerFn, outerFn, self, tryLocsList), PromiseImpl); return exports.isGeneratorFunction(outerFn) ? iter : iter.next().then(function (result) { return result.done ? result.value : iter.next(); }); }, defineIteratorMethods(Gp), define(Gp, toStringTagSymbol, "Generator"), define(Gp, iteratorSymbol, function () { return this; }), define(Gp, "toString", function () { return "[object Generator]"; }), exports.keys = function (object) { var keys = []; for (var key in object) { keys.push(key); } return keys.reverse(), function next() { for (; keys.length;) { var key = keys.pop(); if (key in object) return next.value = key, next.done = !1, next; } return next.done = !0, next; }; }, exports.values = values, Context.prototype = { constructor: Context, reset: function reset(skipTempReset) { if (this.prev = 0, this.next = 0, this.sent = this._sent = undefined, this.done = !1, this.delegate = null, this.method = "next", this.arg = undefined, this.tryEntries.forEach(resetTryEntry), !skipTempReset) for (var name in this) { "t" === name.charAt(0) && hasOwn.call(this, name) && !isNaN(+name.slice(1)) && (this[name] = undefined); } }, stop: function stop() { this.done = !0; var rootRecord = this.tryEntries[0].completion; if ("throw" === rootRecord.type) throw rootRecord.arg; return this.rval; }, dispatchException: function dispatchException(exception) { if (this.done) throw exception; var context = this; function handle(loc, caught) { return record.type = "throw", record.arg = exception, context.next = loc, caught && (context.method = "next", context.arg = undefined), !!caught; } for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i], record = entry.completion; if ("root" === entry.tryLoc) return handle("end"); if (entry.tryLoc <= this.prev) { var hasCatch = hasOwn.call(entry, "catchLoc"), hasFinally = hasOwn.call(entry, "finallyLoc"); if (hasCatch && hasFinally) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } else if (hasCatch) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); } else { if (!hasFinally) throw new Error("try statement without catch or finally"); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } } } }, abrupt: function abrupt(type, arg) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc <= this.prev && hasOwn.call(entry, "finallyLoc") && this.prev < entry.finallyLoc) { var finallyEntry = entry; break; } } finallyEntry && ("break" === type || "continue" === type) && finallyEntry.tryLoc <= arg && arg <= finallyEntry.finallyLoc && (finallyEntry = null); var record = finallyEntry ? finallyEntry.completion : {}; return record.type = type, record.arg = arg, finallyEntry ? (this.method = "next", this.next = finallyEntry.finallyLoc, ContinueSentinel) : this.complete(record); }, complete: function complete(record, afterLoc) { if ("throw" === record.type) throw record.arg; return "break" === record.type || "continue" === record.type ? this.next = record.arg : "return" === record.type ? (this.rval = this.arg = record.arg, this.method = "return", this.next = "end") : "normal" === record.type && afterLoc && (this.next = afterLoc), ContinueSentinel; }, finish: function finish(finallyLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.finallyLoc === finallyLoc) return this.complete(entry.completion, entry.afterLoc), resetTryEntry(entry), ContinueSentinel; } }, "catch": function _catch(tryLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc === tryLoc) { var record = entry.completion; if ("throw" === record.type) { var thrown = record.arg; resetTryEntry(entry); } return thrown; } } throw new Error("illegal catch attempt"); }, delegateYield: function delegateYield(iterable, resultName, nextLoc) { return this.delegate = { iterator: values(iterable), resultName: resultName, nextLoc: nextLoc }, "next" === this.method && (this.arg = undefined), ContinueSentinel; } }, exports; }
@@ -19357,6 +31852,7 @@ function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyri
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 
 
 
@@ -19504,7 +32000,9 @@ function checkHandleLoss(grid, gameBoard, lastTile) {
       }, 500);
     }); // Stop combo decreasing interval
 
-    clearInterval((0,_gameState_js__WEBPACK_IMPORTED_MODULE_4__.getComboIntervalID)());
+    clearInterval((0,_gameState_js__WEBPACK_IMPORTED_MODULE_4__.getComboIntervalID)()); // Increment game count for user
+
+    (0,_handleAccountInfo_js__WEBPACK_IMPORTED_MODULE_6__.incrementGameCount)();
   } else {
     setupInput(grid, gameBoard);
   }
@@ -19880,7 +32378,7 @@ var handleBtnsLogin = function handleBtnsLogin() {
                 loginModal.style["pointer-events"] = "none";
                 modalOverlay.style["pointer-events"] = "none"; // Update account settings
 
-                (0,_handleSettings_js__WEBPACK_IMPORTED_MODULE_3__.applySettings)(accountObj); // Update account modal
+                (0,_handleSettings_js__WEBPACK_IMPORTED_MODULE_3__.applyUserSettings)(accountObj); // Update account modal
 
                 updateAccountInfo();
               } else {
@@ -19968,6 +32466,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _assets_comboSoundEffect_wav__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../assets/comboSoundEffect.wav */ "./src/assets/comboSoundEffect.wav");
 /* harmony import */ var _gameState_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../gameState.js */ "./src/js/gameState.js");
 /* harmony import */ var _config_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../config.js */ "./src/js/config.js");
+/* harmony import */ var _handleAccountInfo__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./handleAccountInfo */ "./src/js/helpers/handleAccountInfo.js");
+
 
 
 
@@ -19984,7 +32484,7 @@ var comboModal = document.getElementById("modal--combo");
 function updateScore(scoreAdd) {
   if (scoreAdd == 0) return;
   scoreContainer.dataset.score = parseInt(scoreContainer.dataset.score) + scoreAdd;
-  scoreContainer.textContent = "".concat(scoreContainer.dataset.score); // Check to update best score
+  scoreContainer.textContent = "".concat(scoreContainer.dataset.score); // Check to update best score in local storage
 
   if (parseInt(scoreContainer.dataset.score) > parseInt(bestScoreContainer.dataset.bestScore)) {
     var bestScore = scoreContainer.dataset.score;
@@ -19992,8 +32492,10 @@ function updateScore(scoreAdd) {
     bestScoreContainer.textContent = bestScore; // Store in localStorage
 
     window.localStorage.setItem("bestScore2048++", bestScore);
-  } // Add new "score-addition" element
+  } // Update bestScore for user. This keeps the bestScore in the game state.
 
+
+  (0,_handleAccountInfo__WEBPACK_IMPORTED_MODULE_3__.updateUserBestScore)(parseInt(scoreContainer.dataset.score)); // Add new "score-addition" element
 
   var addScoreHtml = document.createElement("div");
   addScoreHtml.classList.add("score-addition");
@@ -20071,7 +32573,8 @@ function updateCombo(combosCount) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "applySettings": () => (/* binding */ applySettings),
+/* harmony export */   "applyLSSettings": () => (/* binding */ applyLSSettings),
+/* harmony export */   "applyUserSettings": () => (/* binding */ applyUserSettings),
 /* harmony export */   "handleSettings": () => (/* binding */ handleSettings),
 /* harmony export */   "playMusic": () => (/* binding */ playMusic),
 /* harmony export */   "preventTransition": () => (/* binding */ preventTransition)
@@ -20234,14 +32737,7 @@ var applyLSSettings = function applyLSSettings() {
   }
 
   updateColorByDarkLight();
-}; // bestScore: 2048
-// email: "anhvungoc.21@gmail.com"
-// gamesPlayed: {4x4: 30, 5x5: 75, total: 120, 6x6: 15}
-// password: "TEST"
-// settings: {colorTheme: 'green', darkMode: 'dark-theme', gridSize: 5}
-// userName: "Fakahrina"
-
-
+};
 var applyUserSettings = function applyUserSettings(userObj) {
   // Info
   (0,_userConfig_js__WEBPACK_IMPORTED_MODULE_3__.setEmail)(userObj.email);
@@ -20251,7 +32747,7 @@ var applyUserSettings = function applyUserSettings(userObj) {
   (0,_userConfig_js__WEBPACK_IMPORTED_MODULE_3__.setGamesPlayed)(userObj.gamesPlayed); // Settings
 
   (0,_config_js__WEBPACK_IMPORTED_MODULE_1__.setGridSize)(userObj.settings.gridSize);
-  (0,_config_js__WEBPACK_IMPORTED_MODULE_1__.setColorTheme)(userObj.settings.colorTheme); // Dark mode
+  (0,_config_js__WEBPACK_IMPORTED_MODULE_1__.setColorTheme)(userObj.settings.colorTheme);
 
   if (userObj.settings.darkMode == "light-theme") {
     css.href = "./light-theme.css";
@@ -20259,6 +32755,16 @@ var applyUserSettings = function applyUserSettings(userObj) {
   } else {
     css.href = "./dark-theme.css";
     togglerDarkMode.checked = true;
+  } // Update settings (darkMode, gridSize, and color, NOT bestScore) in localStorage
+
+
+  var lsSettings = JSON.parse(window.localStorage.getItem("settings2048++"));
+
+  if (lsSettings) {
+    lsSettings.darkMode = userObj.settings.darkMode;
+    lsSettings.colorTheme = userObj.settings.colorTheme;
+    lsSettings.gridSize = userObj.settings.gridSize;
+    window.localStorage.setItem("settings2048++", JSON.stringify(lsSettings));
   } // Change colors of existing tiles
 
 
@@ -20287,16 +32793,7 @@ var applyUserSettings = function applyUserSettings(userObj) {
   handleTickIcon(colorOptionElement); // Update colors
 
   updateColorByDarkLight();
-};
-
-var applySettings = function applySettings() {
-  var userObj = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
-
-  if ((0,_userConfig_js__WEBPACK_IMPORTED_MODULE_3__.getLoggedIn)() && userObj) {
-    applyUserSettings(userObj);
-  } else {
-    applyLSSettings();
-  }
+  (0,_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])();
 };
 
 var toggleSounds = function toggleSounds() {
@@ -20454,9 +32951,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 // 1. Create alert display, modal shaking -- DONE for successful/failed log-ins/sign-ups -- DONE
 // 2. Accessible mute button -- DONE
 // 3. Apply settings & scores, update account modal upon successful login -- DONE
-// 4. Fix display problem probably because of preventTransition -- DONE
-// 5. Update best score and gamesPlayed when appropriate for logged-in users.
-// 6. Before user exits browser or log out, send beacon to update dynamodb
+// 4. Fix display problem probably because of preventTransition -- DONE-ish
+// 5. Update best score and gamesPlayed when appropriate for logged-in users. -- DONE
+// 6. Before user exits, call lambda url to update dynamodb
 // 7. Log out functionality
 
 /* Login & Signup */
@@ -20529,7 +33026,7 @@ var tryLogIn = /*#__PURE__*/function () {
               break;
             }
 
-            return _context2.abrupt("return", false);
+            return _context2.abrupt("return", [false, null]);
 
           case 10:
             _context2.next = 12;
@@ -22264,6 +34761,17 @@ function __classPrivateFieldIn(state, receiver) {
 
 "use strict";
 module.exports = JSON.parse('{"name":"@aws-sdk/client-dynamodb","description":"AWS SDK for JavaScript Dynamodb Client for Node.js, Browser and React Native","version":"3.131.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"2.0.0","@aws-crypto/sha256-js":"2.0.0","@aws-sdk/client-sts":"3.131.0","@aws-sdk/config-resolver":"3.130.0","@aws-sdk/credential-provider-node":"3.131.0","@aws-sdk/fetch-http-handler":"3.131.0","@aws-sdk/hash-node":"3.127.0","@aws-sdk/invalid-dependency":"3.127.0","@aws-sdk/middleware-content-length":"3.127.0","@aws-sdk/middleware-endpoint-discovery":"3.130.0","@aws-sdk/middleware-host-header":"3.127.0","@aws-sdk/middleware-logger":"3.127.0","@aws-sdk/middleware-recursion-detection":"3.127.0","@aws-sdk/middleware-retry":"3.127.0","@aws-sdk/middleware-serde":"3.127.0","@aws-sdk/middleware-signing":"3.130.0","@aws-sdk/middleware-stack":"3.127.0","@aws-sdk/middleware-user-agent":"3.127.0","@aws-sdk/node-config-provider":"3.127.0","@aws-sdk/node-http-handler":"3.127.0","@aws-sdk/protocol-http":"3.127.0","@aws-sdk/smithy-client":"3.127.0","@aws-sdk/types":"3.127.0","@aws-sdk/url-parser":"3.127.0","@aws-sdk/util-base64-browser":"3.109.0","@aws-sdk/util-base64-node":"3.55.0","@aws-sdk/util-body-length-browser":"3.55.0","@aws-sdk/util-body-length-node":"3.55.0","@aws-sdk/util-defaults-mode-browser":"3.127.0","@aws-sdk/util-defaults-mode-node":"3.130.0","@aws-sdk/util-user-agent-browser":"3.127.0","@aws-sdk/util-user-agent-node":"3.127.0","@aws-sdk/util-utf8-browser":"3.109.0","@aws-sdk/util-utf8-node":"3.109.0","@aws-sdk/util-waiter":"3.127.0","tslib":"^2.3.1","uuid":"^8.3.2"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.58.0","@tsconfig/recommended":"1.0.1","@types/node":"^12.7.5","@types/uuid":"^8.3.0","concurrently":"7.0.0","downlevel-dts":"0.7.0","rimraf":"3.0.2","typedoc":"0.19.2","typescript":"~4.6.2"},"engines":{"node":">=12.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-dynamodb","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-dynamodb"}}');
+
+/***/ }),
+
+/***/ "./node_modules/@aws-sdk/client-lambda/package.json":
+/*!**********************************************************!*\
+  !*** ./node_modules/@aws-sdk/client-lambda/package.json ***!
+  \**********************************************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = JSON.parse('{"name":"@aws-sdk/client-lambda","description":"AWS SDK for JavaScript Lambda Client for Node.js, Browser and React Native","version":"3.137.0","scripts":{"build":"concurrently \'yarn:build:cjs\' \'yarn:build:es\' \'yarn:build:types\'","build:cjs":"tsc -p tsconfig.cjs.json","build:docs":"typedoc","build:es":"tsc -p tsconfig.es.json","build:types":"tsc -p tsconfig.types.json","build:types:downlevel":"downlevel-dts dist-types dist-types/ts3.4","clean":"rimraf ./dist-* && rimraf *.tsbuildinfo"},"main":"./dist-cjs/index.js","types":"./dist-types/index.d.ts","module":"./dist-es/index.js","sideEffects":false,"dependencies":{"@aws-crypto/sha256-browser":"2.0.0","@aws-crypto/sha256-js":"2.0.0","@aws-sdk/client-sts":"3.137.0","@aws-sdk/config-resolver":"3.130.0","@aws-sdk/credential-provider-node":"3.137.0","@aws-sdk/fetch-http-handler":"3.131.0","@aws-sdk/hash-node":"3.127.0","@aws-sdk/invalid-dependency":"3.127.0","@aws-sdk/middleware-content-length":"3.127.0","@aws-sdk/middleware-host-header":"3.127.0","@aws-sdk/middleware-logger":"3.127.0","@aws-sdk/middleware-recursion-detection":"3.127.0","@aws-sdk/middleware-retry":"3.127.0","@aws-sdk/middleware-serde":"3.127.0","@aws-sdk/middleware-signing":"3.130.0","@aws-sdk/middleware-stack":"3.127.0","@aws-sdk/middleware-user-agent":"3.127.0","@aws-sdk/node-config-provider":"3.127.0","@aws-sdk/node-http-handler":"3.127.0","@aws-sdk/protocol-http":"3.127.0","@aws-sdk/smithy-client":"3.137.0","@aws-sdk/types":"3.127.0","@aws-sdk/url-parser":"3.127.0","@aws-sdk/util-base64-browser":"3.109.0","@aws-sdk/util-base64-node":"3.55.0","@aws-sdk/util-body-length-browser":"3.55.0","@aws-sdk/util-body-length-node":"3.55.0","@aws-sdk/util-defaults-mode-browser":"3.137.0","@aws-sdk/util-defaults-mode-node":"3.137.0","@aws-sdk/util-user-agent-browser":"3.127.0","@aws-sdk/util-user-agent-node":"3.127.0","@aws-sdk/util-utf8-browser":"3.109.0","@aws-sdk/util-utf8-node":"3.109.0","@aws-sdk/util-waiter":"3.127.0","tslib":"^2.3.1"},"devDependencies":{"@aws-sdk/service-client-documentation-generator":"3.58.0","@tsconfig/recommended":"1.0.1","@types/node":"^12.7.5","concurrently":"7.0.0","downlevel-dts":"0.7.0","rimraf":"3.0.2","typedoc":"0.19.2","typescript":"~4.6.2"},"engines":{"node":">=12.0.0"},"typesVersions":{"<4.0":{"dist-types/*":["dist-types/ts3.4/*"]}},"files":["dist-*"],"author":{"name":"AWS SDK for JavaScript Team","url":"https://aws.amazon.com/javascript/"},"license":"Apache-2.0","browser":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.browser"},"react-native":{"./dist-es/runtimeConfig":"./dist-es/runtimeConfig.native"},"homepage":"https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-lambda","repository":{"type":"git","url":"https://github.com/aws/aws-sdk-js-v3.git","directory":"clients/client-lambda"}}');
 
 /***/ })
 

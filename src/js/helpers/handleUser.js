@@ -17,7 +17,7 @@ import {
 // 2. Accessible mute button -- DONE
 // 3. Apply settings & scores, update account modal upon successful login -- DONE
 // 4. Fix display problem probably because of preventTransition -- DONE-ish
-// 5. Update best score and gamesPlayed when appropriate for logged-in users.
+// 5. Update best score and gamesPlayed when appropriate for logged-in users. -- DONE
 // 6. Before user exits, call lambda url to update dynamodb
 // 7. Log out functionality
 
@@ -50,7 +50,7 @@ export const tryLogIn = async (email, password) => {
   }
   const registeredPassword = account.password;
   if (registeredPassword != password) {
-    return false;
+    return [false, null];
   } else {
     await logIn(email, password);
     return [true, account];

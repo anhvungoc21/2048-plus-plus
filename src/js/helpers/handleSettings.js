@@ -8,6 +8,7 @@ import {
   getSounds,
   setMusic,
   getMusic,
+  setDarkMode,
 } from "../config.js";
 import {
   colorDictDefault,
@@ -152,9 +153,11 @@ const toggleDarkMode = () => {
   if (css.href.includes("light-theme")) {
     css.href = "./dark-theme.css";
     settings.darkMode = "dark-theme";
+    setDarkMode("dark-theme");
   } else {
     css.href = "./light-theme.css";
     settings.darkMode = "light-theme";
+    setDarkMode("light-theme");
   }
 
   // Update in localStorage
@@ -186,9 +189,11 @@ export const applyLSSettings = () => {
   if (darkMode == "light-theme") {
     css.href = "./light-theme.css";
     togglerDarkMode.checked = false;
+    setDarkMode("light-theme");
   } else {
     css.href = "./dark-theme.css";
     togglerDarkMode.checked = true;
+    setDarkMode("dark-theme");
   }
 
   updateColorByDarkLight();
@@ -212,6 +217,7 @@ export const applyUserSettings = (userObj) => {
     css.href = "./dark-theme.css";
     togglerDarkMode.checked = true;
   }
+  setDarkMode(userObj.settings.darkMode);
 
   // Update settings (darkMode, gridSize, and color, NOT bestScore) in localStorage
   const lsSettings = JSON.parse(window.localStorage.getItem("settings2048++"));
