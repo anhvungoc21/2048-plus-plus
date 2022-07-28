@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "build": "webpack",
-    "dev": "webpack serve",
+    "build": "webpack --config webpack-dev.config.js",
+    "build-prod": "webpack --config webpack-prod.config.js",
+    "dev": "webpack serve --config webpack-dev.config.js",
     "zip": "cd ./aws && zip -r ../lambda.zip ./"
   },
   "author": "",
