@@ -59,7 +59,7 @@ At this point, 2048++ should open on your browser and you can start playing or m
 /src/index.js  // Remove any imports and functions related to handleUser.js, db.js, userConfig.js, or handleAccountInfo.js
 ```
 
-2. Set up your own DynamoDB database with the same table schema as described in /src/js/db/db.js and create a .env file containing necessary secret keys for your DynamoDB user. I only recommend doing this if you are already familiar with DynamoDB.
+2. Set up your own DynamoDB database with the same table schema as described in /src/js/db/db.js and create a .env file containing necessary secret keys for your DynamoDB user. Set up a Lambda function (along with necessary user and role policies to update DynamoDB) that can be asynchronously invoked by 2048++. I only recommend doing this if you are already familiar with AWS DynamoDB and Lambda. Detailed instructions to come. Feel free to get in touch with me if you need further assistance!
 
 ## Acknowledgements
 
