@@ -12,6 +12,8 @@ import {
 import { tryLogIn, logIn, logOut, tryCreateAccount } from "./handleUser.js";
 import displayAlert from "./handleAlert";
 import { applyUserSettings } from "./handleSettings.js";
+import { getDarkMode, getGridSize, getColorTheme } from "../config.js";
+import { updateAccount } from "../db/db.js";
 
 const navBar = document.getElementById("navbar");
 const navToggle = document.getElementById("nav-toggle");
@@ -349,6 +351,23 @@ const handleEyeIcons = (eyeIcons) => {
   );
 };
 
+logOutBtn.addEventListener("click", () => {
+  if (getLoggedIn()) {
+    const accountObj = {
+      email: getEmail(),
+      password: getPassword(),
+      bestScore: getBestScore(),
+      settings: {
+        darkMode: getDarkMode(),
+        colorTheme: getColorTheme(),
+        gridSize: getGridSize(),
+      },
+      gamesPlayed: getGamesPlayed(),
+    };
+
+    updateAccount(accountObj);
+  }
+});
 /**
  * Main function for handling navbar events
  */
