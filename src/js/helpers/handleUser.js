@@ -16,9 +16,9 @@ import {
 // 1. Create alert display, modal shaking -- DONE for successful/failed log-ins/sign-ups -- DONE
 // 2. Accessible mute button -- DONE
 // 3. Apply settings & scores, update account modal upon successful login -- DONE
-// 4. Fix display problem probably because of preventTransition -- DONE
+// 4. Fix display problem probably because of preventTransition -- DONE-ish
 // 5. Update best score and gamesPlayed when appropriate for logged-in users.
-// 6. Before user exits browser or log out, send beacon to update dynamodb
+// 6. Before user exits, call lambda url to update dynamodb
 // 7. Log out functionality
 
 /* Login & Signup */

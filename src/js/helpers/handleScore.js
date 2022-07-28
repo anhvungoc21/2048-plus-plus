@@ -1,6 +1,7 @@
 import comboSoundEffect from "../../assets/comboSoundEffect.wav";
 import { setCombo, getCombo, INC_PER_COMBO, getGrid } from "../gameState.js";
 import { getSounds } from "../config.js";
+import { updateUserBestScore } from "./handleAccountInfo";
 
 const scoreContainer = document.querySelector(".score-container");
 const bestScoreContainer = document.querySelector(".best-container");
@@ -18,7 +19,7 @@ function updateScore(scoreAdd) {
     parseInt(scoreContainer.dataset.score) + scoreAdd;
   scoreContainer.textContent = `${scoreContainer.dataset.score}`;
 
-  // Check to update best score
+  // Check to update best score in local storage
   if (
     parseInt(scoreContainer.dataset.score) >
     parseInt(bestScoreContainer.dataset.bestScore)
@@ -30,6 +31,9 @@ function updateScore(scoreAdd) {
     // Store in localStorage
     window.localStorage.setItem("bestScore2048++", bestScore);
   }
+
+  // Update bestScore for user. This keeps the bestScore in the game state.
+  updateUserBestScore(parseInt(scoreContainer.dataset.score));
 
   // Add new "score-addition" element
   const addScoreHtml = document.createElement("div");
