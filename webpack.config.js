@@ -27,6 +27,11 @@ module.exports = {
     compress: true,
     historyApiFallback: true,
   },
+  performance: {
+    hints: false,
+    maxEntrypointSize: 512000,
+    maxAssetSize: 512000,
+  },
   module: {
     rules: [
       {
