@@ -155,38 +155,38 @@ async function handleTouchMove(e, grid, gameBoard) {
     // Determine most significant swipe direction (x/y)
     if (xDiff > 0) {
       // Right swipe
-      if (!canMoveRight(grid)) {
-        resetXY();
-        setupInput(grid, gameBoard);
-        return;
-      }
-      await moveRight(grid);
-    } else {
-      // Left swipe
       if (!canMoveLeft(grid)) {
         resetXY();
         setupInput(grid, gameBoard);
         return;
       }
       await moveLeft(grid);
-    }
-  } else {
-    if (yDiff > 0) {
-      // Down swipe
-      if (!canMoveDown(grid)) {
+    } else {
+      // Left swipe
+      if (!canMoveRight(grid)) {
         resetXY();
         setupInput(grid, gameBoard);
         return;
       }
-      await moveDown(grid);
-    } else {
-      // Up swipe
+      await moveRight(grid);
+    }
+  } else {
+    if (yDiff > 0) {
+      // Down swipe
       if (!canMoveUp(grid)) {
         resetXY();
         setupInput(grid, gameBoard);
         return;
       }
       await moveUp(grid);
+    } else {
+      // Up swipe
+      if (!canMoveDown(grid)) {
+        resetXY();
+        setupInput(grid, gameBoard);
+        return;
+      }
+      await moveDown(grid);
     }
   }
 
@@ -223,7 +223,6 @@ const areModelsOpened = () => {
 };
 
 export default function setupInput(grid, gameBoard) {
-  console.log(xDown, yDown);
   window.addEventListener(
     "keydown",
     async (e) => {
@@ -245,8 +244,8 @@ export default function setupInput(grid, gameBoard) {
       //   setupInput(grid, gameBoard);
       // } else {
       handleTouchStart(e, grid, gameBoard);
+      // }
     },
-    // },
     { once: true }
   );
 
@@ -257,8 +256,8 @@ export default function setupInput(grid, gameBoard) {
       //   setupInput(grid, gameBoard);
       // } else {
       await handleTouchMove(e, grid, gameBoard);
+      // }
     },
-    // },
     { once: true }
   );
 }
