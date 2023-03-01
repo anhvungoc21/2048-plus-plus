@@ -34,6 +34,21 @@ window.addEventListener("DOMContentLoaded", () => {
   handleSettings();
 });
 
+// Handle window resize
+const MOBILE_BREAKPOINT = 768;
+const sideNav = document.querySelector(".l-navbar");
+const sideNavWidth = sideNav.offsetWidth; 
+window.addEventListener("resize", () => {
+  const width = window.innerWidth > 0 ? window.innerWidth : screen.width;
+
+  // Ensures that entire side nav is visible
+  if (width < MOBILE_BREAKPOINT + sideNavWidth) {
+    sideNav.style.display = "none";
+  } else {
+    sideNav.style.display = "unset";
+  }
+});
+
 /**
  * Main function to set up and start game
  */
