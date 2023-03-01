@@ -5,11 +5,11 @@ import {
   canMoveRight,
 } from "./checkMovable.js";
 import { moveUp, moveDown, moveLeft, moveRight } from "./moveTiles.js";
-import setupGame from "../../index.js";
 import { preventTransition } from "./handleSettings.js";
 import { getCombo, getComboIntervalID } from "../gameState.js";
-import Tile from "../classes/Tile.js";
 import { incrementGameCount } from "./handleAccountInfo.js";
+import Tile from "../classes/Tile.js";
+import setupGame from "../../index.js";
 
 /**
  * Handle key pressing inputs from user
@@ -119,34 +119,146 @@ function checkHandleLoss(grid, gameBoard, lastTile) {
   }
 }
 
+/** ----- HANDLE TOUCH ----- */
+let xDown = null;
+let yDown = null;
+
+function getTouches(e) {
+  return e.touches;
+}
+
+// Set initial x and y values of touch gesture
+function handleTouchStart(e, grid, gameBoard) {
+  const firstTouch = getTouches(e)[0];
+  xDown = firstTouch.clientX;
+  yDown = firstTouch.clientY;
+  setupInput(grid, gameBoard);
+}
+
+function resetXY() {
+  xDown = null;
+  yDown = null;
+}
+
+async function handleTouchMove(e, grid, gameBoard) {
+  if (!xDown || !yDown) {
+    return;
+  }
+
+  const xUp = e.touches[0].clientX;
+  const yUp = e.touches[0].clientY;
+
+  const xDiff = xDown - xUp;
+  const yDiff = yDown - yUp;
+
+  if (Math.abs(xDiff) > Math.abs(yDiff)) {
+    // Determine most significant swipe direction (x/y)
+    if (xDiff > 0) {
+      // Right swipe
+      if (!canMoveRight(grid)) {
+        resetXY();
+        setupInput(grid, gameBoard);
+        return;
+      }
+      await moveRight(grid);
+    } else {
+      // Left swipe
+      if (!canMoveLeft(grid)) {
+        resetXY();
+        setupInput(grid, gameBoard);
+        return;
+      }
+      await moveLeft(grid);
+    }
+  } else {
+    if (yDiff > 0) {
+      // Down swipe
+      if (!canMoveDown(grid)) {
+        resetXY();
+        setupInput(grid, gameBoard);
+        return;
+      }
+      await moveDown(grid);
+    } else {
+      // Up swipe
+      if (!canMoveUp(grid)) {
+        resetXY();
+        setupInput(grid, gameBoard);
+        return;
+      }
+      await moveUp(grid);
+    }
+  }
+
+  resetXY();
+
+  // Wait for tile-sliding animations to finish, aka move/slideTiles, then merge tiles
+  grid.cells.forEach((cell) => {
+    cell.mergeTiles();
+  });
+
+  // After each move, add a new tile to gameBoard
+  const newTile = new Tile(gameBoard);
+  grid.randomEmptyCell().tile = newTile;
+
+  // Handle loss
+  checkHandleLoss(grid, gameBoard, newTile);
+}
+
 /**
  * /**
  * Sets up event listener for keydown events.
  * This event listener is used once. It is added back after handling each input in `handleInput`
- * @TODO: Allow for mobile swipe events with HTML5.
  * @param {*} grid Grid used for checking move validity. Grid is created from gameBoard
  * @param {*} gameBoard Gameboard is used for putting new tiles in
  */
 
+const modals = document.querySelectorAll(".modal");
+const areModelsOpened = () => {
+  let openFlag = false;
+  modals.forEach((el) => {
+    if (el.style.opacity != 0) openFlag = true;
+  });
+  return openFlag;
+};
+
 export default function setupInput(grid, gameBoard) {
+  console.log(xDown, yDown);
   window.addEventListener(
     "keydown",
     async (e) => {
       // If there are openned modals, do not handle input
-      // TODO: Maybe check overlay
-      const openModals = document.querySelectorAll(".modal");
-      let isModalsOpened = false;
-      openModals.forEach((el) => {
-        if (el.style.opacity != 0) isModalsOpened = true;
-      });
-      if (isModalsOpened) {
+      let modelsAreOpened = areModelsOpened();
+      if (modelsAreOpened) {
         setupInput(grid, gameBoard);
       } else {
         await handleInput(e, grid, gameBoard);
       }
     },
-    {
-      once: true,
-    }
+    { once: true }
+  );
+
+  window.addEventListener(
+    "touchstart",
+    (e) => {
+      // if (areModelsOpened()) {
+      //   setupInput(grid, gameBoard);
+      // } else {
+      handleTouchStart(e, grid, gameBoard);
+    },
+    // },
+    { once: true }
+  );
+
+  window.addEventListener(
+    "touchmove",
+    async (e) => {
+      // if (areModelsOpened()) {
+      //   setupInput(grid, gameBoard);
+      // } else {
+      await handleTouchMove(e, grid, gameBoard);
+    },
+    // },
+    { once: true }
   );
 }
