@@ -120,90 +120,90 @@ function checkHandleLoss(grid, gameBoard, lastTile) {
 }
 
 /** ----- HANDLE TOUCH ----- */
-let xDown = null;
-let yDown = null;
+// let xDown = null;
+// let yDown = null;
 
-function getTouches(e) {
-  return e.touches;
-}
+// function getTouches(e) {
+//   return e.touches;
+// }
 
-// Set initial x and y values of touch gesture
-function handleTouchStart(e, grid, gameBoard) {
-  const firstTouch = getTouches(e)[0];
-  xDown = firstTouch.clientX;
-  yDown = firstTouch.clientY;
-  setupInput(grid, gameBoard);
-}
+// // Set initial x and y values of touch gesture
+// function handleTouchStart(e, grid, gameBoard) {
+//   const firstTouch = getTouches(e)[0];
+//   xDown = firstTouch.clientX;
+//   yDown = firstTouch.clientY;
+//   setupInput(grid, gameBoard);
+// }
 
-function resetXY() {
-  xDown = null;
-  yDown = null;
-}
+// function resetXY() {
+//   xDown = null;
+//   yDown = null;
+// }
 
-async function handleTouchMove(e, grid, gameBoard) {
-  if (!xDown || !yDown) {
-    return;
-  }
+// async function handleTouchMove(e, grid, gameBoard) {
+//   if (!xDown || !yDown) {
+//     return;
+//   }
 
-  const xUp = e.touches[0].clientX;
-  const yUp = e.touches[0].clientY;
+//   const xUp = e.touches[0].clientX;
+//   const yUp = e.touches[0].clientY;
 
-  const xDiff = xDown - xUp;
-  const yDiff = yDown - yUp;
+//   const xDiff = xDown - xUp;
+//   const yDiff = yDown - yUp;
 
-  if (Math.abs(xDiff) > Math.abs(yDiff)) {
-    // Determine most significant swipe direction (x/y)
-    if (xDiff > 0) {
-      // Right swipe
-      if (!canMoveLeft(grid)) {
-        resetXY();
-        setupInput(grid, gameBoard);
-        return;
-      }
-      await moveLeft(grid);
-    } else {
-      // Left swipe
-      if (!canMoveRight(grid)) {
-        resetXY();
-        setupInput(grid, gameBoard);
-        return;
-      }
-      await moveRight(grid);
-    }
-  } else {
-    if (yDiff > 0) {
-      // Down swipe
-      if (!canMoveUp(grid)) {
-        resetXY();
-        setupInput(grid, gameBoard);
-        return;
-      }
-      await moveUp(grid);
-    } else {
-      // Up swipe
-      if (!canMoveDown(grid)) {
-        resetXY();
-        setupInput(grid, gameBoard);
-        return;
-      }
-      await moveDown(grid);
-    }
-  }
+//   if (Math.abs(xDiff) > Math.abs(yDiff)) {
+//     // Determine most significant swipe direction (x/y)
+//     if (xDiff > 0) {
+//       // Right swipe
+//       if (!canMoveLeft(grid)) {
+//         resetXY();
+//         setupInput(grid, gameBoard);
+//         return;
+//       }
+//       await moveLeft(grid);
+//     } else {
+//       // Left swipe
+//       if (!canMoveRight(grid)) {
+//         resetXY();
+//         setupInput(grid, gameBoard);
+//         return;
+//       }
+//       await moveRight(grid);
+//     }
+//   } else {
+//     if (yDiff > 0) {
+//       // Down swipe
+//       if (!canMoveUp(grid)) {
+//         resetXY();
+//         setupInput(grid, gameBoard);
+//         return;
+//       }
+//       await moveUp(grid);
+//     } else {
+//       // Up swipe
+//       if (!canMoveDown(grid)) {
+//         resetXY();
+//         setupInput(grid, gameBoard);
+//         return;
+//       }
+//       await moveDown(grid);
+//     }
+//   }
 
-  resetXY();
+//   resetXY();
 
-  // Wait for tile-sliding animations to finish, aka move/slideTiles, then merge tiles
-  grid.cells.forEach((cell) => {
-    cell.mergeTiles();
-  });
+//   // Wait for tile-sliding animations to finish, aka move/slideTiles, then merge tiles
+//   grid.cells.forEach((cell) => {
+//     cell.mergeTiles();
+//   });
 
-  // After each move, add a new tile to gameBoard
-  const newTile = new Tile(gameBoard);
-  grid.randomEmptyCell().tile = newTile;
+//   // After each move, add a new tile to gameBoard
+//   const newTile = new Tile(gameBoard);
+//   grid.randomEmptyCell().tile = newTile;
 
-  // Handle loss
-  checkHandleLoss(grid, gameBoard, newTile);
-}
+//   // Handle loss
+//   checkHandleLoss(grid, gameBoard, newTile);
+// }
 
 /**
  * /**
@@ -237,27 +237,27 @@ export default function setupInput(grid, gameBoard) {
     { once: true }
   );
 
-  window.addEventListener(
-    "touchstart",
-    (e) => {
-      // if (areModelsOpened()) {
-      //   setupInput(grid, gameBoard);
-      // } else {
-      handleTouchStart(e, grid, gameBoard);
-      // }
-    },
-    { once: true }
-  );
+  // window.addEventListener(
+  //   "touchstart",
+  //   (e) => {
+  //     // if (areModelsOpened()) {
+  //     //   setupInput(grid, gameBoard);
+  //     // } else {
+  //     handleTouchStart(e, grid, gameBoard);
+  //     // }
+  //   },
+  //   { once: true }
+  // );
 
-  window.addEventListener(
-    "touchmove",
-    async (e) => {
-      // if (areModelsOpened()) {
-      //   setupInput(grid, gameBoard);
-      // } else {
-      await handleTouchMove(e, grid, gameBoard);
-      // }
-    },
-    { once: true }
-  );
+  // window.addEventListener(
+  //   "touchmove",
+  //   async (e) => {
+  //     // if (areModelsOpened()) {
+  //     //   setupInput(grid, gameBoard);
+  //     // } else {
+  //     await handleTouchMove(e, grid, gameBoard);
+  //     // }
+  //   },
+  //   { once: true }
+  // );
 }
