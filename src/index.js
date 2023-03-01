@@ -27,18 +27,11 @@ import {
 } from "./js/userConfig.js";
 import { updateAccount } from "./js/db/db.js";
 
-// Start Game & Handle all inputs
-window.addEventListener("DOMContentLoaded", () => {
-  setupGame();
-  handleNavbar();
-  handleSettings();
-});
-
 // Handle window resize
 const MOBILE_BREAKPOINT = 768;
 const sideNav = document.querySelector(".l-navbar");
-const sideNavWidth = sideNav.offsetWidth; 
-window.addEventListener("resize", () => {
+const sideNavWidth = sideNav.offsetWidth;
+const toggleSideNav = () => {
   const width = window.innerWidth > 0 ? window.innerWidth : screen.width;
 
   // Ensures that entire side nav is visible
@@ -47,6 +40,16 @@ window.addEventListener("resize", () => {
   } else {
     sideNav.style.display = "unset";
   }
+};
+
+window.addEventListener("resize", toggleSideNav);
+
+// Start Game & Handle all inputs
+window.addEventListener("DOMContentLoaded", () => {
+  toggleSideNav();
+  setupGame();
+  handleNavbar();
+  handleSettings();
 });
 
 /**
