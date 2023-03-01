@@ -132,6 +132,7 @@ btnRestart.addEventListener("click", () => {
   setupGame();
 });
 
+// Update account asynchronously when user unloads page
 window.addEventListener("beforeunload", () => {
   if (getLoggedIn()) {
     const accountObj = {
