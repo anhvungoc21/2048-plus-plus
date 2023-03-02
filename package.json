@@ -4,8 +4,8 @@
   "description": "",
   "scripts": {
     "build": "webpack",
-    "push": "git checkout main && git rm -r --cached . && echo 'aws\ndist\nnode_modules\nfavicon_io\nlambda.zip\n.DS_Store\n.env\n2048AWSCreds.csv' > .gitignore && git add . && git commit -m 'Deploying to public repo' && git push origin main",
-    "push-prod": "git checkout build && git rm -r --cached . && echo 'aws\ndist\nnode_modules\nfavicon_io\nlambda.zip\n.DS_Store\n2048AWSCreds.csv' > .gitignore && git add . && git commit -m 'Deploying to private repo for production' && git push origin-build main",
+    "push": "git rm -r --cached . && echo 'aws\ndist\nnode_modules\nfavicon_io\nlambda.zip\n.DS_Store\n.env\n2048AWSCreds.csv' > .gitignore && git add . && git commit -m 'Deploying to public repo' && git push origin main",
+    "push-prod": "git rm -r --cached . && echo 'aws\ndist\nnode_modules\nfavicon_io\nlambda.zip\n.DS_Store\n2048AWSCreds.csv' > .gitignore && git add . && git commit -m 'Deploying to private repo for production' && git push origin-build main",
     "push-all": "npm run push && npm run push-prod",
     "dev": "webpack serve",
     "zip": "cd ./aws && zip -r ../lambda.zip ./"
