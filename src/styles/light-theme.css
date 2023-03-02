@@ -8,10 +8,12 @@
   --cell-color: "rgba(238, 228, 218, 0.4)";
 
   /* Fonts */
-  --normal-font-size: 3.5rem;
-  --medium-font-size: 2rem;
-  --small-font-size: 1rem;
-  --tiny-font-size: 0.75rem;
+  /* --normal-font-size: 3.5rem; */
+  --large-font-size: 6vmin;
+  --normal-font-size: 5vmin;
+  --medium-font-size: 3vmin;
+  --small-font-size: 2vmin;
+  --tiny-font-size: 1vmin;
 }
 
 body {
@@ -39,7 +41,7 @@ body::-webkit-scrollbar {
 /* TOP BAR */
 #top-bar {
   display: grid;
-  grid-template-columns: 35vw 30vw 20vw 9vw 6vw;
+  grid-template-columns: 35vw 30vw 20vw 8vw 7vw;
   font-size: var(--small-font-size);
   justify-items: center;
   align-items: center;
@@ -65,9 +67,10 @@ body::-webkit-scrollbar {
   place-content: center;
   align-items: center;
   border-radius: 0.25rem;
-  width: 3.5rem;
-  height: 3.5rem;
-  font-size: var(--medium-font-size);
+  /* width: var(--large-font-size);
+  height: var(--large-font-size); */
+  padding: var(--small-font-size);
+  font-size: var(--small-font-size);
 }
 
 #btn--restart {
@@ -109,21 +112,23 @@ body::-webkit-scrollbar {
   margin-left: 0.5rem;
 }
 
+/* Actual score in container */
 .score-container,
 .best-container {
   position: relative;
   text-align: center;
   background: var(--primary-color);
   color: var(--white-color);
-  font-size: var(--medium-font-size);
+  font-size: var(--small-font-size);
   font-weight: 500;
   height: 1.75rem;
-  padding: 1rem 2rem;
+  padding: var(--small-font-size);
   line-height: 3rem;
   border-radius: 0.25rem;
   user-select: none;
 }
 
+/* Titles of score container */
 .score-container:after,
 .best-container:after {
   position: absolute;
@@ -148,9 +153,9 @@ body::-webkit-scrollbar {
 .score-addition {
   position: absolute;
   left: 60%;
-  font-size: var(--small-font-size);
+  font-size: var(--tiny-font-size);
   font-weight: 500;
-  line-height: var(--small-font-size);
+  line-height: var(--tiny-font-size);
   color: var(--white-color);
   -webkit-animation: move-up 600ms ease-in;
   -moz-animation: move-up 600ms ease-in;
