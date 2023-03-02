@@ -4,8 +4,8 @@
   "description": "",
   "scripts": {
     "build": "webpack",
-    "push": "git rm -r --cached . && echo 'aws\ndist\nnode_modules\nfavicon_io\nlambda.zip\n.DS_Store\n.env\n2048AWSCreds.csv' > .gitignore && git add . && git commit -m 'Deploying to public repo' && git remote rm origin && git remote add origin https://github.com/anhvungoc21/2048-plus-plus.git && git branch -M main && git push -u origin main",
-    "push-prod": "git rm -r --cached . && echo 'aws\ndist\nnode_modules\nfavicon_io\nlambda.zip\n.DS_Store\n2048AWSCreds.csv' > .gitignore && git add . && git commit -m 'Deploying to private repo' && git remote rm origin && git remote add origin https://github.com/anhvungoc21/2048-plus-plus-build.git && git branch -M main && git push -u origin main",
+    "push": "git checkout main && git rm -r --cached . && echo 'aws\ndist\nnode_modules\nfavicon_io\nlambda.zip\n.DS_Store\n.env\n2048AWSCreds.csv' > .gitignore && git add . && git commit -m 'Deploying to public repo' && git remote rm origin && git remote add origin https://github.com/anhvungoc21/2048-plus-plus.git && git push -u origin main",
+    "push-prod": "git checkout build && git rm -r --cached . && echo 'aws\ndist\nnode_modules\nfavicon_io\nlambda.zip\n.DS_Store\n2048AWSCreds.csv' > .gitignore && git add . && git commit -m 'Deploying to private repo' && git remote rm origin && git remote add origin https://github.com/anhvungoc21/2048-plus-plus-build.git && git branch -M main && git push -u origin main",
     "push-all": "npm run push && npm run push-prod",
     "dev": "webpack serve",
     "zip": "cd ./aws && zip -r ../lambda.zip ./"

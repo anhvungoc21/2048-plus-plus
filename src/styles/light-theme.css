@@ -118,7 +118,7 @@ body::-webkit-scrollbar {
   font-size: var(--small-font-size);
   font-weight: 500;
   height: 1.75rem;
-  padding: var(--small-font-size);
+  padding: var(--small-font-size) var(--medium-font-size);
   line-height: 3rem;
   border-radius: 0.25rem;
   user-select: none;
