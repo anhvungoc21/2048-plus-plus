@@ -332,7 +332,7 @@ ul {
 
 /* Expander menu */
 .expander {
-  width: calc(var(--nav-width) + 10rem);
+  width: calc(var(--nav-width) + 12rem);
 }
 
 /*===== COLLAPSE =====*/
