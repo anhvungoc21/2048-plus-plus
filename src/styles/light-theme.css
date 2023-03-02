@@ -39,7 +39,7 @@ body::-webkit-scrollbar {
 /* TOP BAR */
 #top-bar {
   display: grid;
-  grid-template-columns: 35vw 30vw 20vw 8vw 7vw;
+  grid-template-columns: 35vw 30vw 23vw 6vw 6vw;
   font-size: var(--small-font-size);
   justify-items: center;
   align-items: center;
@@ -65,7 +65,8 @@ body::-webkit-scrollbar {
   place-content: center;
   align-items: center;
   border-radius: 0.25rem;
-  padding: var(--small-font-size);
+  width: var(--normal-font-size);
+  height: var(--normal-font-size);
   font-size: var(--small-font-size);
 }
 
