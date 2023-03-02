@@ -1,5 +1,3 @@
-import backgroundMusic from "./assets/chillBackground.mp3";
-
 import Grid from "./js/classes/Grid.js";
 import Tile from "./js/classes/Tile.js";
 
@@ -30,7 +28,7 @@ import { updateAccount } from "./js/db/db.js";
 // Handle window resize
 const MOBILE_BREAKPOINT = 768;
 const sideNav = document.querySelector(".l-navbar");
-const sideNavWidth = sideNav.offsetWidth;
+const sideNavWidth = sideNav.offsetWidth * 2; // prematurely hide side nav to prevent overflow
 const toggleSideNav = () => {
   const width = window.innerWidth > 0 ? window.innerWidth : screen.width;
 

@@ -6,8 +6,8 @@ export default class Grid {
     // CSS variables
     const cellSize = percentVHMain / gridSize;
     gridElement.style.setProperty("--grid-size", gridSize);
-    gridElement.style.setProperty("--cell-size", `${cellSize}vh`);
-    gridElement.style.setProperty("--cell-gap", `${cellSize / 10}vh`);
+    gridElement.style.setProperty("--cell-size", `${cellSize}vmin`);
+    gridElement.style.setProperty("--cell-gap", `${cellSize / 10}vmin`);
 
     // Create cell elements based on Grid size
     // For each html cell element, create a corresponding Cell instance.
